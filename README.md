@@ -1,4 +1,23 @@
-# FIWARE Device Simulator
+# <a name="top">FIWARE Device Simulator</a>
+
+* [Introduction](#introduction)
+* [FIWARE Device Simulator CLI tool](#fiware-device-simulator-cli-tool)
+    * [Simulation configuration file](#simulation-configuration-file)
+* [FIWARE Device Simulator library](#fiware-device-simulator-library)
+* [Development documentation](#development-documentation)
+    * [Project build](#project-build)
+    * [Testing](#testing)
+    * [Coding guidelines](#coding-guidelines)
+    * [Continuous testing](#continuous-testing)
+    * [Source code documentation](#source-code-documentation)
+    * [Code coverage](#code-coverage)
+    * [Code complexity](#code-complexity)
+    * [PLC](#plc)
+    * [Development environment](#development-environment)
+    * [Site generation](#site-generation)
+* [Contact](#contact)
+
+## Introduction
 
 The FIWARE Device Simulator is a tool to generate data for the FIWARE ecosystem in the shape of entities and its associated attributes.
 
@@ -9,9 +28,11 @@ The FIWARE Device Simulator is composed of 2 main elements:
 
 Let's cover each one of them.
 
+[Top](#top)
+
 ## FIWARE Device Simulator CLI tool
 
-The FIWARE Device Simulator CLI tool is located in the [./bin](./bin) directory and it is called `fiwareDeviceSimulatorCLI`.
+The FIWARE Device Simulator CLI tool is located in the [./bin](./bin) directory and it is called [`fiwareDeviceSimulatorCLI`](./bin/fiwareDeviceSimulatorCLI.js).
 
 To run the FIWARE Device Simulator CLI tool just run:
 
@@ -35,13 +56,15 @@ As you can see, the FIWARE Device Simulator CLI tool requires the path to a simu
 
 Since the FIWARE Device Simulator CLI tool uses the [logops](https://www.npmjs.com/package/logops) package for logging, the logging level can be set using the `LOGOPS_LEVEL` environment variable. On the other hand, the logging format can be set using the `LOGOPS_FORMAT` environment variable.
 
+[Top](#top)
+
 ### Simulation configuration file
 
 The simulation configuration file is a JSON-formatted text file detailing the characteristics of the device simulation which will be run.
 
 An example simulation configuration file is shown next to give you a glimpse of its shape. After it, the accepted properties and options are properly detailed.
 
-```
+```json
   {
     "contextBroker": {
       "host": "localhost",
@@ -188,7 +211,7 @@ The simulation configuration file accepts the following JSON properties or entri
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **entities**: Information about the entities to be updated during this concrete simulation.
-    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 1 * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/]. An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
+    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 1 * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
     * **count**: The number of entities to simulate and update. For example, if a value of 3 is provided as the `count` property, 3 entities with names `<entity_type>:1`, `<entity_type>:2` and `<entity_type>:3` will be created and updated accordingly substituting the `<entity_type>` by its provided value (see just below) and according to its active and static attribute simulation specification (see below).
     * **entity_type**: The type of the entity.
@@ -197,11 +220,11 @@ The simulation configuration file accepts the following JSON properties or entri
         * **name**: The name of the attribute.
         * **type**: The type of the attribute.
         * **value**: The value of the attribute. This is the property which provides flexibility and realism to the FIWARE Device Simulator tool. It accepts static values (such as numbers (i.e., `123`), text (i.e., `the attribute value`), arrays (i.e., `[1, 2, 3]`), JSON objects (i.e., `{"key": "value"}`), etc.) as well as interpolator function specifications which the FIWARE Device Simulator tool will use to generate the final values. The supported interpolator function specifications are:
-            1. `time-linear-interpolator`: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the decimal hours in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-linear-interpolator` is: `time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            2. `time-random-linear-interpolator`: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
-            3. `time-step-before-interpolator`: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            4. `time-step-after-interpolator`: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            5. `date-increment-interpolator`: It returns dates in UTC format. On the other hand, it accepts a JSON object including 2 properties: 1) `origin` (the date from when the date will be incremented or `now` for the current date when the value is interpolated) and 2) `increment` (the number of seconds the origin should incremented by. For example, a date increment interpolator specification such as: `{\"origin\": \"now\", \"increment\": 86400}` will return the current hour incremented in `86400` seconds, this is, 1 day, when the interpolated value is requested to be updated. A valid attribute value using the `date-increment-interpolator` is: `date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})`.
+            1. **`time-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the decimal hours in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-linear-interpolator` is: `time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            2. **`time-random-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
+            3. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            4. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            5. **`date-increment-interpolator`**: It returns dates in UTC format. On the other hand, it accepts a JSON object including 2 properties: 1) `origin` (the date from when the date will be incremented or `now` for the current date when the value is interpolated) and 2) `increment` (the number of seconds the origin should incremented by. For example, a date increment interpolator specification such as: `{\"origin\": \"now\", \"increment\": 86400}` will return the current hour incremented in `86400` seconds, this is, 1 day, when the interpolated value is requested to be updated. A valid attribute value using the `date-increment-interpolator` is: `date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})`.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
 * **devices**: Information about the devices to be updated during this concrete simulation. The `device` property is just like the `entity` property described before with 2 additions:
     1. An additional `device_id` property at the `device` level specifying the device identifier (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).
@@ -209,7 +232,7 @@ The simulation configuration file accepts the following JSON properties or entri
 
 Following the description of the simulation configuration file accepted properties and leaning on the FIWARE waste management harmonized data models, we provide an example simulation to automatically generate waste management data, more concretely dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
-```
+```json
 {
   "contextBroker": {
     "host": "195.235.93.224",
@@ -907,6 +930,16 @@ Following the description of the simulation configuration file accepted properti
 }
 ```
 
+The four mentioned areas or `WasteContainerIsle`s (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) at Distrito Telefónica) and the 8 waste containers or `WasteContainer`s can be graphically seen online as a [http://geojson.io/](http://geojson.io/) map at [http://bl.ocks.org/anonymous/raw/82837480c5685f8cffa9d9c013197b0d/](http://bl.ocks.org/anonymous/raw/82837480c5685f8cffa9d9c013197b0d/).
+
+The previously mentioned waste management simulation configuration file will generate entities and attributes in the specified Context Broker such as the ones depicted in the following Telefónica's IoT Platform Portal screenshot:
+
+![Telefónica's IoT Platform Portal screenshot](https://dl.dropboxusercontent.com/u/2461997/Images/Urbo_portal_entities_screenshot.png "Telefónica's IoT Platform Portal screenshot")
+
+The generated entities and attributes can also be checked in this [CSV file](https://dl.dropboxusercontent.com/u/2461997/Docs/Urbo_waste_management_entities.csv).
+
+[Top](#top)
+
 ## FIWARE Device Simulator library
 
 The FIWARE Device Simulator library can be found in the [./lib](./lib) directory. It is composed of:
@@ -939,8 +972,12 @@ The FIWARE Device Simulator library can be found in the [./lib](./lib) directory
     4. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
     5. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
 
+[Top](#top)
+
 ## Development documentation
+
 ### Project build
+
 The project is managed using Grunt Task Runner.
 
 For a list of available task, type
@@ -950,8 +987,10 @@ grunt --help
 
 The following sections show the available options in detail.
 
+[Top](#top)
 
 ### Testing
+
 [Mocha](http://visionmedia.github.io/mocha/) Test Runner + [Chai](http://chaijs.com/) Assertion Library + [Sinon](http://sinonjs.org/) Spies, stubs.
 
 The test environment is preconfigured to run [BDD](http://chaijs.com/api/bdd/) testing style with
@@ -970,8 +1009,10 @@ To generate TAP report in `report/test/unit_tests.tap`, type
 grunt test-report
 ```
 
+[Top](#top)
 
 ### Coding guidelines
+
 jshint, gjslint
 
 Uses provided .jshintrc and .gjslintrc flag files. The latter requires Python and its use can be disabled
@@ -988,6 +1029,7 @@ To generate Checkstyle and JSLint reports under `report/lint/`, type
 grunt lint-report
 ```
 
+[Top](#top)
 
 ### Continuous testing
 
@@ -997,8 +1039,10 @@ For continuous testing, type
 grunt watch
 ```
 
+[Top](#top)
 
-### Source Code documentation
+### Source code documentation
+
 dox-foundation
 
 Generates HTML documentation under `site/doc/`. It can be used together with jenkins by means of DocLinks plugin.
@@ -1007,8 +1051,10 @@ For compiling source code documentation, type
 grunt doc
 ```
 
+[Top](#top)
 
-### Code Coverage
+### Code coverage
+
 Istanbul
 
 Analizes the code coverage of your tests.
@@ -1026,8 +1072,10 @@ monitor project quality metrics by means of Cobertura plugin, type
 grunt coverage-report
 ```
 
+[Top](#top)
 
 ### Code complexity
+
 Plato
 
 Analizes code complexity using Plato and stores the report under `site/report/`. It can be used together with jenkins
@@ -1037,6 +1085,8 @@ For complexity report, type
 grunt complexity
 ```
 
+[Top](#top)
+
 ### PLC
 
 Update the contributors for the project
@@ -1044,6 +1094,7 @@ Update the contributors for the project
 grunt contributors
 ```
 
+[Top](#top)
 
 ### Development environment
 
@@ -1062,6 +1113,7 @@ lines to your `package.json`
 }
 ```
 
+[Top](#top)
 
 ### Site generation
 
@@ -1083,3 +1135,11 @@ grunt site
 This command will only work after the developer has executed init-dev-env (that's the goal that will create the detached site).
 
 This command will also launch the coverage, doc and complexity task (see in the above sections).
+
+[Top](#top)
+
+## Contact
+
+* Germán Toro del Valle ([german.torodelvalle@telefonica.com](mailto:german.torodelvalle@telefonica.com), [@gtorodelvalle](http://www.twitter.com/gtorodelvalle))
+
+[Top](#top)
