@@ -68,7 +68,8 @@ An example simulation configuration file is shown next to give you a glimpse of 
   {
     "contextBroker": {
       "host": "localhost",
-      "port": 1026
+      "port": 1026,
+      "ngsiVersion": "1.0"
     },
     "authentication": {
         "host": "localhost",
@@ -203,6 +204,7 @@ The simulation configuration file accepts the following JSON properties or entri
 * **contextBroker**: Includes information about the context broker where the data will be stored.
     * **host**: The host machine name or IP address where the Context Broker is running (or more concretely of the PEP protecting the access to the Context Broker API).
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
+    * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
 * **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests.
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
@@ -236,7 +238,8 @@ Following the description of the simulation configuration file accepted properti
 {
   "contextBroker": {
     "host": "195.235.93.224",
-    "port": 10027
+    "port": 10027,
+    "ngsiVersion": "1.0"
   },
   "authentication": {
       "host": "195.235.93.224",
