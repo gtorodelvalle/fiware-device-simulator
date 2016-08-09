@@ -1,0 +1,132 @@
+{
+  "contextBroker": {
+    "host": "localhost",
+    "port": 1026,
+    "ngsiVersion": "1.0"
+  },
+  "authentication": {
+      "host": "localhost",
+      "port": 5001,
+      "service": "myService",
+      "subservice": "/mySubService",
+      "user": "userToGenerateAuthenticationTokens",
+      "password": "passwordToGenerateAuthenticationTokens"
+  },
+  "entities": [{
+    "schedule": "once",
+    "entity_name": "EntityName1",
+    "entity_type": "EntityType1",
+    "active": [{
+      "name": "active1",
+      "type": "number",
+      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }],
+    "staticAttributes": [{
+      "name": "static1",
+      "type": "string",
+      "value": "Value of static1"
+    }]
+  }, {
+    "schedule": "*/5 * * * * *",
+    "entity_name": "EntityName2",
+    "entity_type": "EntityType2",
+    "active": [{
+      "name": "active1",
+      "type": "number",
+      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }, {
+      "schedule": "*/1 * * * * *",
+      "name": "active2",
+      "type": "number",
+      "value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }],
+    "staticAttributes": [{
+      "name": "static1",
+      "type": "string",
+      "value": "Value of static1"
+    }]
+  }, {
+    "count": "3",
+    "entity_type": "EntityType3",
+    "schedule": "*/1 * * * * *",
+    "active": [{
+      "name": "active1",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }, {
+      "schedule": "*/5 * * * * *",
+      "object_id": "a2",
+      "name": "active2",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }],
+    "staticAttributes": [{
+      "name": "static1",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }]
+  }],
+  "devices": [{
+    "schedule": "once",
+    "device_id": "DeviceId1",
+    "entity_name": "DeviceName1",
+    "entity_type": "DeviceType1",
+    "active": [{
+      "object_id": "a1",
+      "name": "active1",
+      "type": "number",
+      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }],
+    "staticAttributes": [{
+      "object_id": "s1",
+      "name": "static1",
+      "type": "string",
+      "value": "Value of static1"
+    }]
+  }, {
+    "schedule": "*/5 * * * * *",
+    "device_id": "DeviceId2",
+    "entity_name": "DeviceName2",
+    "entity_type": "DeviceType2",
+    "active": [{
+      "object_id": "a1",
+      "name": "active1",
+      "type": "number",
+      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }, {
+      "schedule": "*/1 * * * * *",
+      "object_id": "a2",
+      "name": "active2",
+      "type": "number",
+      "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+    }],
+    "staticAttributes": [{
+      "object_id": "s1",
+      "name": "static1",
+      "type": "string",
+      "value": "Value of static1"
+    }]
+  }, {
+    "count": "5",
+    "entity_type": "DeviceType3",
+    "schedule": "*/1 * * * * *",
+    "active": [{
+      "object_id": "a1",
+      "name": "active1",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }, {
+      "schedule": "*/5 * * * * *",
+      "object_id": "a2",
+      "name": "active2",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }],
+    "staticAttributes": [{
+      "object_id": "s1",
+      "name": "static1",
+      "type": "percentage",
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+    }]
+  }]
+}
