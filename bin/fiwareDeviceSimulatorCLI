@@ -49,12 +49,12 @@ function executeCommand() {
 
   var progressEmitter = deviceSimulator.start(require(configurationFilePath));
 
-  progressEmitter.on('token-requested', function() {
-    logops.info('token-requested event');
+  progressEmitter.on('token-request', function() {
+    logops.info('token-request event');
   });
 
-  progressEmitter.on('token-received', function(ev) {
-    logops.info('token-received event:', ev);
+  progressEmitter.on('token-response', function(ev) {
+    logops.info('token-response event:', ev);
   });
 
   progressEmitter.on('token-request-scheduled', function(ev) {
@@ -75,6 +75,11 @@ function executeCommand() {
 
   progressEmitter.on('update-response', function(ev) {
     logops.debug('response event:', ev);
+  });
+
+  progressEmitter.on('stop', function() {
+    logops.info('stop event');
+    process.exit(0);
   });
 
   progressEmitter.on('end', function() {
