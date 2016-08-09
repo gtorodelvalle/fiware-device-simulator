@@ -947,25 +947,28 @@ The generated entities and attributes can also be checked in this [CSV file](htt
 
 The FIWARE Device Simulator library can be found in the [./lib](./lib) directory. It is composed of:
 
-1. The main [`fiwareDeviceSimulator.js`](./lib/fiwareDeviceSimulator.js) file. It exposes only 1 function called `start()` which takes a simulation configuration JSON object and returns an instance of `EventEmitter` which informs of the following events to the client:
-    * `token-requested`: Whenever a new authorization token is requested. No event object is passed as additional information for this event occurrence.
-    * `token-received`: Whenever a new authorization token is received. The passed event includes the following properties:
-        * - `expires_at`: The expiration date
-    * `token-request-scheduled`: Whenever a new authorization token request is scheduled. The passed event includes the following properties:
-        * `scheduled_at`: The scheduled date
-    * `update-scheduled`: Whenever a new entity update is scheduled. The passed event includes the following properties:
-        * `schedule`: The schedule
-        * `entity`: Information about the entity to be updated
-        * `attributes`: The attributes to be updated
-    * `update-request`: Whenever a new entity update is requested.
-        * `request`: Details about the update request
-    * `update-response`: Whenever a new entity update response is received.
-        * `request`: Details about the update request
-        * `response`: The body of the received update response
-    * `error`: Whenever an error happens
-        * `error`: The error
-        * `request`: The optional associated request (optional)
-    * `end`: Whenever the simulation ends. No event object is passed as additional information for this event occurrence.
+1. The main [`fiwareDeviceSimulator.js`](./lib/fiwareDeviceSimulator.js) file. It exposes the following functions:
+    1. `start()`: it takes a simulation configuration JSON object and returns an instance of `EventEmitter` which informs of the following events to the client:
+        * `token-request`: Whenever a new authorization token is requested. No event object is passed as additional information for this event occurrence.
+        * `token-response`: Whenever a new authorization token is received. The passed event includes the following properties:
+            * - `expires_at`: The expiration date
+        * `token-request-scheduled`: Whenever a new authorization token request is scheduled. The passed event includes the following properties:
+            * `scheduled_at`: The scheduled date
+        * `update-scheduled`: Whenever a new entity update is scheduled. The passed event includes the following properties:
+            * `schedule`: The schedule
+            * `entity`: Information about the entity to be updated
+            * `attributes`: The attributes to be updated
+      * `update-request`: Whenever a new entity update is requested.
+          * `request`: Details about the update request
+      * `update-response`: Whenever a new entity update response is received.
+          * `request`: Details about the update request
+          * `response`: The body of the received update response
+      * `error`: Whenever an error happens
+          * `error`: The error
+          * `request`: The optional associated request (optional)
+      * `stop`: Whenever the simulation is stopped. No event object is passed as additional information for this event occurrence.
+      * `end`: Whenever the simulation ends. No event object is passed as additional information for this event occurrence.
+    2. `stop()`: it stops the currently running simulation, if any, and emits the `stop` event
 2. The [`./lib/errors`](./lib/errors) directory including:
     1. The [`fdsErrors.js`](./lib/errors/fdsErrors.js) file. It includes the errors which may be sent when running a device simulation.
 3. The [`./lib/interpolators`](./lib/interpolators) directory including:
