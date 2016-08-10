@@ -1,0 +1,2 @@
+- [BUG] Validation of non-String values
+- [BUG] Validation of schedules including numbers such as "0 0 0 1 * *" (the first day of each month at 00:00:00)

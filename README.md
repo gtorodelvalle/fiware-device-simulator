@@ -213,7 +213,7 @@ The simulation configuration file accepts the following JSON properties or entri
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **entities**: Information about the entities to be updated during this concrete simulation.
-    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 1 * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
+    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
     * **count**: The number of entities to simulate and update. For example, if a value of 3 is provided as the `count` property, 3 entities with names `<entity_type>:1`, `<entity_type>:2` and `<entity_type>:3` will be created and updated accordingly substituting the `<entity_type>` by its provided value (see just below) and according to its active and static attribute simulation specification (see below).
     * **entity_type**: The type of the entity.
@@ -485,13 +485,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -542,13 +542,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -599,13 +599,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -656,13 +656,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -713,13 +713,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -770,13 +770,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -827,13 +827,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
@@ -884,13 +884,13 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
-          "schedule": "0 0 * * *",
+          "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 0 1 * *",
+          "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
           "type": "date",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
