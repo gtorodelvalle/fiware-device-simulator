@@ -947,7 +947,7 @@ The generated entities and attributes can also be checked in this [CSV file](htt
 
 The FIWARE Device Simulator library can be found in the [./lib](./lib) directory. It is composed of:
 
-1. The main [`fiwareDeviceSimulator.js`](./lib/fiwareDeviceSimulator.js) file. It exposes the following functions:
+1. The main [`./lib/fiwareDeviceSimulator.js`](./lib/fiwareDeviceSimulator.js) file. It exposes the following functions:
     1. `start()`: it takes a simulation configuration JSON object and returns an instance of `EventEmitter` which informs of the following events to the client:
         * `token-request`: Whenever a new authorization token is requested. No event object is passed as additional information for this event occurrence.
         * `token-response`: Whenever a new authorization token is received. The passed event includes the following properties:
@@ -968,10 +968,12 @@ The FIWARE Device Simulator library can be found in the [./lib](./lib) directory
           * `request`: The optional associated request (optional)
       * `stop`: Whenever the simulation is stopped. No event object is passed as additional information for this event occurrence.
       * `end`: Whenever the simulation ends. No event object is passed as additional information for this event occurrence.
-    2. `stop()`: it stops the currently running simulation, if any, and emits the `stop` event
-2. The [`./lib/errors`](./lib/errors) directory including:
+    2. `stop()`: it stops the currently running simulation, if any, and emits the `stop` event.
+2. The [`./lib/validators/fiwareDeviceSimulatorValidator.js`](./lib/validators/fiwareDeviceSimulatorValidator.js) file. It exposes the following functions:
+    * `validateConfiguration`: Validates a simulation configuration object asynchronously taking the simulation configuration object as input as well as a callback which will be called once the validation has been completed passing an error object with further information about the problem in case the simulation configuration object was not valid.
+3. The [`./lib/errors`](./lib/errors) directory including:
     1. The [`fdsErrors.js`](./lib/errors/fdsErrors.js) file. It includes the errors which may be sent when running a device simulation.
-3. The [`./lib/interpolators`](./lib/interpolators) directory including:
+4. The [`./lib/interpolators`](./lib/interpolators) directory including:
     1. The [`dateIncrementInterpolator.js`](./lib/interpolators/dateIncrementInterpolator.js) file. It implements the date-increment-interpolator attribute value resolver.
     2. The [`linearInterpolator.js`](./lib/interpolators/linearInterpolator.js) file. It implements the time-linear-interpolator attribute value resolver.
     3. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
