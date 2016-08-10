@@ -77,6 +77,8 @@ function toDecimalHours(date) {
 }
 
 describe('fiwareDeviceSimulator tests', function() {
+  /* jshint camelcase: false */
+
   var idm,
       isError,
       isTokenRequest,
@@ -87,6 +89,1265 @@ describe('fiwareDeviceSimulator tests', function() {
 
   idm = nock('https://' + simulationConfiguration.authentication.host + ':' +
     simulationConfiguration.authentication.port);
+
+  describe('simulation configuration validation', function() {
+    it('should notify an "error" event if no context broker configuration information is provided', function(done) {
+      simulationProgress = fiwareDeviceSimulator.start({});
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no host context broker configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {}
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no port context broker configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no NGSI version context broker configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no host authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no port authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no service authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no subservice authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no user authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no password authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser'
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if malformed entities configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: {}
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if empty entities configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: []
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no entity name or entities count configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {}
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no entity type configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName'
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no active and static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType'
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if malformed static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: {}
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if empty static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: []
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no name for static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [{}]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no type for static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no value for static attributes configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid schedule entity configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'invalid-entity-schedule',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-linear-interpolator value static attribute configuration ' +
+      'information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'time-linear-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-random-linear-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'time-random-linear-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-before-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'time-step-before-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-after-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'time-step-after-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid date-increment-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'date-increment-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid active attributes ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: {}
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no name active attribute configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [{}]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no type active attribute configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no value active attribute configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-linear-interpolator value active attribute configuration ' +
+      'information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator()'
+                }
+              ]
+            },
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-random-linear-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-random-linear-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-before-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-step-before-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-after-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-step-after-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid date-increment-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'date-increment-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid schedule for active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    afterEach(function() {
+      simulationProgress.removeAllListeners();
+    });
+  });
 
   describe('authorization', function() {
     beforeEach(function() {
@@ -261,11 +1522,10 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateResponses;
           if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
             fiwareDeviceSimulator.stop();
-            done();
           }
         });
         simulationProgress.on('end', function() {
-          done(new Error());
+          done();
         });
       });
 
@@ -291,11 +1551,10 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateResponses;
           if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
             fiwareDeviceSimulator.stop();
-            done();
           }
         });
         simulationProgress.on('end', function() {
-          done(new Error());
+          done();
         });
       });
 
@@ -387,10 +1646,8 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateRequests;
           if (ngsiVersion === '1.0') {
             should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
-              greaterThanOrEqual(0.5);
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).lessThanOrEqual(0.75);
+              lessThanOrEqual(0.75);
           } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).greaterThanOrEqual(0.5);
             should(ev.request.body.entities[0].active1.value).lessThanOrEqual(0.75);
           }
         });

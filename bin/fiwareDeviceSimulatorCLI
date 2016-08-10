@@ -30,6 +30,11 @@ var commander = require('commander');
 var logops = require('logops');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 
+process.on('SIGINT', function() {
+  deviceSimulator.stop();
+  process.exit(0);
+});
+
 /**
  * Executes the requested commander
  */
@@ -79,7 +84,6 @@ function executeCommand() {
 
   progressEmitter.on('stop', function() {
     logops.info('stop event');
-    process.exit(0);
   });
 
   progressEmitter.on('end', function() {
