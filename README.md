@@ -984,10 +984,11 @@ The FIWARE Device Simulator library can be found in the [./lib](./lib) directory
     1. The [`fdsErrors.js`](./lib/errors/fdsErrors.js) file. It includes the errors which may be sent when running a device simulation.
 4. The [`./lib/interpolators`](./lib/interpolators) directory including:
     1. The [`dateIncrementInterpolator.js`](./lib/interpolators/dateIncrementInterpolator.js) file. It implements the date-increment-interpolator attribute value resolver.
-    2. The [`linearInterpolator.js`](./lib/interpolators/linearInterpolator.js) file. It implements the time-linear-interpolator attribute value resolver.
-    3. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
-    4. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
-    5. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
+    2. The [`multilinePositionInterpolator.js`](./lib/interpolators/multilinePositionInterpolator.js) file. It implements the multiline-position-interpolator attribute value resolver.
+    3. The [`linearInterpolator.js`](./lib/interpolators/linearInterpolator.js) file. It implements the time-linear-interpolator attribute value resolver.
+    4. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
+    5. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
+    6. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
 
 [Top](#top)
 
