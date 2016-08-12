@@ -85,8 +85,8 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"entity_type": "EntityType1",
   		"active": [{
   			"name": "active1",
-  			"type": "number",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"type": "date",
+  			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
   		}],
   		"staticAttributes": [{
   			"name": "static1",
@@ -99,13 +99,13 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"entity_type": "EntityType2",
   		"active": [{
   			"name": "active1",
-  			"type": "number",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"type": "geo:json",
+  			"value": "multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"
   		}, {
   			"schedule": "*/1 * * * * *",
   			"name": "active2",
   			"type": "number",
-  			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}],
   		"staticAttributes": [{
   			"name": "static1",
@@ -118,19 +118,19 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"schedule": "*/1 * * * * *",
   		"active": [{
   			"name": "active1",
-  			"type": "percentage",
+  			"type": "number",
   			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
   		}, {
   			"schedule": "*/5 * * * * *",
   			"object_id": "a2",
   			"name": "active2",
-  			"type": "percentage",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"type": "number",
+  			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}],
   		"staticAttributes": [{
   			"name": "static1",
   			"type": "percentage",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}]
   	}],
   	"devices": [{
@@ -142,7 +142,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"object_id": "a1",
   			"name": "active1",
   			"type": "number",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
   		}],
   		"staticAttributes": [{
   			"object_id": "s1",
@@ -159,13 +159,13 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"object_id": "a1",
   			"name": "active1",
   			"type": "number",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"
   		}, {
   			"schedule": "*/1 * * * * *",
   			"object_id": "a2",
   			"name": "active2",
   			"type": "number",
-  			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}],
   		"staticAttributes": [{
   			"object_id": "s1",
@@ -187,13 +187,13 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"object_id": "a2",
   			"name": "active2",
   			"type": "percentage",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}],
   		"staticAttributes": [{
   			"object_id": "s1",
   			"name": "static1",
   			"type": "percentage",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
   		}]
   	}]
   }
@@ -222,11 +222,20 @@ The simulation configuration file accepts the following JSON properties or entri
         * **name**: The name of the attribute.
         * **type**: The type of the attribute.
         * **value**: The value of the attribute. This is the property which provides flexibility and realism to the FIWARE Device Simulator tool. It accepts static values (such as numbers (i.e., `123`), text (i.e., `the attribute value`), arrays (i.e., `[1, 2, 3]`), JSON objects (i.e., `{"key": "value"}`), etc.) as well as interpolator function specifications which the FIWARE Device Simulator tool will use to generate the final values. The supported interpolator function specifications are:
-            1. **`time-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the decimal hours in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-linear-interpolator` is: `time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            2. **`time-random-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
-            3. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            4. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the decimal hours (see [https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours)) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available decimal hours in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            5. **`date-increment-interpolator`**: It returns dates in UTC format. On the other hand, it accepts a JSON object including 2 properties: 1) `origin` (the date from when the date will be incremented or `now` for the current date when the value is interpolated) and 2) `increment` (the number of seconds the origin should incremented by. For example, a date increment interpolator specification such as: `{\"origin\": \"now\", \"increment\": 86400}` will return the current hour incremented in `86400` seconds, this is, 1 day, when the interpolated value is requested to be updated. A valid attribute value using the `date-increment-interpolator` is: `date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})`.
+            1. **`date-increment-interpolator`**: It returns dates in UTC format. On the other hand, it accepts a JSON object including 2 properties: 1) `origin` (the date from when the date will be incremented or `now` for the current date when the value is interpolated) and 2) `increment` (the number of seconds the origin should incremented by. For example, a date increment interpolator specification such as: `{\"origin\": \"now\", \"increment\": 86400}` will return the current hour incremented in `86400` seconds, this is, 1 day, when the interpolated value is requested to be updated. A valid attribute value using the `date-increment-interpolator` is: `date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})`.
+            2. **`multiline-position-interpolator`**: It returns the current position of a mobile object for the current [decimal hour](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours). On the other hand, it takes an object including the following properties:
+                * `coordinates`: an array of points, this is, an array of 2 element arrays corresponding to the longitude and the latitude of the points. The connection between this points determine the line or route the mobile object will be traveling. It can be a circular or not circular route (in this case the mobile object will start the route from the beginning once the end is reached).
+                * `speed`: an object including the following properties:
+                    * `value`: a number corresponding to the speed at which the mobile object will be moving
+                    * `units`: a string corresponding to the speed units. Valid values are `km/h` (kilometers per hour) and `mi/h` (miles per hour).
+                * `time`: an object including the following properties:
+                    * `from`: a number corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) from which the mobile object will be moving. If the current [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) is before the `from` one, the interpolated position will be the starting point.
+                    * `to`: a number corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) until which the mobile object will be moving. If the current [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) is after the `to` one, the traveled distance will be calculated until this one.
+                * A valid attribute value using the `multiline-position-interpolator` is: `"multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"`.
+            3. **`time-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-linear-interpolator` is: `time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            4. **`time-random-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
+            5. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            6. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
 * **devices**: Information about the devices to be updated during this concrete simulation. The `device` property is just like the `entity` property described before with 2 additions:
     1. An additional `device_id` property at the `device` level specifying the device identifier (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).

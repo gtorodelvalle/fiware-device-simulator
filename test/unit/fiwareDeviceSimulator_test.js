@@ -30,6 +30,7 @@ var linearInterpolator = require(ROOT_PATH + '/lib/interpolators/linearInterpola
 var stepBeforeInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepBeforeInterpolator');
 var stepAfterInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepAfterInterpolator');
 var dateIncrementInterpolator  = require(ROOT_PATH + '/lib/interpolators/dateIncrementInterpolator');
+var multilinePositionInterpolator  = require(ROOT_PATH + '/lib/interpolators/multilinePositionInterpolator');
 var fiwareDeviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 
@@ -871,6 +872,48 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if not valid multiline-position-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'multiline-position-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if not valid active attributes ' +
       'configuration information is provided',
       function(done) {
@@ -1280,6 +1323,55 @@ describe('fiwareDeviceSimulator tests', function() {
                   name: 'ActiveName',
                   type: 'ActiveType',
                   value: 'date-increment-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid multiline-position-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'multiline-position-interpolator()'
                 }
               ]
             }
@@ -1764,6 +1856,44 @@ describe('fiwareDeviceSimulator tests', function() {
               value.substring(0, 20));
           } else if (ngsiVersion === '2.0') {
             should(ev.request.body.entities[0].active1.value.substring(0, 20)).equal(value.substring(0, 20));
+          }
+        });
+        simulationProgress.on('update-response', function() {
+          ++updateResponses;
+        });
+        simulationProgress.on('end', function() {
+          should(tokenResponses).equal(1);
+          should(updateRequests).equal(1);
+          should(updateResponses).equal(1);
+          done();
+        });
+      });
+
+      it('should set multiline-position-interpolator values of attributes once', function(done) {
+        /* jshint camelcase: false */
+        simulationConfiguration =
+          require(ROOT_PATH +
+            '/test/unit/configurations/simulation-configuration-' + type +
+            '-multiline-position-interpolator-attribute.json');
+        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+        fiwareDeviceSimulator.start(simulationConfiguration);
+        simulationProgress.on('error', function(ev) {
+          done(ev.error);
+        });
+        simulationProgress.on('token-response', function(ev) {
+          ++tokenResponses;
+          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+        });
+        simulationProgress.on('update-request', function(ev) {
+          ++updateRequests;
+          var decimalHours = toDecimalHours(new Date());
+          var value = multilinePositionInterpolator(simulationConfiguration[type][0].active[0].value.substring(
+            'multiline-position-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
+              decimalHours);
+          if (ngsiVersion === '1.0') {
+            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+          } else if (ngsiVersion === '2.0') {
+            should(ev.request.body.entities[0].active1.value).eql(value);
           }
         });
         simulationProgress.on('update-response', function() {
