@@ -50,6 +50,9 @@
     "linear-interpolator": "^1.0.2",
     "logops": "^1.0.1",
     "node-schedule": "^1.1.1",
-    "request": "^2.74.0"
+    "request": "^2.74.0",
+    "turf-along": "^3.0.12",
+    "turf-line-distance": "^3.0.12",
+    "turf-linestring": "^1.0.2"
   }
 }
