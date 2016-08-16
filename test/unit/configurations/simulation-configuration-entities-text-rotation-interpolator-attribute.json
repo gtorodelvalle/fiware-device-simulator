@@ -19,7 +19,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "text-rotation-interpolator({\"units\": \"minutes\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"
+      "value": "text-rotation-interpolator({\"units\": \"minutes\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[99,\"COMPLETED\"],[1,\"ERROR\"]]],[45,\"REMOVED\"]]})"
     }],
     "staticAttributes": [{
       "name": "static1",
