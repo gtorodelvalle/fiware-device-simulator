@@ -1,2 +1,2 @@
-- [TASK] Include the link to the multiline-position-interpolator file into the documentation
-- [FEATURE] Better GeoJSON integration via usage of type and coordinates
+- [FEATURE] Support for text rotation interpolation
+- [TASK] Fixing the text-rotation-interpolator tests to avoid 50% probability of the tests to pass
