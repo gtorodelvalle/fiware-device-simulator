@@ -223,7 +223,7 @@ The simulation configuration file accepts the following JSON properties or entri
         * **type**: The type of the attribute.
         * **value**: The value of the attribute. This is the property which provides flexibility and realism to the FIWARE Device Simulator tool. It accepts static values (such as numbers (i.e., `123`), text (i.e., `the attribute value`), arrays (i.e., `[1, 2, 3]`), JSON objects (i.e., `{"key": "value"}`), etc.) as well as interpolator function specifications which the FIWARE Device Simulator tool will use to generate the final values. The supported interpolator function specifications are:
             1. **`date-increment-interpolator`**: It returns dates in UTC format. On the other hand, it accepts a JSON object including 2 properties: 1) `origin` (the date from when the date will be incremented or `now` for the current date when the value is interpolated) and 2) `increment` (the number of seconds the origin should incremented by. For example, a date increment interpolator specification such as: `{\"origin\": \"now\", \"increment\": 86400}` will return the current hour incremented in `86400` seconds, this is, 1 day, when the interpolated value is requested to be updated. A valid attribute value using the `date-increment-interpolator` is: `date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})`.
-            2. **`multiline-position-interpolator`**: It returns the current position of a mobile object for the current [decimal hour](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours). On the other hand, it takes an object including the following properties:
+            2. **`multiline-position-interpolator`**: It returns the current position of a mobile object for the current [decimal hour](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) as a GeoJSON geometry of type `Point` including its `coordinates`. On the other hand, it takes an object including the following properties:
                 * `coordinates`: an array of points, this is, an array of 2 element arrays corresponding to the longitude and the latitude of the points. The connection between this points determine the line or route the mobile object will be traveling. It can be a circular or not circular route (in this case the mobile object will start the route from the beginning once the end is reached).
                 * `speed`: an object including the following properties:
                     * `value`: a number corresponding to the speed at which the mobile object will be moving
@@ -282,7 +282,10 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "location",
           "type": "geo:json",
-          "value": [[[-3.6642676591873165,40.51337501088891],[-3.66318941116333,40.51437011409327],[-3.666316866874695,40.51642960455014],[-3.667373657226562,40.51549162664228],[-3.6642676591873165,40.51337501088891]]]
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6642676591873165,40.51337501088891],[-3.66318941116333,40.51437011409327],[-3.666316866874695,40.51642960455014],[-3.667373657226562,40.51549162664228],[-3.6642676591873165,40.51337501088891]]]
+          }
         },
         {
           "name": "address",
@@ -323,7 +326,10 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "location",
           "type": "geo:json",
-          "value": [[[-3.66318941116333,40.51437827061587],[-3.662030696868896,40.51548754844881],[-3.6651098728179927,40.51761633170772],[-3.6664187908172607,40.51649893283121],[-3.66318941116333,40.51437827061587]]]
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.66318941116333,40.51437827061587],[-3.662030696868896,40.51548754844881],[-3.6651098728179927,40.51761633170772],[-3.6664187908172607,40.51649893283121],[-3.66318941116333,40.51437827061587]]]
+          }
         },
         {
           "name": "address",
@@ -364,7 +370,10 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "location",
           "type": "geo:json",
-          "value": [[[-3.6642730236053462,40.51338316753258],[-3.6614298820495605,40.5115234270992],[-3.6603784561157227,40.51245330376326],[-3.663200139999389,40.51439458365814],[-3.6642730236053462,40.51338316753258]]]
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6642730236053462,40.51338316753258],[-3.6614298820495605,40.5115234270992],[-3.6603784561157227,40.51245330376326],[-3.663200139999389,40.51439458365814],[-3.6642730236053462,40.51338316753258]]]
+          }
         },
         {
           "name": "address",
@@ -405,7 +414,10 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "location",
           "type": "geo:json",
-          "value": [[[-3.663210868835449,40.51437011409327],[-3.662030696868896,40.515512017605886],[-3.6591768264770512,40.513627866381356],[-3.660399913787842,40.51245330376326],[-3.663210868835449,40.51437011409327]]]
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.663210868835449,40.51437011409327],[-3.662030696868896,40.515512017605886],[-3.6591768264770512,40.513627866381356],[-3.660399913787842,40.51245330376326],[-3.663210868835449,40.51437011409327]]]
+          }
         },
         {
           "name": "address",
@@ -524,8 +536,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.6661827564239498,40.51538151533159]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6661827564239498,40.51538151533159]
+          }
         },
         {
           "name": "category",
@@ -581,8 +596,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.666096925735473,40.515112353588606]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.666096925735473,40.515112353588606]
+          }
         },
         {
           "name": "category",
@@ -638,8 +656,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.6647772789001465,40.51664574542514]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6647772789001465,40.51664574542514]
+          }
         },
         {
           "name": "category",
@@ -695,8 +716,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.6647450923919673,40.51627055704617]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6647450923919673,40.51627055704617]
+          }
         },
         {
           "name": "category",
@@ -752,8 +776,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.6606144905090328,40.5138236248174]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6606144905090328,40.5138236248174]
+          }
         },
         {
           "name": "category",
@@ -809,8 +836,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.661140203475952,40.513668649435985]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.661140203475952,40.513668649435985]
+          }
         },
         {
           "name": "category",
@@ -866,8 +896,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.6622023582458496,40.51242067673018]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6622023582458496,40.51242067673018]
+          }
         },
         {
           "name": "category",
@@ -923,8 +956,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "location",
-          "type": "Point",
-          "value": [-3.662030696868896,40.512893767156115]
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.662030696868896,40.512893767156115]
+          }
         },
         {
           "name": "category",
@@ -984,10 +1020,11 @@ The FIWARE Device Simulator library can be found in the [./lib](./lib) directory
     1. The [`fdsErrors.js`](./lib/errors/fdsErrors.js) file. It includes the errors which may be sent when running a device simulation.
 4. The [`./lib/interpolators`](./lib/interpolators) directory including:
     1. The [`dateIncrementInterpolator.js`](./lib/interpolators/dateIncrementInterpolator.js) file. It implements the date-increment-interpolator attribute value resolver.
-    2. The [`linearInterpolator.js`](./lib/interpolators/linearInterpolator.js) file. It implements the time-linear-interpolator attribute value resolver.
-    3. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
-    4. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
-    5. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
+    2. The [`multilinePositionInterpolator.js`](./lib/interpolators/multilinePositionInterpolator.js) file. It implements the multiline-position-interpolator attribute value resolver.
+    3. The [`linearInterpolator.js`](./lib/interpolators/linearInterpolator.js) file. It implements the time-linear-interpolator attribute value resolver.
+    4. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
+    5. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
+    6. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
 
 [Top](#top)
 
