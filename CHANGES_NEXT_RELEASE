@@ -1,2 +1,0 @@
-- [FEATURE] Support for text rotation interpolation
-- [TASK] Fixing the text-rotation-interpolator tests to avoid 50% probability of the tests to pass
