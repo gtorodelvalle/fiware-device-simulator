@@ -131,6 +131,10 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"name": "static1",
   			"type": "percentage",
   			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  		}, {
+  			"name": "static2",
+  			"type": "status",
+  			"value": "text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"
   		}]
   	}],
   	"devices": [{
@@ -194,6 +198,11 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"name": "static1",
   			"type": "percentage",
   			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  		}, {
+        "object_id": "s2",
+  			"name": "static2",
+  			"type": "status",
+  			"value": "text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"
   		}]
   	}]
   }
@@ -236,6 +245,10 @@ The simulation configuration file accepts the following JSON properties or entri
             4. **`time-random-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
             5. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             6. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
+            7. **`text-rotation-interpolator`**: It returns a string from a set of possible values with support for probabilistic occurrences of them. On the other hand, it accepts an object including the following properties:
+                * `units`: It is a string value which affects the `text` property detailed below. It accepts the following values: `seconds`, `minutes`, `hours`, `days`, `dates`, `months` and `years`.
+                * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds`, `minutes`, `hours`, `days`, `dates`, `months` and `years` (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
+                * A valid attribute value using the `text-rotation-interpolator` is: `"text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"`. For example, according to this text rotation interpolation specification, if the current time seconds is between 0 and 15 it will return the value `PENDING`, if it is between 15 and 30 it will return the value `REQUESTED`, if it is between 30 and 45 it will return the value `COMPLETED` with a probability of 50% and `ERROR` with a probability of 50%.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
 * **devices**: Information about the devices to be updated during this concrete simulation. The `device` property is just like the `entity` property described before with 2 additions:
     1. An additional `device_id` property at the `device` level specifying the device identifier (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).
@@ -1025,6 +1038,7 @@ The FIWARE Device Simulator library can be found in the [./lib](./lib) directory
     4. The [`randomLinearInterpolator.js`](./lib/interpolators/randomLinearInterpolator.js) file. It implements the time-random-linear-interpolator attribute value resolver.
     5. The [`stepAfterInterpolator.js`](./lib/interpolators/stepAfterInterpolator.js) file. It implements the time-step-after-interpolator attribute value resolver.
     6. The [`stepBeforeInterpolator.js`](./lib/interpolators/stepBeforeInterpolator.js) file. It implements the time-step-before-interpolator attribute value resolver.
+    6. The [`textRotationInterpolator.js`](./lib/interpolators/textRotationInterpolator.js) file. It implements the text-rotation-interpolator attribute value resolver.
 
 [Top](#top)
 

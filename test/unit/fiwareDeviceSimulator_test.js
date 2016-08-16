@@ -31,6 +31,7 @@ var stepBeforeInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepBefore
 var stepAfterInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepAfterInterpolator');
 var dateIncrementInterpolator  = require(ROOT_PATH + '/lib/interpolators/dateIncrementInterpolator');
 var multilinePositionInterpolator  = require(ROOT_PATH + '/lib/interpolators/multilinePositionInterpolator');
+var textRotationInterpolator  = require(ROOT_PATH + '/lib/interpolators/textRotationInterpolator');
 var fiwareDeviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 
@@ -914,6 +915,48 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if not valid text-rotation-interpolator value static attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'text-rotation-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if not valid active attributes ' +
       'configuration information is provided',
       function(done) {
@@ -1372,6 +1415,55 @@ describe('fiwareDeviceSimulator tests', function() {
                   name: 'ActiveName',
                   type: 'ActiveType',
                   value: 'multiline-position-interpolator()'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid text-rotation-interpolator value active attribute ' +
+      'configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'text-rotation-interpolator()'
                 }
               ]
             }
@@ -1890,6 +1982,44 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = multilinePositionInterpolator(simulationConfiguration[type][0].active[0].value.substring(
             'multiline-position-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
               decimalHours);
+          if (ngsiVersion === '1.0') {
+            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+          } else if (ngsiVersion === '2.0') {
+            should(ev.request.body.entities[0].active1.value).eql(value);
+          }
+        });
+        simulationProgress.on('update-response', function() {
+          ++updateResponses;
+        });
+        simulationProgress.on('end', function() {
+          should(tokenResponses).equal(1);
+          should(updateRequests).equal(1);
+          should(updateResponses).equal(1);
+          done();
+        });
+      });
+
+      it('should set text-rotation-interpolator values of attributes once', function(done) {
+        /* jshint camelcase: false */
+        simulationConfiguration =
+          require(ROOT_PATH +
+            '/test/unit/configurations/simulation-configuration-' + type +
+            '-text-rotation-interpolator-attribute.json');
+        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+        fiwareDeviceSimulator.start(simulationConfiguration);
+        simulationProgress.on('error', function(ev) {
+          done(ev.error);
+        });
+        simulationProgress.on('token-response', function(ev) {
+          ++tokenResponses;
+          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+        });
+        simulationProgress.on('update-request', function(ev) {
+          ++updateRequests;
+          var now = new Date();
+          var value = textRotationInterpolator(simulationConfiguration[type][0].active[0].value.substring(
+            'text-rotation-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
+              now);
           if (ngsiVersion === '1.0') {
             should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
           } else if (ngsiVersion === '2.0') {
