@@ -12,6 +12,14 @@
       "user": "userToGenerateAuthenticationTokens",
       "password": "passwordToGenerateAuthenticationTokens"
   },
+  "iota": {
+    "ultralight": {
+      "http": {
+        "host": "localhost",
+        "port": 8085
+      }
+    }
+  },
   "entities": [{
     "schedule": "once",
     "entity_name": "EntityName1",

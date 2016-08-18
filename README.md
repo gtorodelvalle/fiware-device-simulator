@@ -79,6 +79,14 @@ An example simulation configuration file is shown next to give you a glimpse of 
         "user": "userToGenerateAuthenticationTokens",
         "password": "passwordToGenerateAuthenticationTokens"
     },
+    "iota": {
+      "ultralight": {
+        "http": {
+          "host": "localhost",
+          "port": 8085
+        }
+      }
+    },
   	"entities": [{
   		"schedule": "once",
   		"entity_name": "EntityName1",
@@ -122,7 +130,6 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
   		}, {
   			"schedule": "*/5 * * * * *",
-  			"object_id": "a2",
   			"name": "active2",
   			"type": "number",
   			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
@@ -139,70 +146,39 @@ An example simulation configuration file is shown next to give you a glimpse of 
   	}],
   	"devices": [{
   		"schedule": "once",
+      "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId1",
-  		"entity_name": "DeviceName1",
-  		"entity_type": "DeviceType1",
-  		"active": [{
+      "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "number",
   			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "string",
-  			"value": "Value of static1"
   		}]
   	}, {
   		"schedule": "*/5 * * * * *",
+      "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId2",
-  		"entity_name": "DeviceName2",
-  		"entity_type": "DeviceType2",
-  		"active": [{
+      "api_key": "1ifdjdo0kkd7w77du77mpjd78",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "number",
   			"value": "multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"
   		}, {
   			"schedule": "*/1 * * * * *",
   			"object_id": "a2",
-  			"name": "active2",
-  			"type": "number",
   			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "string",
-  			"value": "Value of static1"
   		}]
   	}, {
   		"count": "5",
-  		"entity_type": "DeviceType3",
-  		"schedule": "*/1 * * * * *",
-  		"active": [{
+      "schedule": "*/1 * * * * *",
+      "entity_type": "DeviceType3",
+  		"protocol": "UltraLight::HTTP",
+      "api_key": "ag235jdo0kkhd367du77mpgs54",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "percentage",
   			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
   		}, {
   			"schedule": "*/5 * * * * *",
   			"object_id": "a2",
-  			"name": "active2",
-  			"type": "percentage",
   			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "percentage",
-  			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}, {
-        "object_id": "s2",
-  			"name": "static2",
-  			"type": "status",
-  			"value": "text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"
   		}]
   	}]
   }
@@ -218,9 +194,14 @@ The simulation configuration file accepts the following JSON properties or entri
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
     * **service**: The service associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct services providing the concrete service in its simulation configuration file.
-    * **subsrvice**: The subservice or service path associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct subservices providing the concrete service in its simulation configuration file.
+    * **subservice**: The subservice or service path associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct subservices providing the concrete service in its simulation configuration file.
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
+* **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
+    * **ultralight**: Includes information about the configuration of the UltraLight transport. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
+        * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) is included in the simulation configuration).
+            * **host**: The host machine where the UltraLight HTTP IoT agent will be listening for requests.
+            * **port**: The port where the UltraLight HTTP IoT agent will be listening for requests.
 * **entities**: Information about the entities to be updated during this concrete simulation.
     * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
@@ -246,8 +227,8 @@ The simulation configuration file accepts the following JSON properties or entri
             5. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             6. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             7. **`text-rotation-interpolator`**: It returns a string from a set of possible values with support for probabilistic occurrences of them. On the other hand, it accepts an object including the following properties:
-                * `units`: It is a string value which affects the `text` property detailed below. It accepts the following values: `seconds`, `minutes`, `hours`, `days`, `dates`, `months` and `years`.
-                * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds`, `minutes`, `hours`, `days`, `dates`, `months` and `years` (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
+                * `units`: It is a string which affects the `text` property detailed below. It accepts the following values: `seconds`, `minutes`, `hours`, `days` (day of the week), `dates` (day of the month), `months` and `years`.
+                * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds` (from 0 to 59), `minutes` (from 0 to 59), `hours` (from 0 to 23), `days` (from 0 to 6), `dates` (from 1 to 31), `months` (from 0 to 11) and `years` (full year) (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
                 * A valid attribute value using the `text-rotation-interpolator` is: `"text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"`. For example, according to this text rotation interpolation specification, if the current time seconds is between 0 and 15 it will return the value `PENDING`, if it is between 15 and 30 it will return the value `REQUESTED`, if it is between 30 and 45 it will return the value `COMPLETED` with a probability of 50% and `ERROR` with a probability of 50%.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
 * **devices**: Information about the devices to be updated during this concrete simulation. The `device` property is just like the `entity` property described before with 2 additions:
@@ -504,11 +485,8 @@ Following the description of the simulation configuration file accepted properti
           "value": ["dumpster"]
         }
       ]
-    }
-  ],
-  "devices": [
+    },
     {
-      "device_id": "WasteContainer:DTO:001",
       "entity_name": "WasteContainer:DTO:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -568,7 +546,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTO:002",
       "entity_name": "WasteContainer:DTO:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -628,7 +605,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTN:001",
       "entity_name": "WasteContainer:DTN:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -688,7 +664,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTN:002",
       "entity_name": "WasteContainer:DTN:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -748,7 +723,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTE:001",
       "entity_name": "WasteContainer:DTE:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -808,7 +782,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTE:002",
       "entity_name": "WasteContainer:DTE:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -868,7 +841,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTS:001",
       "entity_name": "WasteContainer:DTS:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -928,7 +900,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTS:002",
       "entity_name": "WasteContainer:DTS:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",

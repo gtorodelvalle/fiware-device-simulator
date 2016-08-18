@@ -1,2 +1,2 @@
-- [FEATURE] Support for text rotation interpolation
-- [TASK] Fixing the text-rotation-interpolator tests to avoid 50% probability of the tests to pass
+- [TASK] Fix a typo in the text-rotation-interpolator documentation
+- [FEATURE] Support for UltraLight devices using the HTTP binding

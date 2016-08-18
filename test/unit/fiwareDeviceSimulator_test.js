@@ -292,6 +292,211 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if no IOT Agent configuration information is provided and devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight IoT Agent configuration information is provided and ' +
+       'UltraLight HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {},
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight HTTP IoT Agent configuration information is provided and ' +
+       'UltraLight HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {}
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight HTTP host IoT Agent configuration information is provided ' +
+       'and UltraLight HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {}
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight HTTP port IoT Agent configuration information is provided ' +
+       'and UltraLight HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {
+                host: 'localhost'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if malformed entities configuration information is provided',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -348,7 +553,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no entity name or entities count configuration information is provided',
+    it('should notify an "error" event if no name or count configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -378,7 +583,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no entity type configuration information is provided',
+    it('should notify an "error" event if no type configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -410,7 +615,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no active and static attributes configuration information is provided',
+    it('should notify an "error" event if no active and static attributes configuration information is provided for ' +
+       'entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -443,7 +649,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if malformed static attributes configuration information is provided',
+    it('should notify an "error" event if malformed static attributes configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -477,7 +683,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if empty static attributes configuration information is provided',
+    it('should notify an "error" event if empty static attributes configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -511,7 +717,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no name for static attributes configuration information is provided',
+    it('should notify an "error" event if no name for static attributes configuration information is provided for ' +
+       'entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -545,7 +752,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no type for static attributes configuration information is provided',
+    it('should notify an "error" event if no type for static attributes configuration information is provided for ' +
+       'entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -583,7 +791,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no value for static attributes configuration information is provided',
+    it('should notify an "error" event if no value for static attributes configuration information is provided for ' +
+       'entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -622,7 +831,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if not valid schedule entity configuration information is provided',
+    it('should notify an "error" event if not valid schedule configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -664,7 +873,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-linear-interpolator value static attribute configuration ' +
-      'information is provided',
+      'information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -706,7 +915,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-random-linear-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -748,7 +957,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-step-before-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -790,7 +999,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-step-after-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -832,7 +1041,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid date-increment-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -874,7 +1083,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid multiline-position-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -916,7 +1125,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid text-rotation-interpolator value static attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -958,7 +1167,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid active attributes ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1000,7 +1209,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no name active attribute configuration information is provided',
+    it('should notify an "error" event if no name active attribute configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1042,7 +1251,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no type active attribute configuration information is provided',
+    it('should notify an "error" event if no type active attribute configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1088,7 +1297,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no value active attribute configuration information is provided',
+    it('should notify an "error" event if no value active attribute configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1136,7 +1345,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-linear-interpolator value active attribute configuration ' +
-      'information is provided',
+      'information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1185,7 +1394,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-random-linear-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1234,7 +1443,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-step-before-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1283,7 +1492,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid time-step-after-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1332,7 +1541,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid date-increment-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1381,7 +1590,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid multiline-position-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1430,7 +1639,7 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid text-rotation-interpolator value active attribute ' +
-      'configuration information is provided',
+      'configuration information is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -1479,6 +1688,1036 @@ describe('fiwareDeviceSimulator tests', function() {
     });
 
     it('should notify an "error" event if not valid schedule for active attribute ' +
+      'configuration information is provided for entity',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if malformed devices configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: {}
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if empty devices configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: []
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no id or count configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {}
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no protocol configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId'
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no api key configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no attributes configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key'
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if malformed attributes configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: {}
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if empty attributes configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: []
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no object id attributes configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{}]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no value for attributes configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid schedule configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'invalid-entity-schedule',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'ObjectValue'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-linear-interpolator value attribute configuration ' +
+      'information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'time-linear-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-random-linear-interpolator value attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'time-random-linear-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-before-interpolator value attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'time-step-before-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid time-step-after-interpolator value attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'time-step-after-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid date-increment-interpolator value attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'date-increment-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid multiline-position-interpolator value attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'multiline-position-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid text-rotation-interpolator value static attribute ' +
       'configuration information is provided',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -1516,6 +2755,81 @@ describe('fiwareDeviceSimulator tests', function() {
                   value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
                 }
               ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                object_id: 'ObjectId',
+                value: 'text-rotation-interpolator()'
+              }]
+            }
+          ]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if not valid schedule for attribute ' +
+      'configuration information is provided for device',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          entities: [
+            {
+              schedule: 'once',
+              entity_name: 'EntityName',
+              entity_type: 'EntityType',
+              staticAttributes: [
+                {
+                  name: 'StaticName',
+                  type: 'StaticType',
+                  value: 'StaticValue'
+                }
+              ],
+              active: [
+                {
+                  schedule: 'invalid-active-attribute-schedule',
+                  name: 'ActiveName',
+                  type: 'ActiveType',
+                  value: 'time-linear-interpolator([[0,0],[12,0.5],[24,1]])'
+                }
+              ]
+            }
+          ],
+          devices: [
+            {
+              schedule: 'once',
+              device_id: 'DeviceId',
+              protocol: 'UltraLight::HTTP',
+              api_key: 'the-api-key',
+              attributes: [{
+                schedule: 'invalid-attribute-schedule',
+                object_id: 'ObjectId',
+                value: 'text-rotation-interpolator()'
+              }]
             }
           ]
         }
@@ -1587,6 +2901,7 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('simulation', function() {
     var contextBroker,
+        iota,
         tokenResponseBody = require(ROOT_PATH + '/test/unit/messages/token-response-body.json'),
         tokenResponses = 0,
         updateRequests = 0,
@@ -1629,9 +2944,17 @@ describe('fiwareDeviceSimulator tests', function() {
             }
           );
         }
+
+        iota = nock('http://' + simulationConfiguration.iota.ultralight.http.host + ':' +
+          simulationConfiguration.iota.ultralight.http.port);
+        iota.post('/iot/d').query(true).times(5).reply(
+          function() {
+              return [200];
+          }
+        );
       });
 
-      it('should update ' + type + ' once if scheduled at entity level', function(done) {
+      it('should update ' + type + ' once if scheduled at element level', function(done) {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-once.json');
@@ -1760,10 +3083,14 @@ describe('fiwareDeviceSimulator tests', function() {
         });
         simulationProgress.on('update-response', function(ev) {
           ++updateResponses;
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal('1');
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).equal('1');
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal('1');
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).equal('1');
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).equal('1');
           }
         });
         simulationProgress.on('end', function() {
@@ -1791,13 +3118,19 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var decimalHours = toDecimalHours(new Date());
-          var value = linearInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'time-linear-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              decimalHours);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).equal(value);
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = linearInterpolator(attributeValue.substring(
+            'time-linear-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).equal(value);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).equal(value.toString());
           }
         });
         simulationProgress.on('update-response', function() {
@@ -1828,11 +3161,15 @@ describe('fiwareDeviceSimulator tests', function() {
         });
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
               lessThanOrEqual(0.75);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).lessThanOrEqual(0.75);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).lessThanOrEqual(0.75);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).lessThanOrEqual(0.75);
           }
         });
         simulationProgress.on('update-response', function() {
@@ -1864,13 +3201,19 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var decimalHours = toDecimalHours(new Date());
-          var value = stepBeforeInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'time-step-before-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              decimalHours);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).equal(value);
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = stepBeforeInterpolator(attributeValue.substring(
+            'time-step-before-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).equal(value);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).equal(value.toString());
           }
         });
         simulationProgress.on('update-response', function() {
@@ -1902,13 +3245,19 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var decimalHours = toDecimalHours(new Date());
-          var value = stepAfterInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'time-step-after-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              decimalHours);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).equal(value);
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = stepAfterInterpolator(attributeValue.substring(
+            'time-step-after-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).equal(value);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).equal(value.toString());
           }
         });
         simulationProgress.on('update-response', function() {
@@ -1940,14 +3289,20 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var decimalHours = toDecimalHours(new Date());
-          var value = dateIncrementInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'date-increment-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              decimalHours);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1').substring(0, 20)).equal(
-              value.substring(0, 20));
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value.substring(0, 20)).equal(value.substring(0, 20));
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = dateIncrementInterpolator(attributeValue.substring(
+            'date-increment-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1').substring(0, 20)).
+                equal(value.substring(0, 20));
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value.substring(0, 20)).equal(value.substring(0, 20));
+            }
+          } else {
+            should(ev.request.body.split('|')[1].substring(0, 20)).equal(value.substring(0, 20));
           }
         });
         simulationProgress.on('update-response', function() {
@@ -1979,13 +3334,22 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var decimalHours = toDecimalHours(new Date());
-          var value = multilinePositionInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'multiline-position-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              decimalHours);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).eql(value);
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = multilinePositionInterpolator(attributeValue.substring(
+            'multiline-position-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).eql(value);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).eql(value.toString());
+            // var valueObj = JSON.parse(ev.request.body.split('|')[1]);
+            // should(valueObj.type).equal('Point');
+            // should(valueObj.coordinates).be.an.Array();
           }
         });
         simulationProgress.on('update-response', function() {
@@ -2017,13 +3381,19 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           var now = new Date();
-          var value = textRotationInterpolator(simulationConfiguration[type][0].active[0].value.substring(
-            'text-rotation-interpolator('.length, simulationConfiguration[type][0].active[0].value.length - 1))(
-              now);
-          if (ngsiVersion === '1.0') {
-            should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
-          } else if (ngsiVersion === '2.0') {
-            should(ev.request.body.entities[0].active1.value).eql(value);
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = textRotationInterpolator(attributeValue.substring(
+            'text-rotation-interpolator('.length, attributeValue.length - 1))(now);
+          if (type === 'entities') {
+            if (ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+            } else if (ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).eql(value);
+            }
+          } else {
+            should(ev.request.body.split('|')[1]).eql(value.toString());
           }
         });
         simulationProgress.on('update-response', function() {
