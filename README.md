@@ -497,6 +497,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
@@ -539,6 +544,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["organic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -554,6 +569,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -598,6 +618,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["inorganic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -613,6 +643,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -657,6 +692,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["glass"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -672,6 +717,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -716,6 +766,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["paper"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -731,6 +791,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -775,6 +840,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["plastic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -790,6 +865,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -834,6 +914,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["batteries"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -849,6 +939,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -893,6 +988,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["metal"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -908,6 +1013,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -950,6 +1060,16 @@ Following the description of the simulation configuration file accepted properti
           "name": "category",
           "type": "list",
           "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["electronics"]
         },
         {
           "name": "status",
