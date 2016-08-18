@@ -12,19 +12,22 @@
       "user": "userToGenerateAuthenticationTokens",
       "password": "passwordToGenerateAuthenticationTokens"
   },
+  "iota": {
+    "ultralight": {
+      "http": {
+        "host": "localhost",
+        "port": 8085
+      }
+    }
+  },
   "devices": [{
     "schedule": "once",
-    "entity_name": "EntityName1",
-    "entity_type": "EntityType1",
-    "active": [{
-      "name": "active1",
-      "type": "number",
+    "device_id": "DeviceId1",
+    "protocol": "UltraLight::HTTP",
+    "api_key": "the-api-key",
+    "attributes": [{
+      "object_id": "attribute1",
       "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-    }],
-    "staticAttributes": [{
-      "name": "static1",
-      "type": "string",
-      "value": "Value of static1"
     }]
   }]
 }
