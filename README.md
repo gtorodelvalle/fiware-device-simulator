@@ -79,6 +79,14 @@ An example simulation configuration file is shown next to give you a glimpse of 
         "user": "userToGenerateAuthenticationTokens",
         "password": "passwordToGenerateAuthenticationTokens"
     },
+    "iota": {
+      "ultralight": {
+        "http": {
+          "host": "localhost",
+          "port": 8085
+        }
+      }
+    },
   	"entities": [{
   		"schedule": "once",
   		"entity_name": "EntityName1",
@@ -122,7 +130,6 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
   		}, {
   			"schedule": "*/5 * * * * *",
-  			"object_id": "a2",
   			"name": "active2",
   			"type": "number",
   			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
@@ -139,70 +146,39 @@ An example simulation configuration file is shown next to give you a glimpse of 
   	}],
   	"devices": [{
   		"schedule": "once",
+      "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId1",
-  		"entity_name": "DeviceName1",
-  		"entity_type": "DeviceType1",
-  		"active": [{
+      "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "number",
   			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "string",
-  			"value": "Value of static1"
   		}]
   	}, {
   		"schedule": "*/5 * * * * *",
+      "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId2",
-  		"entity_name": "DeviceName2",
-  		"entity_type": "DeviceType2",
-  		"active": [{
+      "api_key": "1ifdjdo0kkd7w77du77mpjd78",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "number",
   			"value": "multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"
   		}, {
   			"schedule": "*/1 * * * * *",
   			"object_id": "a2",
-  			"name": "active2",
-  			"type": "number",
   			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "string",
-  			"value": "Value of static1"
   		}]
   	}, {
   		"count": "5",
-  		"entity_type": "DeviceType3",
-  		"schedule": "*/1 * * * * *",
-  		"active": [{
+      "schedule": "*/1 * * * * *",
+      "entity_type": "DeviceType3",
+  		"protocol": "UltraLight::HTTP",
+      "api_key": "ag235jdo0kkhd367du77mpgs54",
+  		"attributes": [{
   			"object_id": "a1",
-  			"name": "active1",
-  			"type": "percentage",
   			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
   		}, {
   			"schedule": "*/5 * * * * *",
   			"object_id": "a2",
-  			"name": "active2",
-  			"type": "percentage",
   			"value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}],
-  		"staticAttributes": [{
-  			"object_id": "s1",
-  			"name": "static1",
-  			"type": "percentage",
-  			"value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
-  		}, {
-        "object_id": "s2",
-  			"name": "static2",
-  			"type": "status",
-  			"value": "text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"
   		}]
   	}]
   }
@@ -218,9 +194,14 @@ The simulation configuration file accepts the following JSON properties or entri
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
     * **service**: The service associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct services providing the concrete service in its simulation configuration file.
-    * **subsrvice**: The subservice or service path associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct subservices providing the concrete service in its simulation configuration file.
+    * **subservice**: The subservice or service path associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct subservices providing the concrete service in its simulation configuration file.
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
+* **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
+    * **ultralight**: Includes information about the configuration of the UltraLight transport. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
+        * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) is included in the simulation configuration).
+            * **host**: The host machine where the UltraLight HTTP IoT agent will be listening for requests.
+            * **port**: The port where the UltraLight HTTP IoT agent will be listening for requests.
 * **entities**: Information about the entities to be updated during this concrete simulation.
     * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
@@ -504,11 +485,8 @@ Following the description of the simulation configuration file accepted properti
           "value": ["dumpster"]
         }
       ]
-    }
-  ],
-  "devices": [
+    },
     {
-      "device_id": "WasteContainer:DTO:001",
       "entity_name": "WasteContainer:DTO:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -568,7 +546,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTO:002",
       "entity_name": "WasteContainer:DTO:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -628,7 +605,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTN:001",
       "entity_name": "WasteContainer:DTN:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -688,7 +664,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTN:002",
       "entity_name": "WasteContainer:DTN:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -748,7 +723,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTE:001",
       "entity_name": "WasteContainer:DTE:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -808,7 +782,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTE:002",
       "entity_name": "WasteContainer:DTE:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -868,7 +841,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTS:001",
       "entity_name": "WasteContainer:DTS:001",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
@@ -928,7 +900,6 @@ Following the description of the simulation configuration file accepted properti
       ]
     },
     {
-      "device_id": "WasteContainer:DTS:002",
       "entity_name": "WasteContainer:DTS:002",
       "entity_type": "WasteContainer",
       "schedule": "*/5 * * * * *",
