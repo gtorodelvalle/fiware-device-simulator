@@ -1,1 +1,2 @@
 - [TASK] Improving the waste management example with the dateUpdated, storedWasteOrigin and storedWasteKind attributes
+- [FEATURE] Support UltraLight MQTT devices

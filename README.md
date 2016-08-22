@@ -84,6 +84,13 @@ An example simulation configuration file is shown next to give you a glimpse of 
         "http": {
           "host": "localhost",
           "port": 8085
+        },
+        "mqtt": {
+          "protocol": "mqtt",
+          "host": "localhost",
+          "port": 1883,
+          "user": "mqttUser",
+          "password": "mqttPassword"
         }
       }
     },
@@ -170,7 +177,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"count": "5",
       "schedule": "*/1 * * * * *",
       "entity_type": "DeviceType3",
-  		"protocol": "UltraLight::HTTP",
+  		"protocol": "UltraLight::MQTT",
       "api_key": "ag235jdo0kkhd367du77mpgs54",
   		"attributes": [{
   			"object_id": "a1",
