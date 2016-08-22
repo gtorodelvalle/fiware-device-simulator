@@ -209,6 +209,12 @@ The simulation configuration file accepts the following JSON properties or entri
         * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) is included in the simulation configuration).
             * **host**: The host machine where the UltraLight HTTP IoT agent will be listening for requests.
             * **port**: The port where the UltraLight HTTP IoT agent will be listening for requests.
+        * **mqtt**: Includes information about the configuration of the MQTT binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight MQTT devices (`protocol` property equal to `UltraLight::MQTT`) is included in the simulation configuration).
+            * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
+            * **host**: The host machine where the UltraLight MQTT IoT agent will be listening for requests.
+            * **port**: The port where the UltraLight MQTT IoT agent will be listening for requests.
+            * **user**: The user to use for MQTT authenticated communications. Optional.
+            * **password**: The password to use for MQTT authenticated communications. Optional.
 * **entities**: Information about the entities to be updated during this concrete simulation.
     * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
