@@ -1,0 +1,34 @@
+{
+  "contextBroker": {
+    "host": "localhost",
+    "port": 1026,
+    "ngsiVersion": "1.0"
+  },
+  "authentication": {
+      "host": "localhost",
+      "port": 5001,
+      "service": "myService",
+      "subservice": "/mySubService",
+      "user": "userToGenerateAuthenticationTokens",
+      "password": "passwordToGenerateAuthenticationTokens"
+  },
+  "iota": {
+    "json": {
+      "mqtt": {
+        "protocol": "mqtt",
+        "host": "localhost",
+        "port": 1883
+      }
+    }
+  },
+  "devices": [{
+    "schedule": "once",
+    "device_id": "DeviceId1",
+    "protocol": "JSON::MQTT",
+    "api_key": "the-api-key",
+    "attributes": [{
+      "object_id": "attribute1",
+      "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 108000})"
+    }]
+  }]
+}

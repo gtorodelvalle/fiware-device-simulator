@@ -18,6 +18,12 @@
         "host": "localhost",
         "port": 8085
       }
+    },
+    "json": {
+      "http": {
+        "host": "localhost",
+        "port": 8185
+      }
     }
   },
   "entities": [{
