@@ -84,6 +84,26 @@ An example simulation configuration file is shown next to give you a glimpse of 
         "http": {
           "host": "localhost",
           "port": 8085
+        },
+        "mqtt": {
+          "protocol": "mqtt",
+          "host": "localhost",
+          "port": 1883,
+          "user": "mqttUser",
+          "password": "mqttPassword"
+        }
+      },
+      "json": {
+        "http": {
+          "host": "localhost",
+          "port": 8185
+        },
+        "mqtt": {
+          "protocol": "mqtt",
+          "host": "localhost",
+          "port": 1883,
+          "user": "mqttUser",
+          "password": "mqttPassword"
         }
       }
     },
@@ -155,7 +175,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		}]
   	}, {
   		"schedule": "*/5 * * * * *",
-      "protocol": "UltraLight::HTTP",
+      "protocol": "UltraLight::JSON",
   		"device_id": "DeviceId2",
       "api_key": "1ifdjdo0kkd7w77du77mpjd78",
   		"attributes": [{
@@ -170,7 +190,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"count": "5",
       "schedule": "*/1 * * * * *",
       "entity_type": "DeviceType3",
-  		"protocol": "UltraLight::HTTP",
+  		"protocol": "UltraLight::MQTT",
       "api_key": "ag235jdo0kkhd367du77mpgs54",
   		"attributes": [{
   			"object_id": "a1",
@@ -198,10 +218,26 @@ The simulation configuration file accepts the following JSON properties or entri
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
-    * **ultralight**: Includes information about the configuration of the UltraLight transport. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
-        * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) is included in the simulation configuration).
+    * **ultralight**: Includes information about the configuration of the UltraLight IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
+        * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) or UltraLight JSON devices ((`protocol` property equal to `UltraLight::JSON`)) is included in the simulation configuration).
             * **host**: The host machine where the UltraLight HTTP IoT agent will be listening for requests.
             * **port**: The port where the UltraLight HTTP IoT agent will be listening for requests.
+        * **mqtt**: Includes information about the configuration of the MQTT binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight MQTT devices (`protocol` property equal to `UltraLight::MQTT`) is included in the simulation configuration).
+            * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
+            * **host**: The host machine where the UltraLight MQTT IoT agent will be listening for requests.
+            * **port**: The port where the UltraLight MQTT IoT agent will be listening for requests.
+            * **user**: The user to use for MQTT authenticated communications. Optional.
+            * **password**: The password to use for MQTT authenticated communications. Optional.
+    * **json**: Includes information about the configuration of the JSON IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `JSON::`) is included in the simulation configuration).
+        * **http**: Includes information about the configuration of the HTTP binding for the JSON protocol. It is mandatory if a `devices` property describing JSON HTTP devices (`protocol` property equal to `JSON::HTTP`) is included in the simulation configuration).
+            * **host**: The host machine where the JSON HTTP IoT agent will be listening for requests.
+            * **port**: The port where the JSON HTTP IoT agent will be listening for requests.
+        * **mqtt**: Includes information about the configuration of the MQTT binding for the JSON protocol. It is mandatory if a `devices` property describing JSON MQTT devices (`protocol` property equal to `JSON::MQTT`) is included in the simulation configuration).
+            * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
+                * **host**: The host machine where the JSON MQTT IoT Agent will be listening for requests.
+                * **port**: The port where the JSON MQTT IoT Agent will be listening for requests.
+                * **user**: The user to use for MQTT authenticated communications. Optional.
+                * **password**: The password to use for MQTT authenticated communications. Optional.
 * **entities**: Information about the entities to be updated during this concrete simulation.
     * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
@@ -497,6 +533,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
         },
         {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
           "type": "date",
@@ -539,6 +580,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["organic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -554,6 +605,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -598,6 +654,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["inorganic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -613,6 +679,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -657,6 +728,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["glass"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -672,6 +753,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -716,6 +802,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["paper"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -731,6 +827,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -775,6 +876,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["plastic"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -790,6 +901,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -834,6 +950,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["batteries"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -849,6 +975,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -893,6 +1024,16 @@ Following the description of the simulation configuration file accepted properti
           "value": ["surface"]
         },
         {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["metal"]
+        },
+        {
           "name": "status",
           "type": "string",
           "value": "ok"
@@ -908,6 +1049,11 @@ Following the description of the simulation configuration file accepted properti
           "name": "fillingLevel",
           "type": "number",
           "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+        },
+        {
+          "name": "dateUpdated",
+          "type": "date",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
@@ -950,6 +1096,16 @@ Following the description of the simulation configuration file accepted properti
           "name": "category",
           "type": "list",
           "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "string",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "list",
+          "value": ["electronics"]
         },
         {
           "name": "status",

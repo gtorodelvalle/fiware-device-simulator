@@ -24,8 +24,11 @@
 'use strict';
 
 var ROOT_PATH = require('app-root-path');
+var EventEmitter = require('events').EventEmitter;
+var mqtt = require('mqtt');
 var nock = require('nock');
 var should = require('should');
+var sinon = require('sinon');
 var linearInterpolator = require(ROOT_PATH + '/lib/interpolators/linearInterpolator');
 var stepBeforeInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepBeforeInterpolator');
 var stepAfterInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepAfterInterpolator');
@@ -481,6 +484,563 @@ describe('fiwareDeviceSimulator tests', function() {
             schedule: 'once',
             device_id: 'DeviceId1',
             protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight IoT Agent configuration information is provided and ' +
+       'UltraLight MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {},
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight MQTT IoT Agent configuration information is provided and ' +
+       'UltraLight MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {}
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight MQTT protocol IoT Agent configuration information is ' +
+       'provided and UltraLight MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              mqtt: {}
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight MQTT host IoT Agent configuration information is ' +
+       'provided and UltraLight MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              mqtt: {
+                protocol: 'mqtt'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight MQTT port IoT Agent configuration information is provided ' +
+       'and UltraLight MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              mqtt: {
+                protocol: 'mqtt',
+                host: 'localhost'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON HTTP IoT Agent configuration information is provided and ' +
+       'JSON HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {}
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON HTTP host IoT Agent configuration information is provided ' +
+       'and JSON HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {}
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON HTTP port IoT Agent configuration information is provided ' +
+       'and JSON HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {
+                host: 'localhost'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON IoT Agent configuration information is provided and ' +
+       'JSON MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {},
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON MQTT IoT Agent configuration information is provided and ' +
+       'JSON MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {}
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON MQTT protocol IoT Agent configuration information is ' +
+       'provided and JSON MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {
+              mqtt: {}
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON MQTT host IoT Agent configuration information is ' +
+       'provided and JSON MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {
+              mqtt: {
+                protocol: 'mqtt'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON MQTT port IoT Agent configuration information is provided ' +
+       'and JSON MQTT devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          contextBroker: {
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            host: 'localhost',
+            port: 5001,
+            service: 'theservice',
+            subservice: '/theSubService',
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {
+              mqtt: {
+                protocol: 'mqtt',
+                host: 'localhost'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
             api_key: 'the-api-key',
             attributes: [{
               object_id: 'a1',
@@ -2901,7 +3461,9 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('simulation', function() {
     var contextBroker,
-        iota,
+        httpIoTA,
+        mqttClient,
+        mqttConnectStub,
         tokenResponseBody = require(ROOT_PATH + '/test/unit/messages/token-response-body.json'),
         tokenResponses = 0,
         updateRequests = 0,
@@ -2909,11 +3471,14 @@ describe('fiwareDeviceSimulator tests', function() {
 
     /**
      * The simulation tests suite
-     * @param  {String} ngsiVersion The NGSI version
-     * @param  {String} type        The type of simulation. Possible values are: 'entities' and 'devices'
+     * @param  {String} type    The type of simulation. Possible values are: 'entities' and 'devices'
+     * @param  {String} options Object including the "ngsiVersion" property if entities or the "protocol" property if
+     *                          devices
      */
-    function simulationTestSuite(ngsiVersion, type){
+    function simulationTestSuite(type, options){
       beforeEach(function() {
+        simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
+
         idm.post('/v3/auth/tokens').reply(
           function(uri, requestBody) {
             wellFormedTokenRequestCheck(simulationConfiguration, requestBody);
@@ -2927,7 +3492,7 @@ describe('fiwareDeviceSimulator tests', function() {
           }
         );
 
-        if (ngsiVersion === '1.0') {
+        if (options.ngsiVersion === '1.0') {
           contextBroker = nock('https://' + simulationConfiguration.contextBroker.host + ':' +
             simulationConfiguration.contextBroker.port);
           contextBroker.post('/v1/updateContext').times(5).reply(
@@ -2935,7 +3500,7 @@ describe('fiwareDeviceSimulator tests', function() {
               return [200];
             }
           );
-        } else if (ngsiVersion === '2.0') {
+        } else if (options.ngsiVersion === '2.0') {
           contextBroker = nock('https://' + simulationConfiguration.contextBroker.host + ':' +
             simulationConfiguration.contextBroker.port);
           contextBroker.post('/v2/op/update').times(5).reply(
@@ -2945,20 +3510,47 @@ describe('fiwareDeviceSimulator tests', function() {
           );
         }
 
-        iota = nock('http://' + simulationConfiguration.iota.ultralight.http.host + ':' +
-          simulationConfiguration.iota.ultralight.http.port);
-        iota.post('/iot/d').query(true).times(5).reply(
-          function() {
-              return [200];
-          }
-        );
+        if (options.protocol === 'UltraLight::HTTP') {
+          httpIoTA = nock('http://' + simulationConfiguration.iota.ultralight.http.host + ':' +
+            simulationConfiguration.iota.ultralight.http.port);
+          httpIoTA.post('/iot/d').query(true).times(5).reply(
+            function() {
+                return [200];
+            }
+          );
+        } else if (options.protocol === 'UltraLight::MQTT') {
+          mqttConnectStub = sinon.stub(mqtt, 'connect', function() {
+            mqttClient = new EventEmitter();
+            mqttClient.publish = function(topic, payload, callback) {
+              callback();
+            };
+            setImmediate(function() {
+              mqttClient.emit('connect');
+            });
+            return mqttClient;
+          });
+        } else if (options.protocol === 'JSON::HTTP') {
+          httpIoTA = nock('http://' + simulationConfiguration.iota.json.http.host + ':' +
+            simulationConfiguration.iota.json.http.port);
+          httpIoTA.post('/iot/json').query(true).times(5).reply(
+            function() {
+                return [200];
+            }
+          );
+        }
       });
 
-      it('should update ' + type + ' once if scheduled at element level', function(done) {
+      it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' once if scheduled at ' +
+         'element level',
+        function(done) {
         /* jshint camelcase: false */
         simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-once.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+            (options.protocol ? options.protocol + '-' : '') +
+            type + '-once.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -2981,11 +3573,17 @@ describe('fiwareDeviceSimulator tests', function() {
         });
       });
 
-      it('should update ' + type + ' once if scheduled at attribute level', function(done) {
+      it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' once if scheduled at ' +
+         'attribute level',
+        function(done) {
         /* jshint camelcase: false */
         simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-attribute-once.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+            (options.protocol ? options.protocol + '-' : '') +
+            type + '-attribute-once.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3008,12 +3606,18 @@ describe('fiwareDeviceSimulator tests', function() {
         });
       });
 
-      it('should update ' + type + ' every second if scheduled at entity level', function(done) {
+      it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
+         'at entity level',
+        function(done) {
         /* jshint camelcase: false */
         this.timeout(5000);
         simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-every-second.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+            (options.protocol ? options.protocol + '-' : '') +
+            type + '-every-second.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3036,13 +3640,19 @@ describe('fiwareDeviceSimulator tests', function() {
         });
       });
 
-      it('should update ' + type + ' every second if scheduled at attribute level', function(done) {
+      it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
+         'at attribute level',
+        function(done) {
         /* jshint camelcase: false */
         this.timeout(5000);
         simulationConfiguration =
           require(
-            ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-attribute-every-second.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+              (options.protocol ? options.protocol + '-' : '') +
+              type + '-attribute-every-second.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3068,8 +3678,12 @@ describe('fiwareDeviceSimulator tests', function() {
       it('should set fixed values of attributes once', function(done) {
         /* jshint camelcase: false */
         simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' + type + '-fixed-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+            (options.protocol ? options.protocol + '-' : '') +
+            type + '-fixed-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3084,13 +3698,21 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-response', function(ev) {
           ++updateResponses;
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal('1');
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal('1');
             }
           } else {
-            should(ev.request.body.split('|')[1]).equal('1');
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).equal('1');
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).equal('1');
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).equal('1');
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).equal('1');
+            }
           }
         });
         simulationProgress.on('end', function() {
@@ -3105,8 +3727,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type + '-time-linear-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type +'-time-linear-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3124,13 +3749,21 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = linearInterpolator(attributeValue.substring(
             'time-linear-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
           } else {
-            should(ev.request.body.split('|')[1]).equal(value.toString());
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).equal(value);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).equal(value);
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3148,9 +3781,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-time-random-linear-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-time-random-linear-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3162,14 +3797,22 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationProgress.on('update-request', function(ev) {
           ++updateRequests;
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
               lessThanOrEqual(0.75);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).lessThanOrEqual(0.75);
             }
           } else {
-            should(ev.request.body.split('|')[1]).lessThanOrEqual(0.75);
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).lessThanOrEqual(0.75);
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).lessThanOrEqual(0.75);
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).lessThanOrEqual(0.75);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).lessThanOrEqual(0.75);
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3187,9 +3830,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-time-step-before-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-time-step-before-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3207,13 +3852,21 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = stepBeforeInterpolator(attributeValue.substring(
             'time-step-before-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
           } else {
-            should(ev.request.body.split('|')[1]).equal(value.toString());
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).equal(value);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).equal(value);
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3231,9 +3884,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-time-step-after-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-time-step-after-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3251,13 +3906,21 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = stepAfterInterpolator(attributeValue.substring(
             'time-step-after-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
           } else {
-            should(ev.request.body.split('|')[1]).equal(value.toString());
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).equal(value);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).equal(value);
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3275,9 +3938,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-date-increment-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-date-increment-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3295,14 +3960,22 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = dateIncrementInterpolator(attributeValue.substring(
             'date-increment-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1').substring(0, 20)).
                 equal(value.substring(0, 20));
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value.substring(0, 20)).equal(value.substring(0, 20));
             }
           } else {
-            should(ev.request.body.split('|')[1].substring(0, 20)).equal(value.substring(0, 20));
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1].substring(0, 20)).equal(value.substring(0, 20));
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1].substring(0, 20)).equal(value.substring(0, 20));
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1.substring(0, 20)).equal(value.substring(0, 20));
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1.substring(0, 20)).equal(value.substring(0, 20));
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3320,9 +3993,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-multiline-position-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-multiline-position-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3340,16 +4015,33 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = multilinePositionInterpolator(attributeValue.substring(
             'multiline-position-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).eql(value);
             }
           } else {
-            should(ev.request.body.split('|')[1]).eql(value.toString());
-            // var valueObj = JSON.parse(ev.request.body.split('|')[1]);
-            // should(valueObj.type).equal('Point');
-            // should(valueObj.coordinates).be.an.Array();
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).eql(value.toString());
+              // var valueObj = JSON.parse(ev.request.body.split('|')[1]);
+              // should(valueObj.type).equal('Point');
+              // should(valueObj.coordinates).be.an.Array();
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).eql(value.toString());
+              // var valueObj = JSON.parse(ev.request.body.split('|')[1]);
+              // should(valueObj.type).equal('Point');
+              // should(valueObj.coordinates).be.an.Array();
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).eql(value);
+              // var valueObj = JSON.parse(ev.request.body.attribute1);
+              // should(valueObj.type).equal('Point');
+              // should(valueObj.coordinates).be.an.Array();
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).eql(value);
+              // var valueObj = JSON.parse(ev.request.body.attribute1);
+              // should(valueObj.type).equal('Point');
+              // should(valueObj.coordinates).be.an.Array();
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3367,9 +4059,11 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + type +
-            '-text-rotation-interpolator-attribute.json');
-        simulationConfiguration.contextBroker.ngsiVersion = ngsiVersion;
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-text-rotation-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
           done(ev.error);
@@ -3387,13 +4081,21 @@ describe('fiwareDeviceSimulator tests', function() {
           var value = textRotationInterpolator(attributeValue.substring(
             'text-rotation-interpolator('.length, attributeValue.length - 1))(now);
           if (type === 'entities') {
-            if (ngsiVersion === '1.0') {
+            if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
-            } else if (ngsiVersion === '2.0') {
+            } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).eql(value);
             }
           } else {
-            should(ev.request.body.split('|')[1]).eql(value.toString());
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).eql(value.toString());
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).eql(value.toString());
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).eql(value.toString());
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).eql(value.toString());
+            }
           }
         });
         simulationProgress.on('update-response', function() {
@@ -3412,16 +4114,30 @@ describe('fiwareDeviceSimulator tests', function() {
         updateRequests = 0;
         updateResponses = 0;
         nock.cleanAll();
-        simulationProgress.removeAllListeners();
+        if (simulationProgress) {
+          simulationProgress.removeAllListeners();
+        }
+        if (mqttClient) {
+          mqttClient.removeAllListeners();
+          mqttClient = null;
+        }
+        if (mqttConnectStub) {
+          mqttConnectStub.restore();
+          mqttConnectStub = null;
+        }
       });
     }
 
-    describe('Entities update via NGSI v1.0', simulationTestSuite.bind(null, '1.0', 'entities'));
+    describe('Entities update via NGSI v1.0', simulationTestSuite.bind(null, 'entities', {ngsiVersion: '1.0'}));
 
-    describe('Entities update via NGSI v2.0', simulationTestSuite.bind(null, '2.0', 'entities'));
+    describe('Entities update via NGSI v2.0', simulationTestSuite.bind(null, 'entities', {ngsiVersion: '2.0'}));
 
-    describe('Devices update via NGSI v1.0', simulationTestSuite.bind(null, '1.0', 'devices'));
+    describe('UltraLight HTTP devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::HTTP'}));
 
-    describe('Devices update via NGSI v2.0', simulationTestSuite.bind(null, '2.0', 'devices'));
+    describe('UltraLight MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::MQTT'}));
+
+    describe('JSON HTTP devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::HTTP'}));
+
+    describe('JSON MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::MQTT'}));
   });
 });

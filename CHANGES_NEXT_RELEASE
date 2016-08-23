@@ -1,2 +1,3 @@
-- [TASK] Fix a typo in the text-rotation-interpolator documentation
-- [FEATURE] Support for UltraLight devices using the HTTP binding
+- [TASK] Improving the waste management example with the dateUpdated, storedWasteOrigin and storedWasteKind attributes
+- [FEATURE] Support UltraLight MQTT devices
+- [FEATURE] Support JSON HTTP and MQTT devices

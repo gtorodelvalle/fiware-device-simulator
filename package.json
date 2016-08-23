@@ -1,7 +1,7 @@
 {
   "name": "fiware-device-simulator",
   "description": "Simulator of FIWARE-compatible devices",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "homepage": "https://github.com/gtorodelvalle/fiware-device-simulator",
   "author": {
     "name": "Germán Toro del Valle",
@@ -40,15 +40,17 @@
     "nock": "^8.0.0",
     "proxyquire": "0.5.1",
     "should": "^10.0.0",
-    "sinon": "~1.7.3",
+    "sinon": "^1.7.3",
     "sinon-chai": "2.4.0"
   },
   "keywords": [],
   "dependencies": {
     "app-root-path": "^1.3.0",
     "async": "^2.0.1",
+    "commander": "^2.9.0",
     "linear-interpolator": "^1.0.2",
     "logops": "^1.0.1",
+    "mqtt": "^1.14.0",
     "node-schedule": "^1.1.1",
     "request": "^2.74.0",
     "turf-along": "^3.0.12",
