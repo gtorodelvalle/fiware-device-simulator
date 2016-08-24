@@ -212,7 +212,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 The simulation configuration file accepts the following JSON properties or entries:
 
-* **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests.
+* **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
 * **contextBroker**: Includes information about the context broker where the data will be stored. It is mandatory in case any `entities` are included in the simulation configuration (see below).
