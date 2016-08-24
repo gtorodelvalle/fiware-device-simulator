@@ -1,2 +1,3 @@
-- [FEATURE] Protocol selection support for HTTP communications
-- [FEATURE] Support optional Context Broker and Authentication simulation configuration information
+- [TASK] Adapting the waste management example to the latest changes in the simulation configuration format
+- [FEATURE] Possibility to specify the API key at IoTA's configuration level
+- [BUG] "domain" should only be mandatory if "entities" are included in the simulation

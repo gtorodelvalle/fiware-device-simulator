@@ -85,6 +85,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
     },
     "iota": {
       "ultralight": {
+        "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
         "http": {
           "protocol": "http",
           "host": "localhost",
@@ -174,7 +175,6 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"schedule": "once",
       "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId1",
-      "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
   		"attributes": [{
   			"object_id": "a1",
   			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
@@ -212,7 +212,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 The simulation configuration file accepts the following JSON properties or entries:
 
-* **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests.
+* **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
 * **contextBroker**: Includes information about the context broker where the data will be stored. It is mandatory in case any `entities` are included in the simulation configuration (see below).
@@ -228,6 +228,7 @@ The simulation configuration file accepts the following JSON properties or entri
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
     * **ultralight**: Includes information about the configuration of the UltraLight IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
+        * **api_key**: The API key to be used when updating UltraLight devices whose API key is not specified at a local level (see below). Mandatory if at least one UltraLight device is included whose API key is not specified at a local level.
         * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) or UltraLight JSON devices ((`protocol` property equal to `UltraLight::JSON`)) is included in the simulation configuration).
             * **protocol**: The protocol the UltraLight HTTP IoT Agent is expecting the requests to be sent by.
             * **host**: The host machine where the UltraLight HTTP IoT Agent will be listening for requests.
@@ -239,6 +240,7 @@ The simulation configuration file accepts the following JSON properties or entri
             * **user**: The user to use for MQTT authenticated communications. Optional.
             * **password**: The password to use for MQTT authenticated communications. Optional.
     * **json**: Includes information about the configuration of the JSON IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `JSON::`) is included in the simulation configuration).
+        * **api_key**: The API key to be used when updating JSON devices whose API key is not specified at a local level (see below). Mandatory if at least one JSON device is included whose API key is not specified at a local level.
         * **http**: Includes information about the configuration of the HTTP binding for the JSON protocol. It is mandatory if a `devices` property describing JSON HTTP devices (`protocol` property equal to `JSON::HTTP`) is included in the simulation configuration).
             * **protocol**: The protocol the JSON HTTP IoT Agent is expecting the requests to be sent by.
             * **host**: The host machine where the JSON HTTP IoT Agent will be listening for requests.
@@ -292,18 +294,22 @@ Following the description of the simulation configuration file accepted properti
 
 ```json
 {
+  "domain": {
+    "service": "theService",
+    "subservice": "/theSubService"
+  },
   "contextBroker": {
+    "protocol": "https",
     "host": "195.235.93.224",
     "port": 10027,
     "ngsiVersion": "1.0"
   },
   "authentication": {
-      "host": "195.235.93.224",
-      "port": 15001,
-      "service": "theService",
-      "subservice": "/theSubservice",
-      "user": "theUser",
-      "password": "thePassword"
+    "protocol": "https",
+    "host": "195.235.93.224",
+    "port": 15001,
+    "user": "theUser",
+    "password": "thePassword"
   },
   "entities": [
     {
