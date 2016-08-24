@@ -66,6 +66,10 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 ```json
   {
+    "domain": {
+      "service": "theService",
+      "subservice": "/theSubService"
+    },
     "contextBroker": {
       "protocol": "https",
       "host": "localhost",
@@ -76,10 +80,8 @@ An example simulation configuration file is shown next to give you a glimpse of 
       "protocol": "https",
       "host": "localhost",
       "port": 5001,
-      "service": "myService",
-      "subservice": "/mySubService",
-      "user": "userToGenerateAuthenticationTokens",
-      "password": "passwordToGenerateAuthenticationTokens"
+      "user": "theUser",
+      "password": "thePassword"
     },
     "iota": {
       "ultralight": {
@@ -210,17 +212,18 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 The simulation configuration file accepts the following JSON properties or entries:
 
-* **contextBroker**: Includes information about the context broker where the data will be stored.
+* **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests.
+    * **service**: The service to use in the requests.
+    * **subservice**: The subservice (i.e., service path) to use in the requests.
+* **contextBroker**: Includes information about the context broker where the data will be stored. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **protocol**: The protocol the Context Broker is expecting the requests to be sent by (or more concretely of the PEP protecting the access to the Context Broker API).
     * **host**: The host machine name or IP address where the Context Broker is running (or more concretely of the PEP protecting the access to the Context Broker API).
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
     * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
-* **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests.
+* **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests. Optional (authentication tokens will only be requested if the `authentication` information is included).
     * **protocol**: The protocol the Identity Service is expecting the requests to be sent by.
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
-    * **service**: The service associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct services providing the concrete service in its simulation configuration file.
-    * **subservice**: The subservice or service path associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct subservices providing the concrete service in its simulation configuration file.
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
@@ -275,9 +278,15 @@ The simulation configuration file accepts the following JSON properties or entri
                 * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds` (from 0 to 59), `minutes` (from 0 to 59), `hours` (from 0 to 23), `days` (from 0 to 6), `dates` (from 1 to 31), `months` (from 0 to 11) and `years` (full year) (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
                 * A valid attribute value using the `text-rotation-interpolator` is: `"text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"`. For example, according to this text rotation interpolation specification, if the current time seconds is between 0 and 15 it will return the value `PENDING`, if it is between 15 and 30 it will return the value `REQUESTED`, if it is between 30 and 45 it will return the value `COMPLETED` with a probability of 50% and `ERROR` with a probability of 50%.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
-* **devices**: Information about the devices to be updated during this concrete simulation. The `device` property is just like the `entity` property described before with 2 additions:
-    1. An additional `device_id` property at the `device` level specifying the device identifier (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).
-    2. An additional `object_id` property at the `active` or `staticAttributes` level specifying the attribute object (short) identifier.
+* **devices**: Information about the devices to be updated during this concrete simulation. The `devices` entries are just like the previous `entities` entries described above with the following modifications:
+    1. Instead of the `entity_name`, a `device_id` has to be specified (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).
+    2. A `protocol` property has to be set specifying the device protocol. Accepted values are: `UltraLight::HTTP`, `UltraLight::MQTT`, `JSON::HTTP` and `JSON::MQTT`.
+    3. No `entity_type` property has to be specified.
+    4. An `api_key` property has to be set specifying the API key to be used when updating the device attributes.
+    5. Instead of the `active` and `staticAttributes` property, an `attributes` properties has to be included specifying the array of attributes to be updated. At the `attributes` level:
+        1. No `name` property has to be specified. Instead the `object_id` has to be set specifying the attribute object (short) identifier.
+        2. No `type` property has to be specified.
+        3. All the previously describe interpolators can be used in the `value`.
 
 Following the description of the simulation configuration file accepted properties and leaning on the [FIWARE waste management harmonized data models](http://fiware-datamodels.readthedocs.io/en/latest/WasteManagement/doc/introduction/index.html), we provide a simulation configuration real example file to automatically generate waste management data, more concretely simulating the dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
