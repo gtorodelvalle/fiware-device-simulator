@@ -737,7 +737,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no UltraLight HTTP API key IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no UltraLight API key IoT Agent configuration information is provided ' +
        'and UltraLight HTTP devices specifying no API key are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -1021,7 +1021,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no UltraLight MQTT API key IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no UltraLight API key IoT Agent configuration information is provided ' +
        'and UltraLight MQTT devices not specifying specific API keys are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -1262,7 +1262,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no JSON HTTP API key IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no JSON API key IoT Agent configuration information is provided ' +
        'and JSON HTTP devices not specifying API keys are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -1546,7 +1546,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no JSON MQTT API key IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no JSON API key IoT Agent configuration information is provided ' +
        'and JSON MQTT devices not specifying API keys are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(

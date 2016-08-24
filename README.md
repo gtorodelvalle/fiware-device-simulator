@@ -85,6 +85,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
     },
     "iota": {
       "ultralight": {
+        "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
         "http": {
           "protocol": "http",
           "host": "localhost",
@@ -174,7 +175,6 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"schedule": "once",
       "protocol": "UltraLight::HTTP",
   		"device_id": "DeviceId1",
-      "api_key": "1ifhm6o0kp4ew7fi377mpyc3c",
   		"attributes": [{
   			"object_id": "a1",
   			"value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 3600})"
@@ -228,31 +228,29 @@ The simulation configuration file accepts the following JSON properties or entri
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
     * **ultralight**: Includes information about the configuration of the UltraLight IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
+        * **api_key**: The API key to be used when updating UltraLight devices whose API key is not specified at a local level (see below). Mandatory if at least one UltraLight device is included whose API key is not specified at a local level.
         * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) or UltraLight JSON devices ((`protocol` property equal to `UltraLight::JSON`)) is included in the simulation configuration).
             * **protocol**: The protocol the UltraLight HTTP IoT Agent is expecting the requests to be sent by.
             * **host**: The host machine where the UltraLight HTTP IoT Agent will be listening for requests.
             * **port**: The port where the UltraLight HTTP IoT Agent will be listening for requests.
-            * **api_key**: The API key to be used when updating UltraLight HTTP devices whose API key is not specified at a local level (see below). Mandatory if at least one UltraLight HTTP device is included whose API key is not specified at a local level.
         * **mqtt**: Includes information about the configuration of the MQTT binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight MQTT devices (`protocol` property equal to `UltraLight::MQTT`) is included in the simulation configuration).
             * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
             * **host**: The host machine where the UltraLight MQTT IoT Agent will be listening for requests.
             * **port**: The port where the UltraLight MQTT IoT Agent will be listening for requests.
             * **user**: The user to use for MQTT authenticated communications. Optional.
             * **password**: The password to use for MQTT authenticated communications. Optional.
-            * **api_key**: The API key to be used when updating UltraLight MQTT devices whose API key is not specified at a local level (see below). Mandatory if at least one UltraLight MQTT device is included whose API key is not specified at a local level.
     * **json**: Includes information about the configuration of the JSON IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `JSON::`) is included in the simulation configuration).
+        * **api_key**: The API key to be used when updating JSON devices whose API key is not specified at a local level (see below). Mandatory if at least one JSON device is included whose API key is not specified at a local level.
         * **http**: Includes information about the configuration of the HTTP binding for the JSON protocol. It is mandatory if a `devices` property describing JSON HTTP devices (`protocol` property equal to `JSON::HTTP`) is included in the simulation configuration).
             * **protocol**: The protocol the JSON HTTP IoT Agent is expecting the requests to be sent by.
             * **host**: The host machine where the JSON HTTP IoT Agent will be listening for requests.
             * **port**: The port where the JSON HTTP IoT Agent will be listening for requests.
-            * **api_key**: The API key to be used when updating JSON HTTP devices whose API key is not specified at a local level (see below). Mandatory if at least one JSON HTTP device is included whose API key is not specified at a local level.
         * **mqtt**: Includes information about the configuration of the MQTT binding for the JSON protocol. It is mandatory if a `devices` property describing JSON MQTT devices (`protocol` property equal to `JSON::MQTT`) is included in the simulation configuration).
             * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
                 * **host**: The host machine where the JSON MQTT IoT Agent will be listening for requests.
                 * **port**: The port where the JSON MQTT IoT Agent will be listening for requests.
                 * **user**: The user to use for MQTT authenticated communications. Optional.
                 * **password**: The password to use for MQTT authenticated communications. Optional.
-                * **api_key**: The API key to be used when updating JSON MQTT devices whose API key is not specified at a local level (see below). Mandatory if at least one JSON MQTT device is included whose API key is not specified at a local level.
 * **entities**: Information about the entities to be updated during this concrete simulation.
     * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
