@@ -737,6 +737,56 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if no UltraLight HTTP API key IoT Agent configuration information is provided ' +
+       'and UltraLight HTTP devices specifying no API key are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {
+                protocol: 'http',
+                host: 'localhost',
+                port: 8085
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if no UltraLight IoT Agent configuration information is provided and ' +
        'UltraLight MQTT devices are included',
       function(done) {
@@ -971,6 +1021,56 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if no UltraLight MQTT API key IoT Agent configuration information is provided ' +
+       'and UltraLight MQTT devices not specifying specific API keys are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              mqtt: {
+                protocol: 'mqtt',
+                host: 'localhost',
+                port: 1883
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::MQTT',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if no JSON HTTP IoT Agent configuration information is provided and ' +
        'JSON HTTP devices are included',
       function(done) {
@@ -1039,7 +1139,7 @@ describe('fiwareDeviceSimulator tests', function() {
             password: 'thePassword'
           },
           iota: {
-            ultralight: {
+            json: {
               http: {}
             }
           },
@@ -1086,7 +1186,7 @@ describe('fiwareDeviceSimulator tests', function() {
             password: 'thePassword'
           },
           iota: {
-            ultralight: {
+            json: {
               http: {
                 protocol: 'http'
               }
@@ -1136,7 +1236,7 @@ describe('fiwareDeviceSimulator tests', function() {
           },
           iota: {
             ultralight: {
-              http: {
+              json: {
                 protocol: 'http',
                 host: 'localhost'
               }
@@ -1147,6 +1247,56 @@ describe('fiwareDeviceSimulator tests', function() {
             device_id: 'DeviceId1',
             protocol: 'JSON::HTTP',
             api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON HTTP API key IoT Agent configuration information is provided ' +
+       'and JSON HTTP devices not specifying API keys are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {
+              http: {
+                protocol: 'http',
+                host: 'localhost',
+                port: 8185
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::HTTP',
             attributes: [{
               object_id: 'a1',
               value: 1
@@ -1381,6 +1531,56 @@ describe('fiwareDeviceSimulator tests', function() {
             device_id: 'DeviceId1',
             protocol: 'JSON::MQTT',
             api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON MQTT API key IoT Agent configuration information is provided ' +
+       'and JSON MQTT devices not specifying API keys are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            json: {
+              mqtt: {
+                protocol: 'mqtt',
+                host: 'localhost',
+                port: 1883
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::MQTT',
             attributes: [{
               object_id: 'a1',
               value: 1
