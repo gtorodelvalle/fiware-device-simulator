@@ -292,18 +292,22 @@ Following the description of the simulation configuration file accepted properti
 
 ```json
 {
+  "domain": {
+    "service": "theService",
+    "subservice": "/theSubService"
+  },
   "contextBroker": {
+    "protocol": "https",
     "host": "195.235.93.224",
     "port": 10027,
     "ngsiVersion": "1.0"
   },
   "authentication": {
-      "host": "195.235.93.224",
-      "port": 15001,
-      "service": "theService",
-      "subservice": "/theSubservice",
-      "user": "theUser",
-      "password": "thePassword"
+    "protocol": "https",
+    "host": "195.235.93.224",
+    "port": 15001,
+    "user": "theUser",
+    "password": "thePassword"
   },
   "entities": [
     {
