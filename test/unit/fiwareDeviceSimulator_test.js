@@ -96,8 +96,23 @@ describe('fiwareDeviceSimulator tests', function() {
     ':' + simulationConfiguration.authentication.port);
 
   describe('simulation configuration validation', function() {
-    it('should notify an "error" event if no domain configuration information is provided', function(done) {
-      simulationProgress = fiwareDeviceSimulator.start({});
+    it('should notify an "error" event if no domain configuration information is provided and ' +
+       'entities are included',
+    function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
+        }
+      );
       simulationProgress.on('error', function(ev) {
         should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
       });
@@ -106,10 +121,21 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no service in the domain configuration information is provided',
-      function(done) {
+    it('should notify an "error" event if no service in the domain configuration information is provided and ' +
+       'entities are included',
+    function(done) {
       simulationProgress = fiwareDeviceSimulator.start({
-        domain: {}
+        domain: {},
+        entities: [{
+          schedule: 'once',
+          entity_name: 'EntityName1',
+          entity_type: 'EntityType1',
+          active: [{
+            name: 'active1',
+            type: 'number',
+            value: 1
+          }]
+        }]
       });
       simulationProgress.on('error', function(ev) {
         should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
@@ -119,12 +145,23 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no subservice in the domain configuration information is provided',
-      function(done) {
+    it('should notify an "error" event if no subservice in the domain configuration information is provided and ' +
+       'entities are included',
+    function(done) {
       simulationProgress = fiwareDeviceSimulator.start({
         domain: {
           service: 'theService'
-        }
+        },
+        entities: [{
+          schedule: 'once',
+          entity_name: 'EntityName1',
+          entity_type: 'EntityType1',
+          active: [{
+            name: 'active1',
+            type: 'number',
+            value: 1
+          }]
+        }]
       });
       simulationProgress.on('error', function(ev) {
         should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
