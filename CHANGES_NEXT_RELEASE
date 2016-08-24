@@ -1,3 +1,2 @@
-- [TASK] Improving the waste management example with the dateUpdated, storedWasteOrigin and storedWasteKind attributes
-- [FEATURE] Support UltraLight MQTT devices
-- [FEATURE] Support JSON HTTP and MQTT devices
+- [FEATURE] Protocol selection support for HTTP communications
+- [FEATURE] Support optional Context Broker and Authentication simulation configuration information

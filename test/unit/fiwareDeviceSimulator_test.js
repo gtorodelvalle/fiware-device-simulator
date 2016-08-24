@@ -46,11 +46,11 @@ var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 function wellFormedTokenRequestCheck(simulationConfiguration, requestBody) {
   should(requestBody.auth.identity.methods).be.an.instanceof(Array);
   should(requestBody.auth.identity.methods).containDeep(['password']);
-  should(requestBody.auth.identity.password.user.domain.name).equal(simulationConfiguration.authentication.service);
+  should(requestBody.auth.identity.password.user.domain.name).equal(simulationConfiguration.domain.service);
   should(requestBody.auth.identity.password.user.name).equal(simulationConfiguration.authentication.user);
   should(requestBody.auth.identity.password.user.password).equal(simulationConfiguration.authentication.password);
-  should(requestBody.auth.scope.project.domain.name).equal(simulationConfiguration.authentication.service);
-  should(requestBody.auth.scope.project.name).equal(simulationConfiguration.authentication.subservice);
+  should(requestBody.auth.scope.project.domain.name).equal(simulationConfiguration.domain.service);
+  should(requestBody.auth.scope.project.name).equal(simulationConfiguration.domain.subservice);
 }
 
 /**
@@ -92,11 +92,11 @@ describe('fiwareDeviceSimulator tests', function() {
 
   var simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
 
-  idm = nock('https://' + simulationConfiguration.authentication.host + ':' +
-    simulationConfiguration.authentication.port);
+  idm = nock(simulationConfiguration.authentication.protocol + '://' + simulationConfiguration.authentication.host +
+    ':' + simulationConfiguration.authentication.port);
 
   describe('simulation configuration validation', function() {
-    it('should notify an "error" event if no context broker configuration information is provided', function(done) {
+    it('should notify an "error" event if no domain configuration information is provided', function(done) {
       simulationProgress = fiwareDeviceSimulator.start({});
       simulationProgress.on('error', function(ev) {
         should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
@@ -106,11 +106,53 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no host context broker configuration information is provided',
+    it('should notify an "error" event if no service in the domain configuration information is provided',
       function(done) {
+      simulationProgress = fiwareDeviceSimulator.start({
+        domain: {}
+      });
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no subservice in the domain configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start({
+        domain: {
+          service: 'theService'
+        }
+      });
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no context broker configuration information is provided and ' +
+       'entities are included',
+    function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
-          contextBroker: {}
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
         }
       );
       simulationProgress.on('error', function(ev) {
@@ -121,13 +163,121 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no port context broker configuration information is provided',
+    it('should notify an "error" event if no protocol context broker configuration information is provided and ' +
+       'entities are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {},
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no protocol context broker configuration information is provided and ' +
+       'entities are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {},
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no host context broker configuration information is provided and ' +
+       'entities are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https'
+          },
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no port context broker configuration information is provided and ' +
+       'entities are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
             host: 'localhost'
-          }
+          },
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
         }
       );
       simulationProgress.on('error', function(ev) {
@@ -138,13 +288,55 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no NGSI version context broker configuration information is provided',
+    it('should notify an "error" event if no NGSI version context broker configuration information is provided and ' +
+       'entities are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026'
+          },
+          entities: [{
+            schedule: 'once',
+            entity_name: 'EntityName1',
+            entity_type: 'EntityType1',
+            active: [{
+              name: 'active1',
+              type: 'number',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no protocol authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
           }
         }
       );
@@ -160,10 +352,18 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https'
           }
         }
       );
@@ -179,60 +379,19 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost'
-          }
-        }
-      );
-      simulationProgress.on('error', function(ev) {
-        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
-      });
-      simulationProgress.on('end', function() {
-        done();
-      });
-    });
-
-    it('should notify an "error" event if no service authentication configuration information is provided',
-      function(done) {
-      simulationProgress = fiwareDeviceSimulator.start(
-        {
-          contextBroker: {
-            host: 'localhost',
-            port: '1026',
-            ngsiVersion: '1.0'
-          },
-          authentication: {
-            host: 'localhost',
-            port: 5001
-          }
-        }
-      );
-      simulationProgress.on('error', function(ev) {
-        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
-      });
-      simulationProgress.on('end', function() {
-        done();
-      });
-    });
-
-    it('should notify an "error" event if no subservice authentication configuration information is provided',
-      function(done) {
-      simulationProgress = fiwareDeviceSimulator.start(
-        {
-          contextBroker: {
-            host: 'localhost',
-            port: '1026',
-            ngsiVersion: '1.0'
-          },
-          authentication: {
-            host: 'localhost',
-            port: 5001,
-            service: 'theservice'
           }
         }
       );
@@ -248,16 +407,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
-            port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService'
+            port: 5001
           }
         }
       );
@@ -273,16 +436,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser'
           }
         }
@@ -299,16 +466,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -337,16 +508,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -376,16 +551,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -412,21 +591,25 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no UltraLight HTTP host IoT Agent configuration information is provided ' +
-       'and UltraLight HTTP devices are included',
+    it('should notify an "error" event if no UltraLight HTTP protocol IoT Agent configuration information is ' +
+       'provided and UltraLight HTTP devices are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -455,27 +638,81 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no UltraLight HTTP port IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no UltraLight HTTP host IoT Agent configuration information is provided ' +
        'and UltraLight HTTP devices are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
           iota: {
             ultralight: {
               http: {
+                protocol: 'http'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'UltraLight::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no UltraLight HTTP port IoT Agent configuration information is provided ' +
+       'and UltraLight HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {
+                protocol: 'http',
                 host: 'localhost'
               }
             }
@@ -505,16 +742,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -544,16 +785,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -585,16 +830,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -628,16 +877,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -673,16 +926,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -719,16 +976,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -755,21 +1016,25 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no JSON HTTP host IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no JSON HTTP protocol IoT Agent configuration information is provided ' +
        'and JSON HTTP devices are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -798,27 +1063,81 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if no JSON HTTP port IoT Agent configuration information is provided ' +
+    it('should notify an "error" event if no JSON HTTP host IoT Agent configuration information is provided ' +
        'and JSON HTTP devices are included',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
           iota: {
             ultralight: {
               http: {
+                protocol: 'http'
+              }
+            }
+          },
+          devices: [{
+            schedule: 'once',
+            device_id: 'DeviceId1',
+            protocol: 'JSON::HTTP',
+            api_key: 'the-api-key',
+            attributes: [{
+              object_id: 'a1',
+              value: 1
+            }]
+          }]
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
+    it('should notify an "error" event if no JSON HTTP port IoT Agent configuration information is provided ' +
+       'and JSON HTTP devices are included',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+            protocol: 'https',
+            host: 'localhost',
+            port: 5001,
+            user: 'theUser',
+            password: 'thePassword'
+          },
+          iota: {
+            ultralight: {
+              http: {
+                protocol: 'http',
                 host: 'localhost'
               }
             }
@@ -848,16 +1167,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -887,16 +1210,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -928,16 +1255,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -971,16 +1302,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1016,16 +1351,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1061,16 +1400,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1089,16 +1432,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1117,16 +1464,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1147,16 +1498,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1180,16 +1535,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1213,16 +1572,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1247,16 +1610,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1282,16 +1649,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1317,16 +1688,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1356,16 +1731,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1395,16 +1774,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1437,16 +1820,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1479,16 +1866,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1521,16 +1912,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1563,16 +1958,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1605,16 +2004,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1647,16 +2050,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1689,16 +2096,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1731,16 +2142,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1773,16 +2188,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1815,16 +2234,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1861,16 +2284,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1909,16 +2336,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -1958,16 +2389,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2007,16 +2442,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2056,16 +2495,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2105,16 +2548,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2154,16 +2601,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2203,16 +2654,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2252,16 +2707,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2301,16 +2760,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2351,16 +2814,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2401,16 +2868,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2453,16 +2924,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2507,16 +2982,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2562,16 +3041,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2618,16 +3101,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2675,16 +3162,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2732,16 +3223,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2789,16 +3284,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2848,16 +3347,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2910,16 +3413,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -2972,16 +3479,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3034,16 +3545,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3096,16 +3611,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3158,16 +3677,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3220,16 +3743,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3282,16 +3809,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3344,16 +3875,20 @@ describe('fiwareDeviceSimulator tests', function() {
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
           contextBroker: {
+            protocol: 'https',
             host: 'localhost',
             port: '1026',
             ngsiVersion: '1.0'
           },
           authentication: {
+            protocol: 'https',
             host: 'localhost',
             port: 5001,
-            service: 'theservice',
-            subservice: '/theSubService',
             user: 'theUser',
             password: 'thePassword'
           },
@@ -3423,7 +3958,6 @@ describe('fiwareDeviceSimulator tests', function() {
     it('should request an authorization token', function(done) {
       simulationProgress = fiwareDeviceSimulator.start(simulationConfiguration);
       simulationProgress.on('error', function(ev) {
-        isError = true;
         should(ev.error).instanceof(fdsErrors.TokenNotAvailable);
       });
       simulationProgress.on('end', function() {
@@ -3493,16 +4027,16 @@ describe('fiwareDeviceSimulator tests', function() {
         );
 
         if (options.ngsiVersion === '1.0') {
-          contextBroker = nock('https://' + simulationConfiguration.contextBroker.host + ':' +
-            simulationConfiguration.contextBroker.port);
+          contextBroker = nock(simulationConfiguration.contextBroker.protocol + '://' +
+            simulationConfiguration.contextBroker.host + ':' + simulationConfiguration.contextBroker.port);
           contextBroker.post('/v1/updateContext').times(5).reply(
             function() {
               return [200];
             }
           );
         } else if (options.ngsiVersion === '2.0') {
-          contextBroker = nock('https://' + simulationConfiguration.contextBroker.host + ':' +
-            simulationConfiguration.contextBroker.port);
+          contextBroker = nock(simulationConfiguration.contextBroker.protocol + '://' +
+            simulationConfiguration.contextBroker.host + ':' + simulationConfiguration.contextBroker.port);
           contextBroker.post('/v2/op/update').times(5).reply(
             function() {
               return [200];
@@ -3511,7 +4045,8 @@ describe('fiwareDeviceSimulator tests', function() {
         }
 
         if (options.protocol === 'UltraLight::HTTP') {
-          httpIoTA = nock('http://' + simulationConfiguration.iota.ultralight.http.host + ':' +
+          httpIoTA = nock(simulationConfiguration.iota.ultralight.http.protocol + '://' +
+            simulationConfiguration.iota.ultralight.http.host + ':' +
             simulationConfiguration.iota.ultralight.http.port);
           httpIoTA.post('/iot/d').query(true).times(5).reply(
             function() {
@@ -3530,7 +4065,8 @@ describe('fiwareDeviceSimulator tests', function() {
             return mqttClient;
           });
         } else if (options.protocol === 'JSON::HTTP') {
-          httpIoTA = nock('http://' + simulationConfiguration.iota.json.http.host + ':' +
+          httpIoTA = nock(simulationConfiguration.iota.json.http.protocol + '://' +
+            simulationConfiguration.iota.json.http.host + ':' +
             simulationConfiguration.iota.json.http.port);
           httpIoTA.post('/iot/json').query(true).times(5).reply(
             function() {
