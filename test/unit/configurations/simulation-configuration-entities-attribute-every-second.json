@@ -1,4 +1,8 @@
 {
+  "domain": {
+    "service": "theService",
+    "subservice": "/theSubService"
+  },
   "contextBroker": {
     "protocol": "https",
     "host": "localhost",
@@ -9,10 +13,8 @@
     "protocol": "https",
     "host": "localhost",
     "port": 5001,
-    "service": "myService",
-    "subservice": "/mySubService",
-    "user": "userToGenerateAuthenticationTokens",
-    "password": "passwordToGenerateAuthenticationTokens"
+    "user": "theUser",
+    "password": "thePassword"
   },
   "iota": {
     "ultralight": {
