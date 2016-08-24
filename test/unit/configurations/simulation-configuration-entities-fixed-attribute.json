@@ -1,10 +1,12 @@
 {
   "contextBroker": {
+    "protocol": "https",
     "host": "localhost",
     "port": 1026,
     "ngsiVersion": "1.0"
   },
   "authentication": {
+    "protocol": "https",
       "host": "localhost",
       "port": 5001,
       "service": "myService",
@@ -15,6 +17,7 @@
   "iota": {
     "ultralight": {
       "http": {
+        "protocol": "http",
         "host": "localhost",
         "port": 8085
       }

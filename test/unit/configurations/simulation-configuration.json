@@ -1,26 +1,30 @@
 {
   "contextBroker": {
+    "protocol": "https",
     "host": "localhost",
     "port": 1026,
     "ngsiVersion": "1.0"
   },
   "authentication": {
-      "host": "localhost",
-      "port": 5001,
-      "service": "myService",
-      "subservice": "/mySubService",
-      "user": "userToGenerateAuthenticationTokens",
-      "password": "passwordToGenerateAuthenticationTokens"
+    "protocol": "https",
+    "host": "localhost",
+    "port": 5001,
+    "service": "myService",
+    "subservice": "/mySubService",
+    "user": "userToGenerateAuthenticationTokens",
+    "password": "passwordToGenerateAuthenticationTokens"
   },
   "iota": {
     "ultralight": {
       "http": {
+        "protocol": "http",
         "host": "localhost",
         "port": 8085
       }
     },
     "json": {
       "http": {
+        "protocol": "http",
         "host": "localhost",
         "port": 8185
       }

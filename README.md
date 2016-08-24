@@ -67,21 +67,24 @@ An example simulation configuration file is shown next to give you a glimpse of 
 ```json
   {
     "contextBroker": {
+      "protocol": "https",
       "host": "localhost",
       "port": 1026,
       "ngsiVersion": "1.0"
     },
     "authentication": {
-        "host": "localhost",
-        "port": 5001,
-        "service": "myService",
-        "subservice": "/mySubService",
-        "user": "userToGenerateAuthenticationTokens",
-        "password": "passwordToGenerateAuthenticationTokens"
+      "protocol": "https",
+      "host": "localhost",
+      "port": 5001,
+      "service": "myService",
+      "subservice": "/mySubService",
+      "user": "userToGenerateAuthenticationTokens",
+      "password": "passwordToGenerateAuthenticationTokens"
     },
     "iota": {
       "ultralight": {
         "http": {
+          "protocol": "http",
           "host": "localhost",
           "port": 8085
         },
@@ -95,6 +98,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
       },
       "json": {
         "http": {
+          "protocol": "http",
           "host": "localhost",
           "port": 8185
         },
@@ -207,10 +211,12 @@ An example simulation configuration file is shown next to give you a glimpse of 
 The simulation configuration file accepts the following JSON properties or entries:
 
 * **contextBroker**: Includes information about the context broker where the data will be stored.
+    * **protocol**: The protocol the Context Broker is expecting the requests to be sent by (or more concretely of the PEP protecting the access to the Context Broker API).
     * **host**: The host machine name or IP address where the Context Broker is running (or more concretely of the PEP protecting the access to the Context Broker API).
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
     * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
 * **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests.
+    * **protocol**: The protocol the Identity Service is expecting the requests to be sent by.
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
     * **service**: The service associated to the entities and devices included in this simulation configuration file. The authorization tokens will be requested for this service and it will be included in all the interactions with the Context Broker. Distinct simulation should be run for distinct services providing the concrete service in its simulation configuration file.
@@ -220,18 +226,20 @@ The simulation configuration file accepts the following JSON properties or entri
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
     * **ultralight**: Includes information about the configuration of the UltraLight IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
         * **http**: Includes information about the configuration of the HTTP binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight HTTP devices (`protocol` property equal to `UltraLight::HTTP`) or UltraLight JSON devices ((`protocol` property equal to `UltraLight::JSON`)) is included in the simulation configuration).
-            * **host**: The host machine where the UltraLight HTTP IoT agent will be listening for requests.
-            * **port**: The port where the UltraLight HTTP IoT agent will be listening for requests.
+            * **protocol**: The protocol the UltraLight HTTP IoT Agent is expecting the requests to be sent by.
+            * **host**: The host machine where the UltraLight HTTP IoT Agent will be listening for requests.
+            * **port**: The port where the UltraLight HTTP IoT Agent will be listening for requests.
         * **mqtt**: Includes information about the configuration of the MQTT binding for the UltraLight protocol. It is mandatory if a `devices` property describing UltraLight MQTT devices (`protocol` property equal to `UltraLight::MQTT`) is included in the simulation configuration).
             * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
-            * **host**: The host machine where the UltraLight MQTT IoT agent will be listening for requests.
-            * **port**: The port where the UltraLight MQTT IoT agent will be listening for requests.
+            * **host**: The host machine where the UltraLight MQTT IoT Agent will be listening for requests.
+            * **port**: The port where the UltraLight MQTT IoT Agent will be listening for requests.
             * **user**: The user to use for MQTT authenticated communications. Optional.
             * **password**: The password to use for MQTT authenticated communications. Optional.
     * **json**: Includes information about the configuration of the JSON IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `JSON::`) is included in the simulation configuration).
         * **http**: Includes information about the configuration of the HTTP binding for the JSON protocol. It is mandatory if a `devices` property describing JSON HTTP devices (`protocol` property equal to `JSON::HTTP`) is included in the simulation configuration).
-            * **host**: The host machine where the JSON HTTP IoT agent will be listening for requests.
-            * **port**: The port where the JSON HTTP IoT agent will be listening for requests.
+            * **protocol**: The protocol the JSON HTTP IoT Agent is expecting the requests to be sent by.
+            * **host**: The host machine where the JSON HTTP IoT Agent will be listening for requests.
+            * **port**: The port where the JSON HTTP IoT Agent will be listening for requests.
         * **mqtt**: Includes information about the configuration of the MQTT binding for the JSON protocol. It is mandatory if a `devices` property describing JSON MQTT devices (`protocol` property equal to `JSON::MQTT`) is included in the simulation configuration).
             * **protocol**: The transport protocol used. Possible values include: `mqtt`, `mqtts`, `tcp`, `tls`, `ws`, `wss`.
                 * **host**: The host machine where the JSON MQTT IoT Agent will be listening for requests.
