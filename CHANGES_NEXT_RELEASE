@@ -1,3 +1,1 @@
-- [TASK] Adapting the waste management example to the latest changes in the simulation configuration format
-- [FEATURE] Possibility to specify the API key at IoTA's configuration level
-- [BUG] "domain" should only be mandatory if "entities" are included in the simulation
+- [BUG] Only set service and subservice if domain is specified
