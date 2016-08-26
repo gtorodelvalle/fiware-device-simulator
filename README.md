@@ -279,6 +279,10 @@ The simulation configuration file accepts the following JSON properties or entri
                 * `units`: It is a string which affects the `text` property detailed below. It accepts the following values: `seconds`, `minutes`, `hours`, `days` (day of the week), `dates` (day of the month), `months` and `years`.
                 * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds` (from 0 to 59), `minutes` (from 0 to 59), `hours` (from 0 to 23), `days` (from 0 to 6), `dates` (from 1 to 31), `months` (from 0 to 11) and `years` (full year) (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
                 * A valid attribute value using the `text-rotation-interpolator` is: `"text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"`. For example, according to this text rotation interpolation specification, if the current time seconds is between 0 and 15 it will return the value `PENDING`, if it is between 15 and 30 it will return the value `REQUESTED`, if it is between 30 and 45 it will return the value `COMPLETED` with a probability of 50% and `ERROR` with a probability of 50%.
+        * **metadata**: Array of metadata information to be associated to the attribute on the update. Each metadata array entry is an object including 3 properties:
+            * **name**: The metadata name.
+            * **type**: The metadata type.
+            * **value**: The metadata value. As the value of any metadata, all the possible accepted values for attributes (detailed above) can be used including the interpolators.
     * **staticAttributes**: List of attributes which will be included in every update of the entity. Static attributes are just like the active attributes previously described with 1 main remarks: they do not include a `schedule` property since the schedule of the updates of the entity and its attributes is determined by the `schedule` property at the active attributes level or the one specified at the entity level. Although staticAttributes may use any of the available interpolators as their `value` property, they typically include fixed values and no any type of interpolation.
 * **devices**: Information about the devices to be updated during this concrete simulation. The `devices` entries are just like the previous `entities` entries described above with the following modifications:
     1. Instead of the `entity_name`, a `device_id` has to be specified (in case the `count` property is used, the `device_id` property is set just like the `entity_name` as describe above in the `count` property description).
@@ -319,17 +323,17 @@ Following the description of the simulation configuration file accepted properti
       "staticAttributes": [
         {
           "name": "name",
-          "type": "string",
+          "type": "Text",
           "value": "Distrito Telefónica - Oeste"
         },
         {
           "name": "description",
-          "type": "string",
+          "type": "Text",
           "value": "Zona de contenedores Oeste de Distrito Telefónica"
         },
         {
           "name": "features",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
@@ -351,7 +355,7 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containers",
-          "type": "list",
+          "type": "List",
           "value": ["WasteContainer:DTO:001", "WasteContainer:DTO:002"]
         }
       ]
@@ -363,17 +367,17 @@ Following the description of the simulation configuration file accepted properti
       "staticAttributes": [
         {
           "name": "name",
-          "type": "string",
+          "type": "Text",
           "value": "Distrito Telefónica - Norte"
         },
         {
           "name": "description",
-          "type": "string",
+          "type": "Text",
           "value": "Zona de contenedores Norte de Distrito Telefónica"
         },
         {
           "name": "features",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
@@ -395,7 +399,7 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containers",
-          "type": "list",
+          "type": "List",
           "value": ["WasteContainer:DTN:001", "WasteContainer:DTN:002"]
         }
       ]
@@ -407,17 +411,17 @@ Following the description of the simulation configuration file accepted properti
       "staticAttributes": [
         {
           "name": "name",
-          "type": "string",
+          "type": "Text",
           "value": "Distrito Telefónica - Este"
         },
         {
           "name": "description",
-          "type": "string",
+          "type": "Text",
           "value": "Zona de contenedores Este de Distrito Telefónica"
         },
         {
           "name": "features",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
@@ -439,7 +443,7 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containers",
-          "type": "list",
+          "type": "List",
           "value": ["WasteContainer:DTE:001", "WasteContainer:DTE:002"]
         }
       ]
@@ -451,17 +455,17 @@ Following the description of the simulation configuration file accepted properti
       "staticAttributes": [
         {
           "name": "name",
-          "type": "string",
+          "type": "Text",
           "value": "Distrito Telefónica - Sur"
         },
         {
           "name": "description",
-          "type": "string",
+          "type": "Text",
           "value": "Zona de contenedores Sur de Distrito Telefónica"
         },
         {
           "name": "features",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
@@ -483,7 +487,7 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containers",
-          "type": "list",
+          "type": "List",
           "value": ["WasteContainer:DTS:001", "WasteContainer:DTS:002"]
         }
       ]
@@ -495,52 +499,52 @@ Following the description of the simulation configuration file accepted properti
       "staticAttributes": [
         {
           "name": "width",
-          "type": "number",
+          "type": "Number",
           "value": 0.50
         },
         {
           "name": "height",
-          "type": "number",
+          "type": "Number",
           "value": 0.80
         },
         {
           "name": "depth",
-          "type": "number",
+          "type": "Number",
           "value": 0.40
         },
         {
           "name": "volumeStored",
-          "type": "number",
+          "type": "Number",
           "value": 150
         },
         {
           "name": "brandName",
-          "type": "string",
+          "type": "Text",
           "value": "Modelo de Contenedor 001"
         },
         {
           "name": "modelName",
-          "type": "string",
+          "type": "Text",
           "value": "001"
         },
         {
           "name": "compliantWith",
-          "type": "list",
+          "type": "List",
           "value": ["UNE-EN 840-2:2013"]
         },
         {
           "name": "madeOf",
-          "type": "string",
+          "type": "Text",
           "value": "plastic"
         },
         {
           "name": "features",
-          "type": "list",
+          "type": "List",
           "value": ["wheels", "lid"]
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["dumpster"]
         }
       ]
@@ -552,41 +556,97 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
+          "value": "WasteContainerIsle:Oeste"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
           "value": "WasteContainerIsle:Oeste"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTO:001"
         },
         {
@@ -599,22 +659,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["organic"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -626,41 +686,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Oeste"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTO:002"
         },
         {
@@ -673,22 +784,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["inorganic"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -700,41 +811,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Norte"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTN:001"
         },
         {
@@ -747,22 +909,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["glass"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -774,41 +936,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Norte"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTN:002"
         },
         {
@@ -821,22 +1034,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["paper"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -848,41 +1061,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Este"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTE:001"
         },
         {
@@ -895,22 +1159,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["plastic"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -922,41 +1186,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Este"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTE:002"
         },
         {
@@ -969,22 +1284,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["batteries"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -996,41 +1311,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Sur"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTS:001"
         },
         {
@@ -1043,22 +1409,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["metal"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
@@ -1070,41 +1436,92 @@ Following the description of the simulation configuration file accepted properti
       "active": [
         {
           "name": "fillingLevel",
-          "type": "number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])"
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
         },
         {
           "name": "dateUpdated",
-          "type": "date",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 * * *",
           "name": "dateLastEmptying",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
           "schedule": "0 0 0 1 * *",
           "name": "dateNextActuation",
-          "type": "date",
+          "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
         }
       ],
       "staticAttributes": [
         {
           "name": "refWasteContainerModel",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerModel:001"
         },
         {
           "name": "containerIsle",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainerIsle:Sur"
         },
         {
           "name": "serialNumber",
-          "type": "string",
+          "type": "Text",
           "value": "WasteContainer:DTS:002"
         },
         {
@@ -1117,22 +1534,22 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "category",
-          "type": "list",
+          "type": "List",
           "value": ["surface"]
         },
         {
           "name": "storedWasteOrigin",
-          "type": "string",
+          "type": "Text",
           "value": "municipal"
         },
         {
           "name": "storedWasteKind",
-          "type": "list",
+          "type": "List",
           "value": ["electronics"]
         },
         {
           "name": "status",
-          "type": "string",
+          "type": "Text",
           "value": "ok"
         }
       ]
