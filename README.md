@@ -770,6 +770,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "WasteContainerIsle:Oeste"
         },
         {
+          "name": "isleId",
+          "type": "Text",
+          "value": "WasteContainerIsle:Oeste"
+        },
+        {
           "name": "serialNumber",
           "type": "Text",
           "value": "WasteContainer:DTO:002"
@@ -891,6 +896,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Norte"
+        },
+        {
+          "name": "isleId",
           "type": "Text",
           "value": "WasteContainerIsle:Norte"
         },
@@ -1020,6 +1030,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "WasteContainerIsle:Norte"
         },
         {
+          "name": "isleId",
+          "type": "Text",
+          "value": "WasteContainerIsle:Norte"
+        },
+        {
           "name": "serialNumber",
           "type": "Text",
           "value": "WasteContainer:DTN:002"
@@ -1141,6 +1156,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Este"
+        },
+        {
+          "name": "isleId",
           "type": "Text",
           "value": "WasteContainerIsle:Este"
         },
@@ -1270,6 +1290,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "WasteContainerIsle:Este"
         },
         {
+          "name": "isleId",
+          "type": "Text",
+          "value": "WasteContainerIsle:Este"
+        },
+        {
           "name": "serialNumber",
           "type": "Text",
           "value": "WasteContainer:DTE:002"
@@ -1395,6 +1420,11 @@ Following the description of the simulation configuration file accepted properti
           "value": "WasteContainerIsle:Sur"
         },
         {
+          "name": "isleId",
+          "type": "Text",
+          "value": "WasteContainerIsle:Sur"
+        },
+        {
           "name": "serialNumber",
           "type": "Text",
           "value": "WasteContainer:DTS:001"
@@ -1516,6 +1546,11 @@ Following the description of the simulation configuration file accepted properti
         },
         {
           "name": "containerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Sur"
+        },
+        {
+          "name": "isleId",
           "type": "Text",
           "value": "WasteContainerIsle:Sur"
         },
