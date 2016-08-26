@@ -1,1 +1,1 @@
-- [BUG] Only set service and subservice if domain is specified
+- [FEATURE] Support the possibility to specify metadata associated to static and active attributes
