@@ -37,6 +37,7 @@ The FIWARE Device Simulator CLI tool is located in the [./bin](./bin) directory 
 To run the FIWARE Device Simulator CLI tool just run:
 
 ```bash
+npm install
 ./bin/fiwareDeviceSimulatorCLI
 ```
 
