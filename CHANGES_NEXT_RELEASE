@@ -1,2 +1,0 @@
-- [BUG] Fixing the text-rotation-interpolator probability accumulation
-- [BUG] Fixing the async's "RangeError: Maximum call stack size exceeded" error
