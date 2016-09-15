@@ -81,7 +81,11 @@ An example simulation configuration file is shown next to give you a glimpse of 
       "host": "localhost",
       "port": 5001,
       "user": "theUser",
-      "password": "thePassword"
+      "password": "thePassword",
+      "retry": {
+        "times": 10,
+        "interval": 1000
+      }
     },
     "iota": {
       "ultralight": {
@@ -226,6 +230,9 @@ The simulation configuration file accepts the following JSON properties or entri
     * **port**: The port where the Identity Service is listening for requests.
     * **user**: The user to be used in the authorization token requests for the provided service and subservice.
     * **password**: The password to be used in the authorization token requests for the provided service and subservice.
+    * **retry**: Retry mechanism in case an error occurs when requesting the authentication token. It is based on the [`async.retry()`](http://caolan.github.io/async/docs.html#.retry) function. It is an object including the following properties:
+        * **times**: The number of attempts to make before giving up and ending the simulation. Mandatory if the `retry` property is included.
+        * **interval**: The time to wait between retries, in milliseconds. Mandatory if the `retry` property is included.
 * **iota**: Includes information about the IoT Agents which will be used for the devices updates. It is mandatory if a `devices` property describing devices is included in the simulation configuration.
     * **ultralight**: Includes information about the configuration of the UltraLight IoT Agents. It is mandatory if a `devices` property describing UltraLight devices (`protocol` property starting with `UltraLight::`) is included in the simulation configuration).
         * **api_key**: The API key to be used when updating UltraLight devices whose API key is not specified at a local level (see below). Mandatory if at least one UltraLight device is included whose API key is not specified at a local level.
