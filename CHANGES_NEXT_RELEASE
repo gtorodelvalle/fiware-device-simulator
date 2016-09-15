@@ -1,1 +1,1 @@
-- [FEATURE] Retry mechanism in case the token retrieval fails
+- [BUG] Do not emit an error event if no error when getting the authentication token
