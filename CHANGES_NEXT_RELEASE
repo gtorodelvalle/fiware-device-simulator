@@ -1,1 +1,0 @@
-- [BUG] Do not emit an error event if no error when getting the authentication token
