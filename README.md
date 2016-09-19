@@ -104,6 +104,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
         }
       },
       "json": {
+        "api_key": "83ut64ib3gzs6km6izubjyenu",
         "http": {
           "protocol": "http",
           "host": "localhost",
