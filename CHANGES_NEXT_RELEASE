@@ -1,1 +1,0 @@
-- [BUG] Do not re-schedule update jobs when a new authorization token is requested
