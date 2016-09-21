@@ -1,0 +1,1258 @@
+{
+  "domain": {
+    "service": "service",
+    "subservice": "/subservice"
+  },
+  "contextBroker": {
+    "protocol": "http",
+    "host": "1.2.3.4",
+    "port": 1026,
+    "ngsiVersion": "1.0"
+  },
+  "authentication": {
+    "protocol": "http",
+    "host": "1.2.3.4",
+    "port": 5001,
+    "user": "user",
+    "password": "password",
+    "retry": {
+        "times": 10,
+        "interval": 5000
+      }
+  },
+  "entities": [
+    {
+      "schedule": "once",
+      "entity_name": "WasteContainerIsle:Oeste",
+      "entity_type": "WasteContainerIsle",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito Telefónica - Oeste"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Zona de contenedores Oeste de Distrito Telefónica"
+        },
+        {
+          "name": "features",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6642676591873165,40.51337501088891],[-3.66318941116333,40.51437011409327],[-3.666316866874695,40.51642960455014],[-3.667373657226562,40.51549162664228],[-3.6642676591873165,40.51337501088891]]]
+          }
+        },
+        {
+          "name": "address",
+          "type": "PostalAddress",
+          "value": {
+            "streetAddress" : "Zona Oeste, Ronda de la Comunicación s/n",
+            "addressLocality": "Madrid",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "name": "refWasteContainer",
+          "type": "List",
+          "value": ["WasteContainer:DTO:001", "WasteContainer:DTO:002"]
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "WasteContainerIsle:Norte",
+      "entity_type": "WasteContainerIsle",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito Telefónica - Norte"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Zona de contenedores Norte de Distrito Telefónica"
+        },
+        {
+          "name": "features",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.66318941116333,40.51437827061587],[-3.662030696868896,40.51548754844881],[-3.6651098728179927,40.51761633170772],[-3.6664187908172607,40.51649893283121],[-3.66318941116333,40.51437827061587]]]
+          }
+        },
+        {
+          "name": "address",
+          "type": "PostalAddress",
+          "value": {
+            "streetAddress" : "Zona Norte, Ronda de la Comunicación s/n",
+            "addressLocality": "Madrid",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "name": "refWasteContainer",
+          "type": "List",
+          "value": ["WasteContainer:DTN:001", "WasteContainer:DTN:002"]
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "WasteContainerIsle:Este",
+      "entity_type": "WasteContainerIsle",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito Telefónica - Este"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Zona de contenedores Este de Distrito Telefónica"
+        },
+        {
+          "name": "features",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6642730236053462,40.51338316753258],[-3.6614298820495605,40.5115234270992],[-3.6603784561157227,40.51245330376326],[-3.663200139999389,40.51439458365814],[-3.6642730236053462,40.51338316753258]]]
+          }
+        },
+        {
+          "name": "address",
+          "type": "PostalAddress",
+          "value": {
+            "streetAddress" : "Zona Este, Ronda de la Comunicación s/n",
+            "addressLocality": "Madrid",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "name": "refWasteContainer",
+          "type": "List",
+          "value": ["WasteContainer:DTE:001", "WasteContainer:DTE:002"]
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "WasteContainerIsle:Sur",
+      "entity_type": "WasteContainerIsle",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito Telefónica - Sur"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Zona de contenedores Sur de Distrito Telefónica"
+        },
+        {
+          "name": "features",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.663210868835449,40.51437011409327],[-3.662030696868896,40.515512017605886],[-3.6591768264770512,40.513627866381356],[-3.660399913787842,40.51245330376326],[-3.663210868835449,40.51437011409327]]]
+          }
+        },
+        {
+          "name": "address",
+          "type": "PostalAddress",
+          "value": {
+            "streetAddress" : "Zona Sur, Ronda de la Comunicación s/n",
+            "addressLocality": "Madrid",
+            "addressCountry": "ES"
+          }
+        },
+        {
+          "name": "refWasteContainer",
+          "type": "List",
+          "value": ["WasteContainer:DTS:001", "WasteContainer:DTS:002"]
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "WasteContainerModel:001",
+      "entity_type": "WasteContainerModel",
+      "staticAttributes": [
+        {
+          "name": "width",
+          "type": "Number",
+          "value": 0.50
+        },
+        {
+          "name": "height",
+          "type": "Number",
+          "value": 0.80
+        },
+        {
+          "name": "depth",
+          "type": "Number",
+          "value": 0.40
+        },
+        {
+          "name": "cargoVolume",
+          "type": "Number",
+          "value": 150
+        },
+        {
+          "name": "brandName",
+          "type": "Text",
+          "value": "Modelo de Contenedor 001"
+        },
+        {
+          "name": "modelName",
+          "type": "Text",
+          "value": "001"
+        },
+        {
+          "name": "compliantWith",
+          "type": "List",
+          "value": ["UNE-EN 840-2:2013"]
+        },
+        {
+          "name": "madeOf",
+          "type": "Text",
+          "value": "plastic"
+        },
+        {
+          "name": "features",
+          "type": "List",
+          "value": ["wheels", "lid"]
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["dumpster"]
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTO:001",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Oeste"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Oeste"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTO:001"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6661827564239498,40.51538151533159]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["organic"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTO:002",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Oeste"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Oeste"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTO:002"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.666096925735473,40.515112353588606]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["inorganic"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTN:001",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Norte"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Norte"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTN:001"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6647772789001465,40.51664574542514]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["glass"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTN:002",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Norte"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Norte"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTN:002"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6647450923919673,40.51627055704617]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["paper"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTE:001",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Este"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Este"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTE:001"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6606144905090328,40.5138236248174]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["plastic"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTE:002",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Este"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Este"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTE:002"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.661140203475952,40.513668649435985]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["batteries"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTS:001",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Sur"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Sur"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTS:001"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6622023582458496,40.51242067673018]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["metal"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    },
+    {
+      "entity_name": "WasteContainer:DTS:002",
+      "entity_type": "WasteContainer",
+      "schedule": "*/5 * * * * *",
+      "active": [
+        {
+          "name": "fillingLevel",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "temperature",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "methaneConcentration",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "metadata": [
+            {
+              "name": "dateUpdated",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            },
+            {
+              "name": "TimeInstant",
+              "type": "DateTime",
+              "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+            }
+          ]
+        },
+        {
+          "name": "TimeInstant",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 * * *",
+          "name": "dateLastEmptying",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        },
+        {
+          "schedule": "0 0 0 1 * *",
+          "name": "dateNextActuation",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 2592000})"
+        }
+      ],
+      "staticAttributes": [
+        {
+          "name": "refWasteContainerModel",
+          "type": "Text",
+          "value": "WasteContainerModel:001"
+        },
+        {
+          "name": "refWasteContainerIsle",
+          "type": "Text",
+          "value": "WasteContainerIsle:Sur"
+        },
+        {
+          "name": "isleId",
+          "type": "Text",
+          "value": "Sur"
+        },
+        {
+          "name": "serialNumber",
+          "type": "Text",
+          "value": "WasteContainer:DTS:002"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.662030696868896,40.512893767156115]
+          }
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["surface"]
+        },
+        {
+          "name": "storedWasteOrigin",
+          "type": "Text",
+          "value": "municipal"
+        },
+        {
+          "name": "storedWasteKind",
+          "type": "List",
+          "value": ["electronics"]
+        },
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "ok"
+        }
+      ]
+    }
+  ]
+}
