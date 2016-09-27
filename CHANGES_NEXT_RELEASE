@@ -1,1 +1,1 @@
-- [BUG] Do not re-schedule update jobs when a new authorization token is requested
+- [BUG] Caching of interpolators is mixing values (#96)

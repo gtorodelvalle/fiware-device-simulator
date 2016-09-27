@@ -1,0 +1,2649 @@
+{
+  "domain": {
+    "service": "service",
+    "subservice": "/subservice"
+  },
+  "contextBroker": {
+    "protocol": "http",
+    "host": "1.2.3.4",
+    "port": 1026,
+    "ngsiVersion": "1.0"
+  },
+  "authentication": {
+    "protocol": "http",
+    "host": "1.2.3.4",
+    "port": 5001,
+    "user": "user",
+    "password": "password",
+    "retry": {
+        "times": 10,
+        "interval": 5000
+      }
+  },
+  "entities": [
+    {
+      "schedule": "once",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte",
+      "entity_type": "OffStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6640730942599475,40.516422467811246],[-3.663185283076018,40.515815842229166],[-3.663098111283034,40.51590454244679],[-3.663377061020583,40.51609519654037],[-3.6633341456763446,40.51612884132412],[-3.663878634106368,40.516496893765165],[-3.6639175261370838,40.51646324916609],[-3.663975193630904,40.51650199143022],[-3.6640730942599475,40.516422467811246]]]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito T - Parking Norte Visitas"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["private", "underground", "mediumTerm", "onlyWithPermit", "forVisitors", "forDisabled"]
+        },
+        {
+          "name": "ocuppancyDetectionMethod",
+          "type": "List",
+          "value": ["none"]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": ["visitorPermit"]
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": ["car"]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT12H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": "54"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": ["TelefonicaHQ-Guest-ParkingNorte-Main", "TelefonicaHQ-Guest-Parking-Norte-Disabled"]
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "TelefonicaHQ-Guest-ParkingNorte-Main",
+      "entity_type": "ParkingGroup",
+      "staticAttributes": [
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet", "adjacentSpaces", "onlyWithPermit"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "Text",
+          "value": "car"
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Main Area"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 52
+        },
+        {
+          "name": "requiredPermit",
+          "type": "Text",
+          "value": "visitorPermit"
+        },
+        {
+          "name": "refParkingSpot",
+          "type": "List",
+          "value": ["TelefonicaHQ-Guest-Parking-Norte:01","TelefonicaHQ-Guest-Parking-Norte:02","TelefonicaHQ-Guest-Parking-Norte:03","TelefonicaHQ-Guest-Parking-Norte:04","TelefonicaHQ-Guest-Parking-Norte:05","TelefonicaHQ-Guest-Parking-Norte:06","TelefonicaHQ-Guest-Parking-Norte:07","TelefonicaHQ-Guest-Parking-Norte:08","TelefonicaHQ-Guest-Parking-Norte:09","TelefonicaHQ-Guest-Parking-Norte:10","TelefonicaHQ-Guest-Parking-Norte:11","TelefonicaHQ-Guest-Parking-Norte:12","TelefonicaHQ-Guest-Parking-Norte:13","TelefonicaHQ-Guest-Parking-Norte:14","TelefonicaHQ-Guest-Parking-Norte:15","TelefonicaHQ-Guest-Parking-Norte:16","TelefonicaHQ-Guest-Parking-Norte:17","TelefonicaHQ-Guest-Parking-Norte:18","TelefonicaHQ-Guest-Parking-Norte:19","TelefonicaHQ-Guest-Parking-Norte:20","TelefonicaHQ-Guest-Parking-Norte:21","TelefonicaHQ-Guest-Parking-Norte:22","TelefonicaHQ-Guest-Parking-Norte:23","TelefonicaHQ-Guest-Parking-Norte:24","TelefonicaHQ-Guest-Parking-Norte:25","TelefonicaHQ-Guest-Parking-Norte:26","TelefonicaHQ-Guest-Parking-Norte:27","TelefonicaHQ-Guest-Parking-Norte:28","TelefonicaHQ-Guest-Parking-Norte:29","TelefonicaHQ-Guest-Parking-Norte:30","TelefonicaHQ-Guest-Parking-Norte:31","TelefonicaHQ-Guest-Parking-Norte:32","TelefonicaHQ-Guest-Parking-Norte:33","TelefonicaHQ-Guest-Parking-Norte:34","TelefonicaHQ-Guest-Parking-Norte:35","TelefonicaHQ-Guest-Parking-Norte:36","TelefonicaHQ-Guest-Parking-Norte:37","TelefonicaHQ-Guest-Parking-Norte:38","TelefonicaHQ-Guest-Parking-Norte:39","TelefonicaHQ-Guest-Parking-Norte:40","TelefonicaHQ-Guest-Parking-Norte:41","TelefonicaHQ-Guest-Parking-Norte:42","TelefonicaHQ-Guest-Parking-Norte:43","TelefonicaHQ-Guest-Parking-Norte:44","TelefonicaHQ-Guest-Parking-Norte:45","TelefonicaHQ-Guest-Parking-Norte:46","TelefonicaHQ-Guest-Parking-Norte:47","TelefonicaHQ-Guest-Parking-Norte:48","TelefonicaHQ-Guest-Parking-Norte:49","TelefonicaHQ-Guest-Parking-Norte:50","TelefonicaHQ-Guest-Parking-Norte:51","TelefonicaHQ-Guest-Parking-Norte:52"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+        	  "coordinates": [[[-3.6632134986575693,40.515910659698854],[-3.6631638777907938,40.51587650503438],[-3.6632034403737634,40.515843369895485],[-3.6632517201360315,40.51587752457683],[-3.6632134986575693,40.515910659698854]]]
+          }
+        }
+      ]
+    },
+    {
+      "schedule": "once",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte-Disabled",
+      "entity_type": "ParkingGroup",
+      "staticAttributes": [
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet", "adjacentSpaces", "onlyDisabled"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "Text",
+          "value": "car"
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Two parking spots reserved for disabled people"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "requiredPermit",
+          "type": "Text",
+          "value": "visitorPermit, disabledPermit"
+        },
+        {
+          "name": "refParkingSpot",
+          "type": "List",
+          "value": ["TelefonicaHQ-Guest-Parking-Norte-Disabled:01","TelefonicaHQ-Guest-Parking-Norte-Disabled:02"]
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+        	  "coordinates": [[[-3.6632134986575693,40.515910659698854],[-3.6631638777907938,40.51587650503438],[-3.6632034403737634,40.515843369895485],[-3.6632517201360315,40.51587752457683],[-3.6632134986575693,40.515910659698854]]]
+          }
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte-Disabled:01",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-D-01"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte-Disabled"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6632188106887043,40.515890268856495]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte-Disabled:02",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-D-02"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte-Disabled"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663197353016585,40.51587089755047]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:01",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-01"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6640127445571125,40.51642450687956]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:02",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-02"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6639859224669635,40.51640717479679]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:03",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-03"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663960441481322,40.51638984270951]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:04",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-04"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663938983809203,40.51637047154784]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:05",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-05"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6639108730014414,40.51635823712707]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:06",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-06"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6638786864932626,40.51634039525944]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:07",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-07"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663858569925651,40.516322043619205]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:08",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-08"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663829065626487,40.5163087896537]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:09",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-09"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663802914088592,40.51628686962805]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:10",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-10"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663780785864219,40.516270047277914]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:11",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-11"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663761339848861,40.516253224923574]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:12",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-12"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.66373049444519,40.51623640256499]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:13",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-13"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6637076956685632,40.51621703135903]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:14",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-14"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663684173952788,40.51620224806646]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:15",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-15"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6636546696536243,40.51618389638842]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:16",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-16"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663633211981505,40.516166564243406]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:17",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-17"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6636063898913562,40.516150251632276]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:18",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-18"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6635835911147296,40.51612884132412]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:19",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-19"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663558110129088,40.516118645936885]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:20",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-20"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663536652456969,40.516102333314095]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:21",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-21"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663503124844283,40.516080922990625]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:22",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-22"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663483008276671,40.51606359081903]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:23",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-23"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663461550604552,40.51605135634223]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:24",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-24"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663432046305388,40.516031985082776]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:25",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-25"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663403883110732,40.51601669197926]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:26",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-26"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6633851076476276,40.51600139887223]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:27",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-27"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663356944452971,40.51597998851655]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:28",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-28"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663332804571837,40.51596469540118]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:29",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-29"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6633100057952106,40.515952460906334]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:30",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-30"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663277819287032,40.5159228942013]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:31",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-31"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663245632778853,40.51590556198884]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:32",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-32"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663870587479323,40.51646324916609]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:33",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-33"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663846447598189,40.51644795616094]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:34",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-34"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6638209666125476,40.51642960455014]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:35",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-35"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6637968267314136,40.51641227246866]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:36",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-36"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.66376732243225,40.51639697945189]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:37",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-37"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663744523655623,40.51638066689679]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:38",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-38"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6637177015654743,40.51636333480266]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:39",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-39"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6636949027888477,40.51634702223939]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:40",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-40"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663669421803206,40.51633172920773]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:41",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-41"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6636399175040424,40.51631031895751]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:42",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-42"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663617118727416,40.51629298684522]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:43",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-43"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.663597002159804,40.51627769380122]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:44",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-44"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6635648156516254,40.516261381217106]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:45",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-45"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6635446990840137,40.51624710770276]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:46",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-46"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6635205592028797,40.516228756037]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:47",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-47"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6634897137992084,40.51621142390359]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:48",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-48"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6634682561270893,40.5161920526904]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:49",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-49"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6634454573504627,40.51617879869919]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:50",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-50"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6634119297377765,40.516160447014705]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:51",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-51"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6633904720656574,40.51614209532523]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Guest-Parking-Norte:52",
+      "entity_type": "ParkingSpot",
+      "staticAttributes": [
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "DTN-52"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["offstreet"]
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Point",
+            "coordinates": [-3.6633690143935382,40.51612782178546]
+          }
+        }
+      ],
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Street-Parking-Norte-1",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.664685497060418,40.517247265890354],[-3.6646626982837915,40.51726612703805],[-3.6633498617447913,40.5163653738728],[-3.663369978312403,40.51634600270406],[-3.664685497060418,40.517247265890354]]]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito T - Parking Norte Externo 1"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": ["car"]
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": "20"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": ["TelefonicaHQ-Street-Parking-Norte-1-Bikes","TelefonicaHQ-Street-Parking-Norte-1-Disabled"]
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-step-after-interpolator([[0,14],[7,11],[8,9],[9,4],[11,0],[19,6],[20,9],[21,12],[22,14]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Street-Parking-Norte-1-Disabled",
+      "entity_type": "ParkingGroup",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.663422951940447,40.51638270596637],[-3.663399482611567,40.516401057590016],[-3.6633491911925375,40.516364864105256],[-3.663369978312403,40.51634549293638],[-3.663422951940447,40.51638270596637]]]
+          }
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "One parking spot reserved for disabled people"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["onstreet", "adjacentSpaces", "onlyDisabled"]
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "Text",
+          "value": "car"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": "1"
+        },
+        {
+          "name": "requiredPermit",
+          "type": "Text",
+          "value": "disabledPermit"
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Street-Parking-Norte-1"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-step-after-interpolator([[0,1],[8,0],[19,1]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "0 */15 * * * *",
+      "entity_name": "TelefonicaHQ-Street-Parking-Norte-1-Bikes",
+      "entity_type": "ParkingGroup",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "Polygon",
+            "coordinates": [[[-3.6639728047885,40.51676044254041],[-3.6639493354596198,40.51677879406065],[-3.6637689569033682,40.516653901670914],[-3.6637904145754874,40.516635550116476],[-3.6639728047885,40.51676044254041]]]
+          }
+        },
+        {
+          "name": "description",
+          "type": "Text",
+          "value": "Five parking spots reserved for motorbikes"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": ["onstreet"]
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": ["free"]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "Text",
+          "value": "motorcycle"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": "5"
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Street-Parking-Norte-1"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-step-after-interpolator([[0,5],[7,3],[8,2],[9,0],[19,3],[20,4],[21,5]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    }
+  ]
+}
