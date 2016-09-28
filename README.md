@@ -145,7 +145,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"schedule": "*/1 * * * * *",
   			"name": "active2",
   			"type": "number",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})"
   		}],
   		"staticAttributes": [{
   			"name": "static1",
@@ -159,7 +159,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		"active": [{
   			"name": "active1",
   			"type": "number",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"float\"}})"
   		}, {
   			"schedule": "*/5 * * * * *",
   			"name": "active2",
@@ -195,7 +195,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
   		}, {
   			"schedule": "*/1 * * * * *",
   			"object_id": "a2",
-  			"value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+  			"value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
   		}]
   	}, {
   		"count": "5",
@@ -205,7 +205,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
       "api_key": "ag235jdo0kkhd367du77mpgs54",
   		"attributes": [{
   			"object_id": "a1",
-  			"value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+  			"value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
   		}, {
   			"schedule": "*/5 * * * * *",
   			"object_id": "a2",
@@ -279,8 +279,18 @@ The simulation configuration file accepts the following JSON properties or entri
                     * `from`: a number corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) from which the mobile object will be moving. If the current [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) is before the `from` one, the interpolated position will be the starting point.
                     * `to`: a number corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) until which the mobile object will be moving. If the current [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) is after the `to` one, the traveled distance will be calculated until this one.
                 * A valid attribute value using the `multiline-position-interpolator` is: `"multiline-position-interpolator({\"coordinates\": [[-6.2683868408203125,36.48948933214638],[-6.257915496826172,36.46478162030615],[-6.252079010009766,36.461744374732085],[-6.2162017822265625,36.456774079889286]],\"speed\": {\"value\": 30,\"units\": \"km/h\"},\"time\": {\"from\": 10,\"to\": 22}})"`.
-            3. **`time-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-linear-interpolator` is: `time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
-            4. **`time-random-linear-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value which may include the `random()` directive. For example, a time ransom linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-random-linear-interpolator` is: `time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[24,1]])`.
+            3. **`time-linear-interpolator`**: It returns float or integer values depending on the configuration. On the other hand, it accepts an object including the following properties:
+                * `spec`: An array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time linear interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.125` if the interpolated value is requested at the `10:00` hours according to a linear interpolation between `0` and `20` as the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in the x-axis. This is the reason why a `time-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day.
+                * `return`: It is an object including the following properties:
+                    * `type`: The interpolator return type. It can take any of the following values: `float` or `integer`.
+                    * `rounding`: If the type is equal to `integer`, the rounding mechanism must also be specified. It can take any of the following values: `ceil`, `floor` or `round`.
+                A valid attribute value using the `time-linear-interpolator` is: `"time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
+            4. **`time-random-linear-interpolator`**: It returns float or integer values depending on the configuration. On the other hand, it accepts an object including the following properties:
+                * `spec`: An array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value which may include the `random()` directive. For example, a time random linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day.
+                * `return`: It is an object including the following properties:
+                    * `type`: The interpolator return type. It can take any of the following values: `float` or `integer`.
+                    * `rounding`: If the type is equal to `integer`, the rounding mechanism must also be specified. It can take any of the following values: `ceil`, `floor` or `round`.
+                * A valid attribute value using the `time-random-linear-interpolator` is: `"time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
             5. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             6. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             7. **`text-rotation-interpolator`**: It returns a string from a set of possible values with support for probabilistic occurrences of them. On the other hand, it accepts an object including the following properties:
@@ -565,7 +575,8 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value":
+          "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -582,7 +593,8 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value":
+          "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -599,7 +611,8 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value":
+          "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -695,7 +708,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -712,7 +725,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -729,7 +742,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -825,7 +838,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -842,7 +855,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -859,7 +872,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -955,7 +968,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -972,7 +985,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -989,7 +1002,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1085,7 +1098,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1102,7 +1115,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1119,7 +1132,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1215,7 +1228,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1232,7 +1245,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1249,7 +1262,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1345,7 +1358,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1362,7 +1375,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1379,7 +1392,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1475,7 +1488,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1492,7 +1505,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1509,7 +1522,7 @@ Following the description of the simulation configuration file accepted properti
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
