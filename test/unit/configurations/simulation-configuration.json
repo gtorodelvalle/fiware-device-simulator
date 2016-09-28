@@ -39,7 +39,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }],
     "staticAttributes": [{
       "name": "static1",
@@ -53,7 +53,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
     }, {
       "schedule": "*/1 * * * * *",
       "name": "active2",
@@ -72,18 +72,18 @@
     "active": [{
       "name": "active1",
       "type": "percentage",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/5 * * * * *",
       "object_id": "a2",
       "name": "active2",
       "type": "percentage",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
     }],
     "staticAttributes": [{
       "name": "static1",
       "type": "percentage",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
     }]
   }],
   "devices": [{
@@ -93,7 +93,7 @@
     "api_key": "the-api-key",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
     }]
   }, {
     "schedule": "*/5 * * * * *",
@@ -102,7 +102,7 @@
     "api_key": "the-api-key",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-linear-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/1 * * * * *",
       "object_id": "a2",
@@ -116,11 +116,11 @@
     "schedule": "*/1 * * * * *",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/5 * * * * *",
       "object_id": "a2",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }]
   }]
 }

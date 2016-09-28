@@ -5129,19 +5129,19 @@ describe('fiwareDeviceSimulator tests', function() {
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
               should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
-              lessThanOrEqual(0.75);
+              lessThanOrEqual(75);
             } else if (options.ngsiVersion === '2.0') {
-              should(ev.request.body.entities[0].active1.value).lessThanOrEqual(0.75);
+              should(ev.request.body.entities[0].active1.value).lessThanOrEqual(75);
             }
           } else {
             if (options.protocol === 'UltraLight::HTTP') {
-              should(ev.request.body.split('|')[1]).lessThanOrEqual(0.75);
+              should(ev.request.body.split('|')[1]).lessThanOrEqual(75);
             } else if (options.protocol === 'UltraLight::MQTT') {
-              should(ev.request.payload.split('|')[1]).lessThanOrEqual(0.75);
+              should(ev.request.payload.split('|')[1]).lessThanOrEqual(75);
             } else if (options.protocol === 'JSON::HTTP') {
-              should(ev.request.body.attribute1).lessThanOrEqual(0.75);
+              should(ev.request.body.attribute1).lessThanOrEqual(75);
             } else if (options.protocol === 'JSON::MQTT') {
-              should(JSON.parse(ev.request.payload).attribute1).lessThanOrEqual(0.75);
+              should(JSON.parse(ev.request.payload).attribute1).lessThanOrEqual(75);
             }
           }
         });
