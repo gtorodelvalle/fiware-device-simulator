@@ -262,7 +262,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -279,7 +279,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -296,7 +296,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -387,7 +387,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -404,7 +404,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -421,7 +421,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -512,7 +512,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -529,7 +529,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -546,7 +546,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -637,7 +637,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -654,7 +654,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -671,7 +671,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -762,7 +762,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -779,7 +779,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -796,7 +796,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -887,7 +887,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -904,7 +904,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -921,7 +921,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1012,7 +1012,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1029,7 +1029,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1046,7 +1046,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1137,7 +1137,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(0.25,0.50)],[21,random(0.50,0.75)],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1154,7 +1154,7 @@
         {
           "name": "temperature",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(0,10)],[10,random(10,15)],[14,random(25,35)],[20,random(10,15)],[24,random(0,10)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1171,7 +1171,7 @@
         {
           "name": "methaneConcentration",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]])",
+          "value": "time-random-linear-interpolator({\"spec\": [[0,random(1700,1600)],[20,random(1600,1700)],[21,random(1700,1750)],[22,random(1750,1800)],[23,random(1800,1850)],[24,random(1800,1850)]], \"return\": {\"type\": \"float\"}})",
           "metadata": [
             {
               "name": "dateUpdated",
