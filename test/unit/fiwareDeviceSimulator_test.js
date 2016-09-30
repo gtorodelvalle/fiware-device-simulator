@@ -5107,12 +5107,115 @@ describe('fiwareDeviceSimulator tests', function() {
         });
       });
 
+      it('should set time-linear-interpolator values of attributes once (retrocompatibility)', function(done) {
+        /* jshint camelcase: false */
+        simulationConfiguration =
+          require(ROOT_PATH +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type +'-time-linear-interpolator-attribute-retro.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
+        fiwareDeviceSimulator.start(simulationConfiguration);
+        simulationProgress.on('error', function(ev) {
+          done(ev.error);
+        });
+        simulationProgress.on('token-response', function(ev) {
+          ++tokenResponses;
+          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+        });
+        simulationProgress.on('update-request', function(ev) {
+          ++updateRequests;
+          var decimalHours = toDecimalHours(new Date());
+          var attributeValue = (type === 'entities') ?
+            simulationConfiguration[type][0].active[0].value :
+            simulationConfiguration[type][0].attributes[0].value;
+          var value = linearInterpolator(attributeValue.substring(
+            'time-linear-interpolator('.length, attributeValue.length - 1))(decimalHours);
+          if (type === 'entities') {
+            if (options.ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+            } else if (options.ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).equal(value);
+            }
+          } else {
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).equal(value.toString());
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).equal(value);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).equal(value);
+            }
+          }
+        });
+        simulationProgress.on('update-response', function() {
+          ++updateResponses;
+        });
+        simulationProgress.on('end', function() {
+          should(tokenResponses).equal(1);
+          should(updateRequests).equal(1);
+          should(updateResponses).equal(1);
+          done();
+        });
+      });
+
       it('should set time-random-linear-interpolator values of attributes once', function(done) {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
             type + '-time-random-linear-interpolator-attribute.json');
+        if (options.ngsiVersion) {
+          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+        }
+        fiwareDeviceSimulator.start(simulationConfiguration);
+        simulationProgress.on('error', function(ev) {
+          done(ev.error);
+        });
+        simulationProgress.on('token-response', function(ev) {
+          ++tokenResponses;
+          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+        });
+        simulationProgress.on('update-request', function(ev) {
+          ++updateRequests;
+          if (type === 'entities') {
+            if (options.ngsiVersion === '1.0') {
+              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
+              lessThanOrEqual(75);
+            } else if (options.ngsiVersion === '2.0') {
+              should(ev.request.body.entities[0].active1.value).lessThanOrEqual(75);
+            }
+          } else {
+            if (options.protocol === 'UltraLight::HTTP') {
+              should(ev.request.body.split('|')[1]).lessThanOrEqual(75);
+            } else if (options.protocol === 'UltraLight::MQTT') {
+              should(ev.request.payload.split('|')[1]).lessThanOrEqual(75);
+            } else if (options.protocol === 'JSON::HTTP') {
+              should(ev.request.body.attribute1).lessThanOrEqual(75);
+            } else if (options.protocol === 'JSON::MQTT') {
+              should(JSON.parse(ev.request.payload).attribute1).lessThanOrEqual(75);
+            }
+          }
+        });
+        simulationProgress.on('update-response', function() {
+          ++updateResponses;
+        });
+        simulationProgress.on('end', function() {
+          should(tokenResponses).equal(1);
+          should(updateRequests).equal(1);
+          should(updateResponses).equal(1);
+          done();
+        });
+      });
+
+      it('should set time-random-linear-interpolator values of attributes once (retrocompatibility)', function(done) {
+        /* jshint camelcase: false */
+        simulationConfiguration =
+          require(ROOT_PATH +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            type + '-time-random-linear-interpolator-attribute-retro.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
         }
