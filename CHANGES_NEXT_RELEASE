@@ -1,2 +1,0 @@
-- [TASK] Adapt the simulation configuration files examples to release 4.0.0
-- [FEATURE] Adding retrocompatibility for time interpolators to also accept arrays as specifications
