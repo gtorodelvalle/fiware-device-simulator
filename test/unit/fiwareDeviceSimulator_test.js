@@ -2142,7 +2142,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should NOT notify an "error" event if 0 as value for static attributes configuration information ' +
+    it('should not notify an "error" event if 0 as value for static attributes configuration information ' +
        'is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -2187,7 +2187,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should NOT notify an "error" event if false as value for static attributes configuration information ' +
+    it('should not notify an "error" event if false as value for static attributes configuration information ' +
        'is provided for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -2427,7 +2427,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if 0 as value is included as static attributes metadata configuration ' +
+    it('should not notify an "error" event if 0 as value is included as static attributes metadata configuration ' +
        'information for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -2479,7 +2479,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if false as value is included as static attributes metadata configuration ' +
+    it('should not notify an "error" event if false as value is included as static attributes metadata configuration ' +
        'information for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -3092,7 +3092,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if 0 as value active attribute configuration information is provided for entity',
+    it('should not notify an "error" event if 0 as value active attribute configuration information is provided '+
+       'for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -3144,7 +3145,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if false as value active attribute configuration information is provided ' +
+    it('should not notify an "error" event if false as value active attribute configuration information is provided ' +
        'for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -3795,7 +3796,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if 0 as value is included as active attributes metadata configuration ' +
+    it('should not notify an "error" event if 0 as value is included as active attributes metadata configuration ' +
        'information for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -3855,7 +3856,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if false as value is included as active attributes metadata configuration ' +
+    it('should not notify an "error" event if false as value is included as active attributes metadata configuration ' +
        'information for entity',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -4556,7 +4557,8 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if 0 as value for attributes configuration information is provided for device',
+    it('should not notify an "error" event if 0 as value for attributes configuration information is provided ' +
+       'for device',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
         {
@@ -4630,7 +4632,7 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
-    it('should notify an "error" event if false as value for attributes configuration information is provided ' +
+    it('should not notify an "error" event if false as value for attributes configuration information is provided ' +
        'for device',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(

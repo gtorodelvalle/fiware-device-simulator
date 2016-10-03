@@ -1,1 +1,2 @@
-- [BUG] Attribute values with zero (of type number) does not work ()#93)
+- [BUG] Attribute values with zero (of type number) does not work (#93)
+- [BUG] Schedule: range values are not supported (nor value list) (#94)
