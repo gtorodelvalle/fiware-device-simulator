@@ -226,6 +226,11 @@
           ]
         },
         {
+          "name": "floor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
           "name": "allowedVehicleType",
           "type": "Text",
           "value": "car"
@@ -326,6 +331,11 @@
           "name": "allowedVehicleType",
           "type": "Text",
           "value": "car"
+        },
+        {
+          "name": "floor",
+          "type": "Number",
+          "value": "0"
         },
         {
           "name": "occupancyDetectionType",
@@ -6709,6 +6719,11 @@
           ]
         },
         {
+          "name": "floor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
@@ -6798,6 +6813,11 @@
           "value": [
             "flat"
           ]
+        },
+        {
+          "name": "floor",
+          "type": "Number",
+          "value": -1
         },
         {
           "name": "refParkingSite",
@@ -6891,6 +6911,11 @@
           ]
         },
         {
+          "name": "floor",
+          "type": "Number",
+          "value": -2
+        },
+        {
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
@@ -6975,6 +7000,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7020,6 +7050,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7069,6 +7104,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7114,6 +7154,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7163,6 +7208,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7208,6 +7258,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7257,6 +7312,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7302,6 +7362,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7351,6 +7416,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7396,6 +7466,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7445,6 +7520,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7490,6 +7570,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7539,6 +7624,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7584,6 +7674,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7633,6 +7728,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7678,6 +7778,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7727,6 +7832,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7774,6 +7884,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7807,6 +7922,11 @@
           "name": "name",
           "type": "Text",
           "value": "pi-alcobendas-01:19-0"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "category",
@@ -7868,6 +7988,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -7913,6 +8038,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -7962,6 +8092,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8007,6 +8142,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8056,6 +8196,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8101,6 +8246,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8150,6 +8300,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8195,6 +8350,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8244,6 +8404,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8289,6 +8454,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8338,6 +8508,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8383,6 +8558,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8432,6 +8612,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8477,6 +8662,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
         },
         {
           "name": "location",
@@ -8526,6 +8716,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-01"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8571,6 +8766,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -8620,6 +8820,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8665,6 +8870,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -8714,6 +8924,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8759,6 +8974,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -8808,6 +9028,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8853,6 +9078,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -8902,6 +9132,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -8947,6 +9182,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -8996,6 +9236,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9041,6 +9286,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9090,6 +9340,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9135,6 +9390,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9184,6 +9444,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9229,6 +9494,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9278,6 +9548,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9323,6 +9598,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9372,6 +9652,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9417,6 +9702,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9466,6 +9756,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9511,6 +9806,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9560,6 +9860,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9605,6 +9910,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9654,6 +9964,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9699,6 +10014,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9748,6 +10068,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9793,6 +10118,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9842,6 +10172,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9887,6 +10222,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -9936,6 +10276,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -9981,6 +10326,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -10030,6 +10380,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10075,6 +10430,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
         },
         {
           "name": "location",
@@ -10124,6 +10484,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-02"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10169,6 +10534,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10218,6 +10588,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10263,6 +10638,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10312,6 +10692,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10357,6 +10742,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10406,6 +10796,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10451,6 +10846,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10500,6 +10900,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10545,6 +10950,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10594,6 +11004,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10639,6 +11054,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10688,6 +11108,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10733,6 +11158,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10782,6 +11212,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10827,6 +11262,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10876,6 +11316,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -10921,6 +11366,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -10970,6 +11420,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11015,6 +11470,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11064,6 +11524,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11109,6 +11574,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11158,6 +11628,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11203,6 +11678,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11252,6 +11732,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11297,6 +11782,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11346,6 +11836,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11391,6 +11886,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11440,6 +11940,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11485,6 +11990,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11534,6 +12044,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11579,6 +12094,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11628,6 +12148,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11675,6 +12200,11 @@
           "value": "pi-alcobendas-01"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -11720,6 +12250,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "pi-alcobendas-01"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "pi-alcobendas-01-group-03"
         },
         {
           "name": "location",
@@ -11890,7 +12425,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[6,random(0,20)],[8,random(20,50)],[10,random(50,80)],[12,random(70,120)],[14,random(80,120)],[16,random(60,125)],[18,random(70,100)],[20,random(30,40)],[22,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[6,random(0,20)],[8,random(20,50)],[10,random(50,80)],[12,random(70,120)],[14,random(80,120)],[16,random(60,125)],[18,random(70,100)],[20,random(30,40)],[22,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12043,7 +12578,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[6,random(0,50)],[8,random(50,90)],[10,random(90,100)],[12,random(100,120)],[14,random(120,220)],[16,random(100,125)],[18,random(125,350)],[22,random(200,250)],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[6,random(0,50)],[8,random(50,90)],[10,random(90,100)],[12,random(100,120)],[14,random(120,220)],[16,random(100,125)],[18,random(125,350)],[22,random(200,250)],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12214,7 +12749,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[6,0],[8,random(0,50)],[10,random(50,90)],[12,random(90,120)],[14,250],[16,random(80,100)],[18,random(140,180)],[22,250],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[6,0],[8,random(0,50)],[10,random(50,90)],[12,random(90,120)],[14,250],[16,random(80,100)],[18,random(140,180)],[22,250],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12516,7 +13051,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[6,0],[8,random(0,30)],[10,random(30,100)],[12,random(60,90)],[14,random(120,150)],[16,random(200,250)],[18,random(250,300)],[22,random(80,100)],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[6,0],[8,random(0,30)],[10,random(30,100)],[12,random(60,90)],[14,random(120,150)],[16,random(200,250)],[18,random(250,300)],[22,random(80,100)],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12671,7 +13206,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,0],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,200)],[16,random(80,120)],[18,random(150,200)],[22,random(30,80)],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[5,0],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,200)],[16,random(80,120)],[18,random(150,200)],[22,random(30,80)],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12846,7 +13381,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,0],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,180)],[16,random(80,120)],[18,random(100,120)],[22,random(30,80)],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[5,0],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,180)],[16,random(80,120)],[18,random(100,120)],[22,random(30,80)],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -12997,7 +13532,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[7,0],[8,random(0,30)],[14,random(50,100)],[16,100],[18,random(60,100)],[22,random(30,80)],[23,0]])"
+          "value": "time-random-linear-interpolator([[0,0],[7,0],[8,random(0,30)],[14,random(50,100)],[16,100],[18,random(60,100)],[22,random(30,80)],[23,0],[24,0]])"
         },
         {
           "name": "dateModified",
@@ -15050,8 +15585,10 @@
         },
         {
           "name": "occupancyDetectionType",
-          "type": "Text",
-          "value": "modelBased"
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
         },
         {
           "name": "areaServed",
@@ -15543,10 +16080,25 @@
           ]
         },
         {
+          "name": "highestFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
+          "name": "lowestFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
+          "name": "firstAvailableFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
           "name": "occupancyDetectionType",
           "type": "List",
           "value": [
-            "modelBased"
+            "singleSpaceDetection"
           ]
         },
         {
@@ -15629,7 +16181,7 @@
         {
           "name": "occupancyDetectionType",
           "type": "Text",
-          "value": "modelBased"
+          "value": "singleSpaceDetection"
         },
         {
           "name": "chargeType",
@@ -15637,6 +16189,11 @@
           "value": [
             "free"
           ]
+        },
+        {
+          "name": "floor",
+          "type": "Number",
+          "value": "0"
         },
         {
           "name": "refParkingSite",
@@ -15732,9 +16289,14 @@
           ]
         },
         {
+          "name": "floor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
           "name": "occupancyDetectionType",
           "type": "Text",
-          "value": "modelBased"
+          "value": "singleSpaceDetection"
         },
         {
           "name": "refParkingSite",
@@ -15930,6 +16492,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -15975,6 +16542,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16024,6 +16596,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16069,6 +16646,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16118,6 +16700,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16163,6 +16750,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16212,6 +16804,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16257,6 +16854,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16306,6 +16908,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16351,6 +16958,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16400,6 +17012,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16445,6 +17062,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16494,6 +17116,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16539,6 +17166,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16588,6 +17220,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16633,6 +17270,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16682,6 +17324,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16727,6 +17374,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16776,6 +17428,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16821,6 +17478,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -16870,6 +17532,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -16915,6 +17582,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17011,6 +17683,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17056,6 +17733,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17105,6 +17787,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17150,6 +17837,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17199,6 +17891,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17244,6 +17941,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17293,6 +17995,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17338,6 +18045,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17387,6 +18099,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17432,6 +18149,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17481,6 +18203,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17526,6 +18253,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17575,6 +18307,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17620,6 +18357,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17669,6 +18411,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17714,6 +18461,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17763,6 +18515,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17808,6 +18565,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17857,6 +18619,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17902,6 +18669,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -17951,6 +18723,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -17996,6 +18773,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -18045,6 +18827,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -18090,6 +18877,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -18139,6 +18931,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -18184,6 +18981,11 @@
           "name": "refParkingSite",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
@@ -18233,6 +19035,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -18280,6 +19087,11 @@
           "value": "TelefonicaHQ-Guest-Parking-Norte"
         },
         {
+          "name": "refParkingGroup",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
+        },
+        {
           "name": "location",
           "type": "geo:json",
           "value": {
@@ -18322,9 +19134,14 @@
           ]
         },
         {
-          "name": "refParkingSite",
+          "name": "refParkingGroup",
           "type": "Text",
           "value": "TelefonicaHQ-Guest-Parking-Norte"
+        },
+        {
+          "name": "refParkingSite",
+          "type": "Text",
+          "value": "TelefonicaHQ-Guest-ParkingNorte-Main"
         },
         {
           "name": "location",
