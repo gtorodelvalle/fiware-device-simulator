@@ -35,6 +35,11 @@ process.on('SIGINT', function() {
   process.exit(0);
 });
 
+process.on('uncaughtException', function() {
+  deviceSimulator.stop();
+  process.exit(1);
+});
+
 /**
  * Helper function to create Dates from the passed argument
  * @param  {String} date The date string
