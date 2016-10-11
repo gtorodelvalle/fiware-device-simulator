@@ -1,5 +1,0 @@
-- [BUG] Attribute values with zero (of type number) does not work (#93)
-- [BUG] Schedule: range values are not supported (nor value list) (#94)
-- [TASK] Add Code Climate configuration file
-- [TASK] Include comments in the documentation about linear interpolator negative values
-- [FEATURE] Fast-forward of simulations in time (aka. INCEPTION)
