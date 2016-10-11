@@ -875,7 +875,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[1,random(0.03,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.91)],[24,random(0.91,0.95)]])",
+          "value": "time-random-linear-interpolator([[0,0],[1,random(0.03,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.86)],[24,random(0.86,0.89)]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -1960,7 +1960,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[1,random(0.03,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.82)],[23,random(0.82,0.86)],[24,random(0.86,0.89)]])",
+          "value": "time-random-linear-interpolator([[0,0],[1,random(0.03,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.82)],[23,random(0.82,0.86)],[24,random(0.86,0.88)]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -2036,7 +2036,7 @@
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
         },
         {
-          "schedule": "0 50 * * * *",
+          "schedule": "0 50 0 * * *",
           "name": "dateLastEmptying",
           "type": "DateTime",
           "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
@@ -3200,7 +3200,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[0.999,1],[1,0],[2,random(0,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,1)],[24,1]])",
+          "value": "time-random-linear-interpolator([[0,0.88],[0.999,0.88],[1,0],[2,random(0,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.88)],[24,0.88]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -4440,7 +4440,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[1,1],[1.999,1],[2,0],[3,random(0,0.020)],[4,random(0.020,0.032)],[6,random(0.032,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.9)],[24,random(0.9,1)]])",
+          "value": "time-random-linear-interpolator([[0,0.88],[1,0.88],[1.999,0.88],[2,0],[3,random(0,0.020)],[4,random(0.020,0.032)],[6,random(0.032,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.87)],[24,0.88]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -9247,7 +9247,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,1)],[24,1]])",
+          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.87)],[24,random(0.87,0.89)]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -10487,7 +10487,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,1)],[24,1]])",
+          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.87)],[24,random(0.87,0.89)]])",
           "metadata": [
             {
               "name": "dateUpdated",
@@ -25995,7 +25995,7 @@
         {
           "name": "fillingLevel",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,1)],[24,1]])",
+          "value": "time-random-linear-interpolator([[0,0],[1,random(0,0.035)],[2,random(0.035,0.038)],[3,random(0.038,0.040)],[4,random(0.040,0.042)],[6,random(0.044,0.045)],[7,random(0.045,0.049)],[8,random(0.049,0.055)],[9,random(0.055,0.07)],[10,random(0.07,0.08)],[11,random(0.085,0.088)],[12,random(0.088,0.090)],[13,random(0.090,0.095)],[14,random(0.095,0.12)],[15,random(0.12,0.13)],[16,random(0.13,0.15)],[17,random(0.15,0.19)],[18,random(0.19,0.25)],[19,random(0.25,0.35)],[20,random(0.35,0.55)],[21,random(0.55,0.75)],[22,random(0.75,0.85)],[23,random(0.85,0.88)],[24,0.88]])",
           "metadata": [
             {
               "name": "dateUpdated",
