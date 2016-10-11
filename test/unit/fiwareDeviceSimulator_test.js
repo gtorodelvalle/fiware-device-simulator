@@ -5509,7 +5509,6 @@ describe('fiwareDeviceSimulator tests', function() {
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
          'at entity level',
         function(done) {
-        /* jshint camelcase: false */
         this.timeout(5000);
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
@@ -5543,7 +5542,6 @@ describe('fiwareDeviceSimulator tests', function() {
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
          'at attribute level',
         function(done) {
-        /* jshint camelcase: false */
         this.timeout(5000);
         simulationConfiguration =
           require(
