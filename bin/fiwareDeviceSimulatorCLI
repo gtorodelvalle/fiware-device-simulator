@@ -36,6 +36,15 @@ process.on('SIGINT', function() {
 });
 
 /**
+ * Helper function to create Dates from the passed argument
+ * @param  {String} date The date string
+ * @return {Date}        The date
+ */
+function createDate(date) {
+  return new Date(date);
+}
+
+/**
  * Executes the requested commander
  */
 function executeCommand() {
@@ -52,7 +61,7 @@ function executeCommand() {
     commander.help();
   }
 
-  var progressEmitter = deviceSimulator.start(require(configurationFilePath));
+  var progressEmitter = deviceSimulator.start(require(configurationFilePath), commander.from, commander.to);
 
   progressEmitter.on('token-request', function() {
     logops.info('token-request event');
@@ -97,6 +106,8 @@ commander.
   option('-c, --configuration <configuration-file-path>',
     'Absolute or relative path (from the root of the Node application) to the device simulator configuration file ' +
       '(mandatory)').
+  option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation', createDate).
+  option('-t, --to <toDate>', 'The end date to stop the fast-forward simulation', createDate).
   parse(process.argv);
 
 executeCommand();
