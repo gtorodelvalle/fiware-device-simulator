@@ -50,7 +50,8 @@ Usage: fiwareDeviceSimulatorCLI [options]
     -h, --help                                     output usage information
     -V, --version                                  output the version number
     -c, --configuration <configuration-file-path>  Absolute or relative path (from the root of the Node application) to the device simulator configuration file (mandatory)
-    -d, --delay <milliseconds>                     The delay in milliseconds between update requests for fast-forward simulation (ONLY for Node v4 and above)
+    -d, --delay <milliseconds>                     The delay in milliseconds for future updates when the number of update requests waiting for response is bigger than the value set with the -m option (defaults to 1 second if -m is set and -d is not set, it has no effect if -m is not set)
+    -m, --maximumNotRespondedRequests <requests>   The maximum number of update requests not responded before applying delay
     -p, --progressInfoInterval <milliseconds>      The interval in milliseconds to show progress information  for fast-forward simulation
     -f, --from <fromDate>                          The start date to begin the fast-forward simulation
     -t, --to <toDate>                              The end date to stop the fast-forward simulation
@@ -60,7 +61,7 @@ As you can see, the FIWARE Device Simulator CLI tool requires the path to a simu
 
 On the other hand, the FIWARE Device Simulator CLI tool supports a fast-forward simulation functionality which makes it possible to run the simulation from some date to certain date (in the past or in the future). Time will move forward automatically from the `from` date to the `to` date updating entities or sending device updates accordingly.
 
-If you are using Node v4 or above, for fast-forward simulations you can use the `-d` option to include a delay in milliseconds before each update sent as a way not to overload the Context Broker or the IoT Agents.
+In the case of fast-forward simulations, it is possible to control the number of requests sent to the Context Broker per second using the `-m` and `-d` options. Usually setting the `-m` is more than enough. Increase the value passed to the `-m` option to increase the throughput, in case the Context Broker or IoT Agents you are sending requests to is able to deal with it.
 
 In case you would like to get information about the evolution of the fast-forward simulation, use the `-p` option passing the number of milliseconds between information updates by the console.
 

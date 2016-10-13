@@ -55,7 +55,6 @@
     "mqtt": "^1.14.0",
     "node-schedule": "^1.1.1",
     "request": "^2.74.0",
-    "system-sleep": "^1.0.0-f",
     "time": "^0.11.4",
     "turf-along": "^3.0.12",
     "turf-line-distance": "^3.0.12",

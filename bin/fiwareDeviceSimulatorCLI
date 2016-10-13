@@ -68,7 +68,8 @@ function executeCommand() {
   }
 
   var progressEmitter = deviceSimulator.start(
-    require(configurationFilePath), commander.from, commander.to, commander.delay, commander.progressInfoInterval);
+    require(configurationFilePath), commander.from, commander.to, commander.progressInfoInterval,
+    commander.maximumNotRespondedRequests, commander.delay || 1000);
 
   progressEmitter.on('token-request', function() {
     logops.debug('token-request event');
@@ -129,8 +130,12 @@ commander.
   option('-c, --configuration <configuration-file-path>',
     'Absolute or relative path (from the root of the Node application) to the device simulator configuration file ' +
       '(mandatory)').
-  option('-d, --delay <milliseconds>', 'The delay in milliseconds between update requests for fast-forward simulation',
+  option('-d, --delay <milliseconds>', 'The delay in milliseconds for future updates when the number of update ' +
+    'requests waiting for response is bigger than the value set with the -m option (defaults to 1 second if -m is ' +
+    'set and -d is not set, it has no effect if -m is not set)',
     parseInt).
+  option('-m, --maximumNotRespondedRequests <requests>', 'The maximum number of update requests not responded before ' +
+    'applying delay', parseInt).
   option('-p, --progressInfoInterval <milliseconds>', 'The interval in milliseconds to show progress information ' +
     ' for fast-forward simulation', parseInt).
   option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation', createDate).
