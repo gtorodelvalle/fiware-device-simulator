@@ -28,6 +28,7 @@
 var ROOT_PATH = require('app-root-path');
 var commander = require('commander');
 var logops = require('logops');
+var humanizeDuration = require('humanize-duration');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 
 process.on('SIGINT', function() {
@@ -66,22 +67,24 @@ function executeCommand() {
     commander.help();
   }
 
-  var progressEmitter = deviceSimulator.start(require(configurationFilePath), commander.from, commander.to);
+  var progressEmitter = deviceSimulator.start(
+    require(configurationFilePath), commander.from, commander.to, commander.progressInfoInterval,
+    commander.maximumNotRespondedRequests, commander.delay || 1000);
 
   progressEmitter.on('token-request', function() {
-    logops.info('token-request event');
+    logops.debug('token-request event');
   });
 
   progressEmitter.on('token-response', function(ev) {
-    logops.info('token-response event:', ev);
+    logops.debug('token-response event:', ev);
   });
 
   progressEmitter.on('token-request-scheduled', function(ev) {
-    logops.info('token-request-scheduled:', ev);
+    logops.debug('token-request-scheduled:', ev);
   });
 
   progressEmitter.on('update-scheduled', function(ev) {
-    logops.info('update-scheduled event:', ev);
+    logops.debug('update-scheduled event:', ev);
   });
 
   progressEmitter.on('update-request', function(ev) {
@@ -94,6 +97,22 @@ function executeCommand() {
 
   progressEmitter.on('update-response', function(ev) {
     logops.debug('response event:', ev);
+  });
+
+  progressEmitter.on('progress-info', function(ev) {
+    logops.info(
+      'progress-info',
+      {
+        throughput: (ev.updatesRequested / (ev.realElapsedTime / 1000)).toFixed(2) + ' updates/sec.',
+        realElapsedTime: humanizeDuration(ev.realElapsedTime),
+        totalSimulationTime: humanizeDuration(commander.to - commander.from),
+        simulatedElapsedTime: humanizeDuration(ev.simulatedElapsedTime),
+        pendingTime: humanizeDuration(
+          ((commander.to.getTime() -
+            (commander.from.getTime() + ev.simulatedElapsedTime)) * ev.realElapsedTime) /
+            ev.simulatedElapsedTime)
+      }
+    );
   });
 
   progressEmitter.on('stop', function() {
@@ -111,6 +130,14 @@ commander.
   option('-c, --configuration <configuration-file-path>',
     'Absolute or relative path (from the root of the Node application) to the device simulator configuration file ' +
       '(mandatory)').
+  option('-d, --delay <milliseconds>', 'The delay in milliseconds for future updates when the number of update ' +
+    'requests waiting for response is bigger than the value set with the -m option (defaults to 1 second if -m is ' +
+    'set and -d is not set, it has no effect if -m is not set)',
+    parseInt).
+  option('-m, --maximumNotRespondedRequests <requests>', 'The maximum number of update requests not responded before ' +
+    'applying delay', parseInt).
+  option('-p, --progressInfoInterval <milliseconds>', 'The interval in milliseconds to show progress information ' +
+    ' for fast-forward simulation', parseInt).
   option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation', createDate).
   option('-t, --to <toDate>', 'The end date to stop the fast-forward simulation', createDate).
   parse(process.argv);
