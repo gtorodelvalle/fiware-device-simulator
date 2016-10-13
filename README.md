@@ -50,6 +50,8 @@ Usage: fiwareDeviceSimulatorCLI [options]
     -h, --help                                     output usage information
     -V, --version                                  output the version number
     -c, --configuration <configuration-file-path>  Absolute or relative path (from the root of the Node application) to the device simulator configuration file (mandatory)
+    -d, --delay <milliseconds>                     The delay in milliseconds between update requests for fast-forward simulation
+    -p, --progressInfoInterval <milliseconds>      The interval in milliseconds to show progress information  for fast-forward simulation
     -f, --from <fromDate>                          The start date to begin the fast-forward simulation
     -t, --to <toDate>                              The end date to stop the fast-forward simulation
 ```
@@ -57,6 +59,8 @@ Usage: fiwareDeviceSimulatorCLI [options]
 As you can see, the FIWARE Device Simulator CLI tool requires the path to a simulation configuration file detailing the simulation to be run. This simulation configuration file is the cornerstone of the FIWARE Device Simulator tool and is detailed in the next section.
 
 On the other hand, the FIWARE Device Simulator CLI tool supports a fast-forward simulation functionality which makes it possible to run the simulation from some date to certain date (in the past or in the future). Time will move forward automatically from the `from` date to the `to` date updating entities or sending device updates accordingly.
+
+In case you would like to get information about the evolution of the fast-forward simulation, use the `-p` option passing the number of milliseconds between information updates by the console.
 
 Since the FIWARE Device Simulator CLI tool uses the [logops](https://www.npmjs.com/package/logops) package for logging, the logging level can be set using the `LOGOPS_LEVEL` environment variable. On the other hand, the logging format can be set using the `LOGOPS_FORMAT` environment variable.
 
