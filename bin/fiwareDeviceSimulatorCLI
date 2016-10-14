@@ -27,6 +27,7 @@
 
 var ROOT_PATH = require('app-root-path');
 var commander = require('commander');
+var fs = require('fs');
 var logops = require('logops');
 var humanizeDuration = require('humanize-duration');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
@@ -67,6 +68,17 @@ function executeCommand() {
     commander.help();
   }
 
+  if (!fs.existsSync(configurationFilePath)) {
+    logops.error('The provided simulation configuration file path (\'' + configurationFilePath + '\') does not exist');
+    commander.help();
+  }
+
+  if (commander.to && !commander.from && commander.to <= new Date()) {
+    logops.error('If no fromDate is provided, the toDate must be beyond the current time and date');
+    commander.help();
+  }
+  commander.from = commander.from || new Date();
+
   var progressEmitter = deviceSimulator.start(
     require(configurationFilePath), commander.from, commander.to, commander.progressInfoInterval,
     commander.maximumNotRespondedRequests, commander.delay || 1000);
@@ -100,18 +112,25 @@ function executeCommand() {
   });
 
   progressEmitter.on('progress-info', function(ev) {
+    var info = {
+      totalUpdateRequests: ev.updatesRequested,
+      realElapsedTime: humanizeDuration(ev.realElapsedTime),
+      throughput: (ev.updatesRequested / (ev.realElapsedTime / 1000)).toFixed(2) + ' updates/sec.',
+      delayedUpdateRequests: (100 * ev.delayedUpdateRequests / ev.updatesProcessed).toFixed(2) + '%'
+    };
+    if (commander.to) {
+      info.totalSimulationTime = humanizeDuration(commander.to - commander.from);
+    }
+    info.simulatedElapsedTime = humanizeDuration(ev.simulatedElapsedTime);
+    if (commander.to) {
+      info.pendingTime = humanizeDuration(
+        ((commander.to.getTime() -
+          (commander.from.getTime() + ev.simulatedElapsedTime)) * ev.realElapsedTime) /
+          ev.simulatedElapsedTime);
+    }
     logops.info(
       'progress-info',
-      {
-        throughput: (ev.updatesRequested / (ev.realElapsedTime / 1000)).toFixed(2) + ' updates/sec.',
-        realElapsedTime: humanizeDuration(ev.realElapsedTime),
-        totalSimulationTime: humanizeDuration(commander.to - commander.from),
-        simulatedElapsedTime: humanizeDuration(ev.simulatedElapsedTime),
-        pendingTime: humanizeDuration(
-          ((commander.to.getTime() -
-            (commander.from.getTime() + ev.simulatedElapsedTime)) * ev.realElapsedTime) /
-            ev.simulatedElapsedTime)
-      }
+      info
     );
   });
 
@@ -138,8 +157,10 @@ commander.
     'applying delay', parseInt).
   option('-p, --progressInfoInterval <milliseconds>', 'The interval in milliseconds to show progress information ' +
     ' for fast-forward simulation', parseInt).
-  option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation', createDate).
-  option('-t, --to <toDate>', 'The end date to stop the fast-forward simulation', createDate).
+  option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation (if not set, the current ' +
+    'time will be used)', createDate).
+  option('-t, --to <toDate>', 'The end date to stop the fast-forward simulation (if not set, the fast-forward ' +
+    'will progress to the future and never end)', createDate).
   parse(process.argv);
 
 executeCommand();
