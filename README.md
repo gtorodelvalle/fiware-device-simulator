@@ -53,8 +53,8 @@ Usage: fiwareDeviceSimulatorCLI [options]
     -d, --delay <milliseconds>                     The delay in milliseconds for future updates when the number of update requests waiting for response is bigger than the value set with the -m option (defaults to 1 second if -m is set and -d is not set, it has no effect if -m is not set)
     -m, --maximumNotRespondedRequests <requests>   The maximum number of update requests not responded before applying delay
     -p, --progressInfoInterval <milliseconds>      The interval in milliseconds to show progress information  for fast-forward simulation
-    -f, --from <fromDate>                          The start date to begin the fast-forward simulation
-    -t, --to <toDate>                              The end date to stop the fast-forward simulation
+    -f, --from <fromDate>                          The start date to begin the fast-forward simulation (if not set, the current time will be used)
+    -t, --to <toDate>                              The end date to stop the fast-forward simulation (if not set, the fast-forward will progress to the future and never end)
 ```
 
 As you can see, the FIWARE Device Simulator CLI tool requires the path to a simulation configuration file detailing the simulation to be run. This simulation configuration file is the cornerstone of the FIWARE Device Simulator tool and is detailed in the next section.
