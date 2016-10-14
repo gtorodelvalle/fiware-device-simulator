@@ -436,7 +436,7 @@
       ]
     },
     {
-      "schedule": "1 */15 * * * *",
+      "schedule": "1 0 * * * *",
       "entity_name": "pe-moraleja-01-group-01:01",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -488,7 +488,7 @@
       ]
     },
     {
-      "schedule": "58 */15 * * * *",
+      "schedule": "58 0 * * * *",
       "entity_name": "pe-moraleja-01-group-01:02",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -540,7 +540,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "pe-moraleja-01-group-01:03",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -592,7 +592,7 @@
       ]
     },
     {
-      "schedule": "8 */15 * * * *",
+      "schedule": "8 0 * * * *",
       "entity_name": "pe-moraleja-01-group-01:04",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -644,7 +644,7 @@
       ]
     },
     {
-      "schedule": "29 */15 * * * *",
+      "schedule": "29 0 * * * *",
       "entity_name": "pe-moraleja-01-group-01:05",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -696,7 +696,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:01",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -748,7 +748,7 @@
       ]
     },
     {
-      "schedule": "6 */15 * * * *",
+      "schedule": "6 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:02",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -800,7 +800,7 @@
       ]
     },
     {
-      "schedule": "14 */15 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:03",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -852,7 +852,7 @@
       ]
     },
     {
-      "schedule": "20 */15 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:04",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -904,7 +904,7 @@
       ]
     },
     {
-      "schedule": "38 */15 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:05",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -956,7 +956,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:06",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1008,7 +1008,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:07",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1060,7 +1060,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:08",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1112,7 +1112,7 @@
       ]
     },
     {
-      "schedule": "45 */15 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:09",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1164,7 +1164,7 @@
       ]
     },
     {
-      "schedule": "16 */15 * * * *",
+      "schedule": "16 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:10",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1216,7 +1216,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:11",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1268,7 +1268,7 @@
       ]
     },
     {
-      "schedule": "22 */15 * * * *",
+      "schedule": "22 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:12",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1320,7 +1320,7 @@
       ]
     },
     {
-      "schedule": "36 */15 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:13",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1372,7 +1372,7 @@
       ]
     },
     {
-      "schedule": "2 */15 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:14",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1424,7 +1424,7 @@
       ]
     },
     {
-      "schedule": "26 */15 * * * *",
+      "schedule": "26 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:15",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1476,7 +1476,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:16",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1528,7 +1528,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:17",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1580,7 +1580,7 @@
       ]
     },
     {
-      "schedule": "49 */15 * * * *",
+      "schedule": "49 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:18",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1632,7 +1632,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:19",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1684,7 +1684,7 @@
       ]
     },
     {
-      "schedule": "52 */15 * * * *",
+      "schedule": "52 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:20",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1736,7 +1736,7 @@
       ]
     },
     {
-      "schedule": "2 */15 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:21",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1788,7 +1788,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:22",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1840,7 +1840,7 @@
       ]
     },
     {
-      "schedule": "42 */15 * * * *",
+      "schedule": "42 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:23",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1892,7 +1892,7 @@
       ]
     },
     {
-      "schedule": "26 */15 * * * *",
+      "schedule": "26 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:24",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1944,7 +1944,7 @@
       ]
     },
     {
-      "schedule": "58 */15 * * * *",
+      "schedule": "58 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:25",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -1996,7 +1996,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:26",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2048,7 +2048,7 @@
       ]
     },
     {
-      "schedule": "43 */15 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:27",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2100,7 +2100,7 @@
       ]
     },
     {
-      "schedule": "48 */15 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:28",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2152,7 +2152,7 @@
       ]
     },
     {
-      "schedule": "16 */15 * * * *",
+      "schedule": "16 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:29",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2204,7 +2204,7 @@
       ]
     },
     {
-      "schedule": "41 */15 * * * *",
+      "schedule": "41 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:30",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2256,7 +2256,7 @@
       ]
     },
     {
-      "schedule": "2 */15 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:31",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2308,7 +2308,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:32",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2360,7 +2360,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:33",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2412,7 +2412,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:34",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2464,7 +2464,7 @@
       ]
     },
     {
-      "schedule": "39 */15 * * * *",
+      "schedule": "39 0 * * * *",
       "entity_name": "pe-moraleja-01-group-02:35",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2682,7 +2682,7 @@
       ]
     },
     {
-      "schedule": "15 */30 * * * *",
+      "schedule": "15 0 * * * *",
       "entity_name": "portico-gloria-01:01",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2729,7 +2729,7 @@
       ]
     },
     {
-      "schedule": "2 */30 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "portico-gloria-01:02",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2776,7 +2776,7 @@
       ]
     },
     {
-      "schedule": "45 */30 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "portico-gloria-01:03",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2823,7 +2823,7 @@
       ]
     },
     {
-      "schedule": "53 */30 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "portico-gloria-01:04",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2870,7 +2870,7 @@
       ]
     },
     {
-      "schedule": "42 */30 * * * *",
+      "schedule": "42 0 * * * *",
       "entity_name": "portico-gloria-01:05",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2917,7 +2917,7 @@
       ]
     },
     {
-      "schedule": "50 */30 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "portico-gloria-01:06",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -2964,7 +2964,7 @@
       ]
     },
     {
-      "schedule": "2 */30 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "portico-gloria-01:07",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3011,7 +3011,7 @@
       ]
     },
     {
-      "schedule": "49 */30 * * * *",
+      "schedule": "49 0 * * * *",
       "entity_name": "portico-gloria-01:08",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3058,7 +3058,7 @@
       ]
     },
     {
-      "schedule": "46 */30 * * * *",
+      "schedule": "46 0 * * * *",
       "entity_name": "portico-gloria-01:09",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3105,7 +3105,7 @@
       ]
     },
     {
-      "schedule": "14 */30 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "portico-gloria-01:10",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3152,7 +3152,7 @@
       ]
     },
     {
-      "schedule": "57 */30 * * * *",
+      "schedule": "57 0 * * * *",
       "entity_name": "portico-gloria-01:11",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3199,7 +3199,7 @@
       ]
     },
     {
-      "schedule": "55 */30 * * * *",
+      "schedule": "55 0 * * * *",
       "entity_name": "portico-gloria-01:12",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3246,7 +3246,7 @@
       ]
     },
     {
-      "schedule": "42 */30 * * * *",
+      "schedule": "42 0 * * * *",
       "entity_name": "portico-gloria-01:13",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3293,7 +3293,7 @@
       ]
     },
     {
-      "schedule": "49 */30 * * * *",
+      "schedule": "49 0 * * * *",
       "entity_name": "portico-gloria-01:14",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3340,7 +3340,7 @@
       ]
     },
     {
-      "schedule": "58 */30 * * * *",
+      "schedule": "58 0 * * * *",
       "entity_name": "portico-gloria-01:15",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3387,7 +3387,7 @@
       ]
     },
     {
-      "schedule": "48 */30 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "portico-gloria-01:16",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3434,7 +3434,7 @@
       ]
     },
     {
-      "schedule": "44 */30 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "portico-gloria-01:17",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3481,7 +3481,7 @@
       ]
     },
     {
-      "schedule": "39 */30 * * * *",
+      "schedule": "39 0 * * * *",
       "entity_name": "portico-gloria-01:18",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3528,7 +3528,7 @@
       ]
     },
     {
-      "schedule": "10 */30 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "portico-gloria-01:19",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3575,7 +3575,7 @@
       ]
     },
     {
-      "schedule": "5 */30 * * * *",
+      "schedule": "5 0 * * * *",
       "entity_name": "portico-gloria-01:20",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3622,7 +3622,7 @@
       ]
     },
     {
-      "schedule": "48 */30 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "portico-gloria-01:21",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3669,7 +3669,7 @@
       ]
     },
     {
-      "schedule": "52 */30 * * * *",
+      "schedule": "52 0 * * * *",
       "entity_name": "portico-gloria-01:22",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3716,7 +3716,7 @@
       ]
     },
     {
-      "schedule": "48 */30 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "portico-gloria-01:23",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3763,7 +3763,7 @@
       ]
     },
     {
-      "schedule": "27 */30 * * * *",
+      "schedule": "27 0 * * * *",
       "entity_name": "portico-gloria-01:24",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3810,7 +3810,7 @@
       ]
     },
     {
-      "schedule": "47 */30 * * * *",
+      "schedule": "47 0 * * * *",
       "entity_name": "portico-gloria-01:25",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3857,7 +3857,7 @@
       ]
     },
     {
-      "schedule": "23 */30 * * * *",
+      "schedule": "23 0 * * * *",
       "entity_name": "portico-gloria-01:26",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3904,7 +3904,7 @@
       ]
     },
     {
-      "schedule": "14 */30 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "portico-gloria-01:27",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3951,7 +3951,7 @@
       ]
     },
     {
-      "schedule": "48 */30 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "portico-gloria-01:28",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -3998,7 +3998,7 @@
       ]
     },
     {
-      "schedule": "54 */30 * * * *",
+      "schedule": "54 0 * * * *",
       "entity_name": "portico-gloria-01:29",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4045,7 +4045,7 @@
       ]
     },
     {
-      "schedule": "43 */30 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "portico-gloria-01:30",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4092,7 +4092,7 @@
       ]
     },
     {
-      "schedule": "12 */30 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "portico-gloria-01:31",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4139,7 +4139,7 @@
       ]
     },
     {
-      "schedule": "11 */30 * * * *",
+      "schedule": "11 0 * * * *",
       "entity_name": "portico-gloria-01:32",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4186,7 +4186,7 @@
       ]
     },
     {
-      "schedule": "23 */30 * * * *",
+      "schedule": "23 0 * * * *",
       "entity_name": "portico-gloria-01:33",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4233,7 +4233,7 @@
       ]
     },
     {
-      "schedule": "40 */30 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "portico-gloria-01:34",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4280,7 +4280,7 @@
       ]
     },
     {
-      "schedule": "36 */30 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "portico-gloria-01:35",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4327,7 +4327,7 @@
       ]
     },
     {
-      "schedule": "53 */30 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "portico-gloria-01:36",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4374,7 +4374,7 @@
       ]
     },
     {
-      "schedule": "28 */30 * * * *",
+      "schedule": "28 0 * * * *",
       "entity_name": "portico-gloria-01:37",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4421,7 +4421,7 @@
       ]
     },
     {
-      "schedule": "32 */30 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "portico-gloria-01:38",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4468,7 +4468,7 @@
       ]
     },
     {
-      "schedule": "20 */30 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "portico-gloria-01:39",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4515,7 +4515,7 @@
       ]
     },
     {
-      "schedule": "20 */30 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "portico-gloria-01:40",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4562,7 +4562,7 @@
       ]
     },
     {
-      "schedule": "47 */30 * * * *",
+      "schedule": "47 0 * * * *",
       "entity_name": "portico-gloria-01:41",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4609,7 +4609,7 @@
       ]
     },
     {
-      "schedule": "14 */30 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "portico-gloria-01:42",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4656,7 +4656,7 @@
       ]
     },
     {
-      "schedule": "55 */30 * * * *",
+      "schedule": "55 0 * * * *",
       "entity_name": "portico-gloria-01:43",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4703,7 +4703,7 @@
       ]
     },
     {
-      "schedule": "32 */30 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "portico-gloria-01:44",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4750,7 +4750,7 @@
       ]
     },
     {
-      "schedule": "28 */30 * * * *",
+      "schedule": "28 0 * * * *",
       "entity_name": "portico-gloria-01:45",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4797,7 +4797,7 @@
       ]
     },
     {
-      "schedule": "18 */30 * * * *",
+      "schedule": "18 0 * * * *",
       "entity_name": "portico-gloria-01:46",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4844,7 +4844,7 @@
       ]
     },
     {
-      "schedule": "26 */30 * * * *",
+      "schedule": "26 0 * * * *",
       "entity_name": "portico-gloria-01:47",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4891,7 +4891,7 @@
       ]
     },
     {
-      "schedule": "35 */30 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "portico-gloria-01:48",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4938,7 +4938,7 @@
       ]
     },
     {
-      "schedule": "20 */30 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "portico-gloria-01:49",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -4985,7 +4985,7 @@
       ]
     },
     {
-      "schedule": "55 */30 * * * *",
+      "schedule": "55 0 * * * *",
       "entity_name": "portico-gloria-01:50",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5032,7 +5032,7 @@
       ]
     },
     {
-      "schedule": "50 */30 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "portico-gloria-01:51",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5079,7 +5079,7 @@
       ]
     },
     {
-      "schedule": "2 */30 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "portico-gloria-01:52",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5126,7 +5126,7 @@
       ]
     },
     {
-      "schedule": "54 */30 * * * *",
+      "schedule": "54 0 * * * *",
       "entity_name": "portico-gloria-01:53",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5173,7 +5173,7 @@
       ]
     },
     {
-      "schedule": "17 */30 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "portico-gloria-01:54",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5220,7 +5220,7 @@
       ]
     },
     {
-      "schedule": "8 */30 * * * *",
+      "schedule": "8 0 * * * *",
       "entity_name": "portico-gloria-01:55",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5267,7 +5267,7 @@
       ]
     },
     {
-      "schedule": "54 */30 * * * *",
+      "schedule": "54 0 * * * *",
       "entity_name": "portico-gloria-01:56",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5314,7 +5314,7 @@
       ]
     },
     {
-      "schedule": "9 */30 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "portico-gloria-01:57",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5361,7 +5361,7 @@
       ]
     },
     {
-      "schedule": "36 */30 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "portico-gloria-01:58",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5408,7 +5408,7 @@
       ]
     },
     {
-      "schedule": "2 */30 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "portico-gloria-01:59",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5455,7 +5455,7 @@
       ]
     },
     {
-      "schedule": "10 */30 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "portico-gloria-01:60",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5502,7 +5502,7 @@
       ]
     },
     {
-      "schedule": "45 */30 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "portico-gloria-01:61",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5549,7 +5549,7 @@
       ]
     },
     {
-      "schedule": "21 */30 * * * *",
+      "schedule": "21 0 * * * *",
       "entity_name": "portico-gloria-01:62",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5596,7 +5596,7 @@
       ]
     },
     {
-      "schedule": "46 */30 * * * *",
+      "schedule": "46 0 * * * *",
       "entity_name": "portico-gloria-01:63",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5643,7 +5643,7 @@
       ]
     },
     {
-      "schedule": "17 */30 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "portico-gloria-01:64",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5690,7 +5690,7 @@
       ]
     },
     {
-      "schedule": "38 */30 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "portico-gloria-01:65",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5737,7 +5737,7 @@
       ]
     },
     {
-      "schedule": "36 */30 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "portico-gloria-01:66",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5784,7 +5784,7 @@
       ]
     },
     {
-      "schedule": "26 */30 * * * *",
+      "schedule": "26 0 * * * *",
       "entity_name": "portico-gloria-01:67",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5831,7 +5831,7 @@
       ]
     },
     {
-      "schedule": "13 */30 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "portico-gloria-01:68",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5878,7 +5878,7 @@
       ]
     },
     {
-      "schedule": "23 */30 * * * *",
+      "schedule": "23 0 * * * *",
       "entity_name": "portico-gloria-01:69",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5925,7 +5925,7 @@
       ]
     },
     {
-      "schedule": "51 */30 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "portico-gloria-01:70",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -5972,7 +5972,7 @@
       ]
     },
     {
-      "schedule": "17 */30 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "portico-gloria-01:71",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6019,7 +6019,7 @@
       ]
     },
     {
-      "schedule": "29 */30 * * * *",
+      "schedule": "29 0 * * * *",
       "entity_name": "portico-gloria-01:72",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6066,7 +6066,7 @@
       ]
     },
     {
-      "schedule": "10 */30 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "portico-gloria-01:73",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6113,7 +6113,7 @@
       ]
     },
     {
-      "schedule": "33 */30 * * * *",
+      "schedule": "33 0 * * * *",
       "entity_name": "portico-gloria-01:74",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6160,7 +6160,7 @@
       ]
     },
     {
-      "schedule": "58 */30 * * * *",
+      "schedule": "58 0 * * * *",
       "entity_name": "portico-gloria-01:75",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6207,7 +6207,7 @@
       ]
     },
     {
-      "schedule": "47 */30 * * * *",
+      "schedule": "47 0 * * * *",
       "entity_name": "portico-gloria-01:76",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6254,7 +6254,7 @@
       ]
     },
     {
-      "schedule": "42 */30 * * * *",
+      "schedule": "42 0 * * * *",
       "entity_name": "portico-gloria-01:77",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6301,7 +6301,7 @@
       ]
     },
     {
-      "schedule": "12 */30 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "portico-gloria-01:78",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6348,7 +6348,7 @@
       ]
     },
     {
-      "schedule": "59 */30 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "portico-gloria-01:79",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6395,7 +6395,7 @@
       ]
     },
     {
-      "schedule": "53 */30 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "portico-gloria-01:80",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6442,7 +6442,7 @@
       ]
     },
     {
-      "schedule": "16 */30 * * * *",
+      "schedule": "16 0 * * * *",
       "entity_name": "portico-gloria-01:81",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6489,7 +6489,7 @@
       ]
     },
     {
-      "schedule": "20 */30 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "portico-gloria-01:82",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -6978,7 +6978,7 @@
       ]
     },
     {
-      "schedule": "30 */15 * * * *",
+      "schedule": "30 0 * * * *",
       "entity_name": "pi-alcobendas-01:01-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7030,7 +7030,7 @@
       ]
     },
     {
-      "schedule": "29 */15 * * * *",
+      "schedule": "29 0 * * * *",
       "entity_name": "pi-alcobendas-01:02-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7082,7 +7082,7 @@
       ]
     },
     {
-      "schedule": "1 */15 * * * *",
+      "schedule": "1 0 * * * *",
       "entity_name": "pi-alcobendas-01:03-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7134,7 +7134,7 @@
       ]
     },
     {
-      "schedule": "59 */15 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "pi-alcobendas-01:04-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7186,7 +7186,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "pi-alcobendas-01:05-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7238,7 +7238,7 @@
       ]
     },
     {
-      "schedule": "24 */15 * * * *",
+      "schedule": "24 0 * * * *",
       "entity_name": "pi-alcobendas-01:06-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7290,7 +7290,7 @@
       ]
     },
     {
-      "schedule": "12 */15 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "pi-alcobendas-01:07-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7342,7 +7342,7 @@
       ]
     },
     {
-      "schedule": "14 */15 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "pi-alcobendas-01:08-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7394,7 +7394,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pi-alcobendas-01:09-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7446,7 +7446,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pi-alcobendas-01:10-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7498,7 +7498,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "pi-alcobendas-01:11-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7550,7 +7550,7 @@
       ]
     },
     {
-      "schedule": "15 */15 * * * *",
+      "schedule": "15 0 * * * *",
       "entity_name": "pi-alcobendas-01:12-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7602,7 +7602,7 @@
       ]
     },
     {
-      "schedule": "12 */15 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "pi-alcobendas-01:13-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7654,7 +7654,7 @@
       ]
     },
     {
-      "schedule": "40 */15 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "pi-alcobendas-01:14-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7706,7 +7706,7 @@
       ]
     },
     {
-      "schedule": "16 */15 * * * *",
+      "schedule": "16 0 * * * *",
       "entity_name": "pi-alcobendas-01:15-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7758,7 +7758,7 @@
       ]
     },
     {
-      "schedule": "28 */15 * * * *",
+      "schedule": "28 0 * * * *",
       "entity_name": "pi-alcobendas-01:16-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7810,7 +7810,7 @@
       ]
     },
     {
-      "schedule": "11 */15 * * * *",
+      "schedule": "11 0 * * * *",
       "entity_name": "pi-alcobendas-01:17-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7862,7 +7862,7 @@
       ]
     },
     {
-      "schedule": "53 */15 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "pi-alcobendas-01:18-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7914,7 +7914,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "pi-alcobendas-01:19-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -7966,7 +7966,7 @@
       ]
     },
     {
-      "schedule": "4 */15 * * * *",
+      "schedule": "4 0 * * * *",
       "entity_name": "pi-alcobendas-01:20-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8018,7 +8018,7 @@
       ]
     },
     {
-      "schedule": "7 */15 * * * *",
+      "schedule": "7 0 * * * *",
       "entity_name": "pi-alcobendas-01:21-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8070,7 +8070,7 @@
       ]
     },
     {
-      "schedule": "14 */15 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "pi-alcobendas-01:22-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8122,7 +8122,7 @@
       ]
     },
     {
-      "schedule": "7 */15 * * * *",
+      "schedule": "7 0 * * * *",
       "entity_name": "pi-alcobendas-01:23-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8174,7 +8174,7 @@
       ]
     },
     {
-      "schedule": "47 */15 * * * *",
+      "schedule": "47 0 * * * *",
       "entity_name": "pi-alcobendas-01:24-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8226,7 +8226,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "pi-alcobendas-01:25-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8278,7 +8278,7 @@
       ]
     },
     {
-      "schedule": "41 */15 * * * *",
+      "schedule": "41 0 * * * *",
       "entity_name": "pi-alcobendas-01:26-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8330,7 +8330,7 @@
       ]
     },
     {
-      "schedule": "15 */15 * * * *",
+      "schedule": "15 0 * * * *",
       "entity_name": "pi-alcobendas-01:27-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8382,7 +8382,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "pi-alcobendas-01:28-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8434,7 +8434,7 @@
       ]
     },
     {
-      "schedule": "34 */15 * * * *",
+      "schedule": "34 0 * * * *",
       "entity_name": "pi-alcobendas-01:29-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8486,7 +8486,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pi-alcobendas-01:30-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8538,7 +8538,7 @@
       ]
     },
     {
-      "schedule": "38 */15 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "pi-alcobendas-01:31-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8590,7 +8590,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pi-alcobendas-01:32-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8642,7 +8642,7 @@
       ]
     },
     {
-      "schedule": "17 */15 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "pi-alcobendas-01:33-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8694,7 +8694,7 @@
       ]
     },
     {
-      "schedule": "59 */15 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "pi-alcobendas-01:34-0",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8746,7 +8746,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pi-alcobendas-01:01-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8798,7 +8798,7 @@
       ]
     },
     {
-      "schedule": "4 */15 * * * *",
+      "schedule": "4 0 * * * *",
       "entity_name": "pi-alcobendas-01:02-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8850,7 +8850,7 @@
       ]
     },
     {
-      "schedule": "59 */15 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "pi-alcobendas-01:03-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8902,7 +8902,7 @@
       ]
     },
     {
-      "schedule": "27 */15 * * * *",
+      "schedule": "27 0 * * * *",
       "entity_name": "pi-alcobendas-01:04-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -8954,7 +8954,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pi-alcobendas-01:05-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9006,7 +9006,7 @@
       ]
     },
     {
-      "schedule": "48 */15 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "pi-alcobendas-01:06-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9058,7 +9058,7 @@
       ]
     },
     {
-      "schedule": "7 */15 * * * *",
+      "schedule": "7 0 * * * *",
       "entity_name": "pi-alcobendas-01:07-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9110,7 +9110,7 @@
       ]
     },
     {
-      "schedule": "14 */15 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "pi-alcobendas-01:08-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9162,7 +9162,7 @@
       ]
     },
     {
-      "schedule": "25 */15 * * * *",
+      "schedule": "25 0 * * * *",
       "entity_name": "pi-alcobendas-01:09-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9214,7 +9214,7 @@
       ]
     },
     {
-      "schedule": "1 */15 * * * *",
+      "schedule": "1 0 * * * *",
       "entity_name": "pi-alcobendas-01:10-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9266,7 +9266,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pi-alcobendas-01:11-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9318,7 +9318,7 @@
       ]
     },
     {
-      "schedule": "2 */15 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "pi-alcobendas-01:12-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9370,7 +9370,7 @@
       ]
     },
     {
-      "schedule": "30 */15 * * * *",
+      "schedule": "30 0 * * * *",
       "entity_name": "pi-alcobendas-01:13-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9422,7 +9422,7 @@
       ]
     },
     {
-      "schedule": "20 */15 * * * *",
+      "schedule": "20 0 * * * *",
       "entity_name": "pi-alcobendas-01:14-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9474,7 +9474,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pi-alcobendas-01:15-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9526,7 +9526,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pi-alcobendas-01:16-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9578,7 +9578,7 @@
       ]
     },
     {
-      "schedule": "14 */15 * * * *",
+      "schedule": "14 0 * * * *",
       "entity_name": "pi-alcobendas-01:17-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9630,7 +9630,7 @@
       ]
     },
     {
-      "schedule": "21 */15 * * * *",
+      "schedule": "21 0 * * * *",
       "entity_name": "pi-alcobendas-01:18-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9682,7 +9682,7 @@
       ]
     },
     {
-      "schedule": "43 */15 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "pi-alcobendas-01:19-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9734,7 +9734,7 @@
       ]
     },
     {
-      "schedule": "4 */15 * * * *",
+      "schedule": "4 0 * * * *",
       "entity_name": "pi-alcobendas-01:20-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9786,7 +9786,7 @@
       ]
     },
     {
-      "schedule": "21 */15 * * * *",
+      "schedule": "21 0 * * * *",
       "entity_name": "pi-alcobendas-01:21-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9838,7 +9838,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pi-alcobendas-01:22-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9890,7 +9890,7 @@
       ]
     },
     {
-      "schedule": "25 */15 * * * *",
+      "schedule": "25 0 * * * *",
       "entity_name": "pi-alcobendas-01:23-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9942,7 +9942,7 @@
       ]
     },
     {
-      "schedule": "30 */15 * * * *",
+      "schedule": "30 0 * * * *",
       "entity_name": "pi-alcobendas-01:24-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -9994,7 +9994,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "pi-alcobendas-01:25-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10046,7 +10046,7 @@
       ]
     },
     {
-      "schedule": "52 */15 * * * *",
+      "schedule": "52 0 * * * *",
       "entity_name": "pi-alcobendas-01:26-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10098,7 +10098,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "pi-alcobendas-01:27-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10150,7 +10150,7 @@
       ]
     },
     {
-      "schedule": "55 */15 * * * *",
+      "schedule": "55 0 * * * *",
       "entity_name": "pi-alcobendas-01:28-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10202,7 +10202,7 @@
       ]
     },
     {
-      "schedule": "46 */15 * * * *",
+      "schedule": "46 0 * * * *",
       "entity_name": "pi-alcobendas-01:29-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10254,7 +10254,7 @@
       ]
     },
     {
-      "schedule": "23 */15 * * * *",
+      "schedule": "23 0 * * * *",
       "entity_name": "pi-alcobendas-01:30-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10306,7 +10306,7 @@
       ]
     },
     {
-      "schedule": "8 */15 * * * *",
+      "schedule": "8 0 * * * *",
       "entity_name": "pi-alcobendas-01:31-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10358,7 +10358,7 @@
       ]
     },
     {
-      "schedule": "15 */15 * * * *",
+      "schedule": "15 0 * * * *",
       "entity_name": "pi-alcobendas-01:32-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10410,7 +10410,7 @@
       ]
     },
     {
-      "schedule": "12 */15 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "pi-alcobendas-01:33-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10462,7 +10462,7 @@
       ]
     },
     {
-      "schedule": "8 */15 * * * *",
+      "schedule": "8 0 * * * *",
       "entity_name": "pi-alcobendas-01:34-1",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10514,7 +10514,7 @@
       ]
     },
     {
-      "schedule": "42 */15 * * * *",
+      "schedule": "42 0 * * * *",
       "entity_name": "pi-alcobendas-01:01-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10566,7 +10566,7 @@
       ]
     },
     {
-      "schedule": "24 */15 * * * *",
+      "schedule": "24 0 * * * *",
       "entity_name": "pi-alcobendas-01:02-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10618,7 +10618,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "pi-alcobendas-01:03-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10670,7 +10670,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "pi-alcobendas-01:04-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10722,7 +10722,7 @@
       ]
     },
     {
-      "schedule": "6 */15 * * * *",
+      "schedule": "6 0 * * * *",
       "entity_name": "pi-alcobendas-01:05-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10774,7 +10774,7 @@
       ]
     },
     {
-      "schedule": "45 */15 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "pi-alcobendas-01:06-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10826,7 +10826,7 @@
       ]
     },
     {
-      "schedule": "38 */15 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "pi-alcobendas-01:07-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10878,7 +10878,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "pi-alcobendas-01:08-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10930,7 +10930,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "pi-alcobendas-01:09-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -10982,7 +10982,7 @@
       ]
     },
     {
-      "schedule": "27 */15 * * * *",
+      "schedule": "27 0 * * * *",
       "entity_name": "pi-alcobendas-01:10-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11034,7 +11034,7 @@
       ]
     },
     {
-      "schedule": "33 */15 * * * *",
+      "schedule": "33 0 * * * *",
       "entity_name": "pi-alcobendas-01:11-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11086,7 +11086,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "pi-alcobendas-01:12-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11138,7 +11138,7 @@
       ]
     },
     {
-      "schedule": "3 */15 * * * *",
+      "schedule": "3 0 * * * *",
       "entity_name": "pi-alcobendas-01:13-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11190,7 +11190,7 @@
       ]
     },
     {
-      "schedule": "15 */15 * * * *",
+      "schedule": "15 0 * * * *",
       "entity_name": "pi-alcobendas-01:14-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11242,7 +11242,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "pi-alcobendas-01:15-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11294,7 +11294,7 @@
       ]
     },
     {
-      "schedule": "19 */15 * * * *",
+      "schedule": "19 0 * * * *",
       "entity_name": "pi-alcobendas-01:16-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11346,7 +11346,7 @@
       ]
     },
     {
-      "schedule": "5 */15 * * * *",
+      "schedule": "5 0 * * * *",
       "entity_name": "pi-alcobendas-01:17-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11398,7 +11398,7 @@
       ]
     },
     {
-      "schedule": "53 */15 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "pi-alcobendas-01:18-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11450,7 +11450,7 @@
       ]
     },
     {
-      "schedule": "45 */15 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "pi-alcobendas-01:19-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11502,7 +11502,7 @@
       ]
     },
     {
-      "schedule": "59 */15 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "pi-alcobendas-01:20-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11554,7 +11554,7 @@
       ]
     },
     {
-      "schedule": "9 */15 * * * *",
+      "schedule": "9 0 * * * *",
       "entity_name": "pi-alcobendas-01:21-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11606,7 +11606,7 @@
       ]
     },
     {
-      "schedule": "5 */15 * * * *",
+      "schedule": "5 0 * * * *",
       "entity_name": "pi-alcobendas-01:22-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11658,7 +11658,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pi-alcobendas-01:23-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11710,7 +11710,7 @@
       ]
     },
     {
-      "schedule": "38 */15 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "pi-alcobendas-01:24-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11762,7 +11762,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "pi-alcobendas-01:25-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11814,7 +11814,7 @@
       ]
     },
     {
-      "schedule": "17 */15 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "pi-alcobendas-01:26-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11866,7 +11866,7 @@
       ]
     },
     {
-      "schedule": "2 */15 * * * *",
+      "schedule": "2 0 * * * *",
       "entity_name": "pi-alcobendas-01:27-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11918,7 +11918,7 @@
       ]
     },
     {
-      "schedule": "25 */15 * * * *",
+      "schedule": "25 0 * * * *",
       "entity_name": "pi-alcobendas-01:28-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -11970,7 +11970,7 @@
       ]
     },
     {
-      "schedule": "26 */15 * * * *",
+      "schedule": "26 0 * * * *",
       "entity_name": "pi-alcobendas-01:29-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -12022,7 +12022,7 @@
       ]
     },
     {
-      "schedule": "46 */15 * * * *",
+      "schedule": "46 0 * * * *",
       "entity_name": "pi-alcobendas-01:30-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -12074,7 +12074,7 @@
       ]
     },
     {
-      "schedule": "39 */15 * * * *",
+      "schedule": "39 0 * * * *",
       "entity_name": "pi-alcobendas-01:31-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -12126,7 +12126,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "pi-alcobendas-01:32-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -12178,7 +12178,7 @@
       ]
     },
     {
-      "schedule": "43 */15 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "pi-alcobendas-01:33-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -12230,7 +12230,7 @@
       ]
     },
     {
-      "schedule": "40 */15 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "pi-alcobendas-01:34-2",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14066,7 +14066,7 @@
       ]
     },
     {
-      "schedule": "33 */15 * * * *",
+      "schedule": "33 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte-Disabled:01",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14118,7 +14118,7 @@
       ]
     },
     {
-      "schedule": "19 */15 * * * *",
+      "schedule": "19 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte-Disabled:02",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14170,7 +14170,7 @@
       ]
     },
     {
-      "schedule": "53 */15 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:01",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14222,7 +14222,7 @@
       ]
     },
     {
-      "schedule": "57 */15 * * * *",
+      "schedule": "57 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:02",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14274,7 +14274,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:03",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14326,7 +14326,7 @@
       ]
     },
     {
-      "schedule": "41 */15 * * * *",
+      "schedule": "41 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:04",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14378,7 +14378,7 @@
       ]
     },
     {
-      "schedule": "57 */15 * * * *",
+      "schedule": "57 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:05",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14430,7 +14430,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:06",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14482,7 +14482,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:07",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14534,7 +14534,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:08",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14586,7 +14586,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:09",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14638,7 +14638,7 @@
       ]
     },
     {
-      "schedule": "3 */15 * * * *",
+      "schedule": "3 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:10",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14690,7 +14690,7 @@
       ]
     },
     {
-      "schedule": "29 */15 * * * *",
+      "schedule": "29 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:11",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14742,7 +14742,7 @@
       ]
     },
     {
-      "schedule": "16 */15 * * * *",
+      "schedule": "16 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:12",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14794,7 +14794,7 @@
       ]
     },
     {
-      "schedule": "54 */15 * * * *",
+      "schedule": "54 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:13",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14846,7 +14846,7 @@
       ]
     },
     {
-      "schedule": "39 */15 * * * *",
+      "schedule": "39 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:14",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14898,7 +14898,7 @@
       ]
     },
     {
-      "schedule": "49 */15 * * * *",
+      "schedule": "49 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:15",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -14950,7 +14950,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:16",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15002,7 +15002,7 @@
       ]
     },
     {
-      "schedule": "45 */15 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:17",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15054,7 +15054,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:18",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15106,7 +15106,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:19",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15158,7 +15158,7 @@
       ]
     },
     {
-      "schedule": "11 */15 * * * *",
+      "schedule": "11 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:20",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15210,7 +15210,7 @@
       ]
     },
     {
-      "schedule": "50 */15 * * * *",
+      "schedule": "50 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:21",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15262,7 +15262,7 @@
       ]
     },
     {
-      "schedule": "12 */15 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:22",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15314,7 +15314,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:23",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15361,7 +15361,7 @@
       ]
     },
     {
-      "schedule": "32 */15 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:24",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15413,7 +15413,7 @@
       ]
     },
     {
-      "schedule": "40 */15 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:25",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15465,7 +15465,7 @@
       ]
     },
     {
-      "schedule": "30 */15 * * * *",
+      "schedule": "30 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:26",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15517,7 +15517,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:27",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15569,7 +15569,7 @@
       ]
     },
     {
-      "schedule": "6 */15 * * * *",
+      "schedule": "6 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:28",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15621,7 +15621,7 @@
       ]
     },
     {
-      "schedule": "31 */15 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:29",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15673,7 +15673,7 @@
       ]
     },
     {
-      "schedule": "35 */15 * * * *",
+      "schedule": "35 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:30",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15725,7 +15725,7 @@
       ]
     },
     {
-      "schedule": "44 */15 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:31",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15777,7 +15777,7 @@
       ]
     },
     {
-      "schedule": "36 */15 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:32",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15829,7 +15829,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:33",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15881,7 +15881,7 @@
       ]
     },
     {
-      "schedule": "10 */15 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:34",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15933,7 +15933,7 @@
       ]
     },
     {
-      "schedule": "27 */15 * * * *",
+      "schedule": "27 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:35",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -15985,7 +15985,7 @@
       ]
     },
     {
-      "schedule": "37 */15 * * * *",
+      "schedule": "37 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:36",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16037,7 +16037,7 @@
       ]
     },
     {
-      "schedule": "27 */15 * * * *",
+      "schedule": "27 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:37",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16089,7 +16089,7 @@
       ]
     },
     {
-      "schedule": "22 */15 * * * *",
+      "schedule": "22 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:38",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16141,7 +16141,7 @@
       ]
     },
     {
-      "schedule": "43 */15 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:39",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16193,7 +16193,7 @@
       ]
     },
     {
-      "schedule": "56 */15 * * * *",
+      "schedule": "56 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:40",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16245,7 +16245,7 @@
       ]
     },
     {
-      "schedule": "52 */15 * * * *",
+      "schedule": "52 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:41",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16297,7 +16297,7 @@
       ]
     },
     {
-      "schedule": "45 */15 * * * *",
+      "schedule": "45 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:42",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16349,7 +16349,7 @@
       ]
     },
     {
-      "schedule": "49 */15 * * * *",
+      "schedule": "49 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:43",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16401,7 +16401,7 @@
       ]
     },
     {
-      "schedule": "43 */15 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:44",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16453,7 +16453,7 @@
       ]
     },
     {
-      "schedule": "13 */15 * * * *",
+      "schedule": "13 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:45",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16505,7 +16505,7 @@
       ]
     },
     {
-      "schedule": "51 */15 * * * *",
+      "schedule": "51 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:46",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16557,7 +16557,7 @@
       ]
     },
     {
-      "schedule": "56 */15 * * * *",
+      "schedule": "56 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:47",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16609,7 +16609,7 @@
       ]
     },
     {
-      "schedule": "54 */15 * * * *",
+      "schedule": "54 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:48",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16661,7 +16661,7 @@
       ]
     },
     {
-      "schedule": "58 */15 * * * *",
+      "schedule": "58 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:49",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16713,7 +16713,7 @@
       ]
     },
     {
-      "schedule": "4 */15 * * * *",
+      "schedule": "4 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:50",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16765,7 +16765,7 @@
       ]
     },
     {
-      "schedule": "23 */15 * * * *",
+      "schedule": "23 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:51",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
@@ -16817,7 +16817,7 @@
       ]
     },
     {
-      "schedule": "59 */15 * * * *",
+      "schedule": "59 0 * * * *",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte:52",
       "entity_type": "ParkingSpot",
       "staticAttributes": [
