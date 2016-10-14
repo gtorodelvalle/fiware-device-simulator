@@ -1,0 +1,1 @@
+- [BUG] Do not force the from date if no to date and not passed
