@@ -2246,7 +2246,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2298,7 +2298,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2350,7 +2350,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2402,7 +2402,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[80,\"free\"],[20,\"occupied\"]]],[16,[[90,\"free\"],[10,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2454,7 +2454,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2506,7 +2506,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6338,7 +6338,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6385,7 +6385,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6432,7 +6432,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6479,7 +6479,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6526,7 +6526,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11856,7 +11856,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11908,7 +11908,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11960,7 +11960,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12012,7 +12012,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12064,7 +12064,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12116,7 +12116,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12168,7 +12168,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12220,7 +12220,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12272,7 +12272,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12425,7 +12425,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[6,random(2,20)],[8,random(20,50)],[10,random(50,80)],[12,random(70,120)],[14,random(80,120)],[16,random(60,125)],[18,random(70,100)],[20,random(30,40)],[22,1],[24,1]])"
+          "value": "time-random-linear-interpolator([[0,13],[6,random(13,20)],[8,random(20,50)],[10,random(50,80)],[12,random(70,120)],[14,random(80,120)],[16,random(60,125)],[18,random(70,100)],[20,random(30,40)],[22,13],[24,13]])"
         },
         {
           "name": "dateModified",
@@ -12578,7 +12578,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[6,random(0,50)],[8,random(50,90)],[10,random(90,100)],[12,random(100,120)],[14,random(120,220)],[16,random(100,125)],[18,random(125,350)],[22,random(200,250)],[23,2],[24,2]])"
+          "value": "time-random-linear-interpolator([[0,35],[5,35],[6,random(35,50)],[8,random(50,90)],[10,random(80,100)],[12,random(70,120)],[14,random(120,140)],[16,random(100,125)],[18,random(90,140)],[22,random(60,140)],[23,35],[24,35]])"
         },
         {
           "name": "dateModified",
@@ -12749,7 +12749,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,150],[6,150],[8,random(120,190)],[10,random(100,150)],[12,random(100,150)],[14,250],[16,random(100,150)],[18,random(150,220)],[22,250],[23,150],[24,150]])"
+          "value": "time-random-linear-interpolator([[0,25],[6,25],[8,random(120,190)],[10,random(100,150)],[12,random(100,200)],[14,225],[16,random(100,150)],[18,random(150,220)],[22,100],[23,25],[24,25]])"
         },
         {
           "name": "dateModified",
@@ -12900,7 +12900,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[6,1],[8,random(1,50)],[10,random(50,70)],[12,random(60,90)],[14,random(60,100)],[16,random(80,100)],[18,random(100,120)],[22,random(10,30)],[23,1]])"
+          "value": "time-random-linear-interpolator([[0,15],[6,15],[8,random(1,50)],[10,random(50,70)],[12,random(80,100)],[13,135],[14,135],[16,random(80,130)],[18,random(100,120)],[22,random(10,30)],[23,15],[24,15]])"
         },
         {
           "name": "dateModified",
@@ -13051,7 +13051,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[6,2],[8,random(2,30)],[10,random(30,100)],[12,random(60,90)],[14,random(120,150)],[16,random(200,250)],[18,random(250,300)],[22,random(80,100)],[23,2],[24,2]])"
+          "value": "time-random-linear-interpolator([[0,30],[6,30],[8,random(30,40)],[10,random(40,100)],[12,random(100,150)],[14,random(230,270)],[16,random(230,270)],[18,random(150,180)],[22,random(80,100)],[23,30],[24,30]])"
         },
         {
           "name": "dateModified",
@@ -13206,7 +13206,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[5,1],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,200)],[16,random(80,120)],[18,random(150,200)],[22,random(30,80)],[23,1],[24,1]])"
+          "value": "time-random-linear-interpolator([[0,60],[5,60],[7,random(60,90)],[10,random(60,120)],[12,random(80,120)],[14,random(90,120)],[16,random(80,120)],[18,random(110,120)],[22,random(60,80)],[23,60],[24,60]])"
         },
         {
           "name": "dateModified",
@@ -13381,7 +13381,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,5],[5,5],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,180)],[16,random(80,120)],[18,random(100,120)],[22,random(30,80)],[23,5],[24,5]])"
+          "value": "time-random-linear-interpolator([[0,66],[5,66],[7,random(66,90)],[10,random(80,120)],[12,random(80,120)],[14,random(90,120)],[16,random(80,120)],[18,random(110,120)],[22,random(70,80)],[23,66],[24,66]])"
         },
         {
           "name": "dateModified",
@@ -13532,7 +13532,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,3],[7,random(2,8)],[8,random(8,30)],[14,random(50,100)],[16,100],[18,random(60,100)],[22,random(30,80)],[23,3],[24,3]])"
+          "value": "time-random-linear-interpolator([[0,10],[8,10],[12,random(35,40)],[14,random(25,40)],[16,random(35,40)],[18,random(20,40)],[22,10],[24,10]])"
         },
         {
           "name": "dateModified",
@@ -13699,7 +13699,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[5,random(1,5)],[6,random(5,30)],[14,80],[16,random(50,85)],[18,random(50,83)],[22,random(50,85)],[23,2]])"
+          "value": "time-random-linear-interpolator([[0,40],[5,40],[6,random(50,80)],[12,100],[14,100],[16,random(80,95)],[18,random(50,83)],[22,40],[24,40]])"
         },
         {
           "name": "dateModified",
@@ -16703,7 +16703,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16755,7 +16755,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16807,7 +16807,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16859,7 +16859,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -17110,7 +17110,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[5,random(0,3)],[6,random(2,7)],[14,10],[18,6],[22,random(3,10)],[23,random(1,6)]])"
+          "value": "time-random-linear-interpolator([[0,2],[5,random(2,4)],[6,random(2,7)],[14,9],[18,random(5,8)],[22,random(3,9)],[24,random(1,6)]])"
         },
         {
           "name": "dateModified",
@@ -17206,7 +17206,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[5,1],[6,random(0,2)],[14,3],[18,3],[22,1],[23,random(1,2)]])"
+          "value": "time-random-linear-interpolator([[0,1],[5,1],[6,random(1,2)],[14,3],[18,3],[22,1],[23,random(1,2)]])"
         },
         {
           "name": "dateModified",
@@ -17216,7 +17216,7 @@
       ]
     },
     {
-      "schedule": "35 0 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "san-millan-cogolla-02",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17336,7 +17336,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[12,15],[18,random(8,15)],[22,random(10,15)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(2,5)],[5,random(3,6)],[6,random(3,10)],[14,random(10,13)],[18,random(8,12)],[22,random(10,12)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17346,7 +17346,7 @@
       ]
     },
     {
-      "schedule": "24 0 * * * *",
+      "schedule": "28 0 * * * *",
       "entity_name": "san-millan-cogolla-03",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17466,7 +17466,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17476,7 +17476,7 @@
       ]
     },
     {
-      "schedule": "50 0 * * * *",
+      "schedule": "31 0 * * * *",
       "entity_name": "san-millan-cogolla-04",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17596,7 +17596,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17606,7 +17606,7 @@
       ]
     },
     {
-      "schedule": "28 0 * * * *",
+      "schedule": "19 0 * * * *",
       "entity_name": "san-millan-cogolla-05",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17726,7 +17726,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17736,7 +17736,7 @@
       ]
     },
     {
-      "schedule": "18 0 * * * *",
+      "schedule": "22 0 * * * *",
       "entity_name": "san-millan-cogolla-06",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17856,7 +17856,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17866,7 +17866,7 @@
       ]
     },
     {
-      "schedule": "32 0 * * * *",
+      "schedule": "18 0 * * * *",
       "entity_name": "san-millan-cogolla-07",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17986,7 +17986,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -17996,7 +17996,7 @@
       ]
     },
     {
-      "schedule": "20 0 * * * *",
+      "schedule": "25 0 * * * *",
       "entity_name": "san-millan-cogolla-08",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18116,7 +18116,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18126,7 +18126,7 @@
       ]
     },
     {
-      "schedule": "22 0 * * * *",
+      "schedule": "38 0 * * * *",
       "entity_name": "san-millan-cogolla-09",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18246,7 +18246,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18256,7 +18256,7 @@
       ]
     },
     {
-      "schedule": "38 0 * * * *",
+      "schedule": "6 0 * * * *",
       "entity_name": "san-millan-cogolla-10",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18376,7 +18376,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18386,7 +18386,7 @@
       ]
     },
     {
-      "schedule": "58 0 * * * *",
+      "schedule": "29 0 * * * *",
       "entity_name": "san-millan-cogolla-11",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18506,7 +18506,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18517,7 +18517,7 @@
     },
 
     {
-      "schedule": "57 0 * * * *",
+      "schedule": "44 0 * * * *",
       "entity_name": "viloria-rioja-01",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18637,7 +18637,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18647,7 +18647,7 @@
       ]
     },
     {
-      "schedule": "44 0 * * * *",
+      "schedule": "32 0 * * * *",
       "entity_name": "viloria-rioja-02",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18767,7 +18767,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -18777,7 +18777,7 @@
       ]
     },
     {
-      "schedule": "58 0 * * * *",
+      "schedule": "25 0 * * * *",
       "entity_name": "viloria-rioja-03",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -18897,7 +18897,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19027,7 +19027,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19037,7 +19037,7 @@
       ]
     },
     {
-      "schedule": "23 0 * * * *",
+      "schedule": "43 0 * * * *",
       "entity_name": "viloria-rioja-05",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -19157,7 +19157,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19167,7 +19167,7 @@
       ]
     },
     {
-      "schedule": "28 0 * * * *",
+      "schedule": "48 0 * * * *",
       "entity_name": "viloria-rioja-06",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -19287,7 +19287,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19297,7 +19297,7 @@
       ]
     },
     {
-      "schedule": "53 0 * * * *",
+      "schedule": "7 0 * * * *",
       "entity_name": "viloria-rioja-07",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -19417,7 +19417,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19427,7 +19427,7 @@
       ]
     },
     {
-      "schedule": "44 0 * * * *",
+      "schedule": "57 0 * * * *",
       "entity_name": "viloria-rioja-08",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -19547,7 +19547,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19792,7 +19792,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,random(0,3)],[6,random(2,7)],[14,15],[18,6],[22,random(3,12)],[23,random(1,6)]])"
+          "value": "time-random-linear-interpolator([[0,2],[5,random(2,5)],[6,random(2,7)],[14,13],[18,6],[22,random(4,12)],[23,random(3,6)]])"
         },
         {
           "name": "dateModified",
@@ -19888,7 +19888,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,random(0,3)],[6,random(2,7)],[14,10],[18,6],[22,random(3,10)],[23,random(1,6)]])"
+          "value": "time-random-linear-interpolator([[0,1],[5,random(2,4)],[6,random(2,7)],[14,9],[18,random(6,9)],[22,random(3,9)],[23,random(1,6)]])"
         },
         {
           "name": "dateModified",
@@ -19898,7 +19898,7 @@
       ]
     },
     {
-      "schedule": "21 0 * * * *",
+      "schedule": "12 0 * * * *",
       "entity_name": "viloria-rioja-10",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20018,7 +20018,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20028,7 +20028,7 @@
       ]
     },
     {
-      "schedule": "10 0 * * * *",
+      "schedule": "17 0 * * * *",
       "entity_name": "viloria-rioja-11",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20148,7 +20148,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20158,7 +20158,7 @@
       ]
     },
     {
-      "schedule": "58 0 * * * *",
+      "schedule": "33 0 * * * *",
       "entity_name": "santo-domingo-calzada-01",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20278,7 +20278,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20288,7 +20288,7 @@
       ]
     },
     {
-      "schedule": "47 0 * * * *",
+      "schedule": "10 0 * * * *",
       "entity_name": "santo-domingo-calzada-02",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20408,7 +20408,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20418,7 +20418,7 @@
       ]
     },
     {
-      "schedule": "22 0 * * * *",
+      "schedule": "36 0 * * * *",
       "entity_name": "santo-domingo-calzada-03",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20538,7 +20538,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20548,7 +20548,7 @@
       ]
     },
     {
-      "schedule": "32 0 * * * *",
+      "schedule": "53 0 * * * *",
       "entity_name": "santo-domingo-calzada-04",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20668,7 +20668,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20678,7 +20678,7 @@
       ]
     },
     {
-      "schedule": "26 0 * * * *",
+      "schedule": "21 0 * * * *",
       "entity_name": "santo-domingo-calzada-05",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -20798,7 +20798,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(3,5)],[5,random(3,6)],[6,random(3,10)],[14,random(20,22)],[18,random(8,20)],[22,random(10,22)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -20807,6 +20807,5 @@
         }
       ]
     }
-
   ]
 }
