@@ -16703,7 +16703,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16755,7 +16755,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16807,7 +16807,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16859,7 +16859,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[40,\"free\"],[60,\"occupied\"]]],[19,[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[7,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
