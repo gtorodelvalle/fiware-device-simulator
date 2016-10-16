@@ -5,9 +5,9 @@ All the examples provided follow the requirements of [Fiware Data Models](http:/
 
 ## Examples provided
 Examples provided cover three several domain areas:
-- [Parking](#Parking)
-- [Waste](#Waste)
-- [Street lighting](#Street lighting)
+- [Parking](#parking)
+- [Waste](#waste)
+- [Street lighting](#street-lighting)
 
 ### Parking
 - File: urbo-simulation-parking.json
