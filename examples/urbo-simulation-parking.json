@@ -20455,7 +20455,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(12,14],[5,random(3,6)],[6,random(2,4)],[14,random(2,4)],[18,random(8,12)],[22,random(10,12)],[24,random(3,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(12,14)],[5,random(3,6)],[6,random(2,4)],[14,random(2,4)],[18,random(8,12)],[22,random(10,12)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
