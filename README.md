@@ -92,6 +92,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
       "ngsiVersion": "1.0"
     },
     "authentication": {
+      "provider": "keystone",
       "protocol": "https",
       "host": "localhost",
       "port": 5001,
@@ -241,6 +242,7 @@ The simulation configuration file accepts the following JSON properties or entri
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
     * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
 * **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests. Optional (authentication tokens will only be requested if the `authentication` information is included).
+    * **provider**: The Identity Service provider from which the authorization tokens will be requested. Accepted values are: `keystone` (to request tokens for the Telefónica IoT Platform) and `fiware-lab` (to request tokens for the [FIWARE Lab cloud infrastructure](https://account.lab.fiware.org/)).
     * **protocol**: The protocol the Identity Service is expecting the requests to be sent by.
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.

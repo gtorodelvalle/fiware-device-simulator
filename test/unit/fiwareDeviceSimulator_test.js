@@ -359,6 +359,32 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     });
 
+    it('should notify an "error" event if no provider authentication configuration information is provided',
+      function(done) {
+      simulationProgress = fiwareDeviceSimulator.start(
+        {
+          domain: {
+            service: 'theService',
+            subservice: '/theSubService'
+          },
+          contextBroker: {
+            protocol: 'https',
+            host: 'localhost',
+            port: '1026',
+            ngsiVersion: '1.0'
+          },
+          authentication: {
+          }
+        }
+      );
+      simulationProgress.on('error', function(ev) {
+        should(ev.error).instanceof(fdsErrors.SimulationConfigurationNotValid);
+      });
+      simulationProgress.on('end', function() {
+        done();
+      });
+    });
+
     it('should notify an "error" event if no protocol authentication configuration information is provided',
       function(done) {
       simulationProgress = fiwareDeviceSimulator.start(
@@ -374,6 +400,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone'
           }
         }
       );
@@ -400,6 +427,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https'
           }
         }
@@ -427,6 +455,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost'
           }
@@ -455,6 +484,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001
@@ -484,6 +514,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -514,6 +545,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -546,6 +578,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -580,6 +613,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -614,6 +648,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -649,6 +684,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -691,6 +727,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -734,6 +771,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -779,6 +817,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -826,6 +865,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -875,6 +915,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -925,6 +966,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -975,6 +1017,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1018,6 +1061,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1063,6 +1107,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1110,6 +1155,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1159,6 +1205,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1209,6 +1256,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1259,6 +1307,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1304,6 +1353,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1351,6 +1401,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1400,6 +1451,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1450,6 +1502,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1500,6 +1553,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1543,6 +1597,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1588,6 +1643,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1635,6 +1691,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1684,6 +1741,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1734,6 +1792,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1783,6 +1842,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1815,6 +1875,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1847,6 +1908,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1881,6 +1943,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1918,6 +1981,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1955,6 +2019,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -1993,6 +2058,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2032,6 +2098,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2071,6 +2138,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2114,6 +2182,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2158,6 +2227,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2203,6 +2273,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2248,6 +2319,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2294,6 +2366,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2342,6 +2415,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2392,6 +2466,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2443,6 +2518,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2495,6 +2571,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2546,6 +2623,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2592,6 +2670,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2638,6 +2717,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2684,6 +2764,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2730,6 +2811,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2776,6 +2858,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2822,6 +2905,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2868,6 +2952,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2914,6 +2999,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -2960,6 +3046,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3006,6 +3093,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3056,6 +3144,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3108,6 +3197,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3161,6 +3251,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3214,6 +3305,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3267,6 +3359,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3320,6 +3413,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3373,6 +3467,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3426,6 +3521,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3479,6 +3575,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3532,6 +3629,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3585,6 +3683,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3639,6 +3738,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3695,6 +3795,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3753,6 +3854,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3812,6 +3914,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3872,6 +3975,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3932,6 +4036,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -3985,6 +4090,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4039,6 +4145,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4093,6 +4200,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4149,6 +4257,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4207,6 +4316,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4266,6 +4376,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4326,6 +4437,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4387,6 +4499,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4448,6 +4561,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4509,6 +4623,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4573,6 +4688,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4648,6 +4764,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4722,6 +4839,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4788,6 +4906,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4854,6 +4973,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4920,6 +5040,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -4986,6 +5107,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -5052,6 +5174,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -5118,6 +5241,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -5184,6 +5308,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
@@ -5250,6 +5375,7 @@ describe('fiwareDeviceSimulator tests', function() {
             ngsiVersion: '1.0'
           },
           authentication: {
+            provider: 'keystone',
             protocol: 'https',
             host: 'localhost',
             port: 5001,
