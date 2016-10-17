@@ -4,7 +4,7 @@ In this folder you can find several configuration examples (JSON files) to use w
 All the examples provided follow the requirements of [Fiware Data Models](http://fiware-datamodels.readthedocs.io).
 
 ## Examples provided
-Examples provided cover three several domain areas:
+Examples provided cover several domain areas:
 - [Parking](#parking)
 - [Waste](#waste)
 - [Street lighting](#street-lighting)
