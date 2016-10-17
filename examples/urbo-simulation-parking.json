@@ -10,6 +10,7 @@
     "ngsiVersion": "1.0"
   },
   "authentication": {
+    "provider": "keystone",
     "protocol": "http",
     "host": "1.2.3.4",
     "port": 5001,
