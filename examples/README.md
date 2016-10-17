@@ -1,7 +1,7 @@
 # Simulation configuration examples
 In this folder you can find several configuration examples (JSON files) to use with FIWARE Device Simulator.
 
-All the examples provided follow the requirements of [Fiware Data Models](http://fiware-datamodels.readthedocs.io).
+All the examples provided follow the requirements of [FIWARE Data Models](http://fiware-datamodels.readthedocs.io).
 
 ## Examples provided
 Examples provided cover several domain areas:
