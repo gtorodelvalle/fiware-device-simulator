@@ -5308,18 +5308,18 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('authorization', function() {
     beforeEach(function() {
-      idm.post('/v3/auth/tokens').reply(
-          function(uri, requestBody) {
-            wellFormedTokenRequestCheck(simulationConfiguration, requestBody);
-            return [
-              503,
-              'Service Unavailable'
-            ];
-          }
+      idm.post('/v3/auth/tokens').times(10).reply(
+        function(uri, requestBody) {
+          wellFormedTokenRequestCheck(simulationConfiguration, requestBody);
+          return [
+            503,
+            'Service Unavailable'
+          ];
+        }
       );
     });
 
-    it('should request an authorization token', function(done) {
+    it('should request an authorization token the number of times set in retry.times', function(done) {
       simulationProgress = fiwareDeviceSimulator.start(simulationConfiguration);
       simulationProgress.on('error', function(ev) {
         should(ev.error).instanceof(fdsErrors.TokenNotAvailable);

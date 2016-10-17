@@ -14,7 +14,11 @@
     "host": "localhost",
     "port": 5001,
     "user": "theUser",
-    "password": "thePassword"
+    "password": "thePassword",
+    "retry": {
+      "times": 10,
+      "interval": 100
+    }
   },
   "iota": {
     "ultralight": {
@@ -93,7 +97,7 @@
     "api_key": "the-api-key",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
+      "value": "attribute-function-interpolator({\"spec\": \"${{EntityName1}{active1}} * 2 - ${{DeviceId1}{a1}}\", \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
     }]
   }, {
     "schedule": "*/5 * * * * *",
