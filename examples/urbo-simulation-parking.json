@@ -686,7 +686,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[90,\"free\"],[10,\"occupied\"]]],[19,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2246,7 +2246,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2298,7 +2298,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2350,7 +2350,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2402,7 +2402,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[80,\"free\"],[20,\"occupied\"]]],[16,[[90,\"free\"],[10,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2454,7 +2454,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -2506,7 +2506,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[30,\"free\"],[70,\"occupied\"]]],[16,[[70,\"free\"],[30,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -5962,7 +5962,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6009,7 +6009,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6056,7 +6056,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6103,7 +6103,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6150,7 +6150,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6244,7 +6244,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6338,7 +6338,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6385,7 +6385,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6432,7 +6432,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6479,7 +6479,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -6526,7 +6526,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[40,\"free\"],[60,\"occupied\"]]],[15,[[40,\"free\"],[60,\"occupied\"]]],[23,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[23,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8476,7 +8476,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8528,7 +8528,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8580,7 +8580,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8632,7 +8632,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8684,7 +8684,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -8736,7 +8736,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10088,7 +10088,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10140,7 +10140,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10192,7 +10192,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10244,7 +10244,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10296,7 +10296,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10348,7 +10348,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10400,7 +10400,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10452,7 +10452,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -10504,7 +10504,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11856,7 +11856,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11908,7 +11908,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -11960,7 +11960,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12012,7 +12012,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12064,7 +12064,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12116,7 +12116,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12168,7 +12168,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12220,7 +12220,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12272,7 +12272,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[5,[[30,\"free\"],[70,\"occupied\"]]],[17,[[40,\"free\"],[60,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -12425,7 +12425,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[6,random(2,20)],[8,random(20,50)],[10,random(50,80)],[12,random(70,120)],[14,random(80,120)],[16,random(60,125)],[18,random(70,100)],[20,random(30,40)],[22,1],[24,1]])"
+          "value": "time-random-linear-interpolator([[0,75],[6,random(75,85)],[8,random(85,100)],[10,random(90,100)],[12,random(95,112)],[14,random(100,112)],[16,random(80,112)],[18,random(75,90)],[20,random(75,95)],[22,75],[23,random(75,80)],[24,75]])"
         },
         {
           "name": "dateModified",
@@ -12578,7 +12578,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[6,random(0,50)],[8,random(50,90)],[10,random(90,100)],[12,random(100,120)],[14,random(120,220)],[16,random(100,125)],[18,random(125,350)],[22,random(200,250)],[23,2],[24,2]])"
+          "value": "time-random-linear-interpolator([[0,210],[5,random(210,215)],[6,random(210,250)],[8,random(250,280)],[10,random(280,315)],[12,random(240,300)],[14,random(250,315)],[16,random(210,315)],[18,random(250,260)],[22,random(260,280)],[24,210]])"
         },
         {
           "name": "dateModified",
@@ -12749,7 +12749,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,150],[6,150],[8,random(120,190)],[10,random(100,150)],[12,random(100,150)],[14,250],[16,random(100,150)],[18,random(150,220)],[22,250],[23,150],[24,150]])"
+          "value": "time-random-linear-interpolator([[0,225],[6,random(225,220)],[8,random(120,190)],[10,random(100,150)],[12,random(25,30)],[14,25],[16,random(25,30)],[18,random(40,60)],[22,100],[23,random(225,220)],[24,225]])"
         },
         {
           "name": "dateModified",
@@ -12900,7 +12900,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[6,1],[8,random(1,50)],[10,random(50,70)],[12,random(60,90)],[14,random(60,100)],[16,random(80,100)],[18,random(100,120)],[22,random(10,30)],[23,1]])"
+          "value": "time-random-linear-interpolator([[0,135],[6,random(135,130)],[8,random(135,50)],[10,random(50,70)],[12,random(30,20)],[13,15],[14,15],[16,random(30,80)],[18,random(100,120)],[22,random(100,120)],[24,135]])"
         },
         {
           "name": "dateModified",
@@ -13051,7 +13051,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[6,2],[8,random(2,30)],[10,random(30,100)],[12,random(60,90)],[14,random(120,150)],[16,random(200,250)],[18,random(250,300)],[22,random(80,100)],[23,2],[24,2]])"
+          "value": "time-random-linear-interpolator([[0,270],[6,random(270,265)],[8,random(270,200)],[10,random(200,100)],[12,random(100,150)],[14,random(30,40)],[16,random(40,60)],[18,random(40,70)],[22,random(80,100)],[24,270]])"
         },
         {
           "name": "dateModified",
@@ -13206,7 +13206,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[5,1],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,200)],[16,random(80,120)],[18,random(150,200)],[22,random(30,80)],[23,1],[24,1]])"
+          "value": "time-random-linear-interpolator([[0,140],[5,random(140,135)],[7,random(140,100)],[10,random(100,80)],[12,random(80,120)],[14,random(80,85)],[16,random(80,85)],[18,random(110,120)],[22,random(100,120)],[24,140]])"
         },
         {
           "name": "dateModified",
@@ -13381,7 +13381,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,5],[5,5],[7,random(10,30)],[10,random(30,80)],[12,random(80,150)],[14,random(150,180)],[16,random(80,120)],[18,random(100,120)],[22,random(30,80)],[23,5],[24,5]])"
+          "value": "time-random-linear-interpolator([[0,140],[5,random(140,135)],[7,random(140,100)],[10,random(100,80)],[12,random(80,120)],[14,random(80,85)],[16,random(80,85)],[18,random(110,120)],[22,random(100,120)],[24,140]])"
         },
         {
           "name": "dateModified",
@@ -13532,7 +13532,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,3],[7,random(2,8)],[8,random(8,30)],[14,random(50,100)],[16,100],[18,random(60,100)],[22,random(30,80)],[23,3],[24,3]])"
+          "value": "time-random-linear-interpolator([[0,90],[8,random(90,85)],[12,random(80,70)],[14,random(70,60)],[16,random(70,60)],[18,random(70,60)],[22,random(85,90)],[24,90]])"
         },
         {
           "name": "dateModified",
@@ -13699,7 +13699,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[5,random(1,5)],[6,random(5,30)],[14,80],[16,random(50,85)],[18,random(50,83)],[22,random(50,85)],[23,2]])"
+          "value": "time-random-linear-interpolator([[0,108],[5,random(108,105)],[6,random(50,80)],[12,0],[13,0],[14,0],[16,random(80,95)],[18,random(50,83)],[22,random(108,105)],[24,108]])"
         },
         {
           "name": "dateModified",
@@ -16599,7 +16599,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16651,7 +16651,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16703,7 +16703,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16755,7 +16755,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16807,7 +16807,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16859,7 +16859,7 @@
         {
           "name": "status",
           "type": "Text",
-          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[7,[[10,\"unknown\"],[30,\"free\"],[60,\"occupied\"]]],[19,[[10,\"unknown\"],[70,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})"
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"occupied\"],[22,\"occupied\"]]})"
         },
         {
           "name": "dateModified",
@@ -16869,7 +16869,3126 @@
       ]
     },
 
-
+    {
+      "schedule": "13 0 * * * *",
+      "entity_name": "san-millan-cogolla-03",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.671471060276468,
+                    40.5057173218689
+                  ],
+                  [
+                    -3.671449870310487,
+                    40.5057349926572
+                  ],
+                  [
+                    -3.670686006214205,
+                    40.50521435211126
+                  ],
+                  [
+                    -3.670704461991028,
+                    40.5051978505854
+                  ],
+                  [
+                    -3.671471060276468,
+                    40.5057173218689
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-03"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "23 0 * * * *",
+      "entity_name": "san-millan-cogolla-04",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.670671139060654,
+                    40.505176541522374
+                  ],
+                  [
+                    -3.670651657962895,
+                    40.50519369271998
+                  ],
+                  [
+                    -3.669875490015398,
+                    40.504659599770086
+                  ],
+                  [
+                    -3.669892749584464,
+                    40.50464485222165
+                  ],
+                  [
+                    -3.670671139060654,
+                    40.505176541522374
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-04"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "30 0 * * * *",
+      "entity_name": "san-millan-cogolla-05",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.669858913993622,
+                    40.50462256847492
+                  ],
+                  [
+                    -3.669844217726893,
+                    40.50463608165166
+                  ],
+                  [
+                    -3.669005163428741,
+                    40.50407125452931
+                  ],
+                  [
+                    -3.669026011621078,
+                    40.50405306356064
+                  ],
+                  [
+                    -3.669858913993622,
+                    40.50462256847492
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-05"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "38 0 * * * *",
+      "entity_name": "san-millan-cogolla-06",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.668865036234344,
+                    40.50394053931623
+                  ],
+                  [
+                    -3.668844700702476,
+                    40.50395834050835
+                  ],
+                  [
+                    -3.668156197694886,
+                    40.503479135965975
+                  ],
+                  [
+                    -3.668175507905822,
+                    40.50346406331637
+                  ],
+                  [
+                    -3.668865036234344,
+                    40.50394053931623
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-06"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "33 0 * * * *",
+      "entity_name": "san-millan-cogolla-07",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.668143381183205,
+                    40.50344184414569
+                  ],
+                  [
+                    -3.668121678556756,
+                    40.503458216166905
+                  ],
+                  [
+                    -3.667225035399442,
+                    40.50287141964182
+                  ],
+                  [
+                    -3.667244345610377,
+                    40.502852448720766
+                  ],
+                  [
+                    -3.668143381183205,
+                    40.50344184414569
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-07"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "26 0 * * * *",
+      "entity_name": "san-millan-cogolla-08",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.671265654315901,
+                    40.50471845999716
+                  ],
+                  [
+                    -3.672048887077031,
+                    40.50524275857778
+                  ],
+                  [
+                    -3.672012087956293,
+                    40.50527379655065
+                  ],
+                  [
+                    -3.671232160498704,
+                    40.50474548630928
+                  ],
+                  [
+                    -3.671265654315901,
+                    40.50471845999716
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-08"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "28 0 * * * *",
+      "entity_name": "san-millan-cogolla-09",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.670416669004523,
+                    40.50418325296548
+                  ],
+                  [
+                    -3.669560448272207,
+                    40.50360510706175
+                  ],
+                  [
+                    -3.669597532670453,
+                    40.503574032057855
+                  ],
+                  [
+                    -3.670450726104954,
+                    40.50415524733981
+                  ],
+                  [
+                    -3.670416669004523,
+                    40.50418325296548
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-09"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "36 0 * * * *",
+      "entity_name": "san-millan-cogolla-10",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.669411606129581,
+                    40.50348310881562
+                  ],
+                  [
+                    -3.668645447507293,
+                    40.50293967682563
+                  ],
+                  [
+                    -3.668677612546588,
+                    40.502913301175795
+                  ],
+                  [
+                    -3.669444149581104,
+                    40.5034561579153
+                  ],
+                  [
+                    -3.669411606129581,
+                    40.50348310881562
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-10"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "20 0 * * * *",
+      "entity_name": "san-millan-cogolla-11",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.66861265178095,
+                    40.502918288572204
+                  ],
+                  [
+                    -3.667863900121105,
+                    40.50239441810093
+                  ],
+                  [
+                    -3.66789480015042,
+                    40.50236974037303
+                  ],
+                  [
+                    -3.668642924759111,
+                    40.50289277611747
+                  ],
+                  [
+                    -3.66861265178095,
+                    40.502918288572204
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "san-millan-cogolla-11"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "39 0 * * * *",
+      "entity_name": "viloria-rioja-01",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.671415094841867,
+                    40.50713564768526
+                  ],
+                  [
+                    -3.670540154311097,
+                    40.50654472555037
+                  ],
+                  [
+                    -3.670563394918946,
+                    40.50652653525253
+                  ],
+                  [
+                    -3.671434917713266,
+                    40.507119016702546
+                  ],
+                  [
+                    -3.671415094841867,
+                    40.50713564768526
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-01"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "47 0 * * * *",
+      "entity_name": "viloria-rioja-02",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.670509223796237,
+                    40.506522377469466
+                  ],
+                  [
+                    -3.669770480062934,
+                    40.50601447634431
+                  ],
+                  [
+                    -3.669789106726577,
+                    40.505999404264436
+                  ],
+                  [
+                    -3.670530071988572,
+                    40.506506266057684
+                  ],
+                  [
+                    -3.670509223796237,
+                    40.506522377469466
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-02"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "37 0 * * * *",
+      "entity_name": "viloria-rioja-03",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.669737840679852,
+                    40.505993297472486
+                  ],
+                  [
+                    -3.66895791322234,
+                    40.505459860553785
+                  ],
+                  [
+                    -3.668980982943369,
+                    40.5054415400289
+                  ],
+                  [
+                    -3.669754416701626,
+                    40.50597952470562
+                  ],
+                  [
+                    -3.669737840679852,
+                    40.505993297472486
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-03"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "17 0 * * * *",
+      "entity_name": "viloria-rioja-04",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.668926128273366,
+                    40.505439071305304
+                  ],
+                  [
+                    -3.668072890368951,
+                    40.50485229210933
+                  ],
+                  [
+                    -3.668093225900821,
+                    40.50483637519735
+                  ],
+                  [
+                    -3.668946805578881,
+                    40.505421790237605
+                  ],
+                  [
+                    -3.668926128273366,
+                    40.505439071305304
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-04"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "23 0 * * * *",
+      "entity_name": "viloria-rioja-05",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.667928832777639,
+                    40.50475172314901
+                  ],
+                  [
+                    -3.667178554183741,
+                    40.50419761665764
+                  ],
+                  [
+                    -3.667201111244301,
+                    40.50418098494638
+                  ],
+                  [
+                    -3.667947373997873,
+                    40.50473678071956
+                  ],
+                  [
+                    -3.667928832777639,
+                    40.50475172314901
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-05"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "49 0 * * * *",
+      "entity_name": "viloria-rioja-06",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.667147111008413,
+                    40.50417565760049
+                  ],
+                  [
+                    -3.666380854496617,
+                    40.50367163679212
+                  ],
+                  [
+                    -3.666402728009888,
+                    40.50365344571508
+                  ],
+                  [
+                    -3.667170180729441,
+                    40.50415720678953
+                  ],
+                  [
+                    -3.667147111008413,
+                    40.50417565760049
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-06"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "13 0 * * * *",
+      "entity_name": "viloria-rioja-07",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.672939187284484,
+                    40.50446987272743
+                  ],
+                  [
+                    -3.672904326372711,
+                    40.50450105704834
+                  ],
+                  [
+                    -3.672159772487462,
+                    40.5039887228052
+                  ],
+                  [
+                    -3.67219224098372,
+                    40.50396169618815
+                  ],
+                  [
+                    -3.672939187284484,
+                    40.50446987272743
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-07"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "57 0 * * * *",
+      "entity_name": "viloria-rioja-08",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.672160114261107,
+                    40.503940516668116
+                  ],
+                  [
+                    -3.672129354633072,
+                    40.5039659840656
+                  ],
+                  [
+                    -3.671368566499693,
+                    40.50342337048467
+                  ],
+                  [
+                    -3.671400009675017,
+                    40.50339686338694
+                  ],
+                  [
+                    -3.672160114261107,
+                    40.503940516668116
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-08"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "59 0 * * * *",
+      "entity_name": "viloria-rioja-10",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.670381267883477,
+                    40.50271554454565
+                  ],
+                  [
+                    -3.670340938593387,
+                    40.502748808690754
+                  ],
+                  [
+                    -3.669536061659814,
+                    40.50218539500656
+                  ],
+                  [
+                    -3.669568188382428,
+                    40.502159147297974
+                  ],
+                  [
+                    -3.670381267883477,
+                    40.50271554454565
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-10"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "59 0 * * * *",
+      "entity_name": "viloria-rioja-11",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.668799539455206,
+                    40.501588192125084
+                  ],
+                  [
+                    -3.669536745207105,
+                    40.50213621302933
+                  ],
+                  [
+                    -3.669503934937201,
+                    40.50216414995608
+                  ],
+                  [
+                    -3.668769292487639,
+                    40.50161418017662
+                  ],
+                  [
+                    -3.668799539455206,
+                    40.501588192125084
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "viloria-rioja-11"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "12 0 * * * *",
+      "entity_name": "santo-domingo-calzada-01",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.670112633798639,
+                    40.50791786937079
+                  ],
+                  [
+                    -3.669485137386731,
+                    40.507479230937385
+                  ],
+                  [
+                    -3.669509915975982,
+                    40.50745766274137
+                  ],
+                  [
+                    -3.670150912446859,
+                    40.507903837143054
+                  ],
+                  [
+                    -3.670112633798639,
+                    40.50791786937079
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "santo-domingo-calzada-01"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "53 0 * * * *",
+      "entity_name": "santo-domingo-calzada-02",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.669452839777295,
+                    40.50745649338114
+                  ],
+                  [
+                    -3.668696494701285,
+                    40.506950028558734
+                  ],
+                  [
+                    -3.668714950478105,
+                    40.506934696829255
+                  ],
+                  [
+                    -3.669474713290564,
+                    40.5074377836148
+                  ],
+                  [
+                    -3.669452839777295,
+                    40.50745649338114
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "santo-domingo-calzada-02"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "42 0 * * * *",
+      "entity_name": "santo-domingo-calzada-03",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.668663342657736,
+                    40.506928330262596
+                  ],
+                  [
+                    -3.667899649448365,
+                    40.506419782557
+                  ],
+                  [
+                    -3.66792904198182,
+                    40.506395355538984
+                  ],
+                  [
+                    -3.668681627547735,
+                    40.506913128458116
+                  ],
+                  [
+                    -3.668663342657736,
+                    40.506928330262596
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "santo-domingo-calzada-03"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "14 0 * * * *",
+      "entity_name": "santo-domingo-calzada-04",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.66786888982033,
+                    40.50639925346798
+                  ],
+                  [
+                    -3.666974126418165,
+                    40.50579169353308
+                  ],
+                  [
+                    -3.667001810083396,
+                    40.50576908533691
+                  ],
+                  [
+                    -3.667892813975469,
+                    40.50637586589056
+                  ],
+                  [
+                    -3.66786888982033,
+                    40.50639925346798
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "santo-domingo-calzada-04"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
+      "schedule": "45 0 * * * *",
+      "entity_name": "santo-domingo-calzada-05",
+      "entity_type": "OnStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                    -3.666822378919861,
+                    40.50569164571062
+                  ],
+                  [
+                    -3.666065350296563,
+                    40.50516203942701
+                  ],
+                  [
+                    -3.666088590904412,
+                    40.50514073035266
+                  ],
+                  [
+                    -3.666846303074999,
+                    40.50567163612822
+                  ],
+                  [
+                    -3.666822378919861,
+                    40.50569164571062
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "santo-domingo-calzada-05"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "public"
+          ]
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "lastablas"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "modelBased"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "flat"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT24H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 25
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        },
+        {
+          "name": "status_onsp",
+          "type": "Text",
+          "value": "open"
+        }
+      ],
+      "active": [
+        {
+          "name": "availableSpotNumber",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,random(20,23)],[5,random(20,23)],[6,random(3,6)],[14,random(3,8)],[18,random(8,6)],[22,random(10,22)],[24,random(3,8)]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
     {
       "schedule": "once",
       "entity_name": "san-millan-cogolla-01",
@@ -17110,7 +20229,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2],[5,random(0,3)],[6,random(2,7)],[14,10],[18,6],[22,random(3,10)],[23,random(1,6)]])"
+          "value": "time-random-linear-interpolator([[0,9],[5,9],[6,random(8,7)],[14,1],[18,random(3,4)],[22,random(3,9)],[24,random(8,6)]])"
         },
         {
           "name": "dateModified",
@@ -17206,7 +20325,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,1],[5,1],[6,random(0,2)],[14,3],[18,3],[22,1],[23,random(1,2)]])"
+          "value": "time-random-linear-interpolator([[0,2],[5,2],[6,random(2,3)],[14,2],[18,2],[22,2],[23,2]])"
         },
         {
           "name": "dateModified",
@@ -17216,7 +20335,7 @@
       ]
     },
     {
-      "schedule": "35 0 * * * *",
+      "schedule": "40 0 * * * *",
       "entity_name": "san-millan-cogolla-02",
       "entity_type": "OnStreetParking",
       "staticAttributes": [
@@ -17336,2218 +20455,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[12,15],[18,random(8,15)],[22,random(10,15)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "24 0 * * * *",
-      "entity_name": "san-millan-cogolla-03",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.671471060276468,
-                    40.5057173218689
-                  ],
-                  [
-                    -3.671449870310487,
-                    40.5057349926572
-                  ],
-                  [
-                    -3.670686006214205,
-                    40.50521435211126
-                  ],
-                  [
-                    -3.670704461991028,
-                    40.5051978505854
-                  ],
-                  [
-                    -3.671471060276468,
-                    40.5057173218689
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-03"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "50 0 * * * *",
-      "entity_name": "san-millan-cogolla-04",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.670671139060654,
-                    40.505176541522374
-                  ],
-                  [
-                    -3.670651657962895,
-                    40.50519369271998
-                  ],
-                  [
-                    -3.669875490015398,
-                    40.504659599770086
-                  ],
-                  [
-                    -3.669892749584464,
-                    40.50464485222165
-                  ],
-                  [
-                    -3.670671139060654,
-                    40.505176541522374
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-04"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "28 0 * * * *",
-      "entity_name": "san-millan-cogolla-05",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.669858913993622,
-                    40.50462256847492
-                  ],
-                  [
-                    -3.669844217726893,
-                    40.50463608165166
-                  ],
-                  [
-                    -3.669005163428741,
-                    40.50407125452931
-                  ],
-                  [
-                    -3.669026011621078,
-                    40.50405306356064
-                  ],
-                  [
-                    -3.669858913993622,
-                    40.50462256847492
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-05"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "18 0 * * * *",
-      "entity_name": "san-millan-cogolla-06",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.668865036234344,
-                    40.50394053931623
-                  ],
-                  [
-                    -3.668844700702476,
-                    40.50395834050835
-                  ],
-                  [
-                    -3.668156197694886,
-                    40.503479135965975
-                  ],
-                  [
-                    -3.668175507905822,
-                    40.50346406331637
-                  ],
-                  [
-                    -3.668865036234344,
-                    40.50394053931623
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-06"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "32 0 * * * *",
-      "entity_name": "san-millan-cogolla-07",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.668143381183205,
-                    40.50344184414569
-                  ],
-                  [
-                    -3.668121678556756,
-                    40.503458216166905
-                  ],
-                  [
-                    -3.667225035399442,
-                    40.50287141964182
-                  ],
-                  [
-                    -3.667244345610377,
-                    40.502852448720766
-                  ],
-                  [
-                    -3.668143381183205,
-                    40.50344184414569
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-07"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "20 0 * * * *",
-      "entity_name": "san-millan-cogolla-08",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.671265654315901,
-                    40.50471845999716
-                  ],
-                  [
-                    -3.672048887077031,
-                    40.50524275857778
-                  ],
-                  [
-                    -3.672012087956293,
-                    40.50527379655065
-                  ],
-                  [
-                    -3.671232160498704,
-                    40.50474548630928
-                  ],
-                  [
-                    -3.671265654315901,
-                    40.50471845999716
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-08"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "22 0 * * * *",
-      "entity_name": "san-millan-cogolla-09",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.670416669004523,
-                    40.50418325296548
-                  ],
-                  [
-                    -3.669560448272207,
-                    40.50360510706175
-                  ],
-                  [
-                    -3.669597532670453,
-                    40.503574032057855
-                  ],
-                  [
-                    -3.670450726104954,
-                    40.50415524733981
-                  ],
-                  [
-                    -3.670416669004523,
-                    40.50418325296548
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-09"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "38 0 * * * *",
-      "entity_name": "san-millan-cogolla-10",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.669411606129581,
-                    40.50348310881562
-                  ],
-                  [
-                    -3.668645447507293,
-                    40.50293967682563
-                  ],
-                  [
-                    -3.668677612546588,
-                    40.502913301175795
-                  ],
-                  [
-                    -3.669444149581104,
-                    40.5034561579153
-                  ],
-                  [
-                    -3.669411606129581,
-                    40.50348310881562
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-10"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "58 0 * * * *",
-      "entity_name": "san-millan-cogolla-11",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.66861265178095,
-                    40.502918288572204
-                  ],
-                  [
-                    -3.667863900121105,
-                    40.50239441810093
-                  ],
-                  [
-                    -3.66789480015042,
-                    40.50236974037303
-                  ],
-                  [
-                    -3.668642924759111,
-                    40.50289277611747
-                  ],
-                  [
-                    -3.66861265178095,
-                    40.502918288572204
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "san-millan-cogolla-11"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-
-    {
-      "schedule": "57 0 * * * *",
-      "entity_name": "viloria-rioja-01",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.671415094841867,
-                    40.50713564768526
-                  ],
-                  [
-                    -3.670540154311097,
-                    40.50654472555037
-                  ],
-                  [
-                    -3.670563394918946,
-                    40.50652653525253
-                  ],
-                  [
-                    -3.671434917713266,
-                    40.507119016702546
-                  ],
-                  [
-                    -3.671415094841867,
-                    40.50713564768526
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-01"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "44 0 * * * *",
-      "entity_name": "viloria-rioja-02",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.670509223796237,
-                    40.506522377469466
-                  ],
-                  [
-                    -3.669770480062934,
-                    40.50601447634431
-                  ],
-                  [
-                    -3.669789106726577,
-                    40.505999404264436
-                  ],
-                  [
-                    -3.670530071988572,
-                    40.506506266057684
-                  ],
-                  [
-                    -3.670509223796237,
-                    40.506522377469466
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-02"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "58 0 * * * *",
-      "entity_name": "viloria-rioja-03",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.669737840679852,
-                    40.505993297472486
-                  ],
-                  [
-                    -3.66895791322234,
-                    40.505459860553785
-                  ],
-                  [
-                    -3.668980982943369,
-                    40.5054415400289
-                  ],
-                  [
-                    -3.669754416701626,
-                    40.50597952470562
-                  ],
-                  [
-                    -3.669737840679852,
-                    40.505993297472486
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-03"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "15 0 * * * *",
-      "entity_name": "viloria-rioja-04",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.668926128273366,
-                    40.505439071305304
-                  ],
-                  [
-                    -3.668072890368951,
-                    40.50485229210933
-                  ],
-                  [
-                    -3.668093225900821,
-                    40.50483637519735
-                  ],
-                  [
-                    -3.668946805578881,
-                    40.505421790237605
-                  ],
-                  [
-                    -3.668926128273366,
-                    40.505439071305304
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-04"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "23 0 * * * *",
-      "entity_name": "viloria-rioja-05",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.667928832777639,
-                    40.50475172314901
-                  ],
-                  [
-                    -3.667178554183741,
-                    40.50419761665764
-                  ],
-                  [
-                    -3.667201111244301,
-                    40.50418098494638
-                  ],
-                  [
-                    -3.667947373997873,
-                    40.50473678071956
-                  ],
-                  [
-                    -3.667928832777639,
-                    40.50475172314901
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-05"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "28 0 * * * *",
-      "entity_name": "viloria-rioja-06",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.667147111008413,
-                    40.50417565760049
-                  ],
-                  [
-                    -3.666380854496617,
-                    40.50367163679212
-                  ],
-                  [
-                    -3.666402728009888,
-                    40.50365344571508
-                  ],
-                  [
-                    -3.667170180729441,
-                    40.50415720678953
-                  ],
-                  [
-                    -3.667147111008413,
-                    40.50417565760049
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-06"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "53 0 * * * *",
-      "entity_name": "viloria-rioja-07",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.672939187284484,
-                    40.50446987272743
-                  ],
-                  [
-                    -3.672904326372711,
-                    40.50450105704834
-                  ],
-                  [
-                    -3.672159772487462,
-                    40.5039887228052
-                  ],
-                  [
-                    -3.67219224098372,
-                    40.50396169618815
-                  ],
-                  [
-                    -3.672939187284484,
-                    40.50446987272743
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-07"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "44 0 * * * *",
-      "entity_name": "viloria-rioja-08",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.672160114261107,
-                    40.503940516668116
-                  ],
-                  [
-                    -3.672129354633072,
-                    40.5039659840656
-                  ],
-                  [
-                    -3.671368566499693,
-                    40.50342337048467
-                  ],
-                  [
-                    -3.671400009675017,
-                    40.50339686338694
-                  ],
-                  [
-                    -3.672160114261107,
-                    40.503940516668116
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-08"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,random(12,14)],[5,random(3,6)],[6,random(2,4)],[14,random(2,4)],[18,random(8,12)],[22,random(10,12)],[24,random(3,8)]])"
         },
         {
           "name": "dateModified",
@@ -19792,7 +20700,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,random(0,3)],[6,random(2,7)],[14,15],[18,6],[22,random(3,12)],[23,random(1,6)]])"
+          "value": "time-random-linear-interpolator([[0,2],[5,random(2,5)],[6,random(2,7)],[14,14],[18,6],[22,random(4,12)],[23,random(3,6)]])"
         },
         {
           "name": "dateModified",
@@ -19888,917 +20796,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,0],[5,random(0,3)],[6,random(2,7)],[14,10],[18,6],[22,random(3,10)],[23,random(1,6)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "21 0 * * * *",
-      "entity_name": "viloria-rioja-10",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.670381267883477,
-                    40.50271554454565
-                  ],
-                  [
-                    -3.670340938593387,
-                    40.502748808690754
-                  ],
-                  [
-                    -3.669536061659814,
-                    40.50218539500656
-                  ],
-                  [
-                    -3.669568188382428,
-                    40.502159147297974
-                  ],
-                  [
-                    -3.670381267883477,
-                    40.50271554454565
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-10"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "10 0 * * * *",
-      "entity_name": "viloria-rioja-11",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.668799539455206,
-                    40.501588192125084
-                  ],
-                  [
-                    -3.669536745207105,
-                    40.50213621302933
-                  ],
-                  [
-                    -3.669503934937201,
-                    40.50216414995608
-                  ],
-                  [
-                    -3.668769292487639,
-                    40.50161418017662
-                  ],
-                  [
-                    -3.668799539455206,
-                    40.501588192125084
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "viloria-rioja-11"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "58 0 * * * *",
-      "entity_name": "santo-domingo-calzada-01",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.670112633798639,
-                    40.50791786937079
-                  ],
-                  [
-                    -3.669485137386731,
-                    40.507479230937385
-                  ],
-                  [
-                    -3.669509915975982,
-                    40.50745766274137
-                  ],
-                  [
-                    -3.670150912446859,
-                    40.507903837143054
-                  ],
-                  [
-                    -3.670112633798639,
-                    40.50791786937079
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "santo-domingo-calzada-01"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "47 0 * * * *",
-      "entity_name": "santo-domingo-calzada-02",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.669452839777295,
-                    40.50745649338114
-                  ],
-                  [
-                    -3.668696494701285,
-                    40.506950028558734
-                  ],
-                  [
-                    -3.668714950478105,
-                    40.506934696829255
-                  ],
-                  [
-                    -3.669474713290564,
-                    40.5074377836148
-                  ],
-                  [
-                    -3.669452839777295,
-                    40.50745649338114
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "santo-domingo-calzada-02"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "22 0 * * * *",
-      "entity_name": "santo-domingo-calzada-03",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.668663342657736,
-                    40.506928330262596
-                  ],
-                  [
-                    -3.667899649448365,
-                    40.506419782557
-                  ],
-                  [
-                    -3.66792904198182,
-                    40.506395355538984
-                  ],
-                  [
-                    -3.668681627547735,
-                    40.506913128458116
-                  ],
-                  [
-                    -3.668663342657736,
-                    40.506928330262596
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "santo-domingo-calzada-03"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "32 0 * * * *",
-      "entity_name": "santo-domingo-calzada-04",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.66786888982033,
-                    40.50639925346798
-                  ],
-                  [
-                    -3.666974126418165,
-                    40.50579169353308
-                  ],
-                  [
-                    -3.667001810083396,
-                    40.50576908533691
-                  ],
-                  [
-                    -3.667892813975469,
-                    40.50637586589056
-                  ],
-                  [
-                    -3.66786888982033,
-                    40.50639925346798
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "santo-domingo-calzada-04"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
-        },
-        {
-          "name": "dateModified",
-          "type": "DateTime",
-          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
-        }
-      ]
-    },
-    {
-      "schedule": "26 0 * * * *",
-      "entity_name": "santo-domingo-calzada-05",
-      "entity_type": "OnStreetParking",
-      "staticAttributes": [
-        {
-          "name": "location",
-          "type": "geo:json",
-          "value": {
-            "type": "MultiPolygon",
-            "coordinates": [
-              [
-                [
-                  [
-                    -3.666822378919861,
-                    40.50569164571062
-                  ],
-                  [
-                    -3.666065350296563,
-                    40.50516203942701
-                  ],
-                  [
-                    -3.666088590904412,
-                    40.50514073035266
-                  ],
-                  [
-                    -3.666846303074999,
-                    40.50567163612822
-                  ],
-                  [
-                    -3.666822378919861,
-                    40.50569164571062
-                  ]
-                ]
-              ]
-            ]
-          }
-        },
-        {
-          "name": "name",
-          "type": "Text",
-          "value": "santo-domingo-calzada-05"
-        },
-        {
-          "name": "category",
-          "type": "List",
-          "value": [
-            "public"
-          ]
-        },
-        {
-          "name": "areaServed",
-          "type": "Text",
-          "value": "lastablas"
-        },
-        {
-          "name": "occupancyDetectionType",
-          "type": "List",
-          "value": [
-            "modelBased"
-          ]
-        },
-        {
-          "name": "requiredPermit",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "chargeType",
-          "type": "List",
-          "value": [
-            "flat"
-          ]
-        },
-        {
-          "name": "allowedVehicleType",
-          "type": "List",
-          "value": [
-            "car"
-          ]
-        },
-        {
-          "name": "maximumParkingDuration",
-          "type": "Duration",
-          "value": "PT24H"
-        },
-        {
-          "name": "totalSpotNumber",
-          "type": "Number",
-          "value": 25
-        },
-        {
-          "name": "refParkingGroup",
-          "type": "List",
-          "value": []
-        },
-        {
-          "name": "averagespotwidth",
-          "type": "Number",
-          "value": 2.2
-        },
-        {
-          "name": "averagespotlength",
-          "type": "Number",
-          "value": 4.5
-        },
-        {
-          "name": "maximumallowedwidth",
-          "type": "Number",
-          "value": 2
-        },
-        {
-          "name": "status_onsp",
-          "type": "Text",
-          "value": "open"
-        }
-      ],
-      "active": [
-        {
-          "name": "availableSpotNumber",
-          "type": "Number",
-          "value": "time-random-linear-interpolator([[0,random(1,5)],[5,random(2,5)],[6,random(1,10)],[14,25],[18,random(8,25)],[22,random(10,25)],[23,random(1,8)]])"
+          "value": "time-random-linear-interpolator([[0,1],[5,random(2,4)],[6,random(2,7)],[14,9],[18,random(6,9)],[22,random(3,9)],[23,random(1,6)]])"
         },
         {
           "name": "dateModified",
@@ -20807,6 +20805,7 @@
         }
       ]
     }
+
 
   ]
 }
