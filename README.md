@@ -34,6 +34,12 @@ Let's cover each one of them.
 
 The FIWARE Device Simulator CLI tool is located in the [./bin](./bin) directory and it is called [`fiwareDeviceSimulatorCLI`](./bin/fiwareDeviceSimulatorCLI.js).
 
+Before running the FIWARE Device Simulator CLI tool, you have to resolve and to download the Node package dependencies at least once. To do it, execute:
+
+```bash
+npm install
+```
+
 To run the FIWARE Device Simulator CLI tool just run:
 
 ```bash
