@@ -33,7 +33,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]])"
     }],
     "staticAttributes": [{
       "name": "static1",

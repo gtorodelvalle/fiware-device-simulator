@@ -33,7 +33,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]])"
+      "value": "time-random-linear-interpolator([[0,0],[20,random(25,45)],[21,random(50,75)],[22,0],[24,0]])"
     }],
     "staticAttributes": [{
       "name": "static1",
