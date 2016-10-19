@@ -356,7 +356,7 @@ Let's see this `imports()` directive mechanism with an example. The next one is 
 ```json
 {
   "exports": {
-    "contextBroker_NGSIv1_": {
+    "contextBroker_NGSIv1": {
       "protocol": "https",
       "host": "1.2.3.4",
       "port": 1026,
@@ -369,7 +369,7 @@ Let's see this `imports()` directive mechanism with an example. The next one is 
     "service": "service",
     "subservice": "subservice"
   },
-  "contextBroker": "import(contextBroker)",
+  "contextBroker": "import(contextBroker_NGSIv1)",
   "authentication": "import(authentication)",
   "entities": [
     {
@@ -388,7 +388,7 @@ Let's see this `imports()` directive mechanism with an example. The next one is 
 }
 ```
 
-For example, the import directives: `import(contextBroker)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
+For example, the import directives: `import(contextBroker_NGSIv1)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
 
 Obviously, if an import directive refers to a template not declared either in the `exports` property or in an external JSON file, an error is thrown and the simulation is not run. On the other hand, if all the substitutions take place fine and the resulting simulation configuration file is valid, the simulation is run.
 
