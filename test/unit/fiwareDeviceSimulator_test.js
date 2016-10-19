@@ -6261,10 +6261,10 @@ describe('fiwareDeviceSimulator tests', function() {
 
     describe('UltraLight HTTP devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::HTTP', protocol_filename: 'UltraLight_HTTP'}));
 
-    describe('UltraLight MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::MQTT', protocol_filename: 'UltraLight_HTTP'}));
+    describe('UltraLight MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::MQTT', protocol_filename: 'UltraLight_MQTT'}));
 
     describe('JSON HTTP devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::HTTP', protocol_filename: 'JSON_HTTP'}));
 
-    describe('JSON MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::MQTT', protocol_filename: 'JSON_HTTP'}));
+    describe('JSON MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::MQTT', protocol_filename: 'JSON_MQTT'}));
   });
 });
