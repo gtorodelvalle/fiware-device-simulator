@@ -44,7 +44,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }],
     "staticAttributes": [{
       "name": "static1",
@@ -58,12 +58,12 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
     }, {
       "schedule": "*/1 * * * * *",
       "name": "active2",
       "type": "number",
-      "value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]])"
     }],
     "staticAttributes": [{
       "name": "static1",
@@ -77,18 +77,18 @@
     "active": [{
       "name": "active1",
       "type": "percentage",
-      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/5 * * * * *",
       "object_id": "a2",
       "name": "active2",
       "type": "percentage",
-      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"floor\"}})"
     }],
     "staticAttributes": [{
       "name": "static1",
       "type": "percentage",
-      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"round\"}})"
     }]
   }],
   "devices": [{
@@ -107,11 +107,11 @@
     "api_key": "the-api-key",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/1 * * * * *",
       "object_id": "a2",
-      "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])"
+      "value": "time-step-after-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]])"
     }]
   }, {
     "count": "5",
@@ -121,11 +121,11 @@
     "schedule": "*/1 * * * * *",
     "attributes": [{
       "object_id": "a1",
-      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
+      "value": "time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }, {
       "schedule": "*/5 * * * * *",
       "object_id": "a2",
-      "value": "time-random-linear-interpolator({\"spec\": [[random(0,1),0],[20,random(25,45)],[random(21,22),random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
+      "value": "time-random-linear-interpolator({\"spec\": [[random(0,1),0],[20,random(25,45)],[random(21,22),random(50,75)],[22,0],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"
     }]
   }]
 }
