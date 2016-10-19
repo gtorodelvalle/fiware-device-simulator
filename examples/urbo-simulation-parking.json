@@ -13709,6 +13709,168 @@
       ]
     },
     {
+      "schedule": "24 0 * * * *",
+      "entity_name": "Telefonica-Parking-Sur",
+      "entity_type": "OffStreetParking",
+      "staticAttributes": [
+        {
+          "name": "location",
+          "type": "geo:json",
+          "value": {
+            "type": "MultiPolygon",
+            "coordinates": [
+              [
+                [
+                  [
+                     -3.662582812830806,
+                     40.511400149902734
+                  ],
+                  [
+                     -3.6622126679867506,
+                     40.511746216305845
+                  ],
+                  [
+                     -3.6612631659954786,
+                     40.5113136330229
+                  ],
+                  [
+                     -3.661654768511653,
+                     40.51088681478207
+                  ],
+                  [
+                     -3.662582812830806,
+                     40.511400149902734
+                  ]
+                ]
+              ]
+            ]
+          }
+        },
+        {
+          "name": "name",
+          "type": "Text",
+          "value": "Distrito T - Parking Sur"
+        },
+        {
+          "name": "category",
+          "type": "List",
+          "value": [
+            "private",
+            "underground",
+            "mediumTerm",
+            "onlyWithPermit"
+          ]
+        },
+        {
+          "name": "highestFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
+          "name": "lowestFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
+          "name": "firstAvailableFloor",
+          "type": "Number",
+          "value": "0"
+        },
+        {
+          "name": "areaServed",
+          "type": "Text",
+          "value": "Distrito Telefónica"
+        },
+        {
+          "name": "occupancyDetectionType",
+          "type": "List",
+          "value": [
+            "balancing"
+          ]
+        },
+        {
+          "name": "requiredPermit",
+          "type": "List",
+          "value": [
+            "onlyWithPermit"
+          ]
+        },
+        {
+          "name": "chargeType",
+          "type": "List",
+          "value": [
+            "free"
+          ]
+        },
+        {
+          "name": "allowedVehicleType",
+          "type": "List",
+          "value": [
+            "car"
+          ]
+        },
+        {
+          "name": "maximumParkingDuration",
+          "type": "Duration",
+          "value": "PT12H"
+        },
+        {
+          "name": "totalSpotNumber",
+          "type": "Number",
+          "value": 2500
+        },
+        {
+          "name": "refParkingGroup",
+          "type": "List",
+          "value": []
+        },
+        {
+          "name": "averagespotwidth",
+          "type": "Number",
+          "value": 2.2
+        },
+        {
+          "name": "averagespotlength",
+          "type": "Number",
+          "value": 4.5
+        },
+        {
+          "name": "maximumallowedheight",
+          "type": "Number",
+          "value": 2.5
+        },
+        {
+          "name": "maximumallowedwidth",
+          "type": "Number",
+          "value": 2
+        }
+      ],
+      "active": [
+        {
+          "name": "status_offsp",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,\"open\"],[23,\"closed\"]]})"
+        },
+        {
+          "name": "availableSpotNumber",
+          "schedule": "24 0 * * * 1-5",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,2490],[6,random(2490,2490)],[7,random(2400,2300)],[8,random(2000,1900)],[9,random(1300,1000)],[10,random(500,300)],[12,random(300,0)],[14,random(1000,900)],[16,random(1800,1600)],[18,random(2100,1900)],[22,random(2460,2370)],[23,random(2490,2490)],[24,2490]])"
+        },
+        {
+          "name": "availableSpotNumber",
+          "schedule": "25 0 * * * 6-7",
+          "type": "Number",
+          "value": "time-random-linear-interpolator([[0,2490],[12,random(2490,2490)],[24,2490]])"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})"
+        }
+      ]
+    },
+    {
       "schedule": "once",
       "entity_name": "TelefonicaHQ-Guest-Parking-Norte",
       "entity_type": "OffStreetParking",
