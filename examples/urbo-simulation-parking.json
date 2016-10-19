@@ -13817,7 +13817,7 @@
         {
           "name": "totalSpotNumber",
           "type": "Number",
-          "value": 2500
+          "value": 180
         },
         {
           "name": "refParkingGroup",
@@ -13855,13 +13855,13 @@
           "name": "availableSpotNumber",
           "schedule": "24 0 * * * 1-5",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2490],[6,random(2490,2495)],[7,random(2400,2300)],[8,random(2000,1900)],[9,random(1300,1000)],[10,random(500,300)],[12,random(300,0)],[14,random(1000,900)],[16,random(1800,1600)],[18,random(2100,1900)],[22,random(2460,2370)],[23,random(2490,2490)],[24,2490]])"
+          "value": "time-random-linear-interpolator([[0,2490],[6,random(2490,2490)],[7,random(2400,2300)],[8,random(2000,1900)],[9,random(1300,1000)],[10,random(500,300)],[12,random(300,0)],[14,random(1000,900)],[16,random(1800,1600)],[18,random(2100,1900)],[22,random(2460,2370)],[23,random(2490,2490)],[24,2490]])"
         },
         {
           "name": "availableSpotNumber",
           "schedule": "25 0 * * * 0,6",
           "type": "Number",
-          "value": "time-random-linear-interpolator([[0,2490],[12,random(2490,2495)],[24,2490]])"
+          "value": "time-random-linear-interpolator([[0,2490],[12,random(2490,2490)],[24,2490]])"
         },
         {
           "name": "dateModified",
