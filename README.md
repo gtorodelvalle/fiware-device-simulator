@@ -243,6 +243,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 The simulation configuration file accepts the following JSON properties or entries:
 
+* **exports**: The FIWARE Device Simulation provides a templating mechanism to avoid repeating text into simulation configuration files as well as to facilitate the edition of these files. More information about this templating mechanism just after the description of the rest of the properties which may be used in a simulation configuration file.
 * **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
@@ -347,6 +348,49 @@ The simulation configuration file accepts the following JSON properties or entri
         1. No `name` property has to be specified. Instead the `object_id` has to be set specifying the attribute object (short) identifier.
         2. No `type` property has to be specified.
         3. All the previously describe interpolators can be used in the `value`.
+
+To avoid repeating over and over again the same text in the simulation configuration files and, mainly, to facilitate editing them, a templating mechanism has been included. This templating mechanism makes it posible to use the `imports()` directive as the value of any property of a simulation configuration JSON file. As a preliminary process before starting the simulation all these `imports()` directives will be resolved and substituted by their concrete values.
+
+Let's see this `imports()` directive mechanism with an example. The next one is a valid simulation configuration file using the templating mechanism:
+
+```json
+{
+  "exports": {
+    "contextBroker_NGSIv1_": {
+      "protocol": "https",
+      "host": "1.2.3.4",
+      "port": 1026,
+      "ngsiVersion": "1.0"
+    },
+    "every 5 seconds": "*/5 * * * * *",
+    "autoincrement_1": "attribute-function-interpolator(${{Entity:001}{active:001}} + 1)",
+  },
+  "domain": {
+    "service": "service",
+    "subservice": "subservice"
+  },
+  "contextBroker": "import(contextBroker)",
+  "authentication": "import(authentication)",
+  "entities": [
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "Entity:001",
+      "entity_type": "Entity",
+      "active": [
+        {
+          "name": "active:001",
+          "type": "Number",
+          "value": "import(autoincrement_1)",
+        }
+      ]
+    }
+  ]
+}
+```
+
+For example, the import directives: `import(contextBroker)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
+
+Obviously, if an import directive refers to a template not declared either in the `exports` property or in an external JSON file, an error is thrown and the simulation is not run. On the other hand, if all the substitutions take place fine and the resulting simulation configuration file is valid, the simulation is run.
 
 Following the description of the simulation configuration file accepted properties and leaning on the [FIWARE waste management harmonized data models](http://fiware-datamodels.readthedocs.io/en/latest/WasteManagement/doc/introduction/index.html), we provide a simulation configuration real example file to automatically generate waste management data, more concretely simulating the dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
