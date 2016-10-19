@@ -13859,7 +13859,7 @@
         },
         {
           "name": "availableSpotNumber",
-          "schedule": "25 0 * * * 6-7",
+          "schedule": "25 0 * * * 0,6",
           "type": "Number",
           "value": "time-random-linear-interpolator([[0,2490],[12,random(2490,2490)],[24,2490]])"
         },
