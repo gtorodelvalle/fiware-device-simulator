@@ -1,2 +1,0 @@
-- [BUG] Fix tests to make them not dependable on the time when running them
-- [FEATURE] Possibility to set start and end dates for schedules
