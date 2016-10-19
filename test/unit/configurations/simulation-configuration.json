@@ -1,14 +1,19 @@
 {
-  "domain": {
+  "exports": {
     "service": "theService",
-    "subservice": "/theSubService"
+    "subservice": "/theSubService",
+    "contextBroker": {
+      "protocol": "https",
+      "host": "localhost",
+      "port": 1026,
+      "ngsiVersion": "1.0"
+    }
   },
-  "contextBroker": {
-    "protocol": "https",
-    "host": "localhost",
-    "port": 1026,
-    "ngsiVersion": "1.0"
+  "domain": {
+    "service": "import(service)",
+    "subservice": "import(subservice)"
   },
+  "contextBroker": "import(contextBroker)",
   "authentication": {
     "provider": "keystone",
     "protocol": "https",
