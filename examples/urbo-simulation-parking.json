@@ -111,17 +111,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -168,7 +168,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "refParkingGroup",
@@ -228,7 +228,7 @@
         {
           "name": "floor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "allowedVehicleType",
@@ -335,7 +335,7 @@
         {
           "name": "floor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "occupancyDetectionType",
@@ -2568,7 +2568,7 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
@@ -2578,7 +2578,7 @@
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -2624,7 +2624,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "refParkingGroup",
@@ -2701,7 +2701,7 @@
         {
           "name": "floor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "refParkingSite",
@@ -8314,17 +8314,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -8467,17 +8467,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -8640,17 +8640,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -8791,17 +8791,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -8942,17 +8942,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -9272,7 +9272,7 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
@@ -9282,7 +9282,7 @@
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -9423,17 +9423,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -9590,7 +9590,7 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
@@ -9600,7 +9600,7 @@
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -9757,17 +9757,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -9813,7 +9813,7 @@
         {
           "name": "availableSpotNumber",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "refParkingGroup",
@@ -13710,7 +13710,6 @@
     },
 
     {
-      "schedule": "24 0 * * * *",
       "entity_name": "Telefonica-Parking-Sur",
       "entity_type": "OffStreetParking",
       "staticAttributes": [
@@ -13765,17 +13764,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "areaServed",
@@ -13945,17 +13944,17 @@
         {
           "name": "highestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "lowestFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "firstAvailableFloor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "occupancyDetectionType",
@@ -14056,7 +14055,7 @@
         {
           "name": "floor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "refParkingSite",
@@ -14154,7 +14153,7 @@
         {
           "name": "floor",
           "type": "Number",
-          "value": "0"
+          "value": 0
         },
         {
           "name": "occupancyDetectionType",
