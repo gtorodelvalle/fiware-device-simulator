@@ -3,3 +3,4 @@
 - [TASK] Complete unit test coverage for the date-increment-interpolator interpolator
 - [TASK] Complete unit test coverage for the time-step-after-interpolator interpolator
 - [TASK] Complete unit test coverage for the time-step-before-interpolator interpolator
+- [TASK] Complete unit test coverage for the text-rotation-interpolator interpolator
