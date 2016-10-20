@@ -29,7 +29,7 @@ var ROOT_PATH = require('app-root-path');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 var dateIncrementInterpolator = require(ROOT_PATH + '/lib/interpolators/dateIncrementInterpolator');
 
-describe.only('dateIncrementInterpolator tests', function() {
+describe('dateIncrementInterpolator tests', function() {
   var dateIncrementInterpolatorFunction;
 
   it('should throw an error if a number is passed instead of a valid specification', function(done) {
