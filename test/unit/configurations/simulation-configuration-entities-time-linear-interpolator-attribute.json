@@ -10,6 +10,7 @@
     "ngsiVersion": "1.0"
   },
   "authentication": {
+    "provider": "keystone",
     "protocol": "https",
     "host": "localhost",
     "port": 5001,
@@ -32,7 +33,7 @@
     "active": [{
       "name": "active1",
       "type": "number",
-      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"float\"}})"
+      "value": "time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,0],[24,0]], \"return\": {\"type\": \"float\"}})"
     }],
     "staticAttributes": [{
       "name": "static1",

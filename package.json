@@ -1,7 +1,7 @@
 {
   "name": "fiware-device-simulator",
   "description": "Simulator of FIWARE-compatible devices",
-  "version": "6.0.0-next",
+  "version": "7.3.0-next",
   "homepage": "https://github.com/gtorodelvalle/fiware-device-simulator",
   "author": {
     "name": "Germán Toro del Valle",
@@ -54,7 +54,7 @@
     "logops": "^1.0.1",
     "lolex": "^1.5.1",
     "mqtt": "^1.14.0",
-    "node-schedule": "^1.1.1",
+    "node-schedule": "^1.2.0",
     "request": "^2.74.0",
     "time": "^0.11.4",
     "turf-along": "^3.0.12",

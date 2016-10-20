@@ -34,6 +34,12 @@ Let's cover each one of them.
 
 The FIWARE Device Simulator CLI tool is located in the [./bin](./bin) directory and it is called [`fiwareDeviceSimulatorCLI`](./bin/fiwareDeviceSimulatorCLI.js).
 
+Before running the FIWARE Device Simulator CLI tool, you have to resolve and to download the Node package dependencies at least once. To do it, execute:
+
+```bash
+npm install
+```
+
 To run the FIWARE Device Simulator CLI tool just run:
 
 ```bash
@@ -92,6 +98,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
       "ngsiVersion": "1.0"
     },
     "authentication": {
+      "provider": "keystone",
       "protocol": "https",
       "host": "localhost",
       "port": 5001,
@@ -149,7 +156,11 @@ An example simulation configuration file is shown next to give you a glimpse of 
   			"value": "Value of static1"
   		}]
   	}, {
-  		"schedule": "*/5 * * * * *",
+      "schedule": {
+        "start": "2016-10-19T10:00:00Z",
+        "end": "2016-10-19T11:00:00Z",
+        "rule": "*/5 * * * * *"
+      },
   		"entity_name": "EntityName2",
   		"entity_type": "EntityType2",
   		"active": [{
@@ -232,6 +243,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
 
 The simulation configuration file accepts the following JSON properties or entries:
 
+* **exports**: The FIWARE Device Simulation provides a templating mechanism to avoid repeating text into simulation configuration files as well as to facilitate the edition of these files. More information about this templating mechanism just after the description of the rest of the properties which may be used in a simulation configuration file.
 * **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
@@ -241,6 +253,7 @@ The simulation configuration file accepts the following JSON properties or entri
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
     * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
 * **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests. Optional (authentication tokens will only be requested if the `authentication` information is included).
+    * **provider**: The Identity Service provider from which the authorization tokens will be requested. Accepted values are: `keystone` (to request tokens for the Telefónica IoT Platform) and `fiware-lab` (to request tokens for the [FIWARE Lab cloud infrastructure](https://account.lab.fiware.org/)).
     * **protocol**: The protocol the Identity Service is expecting the requests to be sent by.
     * **host**: The host machine or IP where the Identity Service is running.
     * **port**: The port where the Identity Service is listening for requests.
@@ -275,7 +288,7 @@ The simulation configuration file accepts the following JSON properties or entri
                 * **user**: The user to use for MQTT authenticated communications. Optional.
                 * **password**: The password to use for MQTT authenticated communications. Optional.
 * **entities**: Information about the entities to be updated during this concrete simulation.
-    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation.
+    * **schedule**: Cron-style schedule (according to [https://www.npmjs.com/package/node-schedule#cron-style-scheduling](https://www.npmjs.com/package/node-schedule#cron-style-scheduling)) to schedule the updates of the entity. For example: `*/5 * * * * *` will update the attributes of the entity for which there is no `schedule` information, see below, every 5 seconds, whereas `0 0 0 * * *` will update the attributes of the entity for which there is no `schedule` information, see below, at 00:00 of every first day of each month. A very useful tool for dealing with cron-style schedules can be found at [http://crontab.guru/](http://crontab.guru/). An additional accepted value `once` is included to force the update of the entity only once at the beginning of the simulation. The `schedule` property also accepts an object including starting and ending dates for the schedule such as: `"schedule": {"start": "2016-10-19T10:47:00Z", "end": "2016-10-19T11:47:00Z", "rule": "*/5 * * * * *"}`. The previous `schedule` will only be effective from `2016-10-19T10:47:00Z` to `2016-10-19T11:47:00Z`.
     * **entity_name**: The name of the entity. The `entity_name` should not be provided if the `count` is provided.
     * **count**: The number of entities to simulate and update. For example, if a value of 3 is provided as the `count` property, 3 entities with names `<entity_type>:1`, `<entity_type>:2` and `<entity_type>:3` will be created and updated accordingly substituting the `<entity_type>` by its provided value (see just below) and according to its active and static attribute simulation specification (see below).
     * **entity_type**: The type of the entity.
@@ -302,12 +315,17 @@ The simulation configuration file accepts the following JSON properties or entri
                 * A valid attribute value using the `time-linear-interpolator` is: `"time-linear-interpolator({\"spec\": [[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
                 * It is important to note that since this interpolator is a linear one (more concretely it leans on the [`linear-interpolator` package](https://www.npmjs.com/package/linear-interpolator)), if some of the entries for the starting (0, 1, 2, etc.) or ending hours (22, 23, 24) are missing, the behavior may not be the one expected. Let's see it with a concrete example: `time-linear-interpolator({\"spec\": [[8,0],[12,100],[22,0]], \"return\": {\"type\": \"float\"}})`, in this case and due to its linear nature values for decimal hours from 0 to 8 will be negative (linearly), values for decimal hours from 8 to 12 will be between 0 and 100 (linearly), values for decimal hours from 12 to 22 will be between 100 and 0 (linearly), and again values for decimal hours from 22 to 24 will be negative (linearly).
             4. **`time-random-linear-interpolator`**: It returns float or integer values depending on the configuration. On the other hand, it accepts an object including the following properties:
-                * `spec`: An array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value which may include the `random()` directive. For example, a time random linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day.
+                * `spec`: An array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value.
+                    * The first element of the array or decimal hours may include the `random()` directive. For example, a random time linear interpolator specification such as: `[[random(0,1),0],[random(23,24),100]]` will behave as a `time-linear-interpolator` where the random part will be substituted for a concrete random decimal hours value each time this interpolator is invoked. For example, subsequent invocations of the previous interpolator may end up behaving such as the following `time-linear-interpolator`s: `[0.410237338161096,0],[23.268972319317982,100]]`, `[0.192138821585104,0],[23.442964296089485,100]]`, `[0.223540030419827,0],[23.614114402793348,100]]`, etc.
+                        * A valid attribute value using the `time-random-linear-interpolator` is: `"random-time-linear-interpolator({\"spec\": [[random(12,13),0],[random(20,21),100]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
+                        * It is important to note that since this interpolator is a linear one (more concretely it leans on the [`linear-interpolator` package](https://www.npmjs.com/package/linear-interpolator)), if some of the entries for the starting (0, 1, 2, etc.) or ending hours (22, 23, 24) are missing, the behavior may not be the one expected. Let's see it with a concrete example: `random-time-linear-interpolator({\"spec\": [[random(12,13),10],[random(20,21),100]], \"return\": {\"type\": \"float\"}})`, in this case and due to its linear nature values for decimal hours from 0 to 12 will be below 10 (linearly, including the randomness factor it may go beyond the 12 decimal hour) including negative values, values for decimal hours from the 13 to the 20 will be between 0 and 100 (linearly and according to the randomness factor it may go before the 13 and beyond the 20 decimal hours), values for decimal hours from 21 to 24 will be greater than 100 (linearly and according to the randomness factor it may be before the 21 decimal hour).
+                    * The second element of the array or specified value may include the `random()` directive. For example, a time random linear interpolator specification such as: `[[0,0],[20,random(0.25,0.50)],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, a random number bigger than `0.25` and smaller than `0.50` if the interpolated value is requested at the `20:00` hours and the corresponding interpolated value between the previous y-axis values if it is requested at a time between the `00:00` hours and the `20:00` hours. This is the reason why a `time-random-linear-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day.
+                        * A valid attribute value using the `time-random-linear-interpolator` is: `"time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
+                        * It is important to note that since this interpolator is a linear one (more concretely it leans on the [`linear-interpolator` package](https://www.npmjs.com/package/linear-interpolator)), if some of the entries for the starting (0, 1, 2, etc.) or ending hours (22, 23, 24) are missing, the behavior may not be the one expected. Let's see it with a concrete example: `time-linear-interpolator({\"spec\": [[8,random(0,10)],[12,random(90,100)],[22,random(0,10)]], \"return\": {\"type\": \"float\"}})`, in this case and due to its linear nature values for decimal hours from 0 to 8 will be below 10 (linearly including the randomness factor) including negative values, values for decimal hours from 8 to 12 will be between 0 and 100 (linearly and according to the randomness factor), values for decimal hours from 12 to 22 will be between 100 and 0 (linearly and according to the randomness factor), and again values for decimal hours from 22 to 24 will be below 10 (linearly and according to the randomness factor) including negative values.
+                    * The `random()` directive can be used in the first element of the array specification, in the second one or in both in which case the behavior is the combined one. Consequently, `time-random-linear-interpolator({\"spec\": [[random(0,1),0],[20,random(25,45)],[random(21,22),random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})` is a perfectly valid `time-random-linear-interpolator`.
                 * `return`: It is an object including the following properties:
                     * `type`: The interpolator return type. It can take any of the following values: `float` or `integer`.
                     * `rounding`: If the type is equal to `integer`, the rounding mechanism must also be specified. It can take any of the following values: `ceil`, `floor` or `round`.
-                * A valid attribute value using the `time-random-linear-interpolator` is: `"time-random-linear-interpolator({\"spec\": [[0,0],[20,random(25,45)],[21,random(50,75)],[22,100],[24,0]], \"return\": {\"type\": \"integer\", \"rounding\": \"ceil\"}})"`.
-                * It is important to note that since this interpolator is a linear one (more concretely it leans on the [`linear-interpolator` package](https://www.npmjs.com/package/linear-interpolator)), if some of the entries for the starting (0, 1, 2, etc.) or ending hours (22, 23, 24) are missing, the behavior may not be the one expected. Let's see it with a concrete example: `time-linear-interpolator({\"spec\": [[8,random(0,10)],[12,random(90,100)],[22,random(0,10)]], \"return\": {\"type\": \"float\"}})`, in this case and due to its linear nature values for decimal hours from 0 to 8 will be below 10 (linearly including the randomness factor) including negative values, values for decimal hours from 8 to 12 will be between 0 and 100 (linearly and according to the randomness factor), values for decimal hours from 12 to 22 will be between 100 and 0 (linearly and according to the randomness factor), and again values for decimal hours from 22 to 24 will be below 10 (linearly and according to the randomness factor) including negative values.
             5. **`time-step-after-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step after interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-after"). This is the reason why a `time-step-after-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-after-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             6. **`time-step-before-interpolator`**: It returns float values. On the other hand, it accepts an array of 2 elements arrays corresponding to the [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) of the day and its specified value. For example, a time step before interpolator specification such as: `[[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]]` will return `0` if the interpolated value is requested at the `00:00` hours, `0.25` if the interpolated value is requested at the `20:00` hours and `0.25` if the interpolated value is requested at any time between the `00:00` hours and the `20:00` hours (notice it is called "step-before"). This is the reason why a `time-step-before-interpolator` is typically specified providing values for the `0` and `24` values in the x-axis according to the available [decimal hours](https://en.wikipedia.org/wiki/Decimal_time#Decimal_hours) in any day. A valid attribute value using the `time-step-before-interpolator` is: `time-step-before-interpolator([[0,0],[20,0.25],[21,0.50],[22,0.75],[23,1],[24,1]])`.
             7. **`text-rotation-interpolator`**: It returns a string from a set of possible values with support for probabilistic occurrences of them. On the other hand, it accepts an object including the following properties:
@@ -330,6 +348,49 @@ The simulation configuration file accepts the following JSON properties or entri
         1. No `name` property has to be specified. Instead the `object_id` has to be set specifying the attribute object (short) identifier.
         2. No `type` property has to be specified.
         3. All the previously describe interpolators can be used in the `value`.
+
+To avoid repeating over and over again the same text in the simulation configuration files and, mainly, to facilitate editing them, a templating mechanism has been included. This templating mechanism makes it posible to use the `imports()` directive as the value of any property of a simulation configuration JSON file. As a preliminary process before starting the simulation all these `imports()` directives will be resolved and substituted by their concrete values.
+
+Let's see this `imports()` directive mechanism with an example. The next one is a valid simulation configuration file using the templating mechanism:
+
+```json
+{
+  "exports": {
+    "contextBroker_NGSIv1": {
+      "protocol": "https",
+      "host": "1.2.3.4",
+      "port": 1026,
+      "ngsiVersion": "1.0"
+    },
+    "every 5 seconds": "*/5 * * * * *",
+    "autoincrement_1": "attribute-function-interpolator(${{Entity:001}{active:001}} + 1)",
+  },
+  "domain": {
+    "service": "service",
+    "subservice": "subservice"
+  },
+  "contextBroker": "import(contextBroker_NGSIv1)",
+  "authentication": "import(authentication)",
+  "entities": [
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "Entity:001",
+      "entity_type": "Entity",
+      "active": [
+        {
+          "name": "active:001",
+          "type": "Number",
+          "value": "import(autoincrement_1)",
+        }
+      ]
+    }
+  ]
+}
+```
+
+For example, the import directives: `import(contextBroker_NGSIv1)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
+
+Obviously, if an import directive refers to a template not declared either in the `exports` property or in an external JSON file, an error is thrown and the simulation is not run. On the other hand, if all the substitutions take place fine and the resulting simulation configuration file is valid, the simulation is run.
 
 Following the description of the simulation configuration file accepted properties and leaning on the [FIWARE waste management harmonized data models](http://fiware-datamodels.readthedocs.io/en/latest/WasteManagement/doc/introduction/index.html), we provide a simulation configuration real example file to automatically generate waste management data, more concretely simulating the dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
