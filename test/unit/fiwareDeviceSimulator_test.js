@@ -40,6 +40,15 @@ var fiwareDeviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 
 /**
+ * Encode file name to be compatible with linux and windows filesystems
+ * @param	{string} file name to be encoded
+ * @return	{string} file name encoded
+ */
+function encodeFilename(text) {
+  return text.replace(/::/g, '_');
+}
+
+/**
  * Checks if a retrieved token response is wellFormedTokenRequestCheck
  * @param  {Object} simulationConfiguration A simulation configuration object
  * @param  {Object} requestBody             The token response body
@@ -5586,7 +5595,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? options.protocol + '-' : '') +
+            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-once.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5619,7 +5628,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? options.protocol + '-' : '') +
+            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-attribute-once.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5652,7 +5661,7 @@ describe('fiwareDeviceSimulator tests', function() {
         this.timeout(5000);
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? options.protocol + '-' : '') +
+            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-every-second.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5686,7 +5695,7 @@ describe('fiwareDeviceSimulator tests', function() {
         simulationConfiguration =
           require(
             ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-              (options.protocol ? options.protocol + '-' : '') +
+              (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
               type + '-attribute-every-second.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5717,7 +5726,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? options.protocol + '-' : '') +
+            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-fixed-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5765,7 +5774,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type +'-time-linear-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5819,7 +5828,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type +'-time-linear-interpolator-attribute-retro.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5873,7 +5882,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-time-random-linear-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5922,7 +5931,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-time-random-linear-interpolator-attribute-retro.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -5971,7 +5980,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-time-step-before-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -6025,7 +6034,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-time-step-after-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -6079,7 +6088,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-date-increment-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -6134,7 +6143,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-multiline-position-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
@@ -6200,7 +6209,7 @@ describe('fiwareDeviceSimulator tests', function() {
         /* jshint camelcase: false */
         simulationConfiguration =
           require(ROOT_PATH +
-            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? options.protocol + '-' : '') +
+            '/test/unit/configurations/simulation-configuration-' + (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
             type + '-text-rotation-interpolator-attribute.json');
         if (options.ngsiVersion) {
           simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
