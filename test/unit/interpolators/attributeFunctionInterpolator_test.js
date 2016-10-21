@@ -30,7 +30,8 @@ var nock = require('nock');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 var attributeFunctionInterpolator = require(ROOT_PATH + '/lib/interpolators/attributeFunctionInterpolator');
 
-var ATTRIBUTE_VALUE = 666;
+var ATTRIBUTE_VALUE_1 = 111;
+var ATTRIBUTE_VALUE_2 = 333;
 
 describe('attributeFunctionInterpolator tests', function() {
   var attributeFunctionInterpolatorFunction,
@@ -57,30 +58,63 @@ describe('attributeFunctionInterpolator tests', function() {
 
   beforeEach(function() {
     contextBrokerNock.post('/v1/queryContext').reply(200, function(uri, requestBody) {
-      should(requestBody.entities[0].id).equal('EntityId');
-      should(requestBody.attributes).containEql('AttributeName');
-      return {
-        contextResponses: [
-          {
-            contextElement: {
-              type: 'Entity',
-              isPattern: 'false',
-              id: 'EntityId',
-              attributes: [
-                {
-                  name: 'AttributeName',
-                  type: 'Number',
-                  value: ATTRIBUTE_VALUE
-                }
-              ]
-            },
-            statusCode: {
-              code: 200,
-              reasonPhrase: 'OK'
+      if (requestBody.entities[0].id === 'EntityId1') {
+        return {
+          contextResponses: [
+            {
+              contextElement: {
+                type: 'Entity',
+                isPattern: 'false',
+                id: 'EntityId1',
+                attributes: [
+                  {
+                    name: 'AttributeName11',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_1
+                  },
+                  {
+                    name: 'AttributeName12',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_1 * 2
+                  }
+                ]
+              },
+              statusCode: {
+                code: 200,
+                reasonPhrase: 'OK'
+              }
             }
-          }
-        ]
-      };
+          ]
+        };
+      } else if (requestBody.entities[0].id === 'EntityId2') {
+        return {
+          contextResponses: [
+            {
+              contextElement: {
+                type: 'Entity',
+                isPattern: 'false',
+                id: 'EntityId2',
+                attributes: [
+                  {
+                    name: 'AttributeName21',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_2
+                  },
+                  {
+                    name: 'AttributeNam21',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_2 * 2
+                  }
+                ]
+              },
+              statusCode: {
+                code: 200,
+                reasonPhrase: 'OK'
+              }
+            }
+          ]
+        };
+      }
     });
   });
 
@@ -159,8 +193,8 @@ describe('attributeFunctionInterpolator tests', function() {
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
-          attributeFunctionInterpolator('${{EntityId}{AttributeName}}', domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE);
+          attributeFunctionInterpolator('${{EntityId1}{AttributeName11}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1);
         done();
       } catch(exception) {
         done(exception);
@@ -173,8 +207,8 @@ describe('attributeFunctionInterpolator tests', function() {
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
-          attributeFunctionInterpolator('${{EntityId}{AttributeName}} + 111', domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE + 111);
+          attributeFunctionInterpolator('${{EntityId1}{AttributeName11}} + 111', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + 111);
         done();
       } catch(exception) {
         done(exception);
@@ -187,8 +221,38 @@ describe('attributeFunctionInterpolator tests', function() {
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
-          attributeFunctionInterpolator('Math.pow(${{EntityId}{AttributeName}}, 2);', domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE, 2));
+          attributeFunctionInterpolator('Math.pow(${{EntityId1}{AttributeName11}}, 2);', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE_1, 2));
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if the addition of references to distinct entity\'s attributes is passed as the ' +
+     'interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            '${{EntityId1}{AttributeName11}} + ${{EntityId1}{AttributeName12}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + (ATTRIBUTE_VALUE_1 * 2));
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if the addition of references to attributes of distinct entities attributes is passed ' +
+     'as the interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            '${{EntityId1}{AttributeName11}} + ${{EntityId2}{AttributeName21}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + ATTRIBUTE_VALUE_2);
         done();
       } catch(exception) {
         done(exception);
@@ -201,8 +265,8 @@ describe('attributeFunctionInterpolator tests', function() {
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
-          attributeFunctionInterpolator('Math.pow(${{EntityId}{AttributeName}}, 2', domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE, 2));
+          attributeFunctionInterpolator('Math.pow(${{EntityId1}{AttributeName11}}, 2', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE_1, 2));
         done(new Error('It should throw an ValueResolutionError error'));
       } catch(exception) {
         should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
@@ -217,7 +281,7 @@ describe('attributeFunctionInterpolator tests', function() {
       contextBrokerNock.post('/v1/queryContext').reply(404);
       try {
         attributeFunctionInterpolatorFunction = attributeFunctionInterpolator(
-          '${{InexistentEntityId}{AttributeName}}', domain, contextBroker);
+          '${{InexistentEntityId}{InexistentAttributeName}}', domain, contextBroker);
         attributeFunctionInterpolatorFunction(token);
         done(new Error('It should throw an ValueResolutionError error'));
       } catch(exception) {
