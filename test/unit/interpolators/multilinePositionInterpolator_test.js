@@ -483,8 +483,7 @@ describe('multilinePositionInterpolator tests', function() {
           {coordinates: [3.2898394138913325, 4.290919970982591]});
         done();
       } catch(exception) {
-        should(exception).be.an.instanceof(fdsErrors.InvalidInterpolationSpec);
-        done();
+        done(exception);
       }
     }
   );
