@@ -1,9 +1,0 @@
-- [TASK] Complete unit test coverage for the time-linear-interpolator interpolator
-- [TASK] Complete unit test coverage for the time-random-linear-interpolator interpolator
-- [TASK] Complete unit test coverage for the date-increment-interpolator interpolator
-- [TASK] Complete unit test coverage for the time-step-after-interpolator interpolator
-- [TASK] Complete unit test coverage for the time-step-before-interpolator interpolator
-- [TASK] Complete unit test coverage for the text-rotation-interpolator interpolator
-- [TASK] Complete unit test coverage for the multiline-position-interpolator interpolator
-- [TASK] Complete unit test coverage for the attribute-function-interpolator interpolator
-- [TASK] Fixing line too long linter errors
