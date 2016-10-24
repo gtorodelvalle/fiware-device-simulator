@@ -35,7 +35,7 @@ var stepAfterInterpolator  = require(ROOT_PATH + '/lib/interpolators/stepAfterIn
 var dateIncrementInterpolator  = require(ROOT_PATH + '/lib/interpolators/dateIncrementInterpolator');
 var multilinePositionInterpolator  = require(ROOT_PATH + '/lib/interpolators/multilinePositionInterpolator');
 var textRotationInterpolator  = require(ROOT_PATH + '/lib/interpolators/textRotationInterpolator');
-var fiwareDeviceSimulatorComposer = require(ROOT_PATH + '/lib/composers/fiwareDeviceSimulatorComposer');
+var fiwareDeviceSimulatorTranspiler = require(ROOT_PATH + '/lib/transpilers/fiwareDeviceSimulatorTranspiler');
 var fiwareDeviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 
@@ -5444,7 +5444,7 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('authorization', function() {
     beforeEach(function(done) {
-      fiwareDeviceSimulatorComposer.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
+      fiwareDeviceSimulatorTranspiler.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
         if (err) {
           return done(err);
         }
@@ -5518,7 +5518,7 @@ describe('fiwareDeviceSimulator tests', function() {
     function simulationTestSuite(type, options){
       beforeEach(function(done) {
         simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
-        fiwareDeviceSimulatorComposer.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
+        fiwareDeviceSimulatorTranspiler.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
           if (err) {
             return done(err);
           }

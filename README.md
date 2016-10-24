@@ -46,7 +46,7 @@ To run the FIWARE Device Simulator CLI tool just run:
 ./bin/fiwareDeviceSimulatorCLI
 ```
 
-This will show the FIWARE Device Simulator CLI tool help:
+This will show the FIWARE Device Simulator CLI tool help which will guide you to learn how to properly use it:
 
 ```
 Usage: fiwareDeviceSimulatorCLI [options]
@@ -390,7 +390,158 @@ Let's see this `imports()` directive mechanism with an example. The next one is 
 
 For example, the import directives: `import(contextBroker_NGSIv1)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
 
+The previous and preliminary support for importing content into specific parts of the simulation configuration files has been recently extended to support conditional imports. In this case, it is possible to impose conditions which must be satisfied for the import to take place. The format of the conditional imports is the following one:
+
+```json
+"<template-name>": [
+  {
+    "condition": "${{<entity-property-1>==<regular-expression-1>}}",
+    "content": "the-content-to-import-a-string-in-this-case"
+  },
+  {
+    "condition": "${{<entity-property-2>==<regular-expression-2>}{<attribute-property-2>==<regular-expression-2>}}",
+    "content": "the-content-to-import-a-string-in-this-case"
+  }
+]
+```
+
+As you can see, the templates can now be an array of objects including a `condition` and a `content` properties in which case the import will only take place if the `import()` directive appears inside an entity which satisfies the `<entity-property-1>==<regular-expression-1>` condition (this is, the `<entity-property1->` value satisfies the `<regular-expression-1>`) OR appears inside an attribute which satisfies the `<attribute-property-2>==<regular-expression-2>` condition (this is, the `<attribute-property-2>` value satisfies the `<regular-expression-2>`) inside an entity which satisfies the `<entity-property-2>==<regular-expression-2>` condition (this is, the `<entity-property-2>` value satisfies the `<regular-expression-2>`).
+
+Let's see it in a concrete example. Considering a simulation configuration file such as the following one:
+
+```json
+{
+  "exports": {
+    "every 5 seconds": "*/5 * * * * *",
+    "parking from 6 to 22": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})",
+    "now": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})",
+    "entity-type": [
+      {
+        "content": "ParkingSpot",
+        "condition": "${{entity_name==pe-moraleja-01-group-0[0-9]:0[0-9]}}"
+      }
+    ],
+    "attribute-type-1": [
+      {
+        "content": "Text",
+        "condition": "${{entity_name==pe-moraleja-01-group-02:0[0-9]}}"
+      },
+      {
+        "content": "DateTime",
+        "condition": "${{entity_name==pe-moraleja-01-group-01:0[0-9]}{name==dateModifie[a-z]}}"
+      }
+    ]
+  },
+  ...
+  "entities": [
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "pe-moraleja-01-group-01:01",
+      "entity_type": "import(entity-type)",
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "import(parking from 6 to 22)"
+        },
+        {
+          "name": "dateModified",
+          "type": "import(attribute-type-1)",
+          "value": "import(now)"
+        }
+      ]
+    },
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "pe-moraleja-01-group-02:01",
+      "entity_type": "import(entity-type)",
+      "active": [
+        {
+          "name": "status",
+          "type": "import(attribute-type-1)",
+          "value": "import(parking from 6 to 22)"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "import(now)"
+        }
+      ]
+    }
+  ]
+  ...
+}
+```
+
+After resolving the imports, the simulation configuration file will end up as the following one:
+
+```json
+{
+  ...
+  "entities": [
+    {
+      "schedule": "*/5 * * * * *", // -> IMPORTED
+      "entity_name": "pe-moraleja-01-group-01:01",
+      "entity_type": "ParkingSpot", // -> IMPORTED
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})" // -> IMPORTED
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime", // -> IMPORTED
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})" // -> IMPORTED
+        }
+      ]
+    },
+    {
+      "schedule": "*/5 * * * * *", // -> IMPORTED
+      "entity_name": "pe-moraleja-01-group-02:01",
+      "entity_type": "ParkingSpot", // -> IMPORTED
+      "active": [
+        {
+          "name": "status",
+          "type": "Text", // -> IMPORTED
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})" // -> IMPORTED
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})" // -> IMPORTED
+        }
+      ]
+    }
+  ]
+  ...
+}
+```
+
+Just as in the case of the textual imports, the conditional imports can be declared in the `exports` property of the simulation configuration file or in external JSON files which can be imported.
+
 Obviously, if an import directive refers to a template not declared either in the `exports` property or in an external JSON file, an error is thrown and the simulation is not run. On the other hand, if all the substitutions take place fine and the resulting simulation configuration file is valid, the simulation is run.
+
+Although the `fiwareDeviceSimulatorCLI` command line tool previously detailed includes support for the import mechanism just described, we have also included a specific command line tool for the import mechanism which transpiles an input simulation configuration file into an output configuration file including the resolved imports.
+
+To run the FIWARE Device Simulator Transpiler CLI tool just run:
+
+```bash
+./bin/fiwareDeviceSimulatorTranspilerCLI
+```
+
+This will show the FIWARE Device Simulator Transpiler CLI tool help which will guide you to learn how to properly use it:
+
+```
+Usage: fiwareDeviceSimulatorTranspilerCLI [options]
+
+  Options:
+
+    -h, --help                                     output usage information
+    -V, --version                                  output the version number
+    -c, --configuration <configuration-file-path>  Absolute or relative path (from the root of the Node application) to the device simulator configuration input file (mandatory)
+    -o, --output <output-file-path>                Absolute or relative path (from the root of the Node application) to the output device simulator configuration file (mandatory)
+```
 
 Following the description of the simulation configuration file accepted properties and leaning on the [FIWARE waste management harmonized data models](http://fiware-datamodels.readthedocs.io/en/latest/WasteManagement/doc/introduction/index.html), we provide a simulation configuration real example file to automatically generate waste management data, more concretely simulating the dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
