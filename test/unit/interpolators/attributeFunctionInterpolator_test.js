@@ -31,7 +31,8 @@ var fdsErrors = require(ROOT_PATH + '/lib/errors/fdsErrors');
 var attributeFunctionInterpolator = require(ROOT_PATH + '/lib/interpolators/attributeFunctionInterpolator');
 
 var ATTRIBUTE_VALUE_1 = 111;
-var ATTRIBUTE_VALUE_2 = 333;
+var ATTRIBUTE_VALUE_2 = 222;
+var ATTRIBUTE_VALUE_3 = 333;
 
 describe('attributeFunctionInterpolator tests', function() {
   var attributeFunctionInterpolatorFunction,
@@ -86,6 +87,34 @@ describe('attributeFunctionInterpolator tests', function() {
             }
           ]
         };
+      } else if (requestBody.entities[0].id === 'EntityId2' && requestBody.entities[0].type === 'Entity2') {
+        return {
+          contextResponses: [
+            {
+              contextElement: {
+                type: 'Entity2',
+                isPattern: 'false',
+                id: 'EntityId2',
+                attributes: [
+                  {
+                    name: 'AttributeName21',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_2
+                  },
+                  {
+                    name: 'AttributeName22',
+                    type: 'Number',
+                    value: ATTRIBUTE_VALUE_2 * 2
+                  }
+                ]
+              },
+              statusCode: {
+                code: 200,
+                reasonPhrase: 'OK'
+              }
+            }
+          ]
+        };
       } else if (requestBody.entities[0].id === 'EntityId2') {
         return {
           contextResponses: [
@@ -98,12 +127,12 @@ describe('attributeFunctionInterpolator tests', function() {
                   {
                     name: 'AttributeName21',
                     type: 'Number',
-                    value: ATTRIBUTE_VALUE_2
+                    value: ATTRIBUTE_VALUE_3
                   },
                   {
-                    name: 'AttributeNam21',
+                    name: 'AttributeName22',
                     type: 'Number',
-                    value: ATTRIBUTE_VALUE_2 * 2
+                    value: ATTRIBUTE_VALUE_3 * 2
                   }
                 ]
               },
@@ -189,7 +218,8 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   });
 
-  it('should interpolate if a reference to an entity attribute is passed as the interpolation specification',
+  it('should interpolate if a reference to an entity attribute (without entity type) is passed as the ' +
+     'interpolation specification',
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
@@ -202,7 +232,21 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
-  it('should interpolate if an addition to a reference to an entity attribute is passed as the ' +
+  it('should interpolate if a reference to an entity attribute (with entity type) is passed as the ' +
+     'interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator('${{EntityId2:#:Entity2}{AttributeName21}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_2);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if an addition to a reference to an entity attribute (without entity type) is passed as the ' +
      'interpolation specification',
     function(done) {
       try {
@@ -216,8 +260,22 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
-  it('should interpolate if a function invocation on a reference to an entity attribute is passed as the ' +
+  it('should interpolate if an addition to a reference to an entity attribute (with entity type) is passed as the ' +
      'interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator('${{EntityId2:#:Entity2}{AttributeName21}} + 111', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_2 + 111);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if a function invocation on a reference to an entity attribute (without entity type) ' +
+     'is passed as the interpolation specification',
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
@@ -230,8 +288,23 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
-  it('should interpolate if the addition of references to distinct entity\'s attributes is passed as the ' +
-     'interpolation specification',
+  it('should interpolate if a function invocation on a reference to an entity attribute (with entity type) ' +
+     'is passed as the interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator('Math.pow(${{EntityId2:#:Entity2}{AttributeName21}}, 2);',
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE_2, 2));
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if the addition of references to distinct entity\'s attributes (without entity type) ' +
+     'is passed as the interpolation specification',
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
@@ -245,13 +318,43 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
-  it('should interpolate if the addition of references to attributes of distinct entities attributes is passed ' +
-     'as the interpolation specification',
+  it('should interpolate if the addition of references to distinct entity\'s attributes (with entity type) ' +
+     'is passed as the interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            '${{EntityId1}{AttributeName11}} + ${{EntityId2:#:Entity2}{AttributeName22}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + (ATTRIBUTE_VALUE_2 * 2));
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if the addition of references to attributes of distinct entities attributes ' +
+     '(without entity type) is passed as the interpolation specification',
     function(done) {
       try {
         attributeFunctionInterpolatorFunction =
           attributeFunctionInterpolator(
             '${{EntityId1}{AttributeName11}} + ${{EntityId2}{AttributeName21}}', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + ATTRIBUTE_VALUE_3);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should interpolate if the addition of references to attributes of distinct entities attributes ' +
+     '(with entity type) is passed as the interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            '${{EntityId1}{AttributeName11}} + ${{EntityId2:#:Entity2}{AttributeName21}}', domain, contextBroker);
         should(attributeFunctionInterpolatorFunction(token)).equal(ATTRIBUTE_VALUE_1 + ATTRIBUTE_VALUE_2);
         done();
       } catch(exception) {
