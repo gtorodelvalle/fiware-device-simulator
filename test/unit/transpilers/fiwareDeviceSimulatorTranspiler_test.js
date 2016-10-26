@@ -31,7 +31,7 @@ var fiwareDeviceSimulatorTranspiler = require(ROOT_PATH + '/lib/transpilers/fiwa
 
 describe('fiwareDeviceSimulatorTranspiler tests', function() {
   it('should not import anything if no template is included', function() {
-    fiwareDeviceSimulatorTranspiler.compose(
+    fiwareDeviceSimulatorTranspiler.transpile(
       {
         should: 'not-transform-anything'
       },
@@ -44,7 +44,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should throw an error if a template cannot be resolved', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           property: 'import(inexistent-template)'
         },
@@ -60,7 +60,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import a string template if defined in the exports property', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           exports: {
             template: 'template-value'
@@ -80,7 +80,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import a string template if defined in an external template file', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           property: 'import(test/unit/templates/template-string)'
         },
@@ -97,7 +97,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import a number template if defined in the exports property', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           exports: {
             template: 666
@@ -117,7 +117,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import a number template if defined in an external template file', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           property: 'import(test/unit/templates/template-number)'
         },
@@ -134,7 +134,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import an array template if defined in the exports property', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           exports: {
             template: [1, 2, 3]
@@ -156,7 +156,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import an array template if defined in an external template file', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           property: 'import(test/unit/templates/template-array)'
         },
@@ -175,7 +175,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import an object template if defined in the exports property', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           exports: {
             template: {
@@ -201,7 +201,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
 
   it('should import an object template if defined in an external template file', function(done) {
     try{
-      fiwareDeviceSimulatorTranspiler.compose(
+      fiwareDeviceSimulatorTranspiler.transpile(
         {
           property: 'import(test/unit/templates/template-object)'
         },
@@ -222,7 +222,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -256,7 +256,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -282,7 +282,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -317,7 +317,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -345,7 +345,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -385,7 +385,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -417,7 +417,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -457,7 +457,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -489,7 +489,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -529,7 +529,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -562,7 +562,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               template: [
@@ -602,7 +602,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {
@@ -635,7 +635,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             exports: {
               'template-1': [
@@ -741,7 +741,7 @@ describe('fiwareDeviceSimulatorTranspiler tests', function() {
     function (done) {
       /* jshint camelcase: false */
       try{
-        fiwareDeviceSimulatorTranspiler.compose(
+        fiwareDeviceSimulatorTranspiler.transpile(
           {
             entities: [
               {

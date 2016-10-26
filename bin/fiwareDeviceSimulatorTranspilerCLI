@@ -71,7 +71,7 @@ function executeCommand() {
     return logops.error('The output file path (\'' + outputConfigurationFilePath + '\') already exists');
   }
 
-  fiwareDeviceSimulatorTranspiler.compose(require(inputConfigurationFilePath), function(err, newConfigurationObj) {
+  fiwareDeviceSimulatorTranspiler.transpile(require(inputConfigurationFilePath), function(err, newConfigurationObj) {
     if (err) {
       return logops.error('Error when transpiling the simulation configuration file (\'' +
         inputConfigurationFilePath + '\'): ' + err);
