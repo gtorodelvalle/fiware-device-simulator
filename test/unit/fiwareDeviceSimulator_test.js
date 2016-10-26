@@ -5444,7 +5444,7 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('authorization', function() {
     beforeEach(function(done) {
-      fiwareDeviceSimulatorTranspiler.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
+      fiwareDeviceSimulatorTranspiler.transpile(simulationConfiguration, function(err, newSimulationConfiguration) {
         if (err) {
           return done(err);
         }
@@ -5518,7 +5518,7 @@ describe('fiwareDeviceSimulator tests', function() {
     function simulationTestSuite(type, options){
       beforeEach(function(done) {
         simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
-        fiwareDeviceSimulatorTranspiler.compose(simulationConfiguration, function(err, newSimulationConfiguration) {
+        fiwareDeviceSimulatorTranspiler.transpile(simulationConfiguration, function(err, newSimulationConfiguration) {
           if (err) {
             return done(err);
           }

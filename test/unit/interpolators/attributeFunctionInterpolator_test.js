@@ -363,6 +363,40 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
+  it('should interpolate if packages are required in the interpolation specification', function(done) {
+    try {
+      var
+      attributeFunctionInterpolatorFunction =
+        attributeFunctionInterpolator(
+          'var linearInterpolator = require("' + ROOT_PATH + '/lib/interpolators/linearInterpolator"); ' +
+          'module.exports = linearInterpolator([[0,0],[10,10]])(5);',
+          domain, contextBroker);
+      should(attributeFunctionInterpolatorFunction(token)).equal(5);
+      done();
+    } catch(exception) {
+      done(exception);
+    }
+  });
+
+  it('should throw an error if the packages required in the interpolation specification are not evailable',
+    function(done) {
+      try {
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            'var linearInterpolator = require("' + ROOT_PATH + '/lib/interpolators/NON-EXISTENT"); ' +
+            'module.exports = linearInterpolator([[0,0],[10,10]])(5);',
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(5);
+        done(new Error('It should throw an ValueResolutionError error'));
+        done();
+      } catch(exception) {
+        should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
+        done();
+      }
+    }
+  );
+
   it('should throw an error if a invalid Javascript code with a reference to an entity attribute is passed as the ' +
      'interpolation specification',
     function(done) {

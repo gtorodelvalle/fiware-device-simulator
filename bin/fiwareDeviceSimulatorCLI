@@ -107,6 +107,10 @@ function executeCommand() {
     logops.debug('update-request event:', ev);
   });
 
+  progressEmitter.on('info', function(ev) {
+    logops.info('info event:', ev.message);
+  });
+
   progressEmitter.on('error', function(ev) {
     logops.error('error event:', ev);
   });
