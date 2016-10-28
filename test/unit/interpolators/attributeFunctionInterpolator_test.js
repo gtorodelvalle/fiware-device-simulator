@@ -378,6 +378,27 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   });
 
+  it('should make available the simulator date if module.exports is used in the interpolation specification',
+    function(done) {
+      try {
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            'module.exports = new SimulationDate();',
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token).getFullYear()).equal(new Date().getFullYear());
+        should(attributeFunctionInterpolatorFunction(token).getMonth()).equal(new Date().getMonth());
+        should(attributeFunctionInterpolatorFunction(token).getDate()).equal(new Date().getDate());
+        should(attributeFunctionInterpolatorFunction(token).getDay()).equal(new Date().getDay());
+        should(attributeFunctionInterpolatorFunction(token).getHours()).equal(new Date().getHours());
+        should(attributeFunctionInterpolatorFunction(token).getMinutes()).equal(new Date().getMinutes());
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
   it('should pass the state and interpolate if it is used in the interpolation specification', function(done) {
     try {
       var attributeFunctionInterpolatorSpec =
