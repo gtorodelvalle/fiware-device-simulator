@@ -30,6 +30,7 @@ var commander = require('commander');
 var fs = require('fs');
 var logops = require('logops');
 var humanizeDuration = require('humanize-duration');
+var path = require('path');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 
 process.on('SIGINT', function() {
@@ -65,7 +66,7 @@ function executeCommand() {
   } else if (commander.configuration[0] === '.') {
     configurationFilePath = ROOT_PATH + commander.configuration.substring(1);
   } else {
-    commander.help();
+    configurationFilePath = ROOT_PATH + path.sep + commander.configuration;
   }
 
   if (!fs.existsSync(configurationFilePath)) {
@@ -104,6 +105,10 @@ function executeCommand() {
 
   progressEmitter.on('update-request', function(ev) {
     logops.debug('update-request event:', ev);
+  });
+
+  progressEmitter.on('info', function(ev) {
+    logops.info('info event:', ev.message);
   });
 
   progressEmitter.on('error', function(ev) {

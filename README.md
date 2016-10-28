@@ -46,7 +46,7 @@ To run the FIWARE Device Simulator CLI tool just run:
 ./bin/fiwareDeviceSimulatorCLI
 ```
 
-This will show the FIWARE Device Simulator CLI tool help:
+This will show the FIWARE Device Simulator CLI tool help which will guide you to learn how to properly use it:
 
 ```
 Usage: fiwareDeviceSimulatorCLI [options]
@@ -244,6 +244,7 @@ An example simulation configuration file is shown next to give you a glimpse of 
 The simulation configuration file accepts the following JSON properties or entries:
 
 * **exports**: The FIWARE Device Simulation provides a templating mechanism to avoid repeating text into simulation configuration files as well as to facilitate the edition of these files. More information about this templating mechanism just after the description of the rest of the properties which may be used in a simulation configuration file.
+* **require**: An array of names and/or paths of NPM packages to be required before running the simulation. This property is related to the `attribute-function-interpolator` detailed below. It makes it possible to `require()` these NPM packages directly in the code associated to these `attribute-function-interpolator`.
 * **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
@@ -332,8 +333,21 @@ The simulation configuration file accepts the following JSON properties or entri
                 * `units`: It is a string which affects the `text` property detailed below. It accepts the following values: `seconds`, `minutes`, `hours`, `days` (day of the week), `dates` (day of the month), `months` and `years`.
                 * `text`: It is an array of 2 elements arrays. The first element is the number of `seconds` (from 0 to 59), `minutes` (from 0 to 59), `hours` (from 0 to 23), `days` (from 0 to 6), `dates` (from 1 to 31), `months` (from 0 to 11) and `years` (full year) (according to the `units` property) from which the specified text will be returned for the current date and time. The second element can be a string corresponding to the text to be returned or an array of 2 elements arrays. The first element of this second 2 elements array is the probability (from 0 to 100) of the occurrence of the text specified as the second element of the array. The addition of the first elements array must be 100.
                 * A valid attribute value using the `text-rotation-interpolator` is: `"text-rotation-interpolator({\"units\": \"seconds\", \"text\": [[0,\"PENDING\"],[15,\"REQUESTED\"],[30,[[50,\"COMPLETED\"],[50,\"ERROR\"]]],[45,\"REMOVED\"]]})"`. For example, according to this text rotation interpolation specification, if the current time seconds is between 0 and 15 it will return the value `PENDING`, if it is between 15 and 30 it will return the value `REQUESTED`, if it is between 30 and 45 it will return the value `COMPLETED` with a probability of 50% and `ERROR` with a probability of 50%.
-            8. **`attribute-function-interpolator`**: It returns the result of the evaluation of some Javascript code. This code may include references to any entity's attributes values stored in the Context Broker. This interpolator accepts a string (properly escaped) with the Javascript code to evaluate. In this Javascript code, references to entity's attribute values may be included using the notation: `${{<entity-id>}{<attribute-name>}}`, substituting the `<entity-id>` and `<attribute-name}` by their concrete values.
+            8. **`attribute-function-interpolator`**: It returns the result of the evaluation of some Javascript code. This code may include references to any entity's attributes values stored in the Context Broker. This interpolator accepts a string (properly escaped) with the Javascript code to evaluate. In this Javascript code, references to entity's attribute values may be included using the notation: `${{<entity-id>:#:<entity-type>}{<attribute-name>}}`, substituting the `<entity-id>`, `<entity-type>` and `<attribute-name}` by their concrete values. Take into consideration that the type specification of the entity (i.e., `:#:<entity-type>`, inluding the `:#:` separator) is optional and can be omited, in which case the entity type will not be considered when retrieving the entity and the corresponding attribute value from the Context Broker.
                 * A valid attribute value using the `attribute-function-interpolator` is: `"attribute-function-interpolator(${{Entity:001}{active:001}} + Math.pow(${{Entity:002}{active:001}},2))"`.
+                * An advanced feature incorporated to the `attribute-function-interpolator` is the possibility to `require` packages directly in the Javascript code to be evaluated. Obviously, all the capabilities related to referencing entity attributes are supported too in this case. To use it, please follow the next steps:
+                    1. Include a `require` property in your simulation configuration file setting its value to an array including the names and/or paths of the NPM packages you will be using in any of your `attribute-function-interpolator` interpolators. These packages will be required before proceding with the simulation and made available to your `attribute-function-interpolator` code which uses them. For example: `"require": ["postfix-calculate"]`.
+                    2. The result of the evaluation of your code should be assigned to the `module.exports` property (this is due to the fact that this functionality leans on the [`eval` NPM package](https://www.npmjs.com/package/eval) which imposes this restriction).
+                * A valid attribute value using this advanced mode of the `attribute-function-interpolator` is: `"attribute-function-interpolator(var postfixCalculate = require('postfix-calculate'); module.exports = postfixCalculate('${{Entity:001}{active:001}} 1 +');)"`, where the result of the evaluation (this is, the value assigned to `module.exports`) will be the result of adding 1 to the value of the `active:001` attribute of the `Entity:001` entity, according to the [`postfix-calculate` NPM](https://www.npmjs.com/package/postfix-calculate) functionality.
+                * Sometimes it is useful to have access to the simulator date (mainly in case of fast-forward simulations (more information about fast-forward simulations below)), for that we inject into the Javascript code of `attribute-function-interpolator`s an object SimulationDate which behaves such as the Javascript `Date` object but "points" to the simulator time and date, this is `new SimulationDate()` returns the current `Date` for the current simulation. It is important to note that the `SimulationDate` object will only be available if you assign the result of your code evaluation to the `module.exports` property.
+                  * A valid attribute value using the possibility to maitain state between `attribute-function-interpolator` interpolator executions is: `"attribute-function-interpolator(module.exports = new SimulationDate())"`, where the result of the evaluation (this is, the value assigned to `module.exports`) will be the current simulation date.
+                * In case you want to maintain state between `attribute-function-interpolator` interpolator executions, you can also do it following the next guidelines:
+                    1. Include a comment in your `attribute-function-interpolator` Javascript code such as: `/* state: statefulVariable1 = 5, statefulVariable2 = {\"prop1\": \"value1\"}, statefulVariable3 */`, this is a `state:` tag followed by the list of variables you would like the interpolator to maintain as the state. This list is used to inject into your code these variables with the value included after the `=` character or `null` if no value is assigned for the first execution of your Javascript code.
+                    2. Return the result the evaluation setting it as the value for the `module.exports.result` property.
+                    3. Return the variables whose state should be maintained between executions of the interpolator as properties of an object assigned to the `module.exports.state` property.
+                * It is important to note that all the `attribute-function-interpolator` sharing the same specification (this is, your Javascript code) will share the same state. If you do not want this, just slightly change the specification somehow withouth affecting the execution of your code such adding an additional `;` or including a comment.
+                * In case of managing state between `attribute-function-interpolator` execution, the `SimulationDate` previously mentioned is also available in the associated Javascript code.
+                * A valid attribute value using the possibility to maitain state between `attribute-function-interpolator` interpolator executions is: `"attribute-function-interpolator(/* state: counter = 1 */ module.exports = { result: ${{Entity:001}{active:001}} + counter, state: { counter: ++counter }};)"`, where the result of the evaluation (this is, the value assigned to `module.exports.result`) will be the result of adding to the value of the `active:001` attribute of the `Entity:001` entity an increment equal to the times the interpolator has been run.
         * **metadata**: Array of metadata information to be associated to the attribute on the update. Each metadata array entry is an object including 3 properties:
             * **name**: The metadata name.
             * **type**: The metadata type.
@@ -390,7 +404,158 @@ Let's see this `imports()` directive mechanism with an example. The next one is 
 
 For example, the import directives: `import(contextBroker_NGSIv1)`, `import(every 5 seconds)` and `import(autoincrement_1)` will be substituted by the corresponding values declared in the `exports` property of the simulation configuration file, whereas the `import(authentication)` (since it is not declared in the `exports`) property will be `require`d as the file `authentication.json` from the root of the FIWARE Device Simulator application (this is, it is equivalent to `require(${FIWARE_Device_Simulator_Root_Path}/authentication.json))`.
 
+The previous and preliminary support for importing content into specific parts of the simulation configuration files has been recently extended to support conditional imports. In this case, it is possible to impose conditions which must be satisfied for the import to take place. The format of the conditional imports is the following one:
+
+```json
+"<template-name>": [
+  {
+    "condition": "${{<entity-property-1>==<regular-expression-1>}}",
+    "content": "the-content-to-import-a-string-in-this-case"
+  },
+  {
+    "condition": "${{<entity-property-2>==<regular-expression-2>}{<attribute-property-2>==<regular-expression-2>}}",
+    "content": "the-content-to-import-a-string-in-this-case"
+  }
+]
+```
+
+As you can see, the templates can now be an array of objects including a `condition` and a `content` properties in which case the import will only take place if the `import()` directive appears inside an entity which satisfies the `<entity-property-1>==<regular-expression-1>` condition (this is, the `<entity-property1->` value satisfies the `<regular-expression-1>`) OR appears inside an attribute which satisfies the `<attribute-property-2>==<regular-expression-2>` condition (this is, the `<attribute-property-2>` value satisfies the `<regular-expression-2>`) inside an entity which satisfies the `<entity-property-2>==<regular-expression-2>` condition (this is, the `<entity-property-2>` value satisfies the `<regular-expression-2>`).
+
+Let's see it in a concrete example. Considering a simulation configuration file such as the following one:
+
+```json
+{
+  "exports": {
+    "every 5 seconds": "*/5 * * * * *",
+    "parking from 6 to 22": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})",
+    "now": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})",
+    "entity-type": [
+      {
+        "content": "ParkingSpot",
+        "condition": "${{entity_name==pe-moraleja-01-group-0[0-9]:0[0-9]}}"
+      }
+    ],
+    "attribute-type-1": [
+      {
+        "content": "Text",
+        "condition": "${{entity_name==pe-moraleja-01-group-02:0[0-9]}}"
+      },
+      {
+        "content": "DateTime",
+        "condition": "${{entity_name==pe-moraleja-01-group-01:0[0-9]}{name==dateModifie[a-z]}}"
+      }
+    ]
+  },
+  ...
+  "entities": [
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "pe-moraleja-01-group-01:01",
+      "entity_type": "import(entity-type)",
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "import(parking from 6 to 22)"
+        },
+        {
+          "name": "dateModified",
+          "type": "import(attribute-type-1)",
+          "value": "import(now)"
+        }
+      ]
+    },
+    {
+      "schedule": "import(every 5 seconds)",
+      "entity_name": "pe-moraleja-01-group-02:01",
+      "entity_type": "import(entity-type)",
+      "active": [
+        {
+          "name": "status",
+          "type": "import(attribute-type-1)",
+          "value": "import(parking from 6 to 22)"
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "import(now)"
+        }
+      ]
+    }
+  ]
+  ...
+}
+```
+
+After resolving the imports, the simulation configuration file will end up as the following one:
+
+```json
+{
+  ...
+  "entities": [
+    {
+      "schedule": "*/5 * * * * *", // -> IMPORTED
+      "entity_name": "pe-moraleja-01-group-01:01",
+      "entity_type": "ParkingSpot", // -> IMPORTED
+      "active": [
+        {
+          "name": "status",
+          "type": "Text",
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})" // -> IMPORTED
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime", // -> IMPORTED
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})" // -> IMPORTED
+        }
+      ]
+    },
+    {
+      "schedule": "*/5 * * * * *", // -> IMPORTED
+      "entity_name": "pe-moraleja-01-group-02:01",
+      "entity_type": "ParkingSpot", // -> IMPORTED
+      "active": [
+        {
+          "name": "status",
+          "type": "Text", // -> IMPORTED
+          "value": "text-rotation-interpolator({\"units\": \"hours\", \"text\": [[0,\"closed\"],[6,[[40,\"free\"],[60,\"occupied\"]]],[19,[[80,\"free\"],[20,\"occupied\"]]],[22,\"closed\"]]})" // -> IMPORTED
+        },
+        {
+          "name": "dateModified",
+          "type": "DateTime",
+          "value": "date-increment-interpolator({\"origin\": \"now\", \"increment\": 0})" // -> IMPORTED
+        }
+      ]
+    }
+  ]
+  ...
+}
+```
+
+Just as in the case of the textual imports, the conditional imports can be declared in the `exports` property of the simulation configuration file or in external JSON files which can be imported.
+
 Obviously, if an import directive refers to a template not declared either in the `exports` property or in an external JSON file, an error is thrown and the simulation is not run. On the other hand, if all the substitutions take place fine and the resulting simulation configuration file is valid, the simulation is run.
+
+Although the `fiwareDeviceSimulatorCLI` command line tool previously detailed includes support for the import mechanism just described, we have also included a specific command line tool for the import mechanism which transpiles an input simulation configuration file into an output configuration file including the resolved imports.
+
+To run the FIWARE Device Simulator Transpiler CLI tool just run:
+
+```bash
+./bin/fiwareDeviceSimulatorTranspilerCLI
+```
+
+This will show the FIWARE Device Simulator Transpiler CLI tool help which will guide you to learn how to properly use it:
+
+```
+Usage: fiwareDeviceSimulatorTranspilerCLI [options]
+
+  Options:
+
+    -h, --help                                     output usage information
+    -V, --version                                  output the version number
+    -c, --configuration <configuration-file-path>  Absolute or relative path (from the root of the Node application) to the device simulator configuration input file (mandatory)
+    -o, --output <output-file-path>                Absolute or relative path (from the root of the Node application) to the output device simulator configuration file (mandatory)
+```
 
 Following the description of the simulation configuration file accepted properties and leaning on the [FIWARE waste management harmonized data models](http://fiware-datamodels.readthedocs.io/en/latest/WasteManagement/doc/introduction/index.html), we provide a simulation configuration real example file to automatically generate waste management data, more concretely simulating the dynamic filling levels for 8 waste containers spread out at 4 areas (`Oeste` (i.e., West), `Norte` (i.e., North), `Este` (i.e., East) and `Sur` (i.e., South) of the Distrito Telefónica area (where the Telefónica headquarters are located) in Madrid.
 
