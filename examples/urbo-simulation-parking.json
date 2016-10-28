@@ -13711,6 +13711,7 @@
     },
 
     {
+      "schedule": "51 0 * * * *",
       "entity_name": "Telefonica-Parking-Sur",
       "entity_type": "OffStreetParking",
       "staticAttributes": [
