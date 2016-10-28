@@ -378,7 +378,134 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   });
 
-  it('should throw an error if the packages required in the interpolation specification are not evailable',
+  it('should pass the state and interpolate if it is used in the interpolation specification', function(done) {
+    try {
+      var attributeFunctionInterpolatorSpec =
+      '/* state: stateful1, stateful2 */ var linearInterpolator = require("' + ROOT_PATH +
+        '/lib/interpolators/linearInterpolator"); ' +
+        'module.exports = { ' +
+          'result: linearInterpolator([[0,0],[10,10]])(5) + (stateful1 = (stateful1 ? ++stateful1 : 1)) + ' +
+            '(stateful2 = (stateful2 ? ++stateful2 : 1)),' +
+          'state: { stateful1: stateful1, stateful2: stateful2}' +
+        ' };';
+      var
+      attributeFunctionInterpolatorFunction =
+        attributeFunctionInterpolator(
+          attributeFunctionInterpolatorSpec,
+          domain, contextBroker);
+      should(attributeFunctionInterpolatorFunction(token)).equal(7);
+      should(attributeFunctionInterpolatorFunction(token)).equal(9);
+      should(attributeFunctionInterpolatorFunction(token)).equal(11);
+      done();
+    } catch(exception) {
+      done(exception);
+    }
+  });
+
+  it('should initiate (as a number), pass the state and interpolate if it is used in the interpolation specification',
+    function(done) {
+      try {
+        var attributeFunctionInterpolatorSpec =
+        '/* state: stateful1 = 5, stateful2 */ var linearInterpolator = require("' + ROOT_PATH +
+          '/lib/interpolators/linearInterpolator"); ' +
+          'module.exports = { ' +
+            'result: linearInterpolator([[0,0],[10,10]])(5) + stateful1 + ' +
+              '(stateful2 = (stateful2 ? ++stateful2 : 1)),' +
+            'state: { stateful1: ++stateful1, stateful2: stateful2}' +
+          ' };';
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(11);
+        should(attributeFunctionInterpolatorFunction(token)).equal(13);
+        should(attributeFunctionInterpolatorFunction(token)).equal(15);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should initiate (as a string), pass the state and interpolate if it is used in the interpolation specification',
+    function(done) {
+      try {
+        var attributeFunctionInterpolatorSpec =
+        '/* state: stateful1 = 5, stateful2 =\"tralara\" */ var linearInterpolator = require("' + ROOT_PATH +
+          '/lib/interpolators/linearInterpolator"); ' +
+          'module.exports = { ' +
+            'result: linearInterpolator([[0,0],[10,10]])(5) + (stateful2 === \"tralara\" ? stateful1 : 0),' +
+            'state: { stateful1: ++stateful1, stateful2: \"\"}' +
+          ' };';
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(10);
+        should(attributeFunctionInterpolatorFunction(token)).equal(5);
+        should(attributeFunctionInterpolatorFunction(token)).equal(5);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should initiate (as an array), pass the state and interpolate if it is used in the interpolation specification',
+    function(done) {
+      try {
+        var attributeFunctionInterpolatorSpec =
+        '/* state: stateful1 = [5], stateful2 */ var linearInterpolator = require("' + ROOT_PATH +
+          '/lib/interpolators/linearInterpolator"); ' +
+          'module.exports = { ' +
+            'result: linearInterpolator([[0,0],[10,10]])(5) + stateful1[0] + ' +
+              '(stateful2 = (stateful2 ? ++stateful2 : 1)),' +
+            'state: { stateful1: [++stateful1], stateful2: stateful2}' +
+          ' };';
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(11);
+        should(attributeFunctionInterpolatorFunction(token)).equal(13);
+        should(attributeFunctionInterpolatorFunction(token)).equal(15);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should initiate (as an array), pass the state and interpolate if it is used in the interpolation specification',
+    function(done) {
+      try {
+        var attributeFunctionInterpolatorSpec =
+        '/* state: stateful1 = {\"value\": 5}, stateful2 */ var linearInterpolator = require("' + ROOT_PATH +
+          '/lib/interpolators/linearInterpolator"); ' +
+          'module.exports = { ' +
+            'result: linearInterpolator([[0,0],[10,10]])(5) + stateful1.value + ' +
+              '(stateful2 = (stateful2 ? ++stateful2 : 1)),' +
+            'state: { stateful1: {\"value\": ++stateful1.value}, stateful2: stateful2}' +
+          ' };';
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(11);
+        should(attributeFunctionInterpolatorFunction(token)).equal(13);
+        should(attributeFunctionInterpolatorFunction(token)).equal(15);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should throw an error if the packages required in the interpolation specification are not available',
     function(done) {
       try {
         var
