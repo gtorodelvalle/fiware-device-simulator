@@ -26,21 +26,32 @@
 'use strict';
 
 var ROOT_PATH = require('app-root-path');
+var async = require('async');
 var commander = require('commander');
 var fs = require('fs');
 var logops = require('logops');
 var humanizeDuration = require('humanize-duration');
 var path = require('path');
+var request = require('request');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
+
+/**
+ * Array with the last 10 emitted errors
+ * @type {Array}
+ */
+var errors = [];
+
+/**
+ * Last emitted progress information
+ */
+var progressInfo;
 
 process.on('SIGINT', function() {
   deviceSimulator.stop();
-  process.exit(0);
 });
 
 process.on('uncaughtException', function() {
   deviceSimulator.stop();
-  process.exit(1);
 });
 
 /**
@@ -50,6 +61,91 @@ process.on('uncaughtException', function() {
  */
 function createDate(date) {
   return new Date(date);
+}
+
+/**
+ * Processes a progress-info event and generates the corresponding progress information object
+ * @param  {Object} ev The progress-info event
+ */
+function processProgressInfo(ev) {
+  progressInfo = {
+    totalUpdateRequests: ev.updatesRequested,
+    elapsedTime: humanizeDuration(ev.elapsedTime),
+    throughput: (ev.updatesRequested / (ev.elapsedTime / 1000)).toFixed(2),
+    delayedUpdateRequests: ev.delayedUpdateRequests,
+    delayedUpdateRequestsX100: (ev.updatesProcessed ?
+      (100 * ev.delayedUpdateRequests / ev.updatesProcessed).toFixed(2) :
+      'N/A'),
+    errorUpdateRequests: ev.errorUpdateRequests,
+    errorUpdateRequestsX100: (ev.updatesProcessed ?
+      (100 * ev.errorUpdateRequests / ev.updatesProcessed).toFixed(2) :
+      'N/A')
+  };
+  if (commander.to) {
+    progressInfo.simulatedPendingTime = humanizeDuration(commander.to - commander.from - ev.simulatedElapsedTime);
+  } else {
+    progressInfo.simulatedPendingTime = 'N/A';
+  }
+  progressInfo.simulatedElapsedTime = humanizeDuration(ev.simulatedElapsedTime);
+  if (commander.to) {
+    progressInfo.pendingTime = humanizeDuration(
+      ((commander.to.getTime() -
+        (commander.from.getTime() + ev.simulatedElapsedTime)) * ev.elapsedTime) /
+        ev.simulatedElapsedTime);
+  } else {
+    progressInfo.pendingTime = 'N/A';
+  }
+}
+
+/**
+ * Writes the simulation progress information to the console if configured
+ */
+function writeToConsole() {
+  if (!commander.silent && progressInfo) {
+    logops.info(
+      'progress-info',
+      {
+        totalUpdateRequests: progressInfo.totalUpdateRequests + ' updates',
+        throughput: progressInfo.throughput + ' updates/sec.',
+        errorUpdateRequests: progressInfo.errorUpdateRequests + ' updates',
+        errorUpdateRequestsX100: progressInfo.errorUpdateRequestsX100 + '%',
+        delayedUpdateRequests: progressInfo.delayedUpdateRequests + ' updates',
+        delayedUpdateRequestsX100: progressInfo.delayedUpdateRequestsX100 + '%',
+        elapsedTime: progressInfo.elapsedTime,
+        pendingTime: progressInfo.pendingTime,
+        simulatedElapsedTime: progressInfo.simulatedElapsedTime,
+        simulatedPendingTime: progressInfo.simulatedPendingTime
+      }
+    );
+  }
+}
+
+/**
+ * Dweets the simulation progress information if configured
+ * @param  {Object}   dweetConfig The dweet.io configuration
+ * @param  {Function} callback    The callback
+ */
+function dweet(dweetConfig, callback) {
+  if (dweetConfig && progressInfo) {
+    progressInfo.errors = errors;
+    request.post(
+      {
+        url: 'https://dweet.io/dweet/for/' + dweetConfig.name +
+          (dweetConfig.apiKey ? '?key=' + dweetConfig.apiKey : ''),
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        json: true,
+        body: progressInfo
+      },
+      function(err, response, body) {
+        process.nextTick(callback.bind(null, err || body.because, response, body));
+      }
+    );
+  } else {
+    process.nextTick(callback);
+  }
 }
 
 /**
@@ -83,6 +179,21 @@ function executeCommand() {
     }
   }
 
+  var dweetConfig;
+  if (commander.dweet) {
+    try {
+      dweetConfig = JSON.parse(commander.dweet);
+      if (!dweetConfig.name) {
+        logops.error('The dweet.io configuration information should be an object including a \'name\' property ' +
+          'the thing name');
+        commander.help();
+      }
+    } catch(exception) {
+      logops.error('Error when parsing the dweet.io configuration information: ' + exception);
+      commander.help();
+    }
+  }
+
   var progressEmitter = deviceSimulator.start(
     require(configurationFilePath), commander.from, commander.to, commander.progressInfoInterval,
     commander.maximumNotRespondedRequests, commander.delay || 1000);
@@ -112,6 +223,7 @@ function executeCommand() {
   });
 
   progressEmitter.on('error', function(ev) {
+    errors.slice(0, (errors.length === 10 ? 1 : 0), { timestamp: new Date(), error: JSON.stringify(ev) });
     logops.error('error event:', ev);
   });
 
@@ -120,26 +232,13 @@ function executeCommand() {
   });
 
   progressEmitter.on('progress-info', function(ev) {
-    var info = {
-      totalUpdateRequests: ev.updatesRequested,
-      realElapsedTime: humanizeDuration(ev.realElapsedTime),
-      throughput: (ev.updatesRequested / (ev.realElapsedTime / 1000)).toFixed(2) + ' updates/sec.',
-      delayedUpdateRequests: (100 * ev.delayedUpdateRequests / ev.updatesProcessed).toFixed(2) + '%'
-    };
-    if (commander.to) {
-      info.totalSimulationTime = humanizeDuration(commander.to - commander.from);
-    }
-    info.simulatedElapsedTime = humanizeDuration(ev.simulatedElapsedTime);
-    if (commander.to) {
-      info.pendingTime = humanizeDuration(
-        ((commander.to.getTime() -
-          (commander.from.getTime() + ev.simulatedElapsedTime)) * ev.realElapsedTime) /
-          ev.simulatedElapsedTime);
-    }
-    logops.info(
-      'progress-info',
-      info
-    );
+    processProgressInfo(ev);
+    writeToConsole();
+    dweet(dweetConfig, function(err) {
+      if (err) {
+        logops.error('error event: Error when dweeting for \'' + dweetConfig.name + '\': ' + err);
+      }
+    });
   });
 
   progressEmitter.on('stop', function() {
@@ -147,8 +246,18 @@ function executeCommand() {
   });
 
   progressEmitter.on('end', function() {
-    logops.info('end event');
-    process.exit(0);
+    async.retry(
+      { times: 5, interval: 1000},
+      async.apply(dweet, dweetConfig),
+      function(err) {
+        if (err) {
+          logops.error('error event: Error when dweeting for \'' + dweetConfig.name + '\': ' + err);
+        } else {
+          logops.info('end event');
+        }
+        process.exit(0);
+      }
+    );
   });
 }
 
@@ -165,6 +274,11 @@ commander.
     'applying delay', parseInt).
   option('-p, --progressInfoInterval <milliseconds>', 'The interval in milliseconds to show progress information ' +
     ' for fast-forward simulation', parseInt).
+  option('-s, --silent', 'No progress information will be output by the console').
+  option('-w, --dweet <dweetConfiguration>', 'Configuration information to publish the simulation progress ' +
+         'information in dweet.io (it must be an object containing a \'name\' property for the dweet thing and ' +
+         'optionally an \'apiKey\' property in case the thing is locked, for example: ' +
+         '-w "{\\"name\\": \\"fds:Test:001\\"}")').
   option('-f, --from <fromDate>', 'The start date to begin the fast-forward simulation (if not set, the current ' +
     'time will be used)', createDate).
   option('-t, --to <toDate>', 'The end date to stop the fast-forward simulation (if not set, the fast-forward ' +
