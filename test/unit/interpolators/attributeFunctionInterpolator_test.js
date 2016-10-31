@@ -363,6 +363,21 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
+  it('should throw an error if a invalid Javascript code with a reference to an entity attribute is passed as the ' +
+     'interpolation specification',
+    function(done) {
+      try {
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator('Math.pow(${{EntityId1}{AttributeName11}}, 2', domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE_1, 2));
+        done(new Error('It should throw an ValueResolutionError error'));
+      } catch(exception) {
+        should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
+        done();
+      }
+    }
+  );
+
   it('should interpolate if packages are required in the interpolation specification', function(done) {
     try {
       var
@@ -377,6 +392,25 @@ describe('attributeFunctionInterpolator tests', function() {
       done(exception);
     }
   });
+
+  it('should throw an error if the packages required in the interpolation specification are not available',
+    function(done) {
+      try {
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            'var linearInterpolator = require("' + ROOT_PATH + '/lib/interpolators/NON-EXISTENT"); ' +
+            'module.exports = linearInterpolator([[0,0],[10,10]])(5);',
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction(token)).equal(5);
+        done(new Error('It should throw an ValueResolutionError error'));
+        done();
+      } catch(exception) {
+        should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
+        done();
+      }
+    }
+  );
 
   it('should make available the simulator date if module.exports is used in the interpolation specification',
     function(done) {
@@ -526,36 +560,169 @@ describe('attributeFunctionInterpolator tests', function() {
     }
   );
 
-  it('should throw an error if the packages required in the interpolation specification are not available',
+  it('should pass a global number state variable between interpolators with distinct specifications',
     function(done) {
+      global.fdsGlobals = {
+        numberVar: 666
+      };
       try {
+        var attributeFunctionInterpolatorSpec1 =
+        'var newNumber = numberVar + 1; module.exports = { result: newNumber, ' +
+          'state: { globals: { numberVar: newNumber}}};';
         var
-        attributeFunctionInterpolatorFunction =
+        attributeFunctionInterpolatorFunction1 =
           attributeFunctionInterpolator(
-            'var linearInterpolator = require("' + ROOT_PATH + '/lib/interpolators/NON-EXISTENT"); ' +
-            'module.exports = linearInterpolator([[0,0],[10,10]])(5);',
+            attributeFunctionInterpolatorSpec1,
             domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(5);
-        done(new Error('It should throw an ValueResolutionError error'));
+        should(attributeFunctionInterpolatorFunction1(token)).equal(667);
+        var attributeFunctionInterpolatorSpec2 =
+        'var newNumber = numberVar + 1; module.exports = { result: newNumber, ' +
+          'state: { globals: { numberVar: newNumber}}};';
+        var
+        attributeFunctionInterpolatorFunction2 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec2,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction2(token)).equal(668);
         done();
       } catch(exception) {
-        should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
-        done();
+        done(exception);
       }
     }
   );
 
-  it('should throw an error if a invalid Javascript code with a reference to an entity attribute is passed as the ' +
-     'interpolation specification',
+  it('should pass a global string state variable between interpolators with distinct specifications',
     function(done) {
+      global.fdsGlobals = {
+        textVar: 'some'
+      };
       try {
-        attributeFunctionInterpolatorFunction =
-          attributeFunctionInterpolator('Math.pow(${{EntityId1}{AttributeName11}}, 2', domain, contextBroker);
-        should(attributeFunctionInterpolatorFunction(token)).equal(Math.pow(ATTRIBUTE_VALUE_1, 2));
-        done(new Error('It should throw an ValueResolutionError error'));
-      } catch(exception) {
-        should(exception).be.an.instanceof(fdsErrors.ValueResolutionError);
+        var attributeFunctionInterpolatorSpec1 =
+        'var newText = textVar + \"text\"; module.exports = { result: newText, ' +
+          'state: { globals: { textVar: newText}}};';
+        var
+        attributeFunctionInterpolatorFunction1 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec1,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction1(token)).equal('sometext');
+        var attributeFunctionInterpolatorSpec2 =
+        'var newText = textVar + \"here\"; module.exports = { result: newText, ' +
+          'state: { globals: { textVar: newText}}};';
+        var
+        attributeFunctionInterpolatorFunction2 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec2,
+            domain, contextBroker);
+        should(attributeFunctionInterpolatorFunction2(token)).equal('sometexthere');
         done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should pass a global array state variable between interpolators with distinct specifications',
+    function(done) {
+      global.fdsGlobals = {
+        arrayVar: [1, 2, 3]
+      };
+      try {
+        var attributeFunctionInterpolatorSpec1 =
+          'arrayVar.push(4); var newArray = arrayVar; module.exports = { result: newArray, ' +
+            'state: { globals: { arrayVar: newArray}}};';
+        var
+        attributeFunctionInterpolatorFunction1 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec1,
+            domain, contextBroker);
+        var result = attributeFunctionInterpolatorFunction1(token);
+        should(result.length).equal(4);
+        should(result).containEql(4);
+        var attributeFunctionInterpolatorSpec2 =
+          'arrayVar.push(5); var newArray = arrayVar; module.exports = { result: newArray, ' +
+            'state: { globals: { arrayVar: newArray}}};';
+        var
+        attributeFunctionInterpolatorFunction2 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec2,
+            domain, contextBroker);
+        result = attributeFunctionInterpolatorFunction2(token);
+        should(result.length).equal(5);
+        should(result).containEql(5);
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should pass a global object state variable between interpolators with distinct specifications',
+    function(done) {
+      global.fdsGlobals = {
+        objectVar: {
+          property1: 'value1'
+        }
+      };
+      try {
+        var attributeFunctionInterpolatorSpec1 =
+          'objectVar.property2 = \"value2\"; var newObject = objectVar; module.exports = { result: newObject, ' +
+            'state: { globals: { objectVar: newObject}}};';
+        var
+        attributeFunctionInterpolatorFunction1 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec1,
+            domain, contextBroker);
+        var result = attributeFunctionInterpolatorFunction1(token);
+        should(result).containEql({property1: 'value1'});
+        should(result).containEql({property2: 'value2'});
+        var attributeFunctionInterpolatorSpec2 =
+        'objectVar.property3 = \"value3\"; var newObject = objectVar; module.exports = { result: newObject, ' +
+          'state: { globals: { objectVar: newObject}}};';
+        var
+        attributeFunctionInterpolatorFunction2 =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec2,
+            domain, contextBroker);
+        result = attributeFunctionInterpolatorFunction2(token);
+        should(result).containEql({property1: 'value1'});
+        should(result).containEql({property2: 'value2'});
+        should(result).containEql({property3: 'value3'});
+        done();
+      } catch(exception) {
+        done(exception);
+      }
+    }
+  );
+
+  it('should combine local and global state variables in interpolators with the same specification',
+    function(done) {
+      global.fdsGlobals = {
+        objectVar: {
+          property1: 'value1'
+        }
+      };
+      try {
+        var attributeFunctionInterpolatorSpec =
+          '/* state: localVar = \"localVar\" */ ' +
+          'localVar = localVar + \"2\"; ' +
+          'objectVar.property1 = objectVar.property1 + localVar; ' +
+          'module.exports = { ' +
+            'result: objectVar, ' +
+            'state: { localVar: localVar, globals: { objectVar: objectVar}}' +
+          '};';
+        var
+        attributeFunctionInterpolatorFunction =
+          attributeFunctionInterpolator(
+            attributeFunctionInterpolatorSpec,
+            domain, contextBroker);
+        var result = attributeFunctionInterpolatorFunction(token);
+        should(result).containEql({property1: 'value1localVar2'});
+        result = attributeFunctionInterpolatorFunction(token);
+        should(result).containEql({property1: 'value1localVar2localVar22'});
+        done();
+      } catch(exception) {
+        done(exception);
       }
     }
   );
