@@ -1,1 +1,2 @@
 - [FEATURE] Maintaining global state between attribute-function-interpolator with distinct specifications
+- [TASK] Including a note about when to use global state variables to avoid Segmentation Fault
