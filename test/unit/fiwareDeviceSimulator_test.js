@@ -66,20 +66,36 @@ function wellFormedTokenRequestCheck(simulationConfiguration, requestBody) {
 /**
  * Returns the attribute value inside a contextElements structure
  * @param  {Array}  contextElements An array of contextElementslement
+ * @param  {String} destination     The destination of the requests
+ * @param  {String} body            The body of the request
  * @param  {String} entityId        The entity id
  * @param  {String} attributeName   The attribute name
  * @return {String}                 The attribute value
  */
-function getAttributeValue(contextElements, entityId, attributeName) {
-  for (var ii = 0; ii < contextElements.length; ii++) {
-    if (contextElements[ii].id === entityId) {
-      for (var jj = 0; jj < contextElements[ii].attributes.length; jj++) {
-        if (contextElements[ii].attributes[jj].name === attributeName) {
-          return contextElements[ii].attributes[jj].value;
+function getAttributeValue(destination, body, entityId, attributeName) {
+  /* jshint maxdepth: 5 */
+  if (destination === 'context broker') {
+    for (var ii = 0; ii < body.contextElements.length; ii++) {
+      if (body.contextElements[ii].id === entityId) {
+        for (var jj = 0; jj < body.contextElements[ii].attributes.length; jj++) {
+          if (body.contextElements[ii].attributes[jj].name === attributeName) {
+            return body.contextElements[ii].attributes[jj].value;
+          }
+        }
+      }
+    }
+  } else if (destination === 'subscriber') {
+    for (var kk = 0; kk < body.contextResponses.length; kk++) {
+      if (body.contextResponses[kk].contextElement.id === entityId) {
+        for (var ll = 0; ll < body.contextResponses[kk].contextElement.attributes.length; ll++) {
+          if (body.contextResponses[kk].contextElement.attributes[ll].name === attributeName) {
+            return body.contextResponses[kk].contextElement.attributes[ll].value;
+          }
         }
       }
     }
   }
+  /* jshint maxdepth: 5 */
 }
 
 /**
@@ -93,7 +109,6 @@ function toDecimalHours(date) {
 
 describe('fiwareDeviceSimulator tests', function() {
   /* jshint camelcase: false */
-
   var idm,
       isError,
       isTokenRequest,
@@ -5501,6 +5516,7 @@ describe('fiwareDeviceSimulator tests', function() {
 
   describe('simulation', function() {
     var contextBroker,
+        subscriber,
         httpIoTA,
         mqttClient,
         mqttConnectStub,
@@ -5512,12 +5528,19 @@ describe('fiwareDeviceSimulator tests', function() {
     /**
      * The simulation tests suite
      * @param  {String} type    The type of simulation. Possible values are: 'entities' and 'devices'
-     * @param  {String} options Object including the "ngsiVersion" property if entities or the "protocol" property if
+     * @param  {String} options Object including the "destination" of the updates ("contextBroker" or "subscriber") and
+     *                          the "ngsiVersion" properties if entities or the "protocol" property if
      *                          devices
      */
     function simulationTestSuite(type, options){
       beforeEach(function(done) {
-        simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
+        if (options.destination === 'context broker') {
+          simulationConfiguration = require(ROOT_PATH + '/test/unit/configurations/simulation-configuration.json');
+        } else if (options.destination === 'subscriber') {
+          simulationConfiguration = require(ROOT_PATH +
+            '/test/unit/configurations/simulation-configuration-subscriber.json');
+        }
+
         fiwareDeviceSimulatorTranspiler.transpile(simulationConfiguration, function(err, newSimulationConfiguration) {
           if (err) {
             return done(err);
@@ -5536,22 +5559,34 @@ describe('fiwareDeviceSimulator tests', function() {
             }
           );
 
-          if (options.ngsiVersion === '1.0') {
-            contextBroker = nock(newSimulationConfiguration.contextBroker.protocol + '://' +
-              newSimulationConfiguration.contextBroker.host + ':' + newSimulationConfiguration.contextBroker.port);
-            contextBroker.post('/v1/updateContext').times(5).reply(
-              function() {
-                return [200];
-              }
-            );
-          } else if (options.ngsiVersion === '2.0') {
-            contextBroker = nock(newSimulationConfiguration.contextBroker.protocol + '://' +
-              newSimulationConfiguration.contextBroker.host + ':' + newSimulationConfiguration.contextBroker.port);
-            contextBroker.post('/v2/op/update').times(5).reply(
-              function() {
-                return [200];
-              }
-            );
+          if (options.destination === 'context broker') {
+            if (options.ngsiVersion === '1.0') {
+              contextBroker = nock(newSimulationConfiguration.contextBroker.protocol + '://' +
+                newSimulationConfiguration.contextBroker.host + ':' + newSimulationConfiguration.contextBroker.port);
+              contextBroker.post('/v1/updateContext').times(5).reply(
+                function() {
+                  return [200];
+                }
+              );
+            } else if (options.ngsiVersion === '2.0') {
+              contextBroker = nock(newSimulationConfiguration.contextBroker.protocol + '://' +
+                newSimulationConfiguration.contextBroker.host + ':' + newSimulationConfiguration.contextBroker.port);
+              contextBroker.post('/v2/op/update').times(5).reply(
+                function() {
+                  return [200];
+                }
+              );
+            }
+          } else if (options.destination === 'subscriber') {
+            if (options.ngsiVersion === '1.0') {
+              subscriber = nock(newSimulationConfiguration.subscriber.protocol + '://' +
+                newSimulationConfiguration.subscriber.host + ':' + newSimulationConfiguration.subscriber.port);
+              contextBroker.post(newSimulationConfiguration.subscriber.path).times(5).reply(
+                function() {
+                  return [200];
+                }
+              );
+            }
           }
 
           if (options.protocol === 'UltraLight::HTTP') {
@@ -5592,13 +5627,18 @@ describe('fiwareDeviceSimulator tests', function() {
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' once if scheduled at ' +
          'element level',
         function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-once.json');
+            type + '-once' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5625,111 +5665,136 @@ describe('fiwareDeviceSimulator tests', function() {
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' once if scheduled at ' +
          'attribute level',
         function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-attribute-once.json');
-        if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
-        }
-        fiwareDeviceSimulator.start(simulationConfiguration);
-        simulationProgress.on('error', function(ev) {
-          done(ev.error);
-        });
-        simulationProgress.on('token-response', function(ev) {
-          ++tokenResponses;
-          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
-        });
-        simulationProgress.on('update-request', function() {
-          ++updateRequests;
-        });
-        simulationProgress.on('update-response', function() {
-          ++updateResponses;
-        });
-        simulationProgress.on('end', function() {
-          should(tokenResponses).equal(1);
-          should(updateRequests).equal(1);
-          should(updateResponses).equal(1);
-          done();
-        });
+          var simulationConfiguration =
+            require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+              (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
+              type + '-attribute-once' +
+              (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+              '.json');
+          if (options.ngsiVersion) {
+            if (simulationConfiguration.contextBroker) {
+              simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+            } else if (simulationConfiguration.subscriber) {
+              simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+            }
+          }
+          fiwareDeviceSimulator.start(simulationConfiguration);
+          simulationProgress.on('error', function(ev) {
+            done(ev.error);
+          });
+          simulationProgress.on('token-response', function(ev) {
+            ++tokenResponses;
+            should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+          });
+          simulationProgress.on('update-request', function() {
+            ++updateRequests;
+          });
+          simulationProgress.on('update-response', function() {
+            ++updateResponses;
+          });
+          simulationProgress.on('end', function() {
+            should(tokenResponses).equal(1);
+            should(updateRequests).equal(1);
+            should(updateResponses).equal(1);
+            done();
+          }
+        );
       });
 
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
          'at entity level',
         function(done) {
-        this.timeout(5000);
-        simulationConfiguration =
-          require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-            (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-every-second.json');
-        if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
-        }
-        fiwareDeviceSimulator.start(simulationConfiguration);
-        simulationProgress.on('error', function(ev) {
-          done(ev.error);
-        });
-        simulationProgress.on('token-response', function(ev) {
-          ++tokenResponses;
-          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
-        });
-        simulationProgress.on('update-request', function() {
-          ++updateRequests;
-        });
-        simulationProgress.on('update-response', function() {
-          ++updateResponses;
-          if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
-            fiwareDeviceSimulator.stop();
+          this.timeout(5000);
+          var simulationConfiguration =
+            require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+              (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
+              type + '-every-second' +
+              (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+              '.json');
+          if (options.ngsiVersion) {
+            if (simulationConfiguration.contextBroker) {
+              simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+            } else if (simulationConfiguration.subscriber) {
+              simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+            }
           }
-        });
-        simulationProgress.on('end', function() {
-          done();
-        });
+          fiwareDeviceSimulator.start(simulationConfiguration);
+          simulationProgress.on('error', function(ev) {
+            done(ev.error);
+          });
+          simulationProgress.on('token-response', function(ev) {
+            ++tokenResponses;
+            should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+          });
+          simulationProgress.on('update-request', function() {
+            ++updateRequests;
+          });
+          simulationProgress.on('update-response', function() {
+            ++updateResponses;
+            if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
+              fiwareDeviceSimulator.stop();
+            }
+          });
+          simulationProgress.on('end', function() {
+            done();
+          }
+        );
       });
 
       it('should update ' + (options.protocol ? options.protocol + ' ' : '') + type + ' every second if scheduled ' +
          'at attribute level',
         function(done) {
-        this.timeout(5000);
-        simulationConfiguration =
-          require(
-            ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
-              (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-              type + '-attribute-every-second.json');
-        if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
-        }
-        fiwareDeviceSimulator.start(simulationConfiguration);
-        simulationProgress.on('error', function(ev) {
-          done(ev.error);
-        });
-        simulationProgress.on('token-response', function(ev) {
-          ++tokenResponses;
-          should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
-        });
-        simulationProgress.on('update-request', function() {
-          ++updateRequests;
-        });
-        simulationProgress.on('update-response', function() {
-          ++updateResponses;
-          if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
-            fiwareDeviceSimulator.stop();
+          this.timeout(5000);
+          var simulationConfiguration =
+            require(
+              ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
+                (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
+                type + '-attribute-every-second' +
+                (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+                '.json');
+          if (options.ngsiVersion) {
+            if (simulationConfiguration.contextBroker) {
+              simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+            } else if (simulationConfiguration.subscriber) {
+              simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+            }
           }
-        });
-        simulationProgress.on('end', function() {
-          done();
-        });
+          fiwareDeviceSimulator.start(simulationConfiguration);
+          simulationProgress.on('error', function(ev) {
+            done(ev.error);
+          });
+          simulationProgress.on('token-response', function(ev) {
+            ++tokenResponses;
+            should(ev.expires_at.toISOString()).equal(tokenResponseBody.token.expires_at);
+          });
+          simulationProgress.on('update-request', function() {
+            ++updateRequests;
+          });
+          simulationProgress.on('update-response', function() {
+            ++updateResponses;
+            if (tokenResponses === 1 && updateRequests === 3 && updateResponses === 3) {
+              fiwareDeviceSimulator.stop();
+            }
+          });
+          simulationProgress.on('end', function() {
+            done();
+          }
+        );
       });
 
       it('should set fixed values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH + '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-fixed-attribute.json');
+            type + '-fixed-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5746,7 +5811,7 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateResponses;
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal('1');
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).equal('1');
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal('1');
             }
@@ -5771,14 +5836,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-linear-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type +'-time-linear-interpolator-attribute.json');
+            type +'-time-linear-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5798,7 +5868,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'time-linear-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).equal(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
@@ -5826,14 +5896,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-linear-interpolator values of attributes once (retrocompatibility)', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type +'-time-linear-interpolator-attribute-retro.json');
+            type +'-time-linear-interpolator-attribute-retro' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5853,7 +5928,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'time-linear-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).equal(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
@@ -5881,14 +5956,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-random-linear-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-time-random-linear-interpolator-attribute.json');
+            type + '-time-random-linear-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5902,7 +5982,7 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateRequests;
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).
               lessThanOrEqual(75);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).lessThanOrEqual(75);
@@ -5931,14 +6011,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-random-linear-interpolator values of attributes once (retrocompatibility)', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-time-random-linear-interpolator-attribute-retro.json');
+            type + '-time-random-linear-interpolator-attribute-retro' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -5952,7 +6037,7 @@ describe('fiwareDeviceSimulator tests', function() {
           ++updateRequests;
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).
               lessThanOrEqual(75);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).lessThanOrEqual(75);
@@ -5981,14 +6066,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-step-before-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-time-step-before-interpolator-attribute.json');
+            type + '-time-step-before-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -6008,7 +6098,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'time-step-before-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).equal(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
@@ -6036,14 +6126,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set time-step-after-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-time-step-after-interpolator-attribute.json');
+            type + '-time-step-after-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -6063,7 +6158,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'time-step-after-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).equal(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).equal(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).equal(value);
             }
@@ -6091,14 +6186,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set date-increment-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-date-increment-interpolator-attribute.json');
+            type + '-date-increment-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -6118,8 +6218,8 @@ describe('fiwareDeviceSimulator tests', function() {
             'date-increment-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1').substring(0, 20)).
-                equal(value.substring(0, 20));
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1').
+                substring(0, 20)).equal(value.substring(0, 20));
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value.substring(0, 20)).equal(value.substring(0, 20));
             }
@@ -6147,14 +6247,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set multiline-position-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-multiline-position-interpolator-attribute.json');
+            type + '-multiline-position-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -6174,7 +6279,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'multiline-position-interpolator('.length, attributeValue.length - 1))(decimalHours);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).eql(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).eql(value);
             }
@@ -6214,14 +6319,19 @@ describe('fiwareDeviceSimulator tests', function() {
       });
 
       it('should set text-rotation-interpolator values of attributes once', function(done) {
-        /* jshint camelcase: false */
-        simulationConfiguration =
+        var simulationConfiguration =
           require(ROOT_PATH +
             '/test/unit/configurations/simulation-configuration-' +
             (options.protocol ? encodeFilename(options.protocol) + '-' : '') +
-            type + '-text-rotation-interpolator-attribute.json');
+            type + '-text-rotation-interpolator-attribute' +
+            (options.destination && options.destination !== 'context broker' ? '-' + options.destination: '') +
+            '.json');
         if (options.ngsiVersion) {
-          simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          if (simulationConfiguration.contextBroker) {
+            simulationConfiguration.contextBroker.ngsiVersion = options.ngsiVersion;
+          } else if (simulationConfiguration.subscriber) {
+            simulationConfiguration.subscriber.ngsiVersion = options.ngsiVersion;
+          }
         }
         fiwareDeviceSimulator.start(simulationConfiguration);
         simulationProgress.on('error', function(ev) {
@@ -6241,7 +6351,7 @@ describe('fiwareDeviceSimulator tests', function() {
             'text-rotation-interpolator('.length, attributeValue.length - 1))(now);
           if (type === 'entities') {
             if (options.ngsiVersion === '1.0') {
-              should(getAttributeValue(ev.request.body.contextElements, 'EntityName1', 'active1')).eql(value);
+              should(getAttributeValue(options.destination, ev.request.body, 'EntityName1', 'active1')).eql(value);
             } else if (options.ngsiVersion === '2.0') {
               should(ev.request.body.entities[0].active1.value).eql(value);
             }
@@ -6287,9 +6397,14 @@ describe('fiwareDeviceSimulator tests', function() {
       });
     }
 
-    describe('Entities update via NGSI v1.0', simulationTestSuite.bind(null, 'entities', {ngsiVersion: '1.0'}));
+    describe('Entities update in context broker via NGSI v1.0', simulationTestSuite.bind(
+      null, 'entities', {destination: 'context broker', ngsiVersion: '1.0'}));
 
-    describe('Entities update via NGSI v2.0', simulationTestSuite.bind(null, 'entities', {ngsiVersion: '2.0'}));
+    describe('Entities update in context broker via NGSI v2.0', simulationTestSuite.bind(
+      null, 'entities', {destination: 'context broker', ngsiVersion: '2.0'}));
+
+    describe('Entities update in subscriber via NGSI v1.0', simulationTestSuite.bind(
+      null, 'entities', {destination: 'subscriber', ngsiVersion: '1.0'}));
 
     describe('UltraLight HTTP devices', simulationTestSuite.bind(null, 'devices', {protocol: 'UltraLight::HTTP'}));
 
@@ -6299,4 +6414,5 @@ describe('fiwareDeviceSimulator tests', function() {
 
     describe('JSON MQTT devices', simulationTestSuite.bind(null, 'devices', {protocol: 'JSON::MQTT'}));
   });
+  /* jshint camelcase: true */
 });

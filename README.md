@@ -251,11 +251,17 @@ The simulation configuration file accepts the following JSON properties or entri
 * **domain**: Includes information about the service and subservice (i.e., service path) to use in the requests. It is mandatory in case any `entities` are included in the simulation configuration (see below).
     * **service**: The service to use in the requests.
     * **subservice**: The subservice (i.e., service path) to use in the requests.
-* **contextBroker**: Includes information about the context broker where the data will be stored. It is mandatory in case any `entities` are included in the simulation configuration (see below).
+* **contextBroker**: Includes information about the context broker where the data will be stored. It is mandatory in case any `entities` are included in the simulation configuration (see below) and no `subscriber` configuration information is included (see below).
     * **protocol**: The protocol the Context Broker is expecting the requests to be sent by (or more concretely of the PEP protecting the access to the Context Broker API).
     * **host**: The host machine name or IP address where the Context Broker is running (or more concretely of the PEP protecting the access to the Context Broker API).
     * **port**: The port where the Context Broker host machine is listening for API requests (or more concretely of the PEP protecting the access to the Context Broker API).
     * **ngsiVersion**: The NGSI version to be used in the requests sent to the Context Broker. Currently, versions `1.0` and `2.0` are supported.
+* **subscriber**: Includes information about the subscriber where the data will be notified. It is mandatory in case any `entities` are included in the simulation configuration (see below) and no `contextBroker` configuration information is included. Note that in case of including `contextBroker` and `subscriber` configuration information, the `contextBroker` will prevail over the `subscriber` one and no notifications will be sent to the configured subscriber.
+    * **protocol**: The protocol the subscriber is expecting the notification requests to be sent to.
+    * **host**: The host machine name or IP address where the subscriber is running.
+    * **port**: The port where the subscriber host machine is listening for notification requests.
+    * **path**: The path where the subscriber host machine is listening for notification requests.
+    * **ngsiVersion**: The NGSI version to be used in the notification requests sent to the subscriber. Currently, only version `1.0` is supported.
 * **authentication**: Includes information about the Identity Service to get tokens to be included in the Context Broker requests. Optional (authentication tokens will only be requested if the `authentication` information is included).
     * **provider**: The Identity Service provider from which the authorization tokens will be requested. Accepted values are: `keystone` (to request tokens for the Telefónica IoT Platform) and `fiware-lab` (to request tokens for the [FIWARE Lab cloud infrastructure](https://account.lab.fiware.org/)).
     * **protocol**: The protocol the Identity Service is expecting the requests to be sent by.
