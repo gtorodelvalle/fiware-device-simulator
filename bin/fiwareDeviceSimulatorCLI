@@ -110,8 +110,8 @@ function processProgressInfo(ev) {
       'N/A'),
     googleSheetUpdateStatus: progressInfo.googleSheetUpdateStatus,
     lastGoogleSheetUpdate: progressInfo.lastGoogleSheetUpdate,
-    googleSheetUpdateInterval: commander.timeline.refreshInterval || 0,
-    googleSheetKey: commander.timeline.sheetKey || ''
+    googleSheetUpdateInterval: (commander.timeline ? commander.timeline.refreshInterval || 0 : 0),
+    googleSheetKey: (commander.timeline ? commander.timeline.sheetKey || '' : '')
   };
   if (commander.to) {
     progressInfo.simulatedPendingTime = humanizeDuration(commander.to - commander.from - ev.simulatedElapsedTime);
