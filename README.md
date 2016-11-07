@@ -78,26 +78,28 @@ In case you would like to get information about the evolution of the simulation,
 
 Combined with the previous `-p` option previously described, it is also possible to visualize your "simulations DNA", this is the attribute and entity updates your simulation schedules for a future execution. To do it, please follow these steps:
 
-    1. Once authenticated in Google, visit the [Google Sheets](https://docs.google.com/spreadsheets) website.
-    2. Create a new Google Sheets document clicking on the `+` button on the lower right area of the page.
-    3. The URL of this new Google Sheet document will be something such as: https://docs.google.com/spreadsheets/d/1SvLfPobfq8VM0eJZweEIty8SosEs8ODmarV8EwmZPks/edit#gid=0 Please, take a note of the Google Sheet document key which is between the `https://docs.google.com/spreadsheets/d/` and `/edit#gid=0` sections.
-    4. Share this Google Sheet document and make it accessible via link for edition or writing, not only read access, clicking on the `Share` button on the upper right area of the page.
-    5. Navigate to your [Google Developer Console project section](https://console.developers.google.com/iam-admin/projects).
-    6. Create a new project called, for example: `FIWARE Device Simulator`. You can choose any other name, of course. Once the new project is created, the page will navigate to your new project's console.
-    7. Search for the `Google Sheets API`, click on it and enabled it clicking on the `ENABLE` link.
-    8. Click on the `Go to Credentials` button on the upper right area of the page.
-    9. In the `Where will you be calling the API from?` selection, select the `Web server (e.g. node.js, Tomcat)` option.
-    10. From the `What data will you be accessing?` options, enable the `Application data (access data belonging to your own application)` option.
-    11. From the `Are you using Google App Engine or Google Compute Engine?` options, enable the `No, I'm not using them.` unless you are using them to run the simulator.
-    12. Click on the `What credentials do I need?` button.
-    13. In the `Service account name` input field, type a service name, for example: `FIWARE Device Simulator`. You can choose any other name, of course.
-    14. In the `Role` selection, select the role. If you are the owner of the Google Sheet, select `Project` -> `Owner`. If you are not the owner of the Google Sheet, select `Project` -> `Editor`.
-    15. In the `Key type` section, enable the `JSON (recommended)` options if not currently enabled.
-    16. Click on the `Continue` button. A JSON file with your credentials will start downloading. Save it to some secure place since you will need it to run the simulations to be able to visualize the scheduled updates.
-    17. Clone the [FIWARE Device Simulator Dashboard (timeline)](https://freeboard.io/board/kUdbXw).
-    18. Update its Dweet data source to your "dweeting thing"'s `name`. The one which will be passed in the `-w` option of the command line tool. For example: `fds:Test:1234`.
-    19. Run the simulator comand line tool using the `-p`, `-w`, and `-l` options passing the data you fetched throughout the previous steps (mainly, the Dweet thing name, the Google Sheet document key and the path to your Google credentials), for example: `./bin/fiwareDeviceSimulatorCLI -c simulation-5s-2-attributes.json -p 5000 -w "{\"name\": \"fds:Test:1234\"}" -s -l "{\"sheetKey\": \"1SvLfPobfq8VM0eJZweEIty8SorEs8ODmarV8EwmZPks\", \"credentialsPath\": \"FIWARE Device Simulator-f11816817451.json\", \"dateFormat\": \"dd/mm/yyyy HH:MM:ss\", \"refreshInterval\": 15000}"`. Notice that as part of the timeline option a data format is included. This is needed since Google Sheets uses distinct formats depending on the concrete locale. To check the one you should use, navigate to any Google Sheet document, click on the `Format` menu entry, hover the `Number` menu item and check the `Date time` format you should use according to this mask options: https://github.com/felixge/node-dateformat#mask-options.
-    20. Your simulation scheduled updates will appear in the `SCHEDULED UPDATES TIMELINE` widget. Hover over the blue bars to get further information about the scheduled update. It will include the date and time when this update is scheduled, the entity name and the attribute names which will be updated.
+1. Once authenticated in Google, visit the [Google Sheets](https://docs.google.com/spreadsheets) website.
+2. Create a new Google Sheets document clicking on the `+` button on the lower right area of the page.
+3. The URL of this new Google Sheet document will be something such as: https://docs.google.com/spreadsheets/d/1SvLfPobfq8VM0eJZweEIty8SosEs8ODmarV8EwmZPks/edit#gid=0 Please, take a note of the Google Sheet document key which is between the `https://docs.google.com/spreadsheets/d/` and `/edit#gid=0` sections.
+4. Share this Google Sheet document and make it accessible via link for edition or writing, not only read access, clicking on the `Share` button on the upper right area of the page.
+5. Navigate to your [Google Developer Console project section](https://console.developers.google.com/iam-admin/projects).
+6. Create a new project called, for example: `FIWARE Device Simulator`. You can choose any other name, of course. Once the new project is created, the page will navigate to your new project's console.
+7. Search for the `Google Sheets API`, click on it and enabled it clicking on the `ENABLE` link.
+8. Click on the `Go to Credentials` button on the upper right area of the page.
+9. In the `Where will you be calling the API from?` selection, select the `Web server (e.g. node.js, Tomcat)` option.
+10. From the `What data will you be accessing?` options, enable the `Application data (access data belonging to your own application)` option.
+11. From the `Are you using Google App Engine or Google Compute Engine?` options, enable the `No, I'm not using them.` unless you are using them to run the simulator.
+12. Click on the `What credentials do I need?` button.
+13. In the `Service account name` input field, type a service name, for example: `FIWARE Device Simulator`. You can choose any other name, of course.
+14. In the `Role` selection, select the role. If you are the owner of the Google Sheet, select `Project` -> `Owner`. If you are not the owner of the Google Sheet, select `Project` -> `Editor`.
+15. In the `Key type` section, enable the `JSON (recommended)` options if not currently enabled.
+16. Click on the `Continue` button. A JSON file with your credentials will start downloading. Save it to some secure place since you will need it to run the simulations to be able to visualize the scheduled updates.
+17. Clone the [FIWARE Device Simulator Dashboard (timeline)](https://freeboard.io/board/kUdbXw).
+18. Update its Dweet data source to your "dweeting thing"'s `name`. The one which will be passed in the `-w` option of the command line tool. For example: `fds:Test:1234`.
+19. Run the simulator comand line tool using the `-p`, `-w`, and `-l` options passing the data you fetched throughout the previous steps (mainly, the Dweet thing name, the Google Sheet document key and the path to your Google credentials), for example: `./bin/fiwareDeviceSimulatorCLI -c simulation-5s-2-attributes.json -p 5000 -w "{\"name\": \"fds:Test:1234\"}" -s -l "{\"sheetKey\": \"1SvLfPobfq8VM0eJZweEIty8SorEs8ODmarV8EwmZPks\", \"credentialsPath\": \"FIWARE Device Simulator-f11816817451.json\", \"dateFormat\": \"dd/mm/yyyy HH:MM:ss\", \"refreshInterval\": 15000}"`. Notice that as part of the timeline option a data format is included. This is needed since Google Sheets uses distinct formats depending on the concrete locale. To check the one you should use, navigate to any Google Sheet document, click on the `Format` menu entry, hover the `Number` menu item and check the `Date time` format you should use according to this mask options: https://github.com/felixge/node-dateformat#mask-options.
+20. Your simulation scheduled updates will appear in the `SCHEDULED UPDATES TIMELINE` widget. Hover over the blue bars to get further information about the scheduled update. It will include the date and time when this update is scheduled, the entity name and the attribute names which will be updated.
+
+The Google Sheet document is only used to store the scheduled updates and can be reused amongst distinct simulation runs. If you want to run seveval simulations at the same time with scheduled updates timeline visualization, you will need a concrete Google Sheet document for each one of them. No need to say that you can reuse the same Google credentials to update distinct Google Sheet documents in case those credentials have the permissions to do so and the target Google Sheet document is shared by link as mentioned in 4. 
 
 Since the FIWARE Device Simulator CLI tool uses the [logops](https://www.npmjs.com/package/logops) package for logging, the logging level can be set using the `LOGOPS_LEVEL` environment variable. On the other hand, the logging format can be set using the `LOGOPS_FORMAT` environment variable.
 
