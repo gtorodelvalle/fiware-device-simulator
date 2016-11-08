@@ -1,7 +1,7 @@
 {
   "name": "fiware-device-simulator",
   "description": "Simulator of FIWARE-compatible devices",
-  "version": "8.1.1-next",
+  "version": "8.2.0",
   "homepage": "https://github.com/gtorodelvalle/fiware-device-simulator",
   "author": {
     "name": "Germán Toro del Valle",
