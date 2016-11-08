@@ -1,3 +1,7 @@
+**THIS REPOSITORY HAS BEEN MOVED TO https://github.com/telefonicaid/fiware-device-simulator AND WILL BE MAINTAINED AND EVOLVED THERE. PLEASE, CLONE AND USE THE NEW REPOSITORY SINCE THIS ONE WILL NO LONGER BE USED.**
+
+**RELEASE 8.2.0 OF THIS REPOSITORY CORRESPONDS TO RELEASE 1.0.0 OF THE NEW ONE.**
+
 # <a name="top">FIWARE Device Simulator</a>
 
 * [Introduction](#introduction)
@@ -99,7 +103,7 @@ Combined with the previous `-p` option previously described, it is also possible
 19. Run the simulator comand line tool using the `-p`, `-w`, and `-l` options passing the data you fetched throughout the previous steps (mainly, the Dweet thing name, the Google Sheet document key and the path to your Google credentials), for example: `./bin/fiwareDeviceSimulatorCLI -c simulation-5s-2-attributes.json -p 5000 -w "{\"name\": \"fds:Test:1234\"}" -s -l "{\"sheetKey\": \"1SvLfPobfq8VM0eJZweEIty8SorEs8ODmarV8EwmZPks\", \"credentialsPath\": \"FIWARE Device Simulator-f11816817451.json\", \"dateFormat\": \"dd/mm/yyyy HH:MM:ss\", \"refreshInterval\": 15000}"`. Notice that as part of the timeline option a data format is included. This is needed since Google Sheets uses distinct formats depending on the concrete locale. To check the one you should use, navigate to any Google Sheet document, click on the `Format` menu entry, hover the `Number` menu item and check the `Date time` format you should use according to this mask options: https://github.com/felixge/node-dateformat#mask-options.
 20. Your simulation scheduled updates will appear in the `SCHEDULED UPDATES TIMELINE` widget. Hover over the blue bars to get further information about the scheduled update. It will include the date and time when this update is scheduled, the entity name and the attribute names which will be updated.
 
-The Google Sheet document is only used to store the scheduled updates and can be reused amongst distinct simulation runs. If you want to run seveval simulations at the same time with scheduled updates timeline visualization, you will need a concrete Google Sheet document for each one of them. No need to say that you can reuse the same Google credentials to update distinct Google Sheet documents in case those credentials have the permissions to do so and the target Google Sheet document is shared by link as mentioned in 4. 
+The Google Sheet document is only used to store the scheduled updates and can be reused amongst distinct simulation runs. If you want to run seveval simulations at the same time with scheduled updates timeline visualization, you will need a concrete Google Sheet document for each one of them. No need to say that you can reuse the same Google credentials to update distinct Google Sheet documents in case those credentials have the permissions to do so and the target Google Sheet document is shared by link as mentioned in 4.
 
 Since the FIWARE Device Simulator CLI tool uses the [logops](https://www.npmjs.com/package/logops) package for logging, the logging level can be set using the `LOGOPS_LEVEL` environment variable. On the other hand, the logging format can be set using the `LOGOPS_FORMAT` environment variable.
 
