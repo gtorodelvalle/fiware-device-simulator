@@ -30,11 +30,12 @@ var async = require('async');
 var commander = require('commander');
 var dateformat = require('dateformat');
 var fs = require('fs');
+var GoogleSheet = require('google-spreadsheet');
 var logops = require('logops');
 var humanizeDuration = require('humanize-duration');
 var path = require('path');
 var request = require('request');
-var GoogleSheet = require('google-spreadsheet');
+var time = require('time');
 var deviceSimulator = require(ROOT_PATH + '/lib/fiwareDeviceSimulator');
 
 /**
@@ -59,6 +60,16 @@ var googleSheet;
  * @type {Object}
  */
 var googleSheetTab;
+
+/**
+ * lolex NPM package clock in case of fast-forward simulations
+ */
+var clock;
+
+/**
+ * The array of scheduled update jobs
+ */
+var updateJobs;
 
 /**
  * On error event handler
@@ -108,10 +119,11 @@ function processProgressInfo(ev) {
     errorUpdateRequestsX100: (ev.updatesProcessed ?
       (100 * ev.errorUpdateRequests / ev.updatesProcessed).toFixed(2) :
       'N/A'),
-    googleSheetUpdateStatus: progressInfo.googleSheetUpdateStatus,
+    googleSheetUpdateStatus: (commander.from || commander.to ? 'not supported' : progressInfo.googleSheetUpdateStatus),
     lastGoogleSheetUpdate: progressInfo.lastGoogleSheetUpdate,
     googleSheetUpdateInterval: (commander.timeline ? commander.timeline.refreshInterval || 0 : 0),
-    googleSheetKey: (commander.timeline ? commander.timeline.sheetKey || '' : '')
+    googleSheetKey: (commander.timeline ? commander.timeline.sheetKey || '' : ''),
+    googleSheetUpdateJobs: progressInfo.googleSheetUpdateJobs
   };
   if (commander.to) {
     progressInfo.simulatedPendingTime = humanizeDuration(commander.to - commander.from - ev.simulatedElapsedTime);
@@ -172,11 +184,11 @@ function dweet(dweetConfig, callback) {
         body: progressInfo
       },
       function(err, response, body) {
-        process.nextTick(callback.bind(null, err || body.because, response, body));
+        callback(err || body.because, response, body);
       }
     );
   } else {
-    process.nextTick(callback);
+    callback();
   }
 }
 
@@ -208,80 +220,175 @@ function fileExists(path) {
 }
 
 /**
- * Logs an error when adding a row to the console if the error exists
- * @param  {Object} error The error to log
+ * Runs certain function in the next tick using the simulated time clock if available
+ * @param  {Object} func The function to run in a next tick
  */
-function addRowHandler(error) {
-  if (error) {
-    logops.error('Error when adding a row to Google Sheet work sheet or tab: ' + error);
+function runInNextTick(func) {
+  process.nextTick(func.bind.apply(func, [null].concat(Array.prototype.slice.call(arguments, 1))));
+  if (clock) {
+    clock.next();
+  }
+}
+
+/**
+ * Google Sheet work sheet addRow() function handler
+ * @param  {Object} error The error if any
+ */
+function onAddRows(err) {
+  if (err) {
+    logops.error('Error when adding a row to Google Sheet work sheet or tab: ' + err);
     progressInfo.googleSheetUpdateStatus = 'error';
   } else {
     progressInfo.googleSheetUpdateStatus = 'complete';
   }
-  progressInfo.lastGoogleSheetUpdate = Date.now();
+  progressInfo.lastGoogleSheetUpdate = time.Date.now();
+}
+
+/**
+ * Google Sheet work sheet setHeaderRow() function handler
+ * @param  {Object} error The error if any
+ */
+function onSetHeaderRow(err) {
+  if (err) {
+    progressInfo.googleSheetUpdateStatus = 'error';
+    progressInfo.lastGoogleSheetUpdate = time.Date.now();
+    return logops.error('Error when setting the header row in the Google Sheet work sheet or tab: ' +
+      err);
+  }
+  var rows = [];
+  for (var ii = 0; ii < updateJobs.length; ii++) {
+    for (var jj = 0; jj < updateJobs[ii].pendingInvocations().length; jj++) {
+      var formattedDateTime = dateformat(
+        updateJobs[ii].pendingInvocations()[jj].fireDate, commander.timeline.dateFormat);
+      rows.push(
+        {
+          'Row Label': 'Scheduled update',
+          'Bar Label': '[' + formattedDateTime + ']: ' + updateJobs[ii].name,
+          'Start': formattedDateTime,
+          'End': formattedDateTime
+        }
+      );
+    }
+  }
+  progressInfo.googleSheetUpdateJobs = rows.length;
+  runInNextTick(async.each, rows, googleSheetTab.addRow, onAddRows);
+}
+
+/**
+ * Google Sheet work sheet resize() function handler
+ * @param  {Object} error The error if any
+ */
+function onResize(err) {
+  if (err) {
+    progressInfo.googleSheetUpdateStatus = 'error';
+    progressInfo.lastGoogleSheetUpdate = time.Date.now();
+    return logops.error('Error when resizing the Google Sheet work sheet or tab: ' + err);
+  }
+  runInNextTick(googleSheetTab.setHeaderRow, ['Row Label', 'Bar Label', 'Start', 'End'], onSetHeaderRow);
+}
+
+/**
+ * Google Sheet work sheet clear() function handler
+ * @param  {Object} error The error if any
+ */
+function onClear(err) {
+  if (err) {
+    progressInfo.googleSheetUpdateStatus = 'error';
+    progressInfo.lastGoogleSheetUpdate = time.Date.now();
+    return logops.error('Error when clearing the Google Sheet work sheet or tab: ' + err);
+  }
+  runInNextTick(googleSheetTab.resize, {rowCount: 1, colCount: 4}, onResize);
 }
 
 /**
  * Updates the schedule jobs into Google Sheet if configured
- * @param  {Array} updateJobs The array of update jobs
  */
-function updateScheduledJobsInGoogleSheet(updateJobs) {
-  if (googleSheetTab && (progressInfo.googleSheetUpdateStatus !== 'ongoing') &&
-    ((Date.now() - (progressInfo.lastGoogleSheetUpdate || 0)) > commander.timeline.refreshInterval)) {
+function updateScheduledJobsInGoogleSheet() {
+  if (googleSheetTab &&
+    (progressInfo.googleSheetUpdateStatus !== 'not supported' && progressInfo.googleSheetUpdateStatus !== 'ongoing') &&
+    ((time.Date.now() - (progressInfo.lastGoogleSheetUpdate || 0)) > commander.timeline.refreshInterval)) {
     progressInfo.googleSheetUpdateStatus = 'ongoing';
-    googleSheetTab.setHeaderRow(['Row Label', 'Bar Label', 'Start', 'End'], function(setHeaderRowErr) {
-      if (setHeaderRowErr) {
-        progressInfo.googleSheetUpdateStatus = 'error';
-        progressInfo.lastGoogleSheetUpdate = Date.now();
-        return logops.error('Error when setting the header row in the Google Sheet work sheet or tab: ' +
-          setHeaderRowErr);
-      }
-      googleSheetTab.clear(function(clearErr) {
-        if (clearErr) {
-          progressInfo.googleSheetUpdateStatus = 'error';
-          progressInfo.lastGoogleSheetUpdate = Date.now();
-          return logops.error('Error when clearing the Google Sheet work sheet or tab: ' + clearErr);
-        }
-        googleSheetTab.resize({rowCount: 1, colCount: 4}, function(resizeErr) {
-          if (resizeErr) {
-            progressInfo.googleSheetUpdateStatus = 'error';
-            progressInfo.lastGoogleSheetUpdate = Date.now();
-            return logops.error('Error when resizing the Google Sheet work sheet or tab: ' + resizeErr);
-          }
-          googleSheetTab.setHeaderRow(['Row Label', 'Bar Label', 'Start', 'End'], function(setHeaderRowErr) {
-            if (setHeaderRowErr) {
-              progressInfo.googleSheetUpdateStatus = 'error';
-              progressInfo.lastGoogleSheetUpdate = Date.now();
-              return logops.error('Error when setting the header row in the Google Sheet work sheet or tab: ' +
-                setHeaderRowErr);
-            }
-            var rows = [];
-            for (var ii = 0; ii < updateJobs.length; ii++) {
-              for (var jj = 0; jj < updateJobs[ii].pendingInvocations().length; jj++) {
-                var formattedDateTime = dateformat(
-                  updateJobs[ii].pendingInvocations()[jj].fireDate, commander.timeline.dateFormat);
-                rows.push(
-                  {
-                    'Row Label': 'Scheduled update',
-                    'Bar Label': '[' + formattedDateTime + ']: ' + updateJobs[ii].name,
-                    'Start': formattedDateTime,
-                    'End': formattedDateTime
-                  }
-                );
-              }
-            }
-            async.each(rows, googleSheetTab.addRow, addRowHandler);
-          });
-        });
-      });
-    });
+    runInNextTick(googleSheetTab.clear, onClear);
   }
+}
+
+/**
+ * Starts the simulation
+ */
+function startSimulation() {
+  var progressEmitter = deviceSimulator.start(
+    require(resolvePath(commander.configuration)), commander.from, commander.to,
+    commander.progressInfoInterval, commander.maximumNotRespondedRequests, commander.delay || 1000);
+
+  progressEmitter.on('token-request', function() {
+    logops.debug('token-request event');
+  });
+
+  progressEmitter.on('token-response', function(ev) {
+    logops.debug('token-response event:', ev);
+  });
+
+  progressEmitter.on('token-request-scheduled', function(ev) {
+    logops.debug('token-request-scheduled:', ev);
+  });
+
+  progressEmitter.on('update-scheduled', function(ev) {
+    logops.debug('update-scheduled event:', ev);
+  });
+
+  progressEmitter.on('update-request', function(ev) {
+    logops.debug('update-request event:', ev);
+  });
+
+  progressEmitter.on('info', function(ev) {
+    logops.info('info event:', ev.message);
+  });
+
+  progressEmitter.on('error', onError);
+
+  progressEmitter.on('update-response', function(ev) {
+    logops.debug('response event:', ev);
+  });
+
+  progressEmitter.on('progress-info', function(ev) {
+    clock = ev.clock;
+    updateJobs = ev.updateJobs;
+    processProgressInfo(ev);
+    writeToConsole();
+    runInNextTick(dweet, commander.dweet, function(err) {
+      if (err) {
+        logops.error('error event: Error when dweeting for \'' + commander.dweet.name + '\': ' + err);
+      }
+      updateScheduledJobsInGoogleSheet();
+    });
+  });
+
+  progressEmitter.on('stop', function() {
+    logops.info('stop event');
+  });
+
+  progressEmitter.on('end', function() {
+    async.retry(
+      { times: 5, interval: 1000},
+      async.apply(dweet, commander.dweet),
+      function(err) {
+        if (err) {
+          logops.error('error event: Error when dweeting for \'' + commander.dweet.name + '\': ' + err);
+        } else {
+          logops.info('end event');
+        }
+        process.exit(0);
+      }
+    );
+  });
 }
 
 /**
  * Executes the requested commander
  */
 function executeCommand() {
+  var googleCredentials;
+
   if (!commander.configuration) {
     commander.help();
   }
@@ -347,7 +454,6 @@ function executeCommand() {
           '(\'googleSheetConfig.credentialsPath\') does not exist: ' + commander.timeline.credentialsPath);
         commander.help();
       }
-      var googleCredentials;
       try {
         googleCredentials = require(resolvePath(commander.timeline.credentialsPath));
       } catch (googleCredentialException) {
@@ -362,6 +468,7 @@ function executeCommand() {
             error: 'Error when authenticating with Google using the credential file (\'' +
               commander.timeline.credentialsPath + '\'): ' + err
           });
+          process.exit(0);
         } else {
           logops.info('Authentication into Google successfully completed');
           googleSheet.getInfo(function(err, googleSheetInfo) {
@@ -369,13 +476,18 @@ function executeCommand() {
               onError({
                 error: 'Error when getting the Google Sheet information to update the data: ' + err
               });
+              process.exit(0);
             }
-            googleSheetTab = googleSheetInfo.worksheets.length && googleSheetInfo.worksheets[0];
+            googleSheetTab = googleSheetInfo && googleSheetInfo.worksheets &&
+              googleSheetInfo.worksheets.length && googleSheetInfo.worksheets[0];
             if (!googleSheetTab) {
               onError({
                 error: 'Error when getting access to the first Google Sheet work sheet or tab to update the data: ' +
                   err
               });
+              process.exit(0);
+            } else {
+              startSimulation();
             }
           });
         }
@@ -386,69 +498,9 @@ function executeCommand() {
     }
   }
 
-  var progressEmitter = deviceSimulator.start(
-    require(resolvePath(commander.configuration)), commander.from, commander.to, commander.progressInfoInterval,
-    commander.maximumNotRespondedRequests, commander.delay || 1000);
-
-  progressEmitter.on('token-request', function() {
-    logops.debug('token-request event');
-  });
-
-  progressEmitter.on('token-response', function(ev) {
-    logops.debug('token-response event:', ev);
-  });
-
-  progressEmitter.on('token-request-scheduled', function(ev) {
-    logops.debug('token-request-scheduled:', ev);
-  });
-
-  progressEmitter.on('update-scheduled', function(ev) {
-    logops.debug('update-scheduled event:', ev);
-  });
-
-  progressEmitter.on('update-request', function(ev) {
-    logops.debug('update-request event:', ev);
-  });
-
-  progressEmitter.on('info', function(ev) {
-    logops.info('info event:', ev.message);
-  });
-
-  progressEmitter.on('error', onError);
-
-  progressEmitter.on('update-response', function(ev) {
-    logops.debug('response event:', ev);
-  });
-
-  progressEmitter.on('progress-info', function(ev) {
-    processProgressInfo(ev);
-    writeToConsole();
-    dweet(commander.dweet, function(err) {
-      if (err) {
-        logops.error('error event: Error when dweeting for \'' + commander.dweet.name + '\': ' + err);
-      }
-      updateScheduledJobsInGoogleSheet(ev.updateJobs);
-    });
-  });
-
-  progressEmitter.on('stop', function() {
-    logops.info('stop event');
-  });
-
-  progressEmitter.on('end', function() {
-    async.retry(
-      { times: 5, interval: 1000},
-      async.apply(dweet, commander.dweet),
-      function(err) {
-        if (err) {
-          logops.error('error event: Error when dweeting for \'' + commander.dweet.name + '\': ' + err);
-        } else {
-          logops.info('end event');
-        }
-        process.exit(0);
-      }
-    );
-  });
+  if (!googleCredentials) {
+    startSimulation();
+  }
 }
 
 commander.
