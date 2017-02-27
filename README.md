@@ -47,6 +47,7 @@ npm install
 To run the FIWARE Device Simulator CLI tool just run:
 
 ```bash
+npm install
 ./bin/fiwareDeviceSimulatorCLI
 ```
 
